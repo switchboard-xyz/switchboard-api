@@ -1,0 +1,3109 @@
+import * as $protobuf from "protobufjs";
+/** Properties of a FulfillmentAgreement. */
+export interface IFulfillmentAgreement {
+
+    /** FulfillmentAgreement nodePubkeys */
+    nodePubkeys?: (Uint8Array[]|null);
+
+    /** FulfillmentAgreement completed */
+    completed?: (Uint8Array|null);
+}
+
+/** Represents a FulfillmentAgreement. */
+export class FulfillmentAgreement implements IFulfillmentAgreement {
+
+    /**
+     * Constructs a new FulfillmentAgreement.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IFulfillmentAgreement);
+
+    /** FulfillmentAgreement nodePubkeys. */
+    public nodePubkeys: Uint8Array[];
+
+    /** FulfillmentAgreement completed. */
+    public completed: Uint8Array;
+
+    /**
+     * Creates a new FulfillmentAgreement instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns FulfillmentAgreement instance
+     */
+    public static create(properties?: IFulfillmentAgreement): FulfillmentAgreement;
+
+    /**
+     * Encodes the specified FulfillmentAgreement message. Does not implicitly {@link FulfillmentAgreement.verify|verify} messages.
+     * @param message FulfillmentAgreement message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IFulfillmentAgreement, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified FulfillmentAgreement message, length delimited. Does not implicitly {@link FulfillmentAgreement.verify|verify} messages.
+     * @param message FulfillmentAgreement message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IFulfillmentAgreement, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a FulfillmentAgreement message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns FulfillmentAgreement
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): FulfillmentAgreement;
+
+    /**
+     * Decodes a FulfillmentAgreement message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns FulfillmentAgreement
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): FulfillmentAgreement;
+
+    /**
+     * Verifies a FulfillmentAgreement message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a FulfillmentAgreement message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns FulfillmentAgreement
+     */
+    public static fromObject(object: { [k: string]: any }): FulfillmentAgreement;
+
+    /**
+     * Creates a plain object from a FulfillmentAgreement message. Also converts values to other types if specified.
+     * @param message FulfillmentAgreement
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: FulfillmentAgreement, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this FulfillmentAgreement to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a RoundResult. */
+export interface IRoundResult {
+
+    /** RoundResult numSuccess */
+    numSuccess?: (number|null);
+
+    /** RoundResult numError */
+    numError?: (number|null);
+
+    /** RoundResult mean */
+    mean?: (number|null);
+
+    /** RoundResult roundOpenSlot */
+    roundOpenSlot?: (number|Long|null);
+
+    /** RoundResult roundOpenTimestamp */
+    roundOpenTimestamp?: (number|Long|null);
+
+    /** RoundResult minResponse */
+    minResponse?: (number|null);
+
+    /** RoundResult maxResponse */
+    maxResponse?: (number|null);
+}
+
+/** Represents a RoundResult. */
+export class RoundResult implements IRoundResult {
+
+    /**
+     * Constructs a new RoundResult.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IRoundResult);
+
+    /** RoundResult numSuccess. */
+    public numSuccess: number;
+
+    /** RoundResult numError. */
+    public numError: number;
+
+    /** RoundResult mean. */
+    public mean: number;
+
+    /** RoundResult roundOpenSlot. */
+    public roundOpenSlot: (number|Long);
+
+    /** RoundResult roundOpenTimestamp. */
+    public roundOpenTimestamp: (number|Long);
+
+    /** RoundResult minResponse. */
+    public minResponse: number;
+
+    /** RoundResult maxResponse. */
+    public maxResponse: number;
+
+    /**
+     * Creates a new RoundResult instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns RoundResult instance
+     */
+    public static create(properties?: IRoundResult): RoundResult;
+
+    /**
+     * Encodes the specified RoundResult message. Does not implicitly {@link RoundResult.verify|verify} messages.
+     * @param message RoundResult message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IRoundResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified RoundResult message, length delimited. Does not implicitly {@link RoundResult.verify|verify} messages.
+     * @param message RoundResult message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IRoundResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a RoundResult message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns RoundResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RoundResult;
+
+    /**
+     * Decodes a RoundResult message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns RoundResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RoundResult;
+
+    /**
+     * Verifies a RoundResult message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a RoundResult message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns RoundResult
+     */
+    public static fromObject(object: { [k: string]: any }): RoundResult;
+
+    /**
+     * Creates a plain object from a RoundResult message. Also converts values to other types if specified.
+     * @param message RoundResult
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: RoundResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this RoundResult to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an AggregatorState. */
+export interface IAggregatorState {
+
+    /** AggregatorState version */
+    version?: (number|null);
+
+    /** AggregatorState configs */
+    configs?: (AggregatorState.IConfigs|null);
+
+    /** AggregatorState fulfillmentManagerPubkey */
+    fulfillmentManagerPubkey?: (Uint8Array|null);
+
+    /** AggregatorState jobDefinitionPubkeys */
+    jobDefinitionPubkeys?: (Uint8Array[]|null);
+
+    /** AggregatorState agreement */
+    agreement?: (IFulfillmentAgreement|null);
+
+    /** AggregatorState currentRoundResult */
+    currentRoundResult?: (IRoundResult|null);
+
+    /** AggregatorState lastRoundResult */
+    lastRoundResult?: (IRoundResult|null);
+}
+
+/** Represents an AggregatorState. */
+export class AggregatorState implements IAggregatorState {
+
+    /**
+     * Constructs a new AggregatorState.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IAggregatorState);
+
+    /** AggregatorState version. */
+    public version: number;
+
+    /** AggregatorState configs. */
+    public configs?: (AggregatorState.IConfigs|null);
+
+    /** AggregatorState fulfillmentManagerPubkey. */
+    public fulfillmentManagerPubkey: Uint8Array;
+
+    /** AggregatorState jobDefinitionPubkeys. */
+    public jobDefinitionPubkeys: Uint8Array[];
+
+    /** AggregatorState agreement. */
+    public agreement?: (IFulfillmentAgreement|null);
+
+    /** AggregatorState currentRoundResult. */
+    public currentRoundResult?: (IRoundResult|null);
+
+    /** AggregatorState lastRoundResult. */
+    public lastRoundResult?: (IRoundResult|null);
+
+    /**
+     * Creates a new AggregatorState instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns AggregatorState instance
+     */
+    public static create(properties?: IAggregatorState): AggregatorState;
+
+    /**
+     * Encodes the specified AggregatorState message. Does not implicitly {@link AggregatorState.verify|verify} messages.
+     * @param message AggregatorState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IAggregatorState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified AggregatorState message, length delimited. Does not implicitly {@link AggregatorState.verify|verify} messages.
+     * @param message AggregatorState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IAggregatorState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an AggregatorState message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns AggregatorState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): AggregatorState;
+
+    /**
+     * Decodes an AggregatorState message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns AggregatorState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): AggregatorState;
+
+    /**
+     * Verifies an AggregatorState message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an AggregatorState message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns AggregatorState
+     */
+    public static fromObject(object: { [k: string]: any }): AggregatorState;
+
+    /**
+     * Creates a plain object from an AggregatorState message. Also converts values to other types if specified.
+     * @param message AggregatorState
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: AggregatorState, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this AggregatorState to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace AggregatorState {
+
+    /** Properties of a Configs. */
+    interface IConfigs {
+
+        /** Configs locked */
+        locked?: (boolean|null);
+
+        /** Configs minConfirmations */
+        minConfirmations?: (number|null);
+
+        /** Configs minUpdateDelaySeconds */
+        minUpdateDelaySeconds?: (number|Long|null);
+
+        /** Configs minRoundAgreementPercentage */
+        minRoundAgreementPercentage?: (number|null);
+    }
+
+    /** Represents a Configs. */
+    class Configs implements IConfigs {
+
+        /**
+         * Constructs a new Configs.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: AggregatorState.IConfigs);
+
+        /** Configs locked. */
+        public locked: boolean;
+
+        /** Configs minConfirmations. */
+        public minConfirmations: number;
+
+        /** Configs minUpdateDelaySeconds. */
+        public minUpdateDelaySeconds: (number|Long);
+
+        /** Configs minRoundAgreementPercentage. */
+        public minRoundAgreementPercentage: number;
+
+        /**
+         * Creates a new Configs instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Configs instance
+         */
+        public static create(properties?: AggregatorState.IConfigs): AggregatorState.Configs;
+
+        /**
+         * Encodes the specified Configs message. Does not implicitly {@link AggregatorState.Configs.verify|verify} messages.
+         * @param message Configs message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: AggregatorState.IConfigs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Configs message, length delimited. Does not implicitly {@link AggregatorState.Configs.verify|verify} messages.
+         * @param message Configs message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: AggregatorState.IConfigs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Configs message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Configs
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): AggregatorState.Configs;
+
+        /**
+         * Decodes a Configs message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Configs
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): AggregatorState.Configs;
+
+        /**
+         * Verifies a Configs message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Configs message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Configs
+         */
+        public static fromObject(object: { [k: string]: any }): AggregatorState.Configs;
+
+        /**
+         * Creates a plain object from a Configs message. Also converts values to other types if specified.
+         * @param message Configs
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: AggregatorState.Configs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Configs to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+}
+
+/** Properties of an OracleJob. */
+export interface IOracleJob {
+
+    /** OracleJob tasks */
+    tasks?: (OracleJob.ITask[]|null);
+}
+
+/** Represents an OracleJob. */
+export class OracleJob implements IOracleJob {
+
+    /**
+     * Constructs a new OracleJob.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IOracleJob);
+
+    /** OracleJob tasks. */
+    public tasks: OracleJob.ITask[];
+
+    /**
+     * Creates a new OracleJob instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns OracleJob instance
+     */
+    public static create(properties?: IOracleJob): OracleJob;
+
+    /**
+     * Encodes the specified OracleJob message. Does not implicitly {@link OracleJob.verify|verify} messages.
+     * @param message OracleJob message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IOracleJob, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified OracleJob message, length delimited. Does not implicitly {@link OracleJob.verify|verify} messages.
+     * @param message OracleJob message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IOracleJob, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an OracleJob message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns OracleJob
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob;
+
+    /**
+     * Decodes an OracleJob message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns OracleJob
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob;
+
+    /**
+     * Verifies an OracleJob message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an OracleJob message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns OracleJob
+     */
+    public static fromObject(object: { [k: string]: any }): OracleJob;
+
+    /**
+     * Creates a plain object from an OracleJob message. Also converts values to other types if specified.
+     * @param message OracleJob
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: OracleJob, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this OracleJob to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace OracleJob {
+
+    /** Properties of a HttpTask. */
+    interface IHttpTask {
+
+        /** HttpTask url */
+        url?: (string|null);
+
+        /** HttpTask method */
+        method?: (OracleJob.HttpTask.Method|null);
+
+        /** HttpTask headers */
+        headers?: (OracleJob.HttpTask.IHeader[]|null);
+
+        /** HttpTask stringifiedBody */
+        stringifiedBody?: (string|null);
+    }
+
+    /** Represents a HttpTask. */
+    class HttpTask implements IHttpTask {
+
+        /**
+         * Constructs a new HttpTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IHttpTask);
+
+        /** HttpTask url. */
+        public url: string;
+
+        /** HttpTask method. */
+        public method: OracleJob.HttpTask.Method;
+
+        /** HttpTask headers. */
+        public headers: OracleJob.HttpTask.IHeader[];
+
+        /** HttpTask stringifiedBody. */
+        public stringifiedBody: string;
+
+        /**
+         * Creates a new HttpTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HttpTask instance
+         */
+        public static create(properties?: OracleJob.IHttpTask): OracleJob.HttpTask;
+
+        /**
+         * Encodes the specified HttpTask message. Does not implicitly {@link OracleJob.HttpTask.verify|verify} messages.
+         * @param message HttpTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IHttpTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified HttpTask message, length delimited. Does not implicitly {@link OracleJob.HttpTask.verify|verify} messages.
+         * @param message HttpTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IHttpTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a HttpTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns HttpTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.HttpTask;
+
+        /**
+         * Decodes a HttpTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns HttpTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.HttpTask;
+
+        /**
+         * Verifies a HttpTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a HttpTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns HttpTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.HttpTask;
+
+        /**
+         * Creates a plain object from a HttpTask message. Also converts values to other types if specified.
+         * @param message HttpTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.HttpTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this HttpTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace HttpTask {
+
+        /** Method enum. */
+        enum Method {
+            METHOD_UNKOWN = 0,
+            METHOD_GET = 1,
+            METHOD_POST = 2
+        }
+
+        /** Properties of a Header. */
+        interface IHeader {
+
+            /** Header key */
+            key?: (string|null);
+
+            /** Header value */
+            value?: (string|null);
+        }
+
+        /** Represents a Header. */
+        class Header implements IHeader {
+
+            /**
+             * Constructs a new Header.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: OracleJob.HttpTask.IHeader);
+
+            /** Header key. */
+            public key: string;
+
+            /** Header value. */
+            public value: string;
+
+            /**
+             * Creates a new Header instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Header instance
+             */
+            public static create(properties?: OracleJob.HttpTask.IHeader): OracleJob.HttpTask.Header;
+
+            /**
+             * Encodes the specified Header message. Does not implicitly {@link OracleJob.HttpTask.Header.verify|verify} messages.
+             * @param message Header message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: OracleJob.HttpTask.IHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Header message, length delimited. Does not implicitly {@link OracleJob.HttpTask.Header.verify|verify} messages.
+             * @param message Header message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: OracleJob.HttpTask.IHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Header message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Header
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.HttpTask.Header;
+
+            /**
+             * Decodes a Header message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Header
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.HttpTask.Header;
+
+            /**
+             * Verifies a Header message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Header message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Header
+             */
+            public static fromObject(object: { [k: string]: any }): OracleJob.HttpTask.Header;
+
+            /**
+             * Creates a plain object from a Header message. Also converts values to other types if specified.
+             * @param message Header
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: OracleJob.HttpTask.Header, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Header to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+    }
+
+    /** Properties of a JsonParseTask. */
+    interface IJsonParseTask {
+
+        /** JsonParseTask path */
+        path?: (string|null);
+    }
+
+    /** Represents a JsonParseTask. */
+    class JsonParseTask implements IJsonParseTask {
+
+        /**
+         * Constructs a new JsonParseTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IJsonParseTask);
+
+        /** JsonParseTask path. */
+        public path: string;
+
+        /**
+         * Creates a new JsonParseTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns JsonParseTask instance
+         */
+        public static create(properties?: OracleJob.IJsonParseTask): OracleJob.JsonParseTask;
+
+        /**
+         * Encodes the specified JsonParseTask message. Does not implicitly {@link OracleJob.JsonParseTask.verify|verify} messages.
+         * @param message JsonParseTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IJsonParseTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified JsonParseTask message, length delimited. Does not implicitly {@link OracleJob.JsonParseTask.verify|verify} messages.
+         * @param message JsonParseTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IJsonParseTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a JsonParseTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns JsonParseTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.JsonParseTask;
+
+        /**
+         * Decodes a JsonParseTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns JsonParseTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.JsonParseTask;
+
+        /**
+         * Verifies a JsonParseTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a JsonParseTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns JsonParseTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.JsonParseTask;
+
+        /**
+         * Creates a plain object from a JsonParseTask message. Also converts values to other types if specified.
+         * @param message JsonParseTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.JsonParseTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this JsonParseTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a MedianTask. */
+    interface IMedianTask {
+
+        /** MedianTask tasks */
+        tasks?: (OracleJob.ITask[]|null);
+    }
+
+    /** Represents a MedianTask. */
+    class MedianTask implements IMedianTask {
+
+        /**
+         * Constructs a new MedianTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IMedianTask);
+
+        /** MedianTask tasks. */
+        public tasks: OracleJob.ITask[];
+
+        /**
+         * Creates a new MedianTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MedianTask instance
+         */
+        public static create(properties?: OracleJob.IMedianTask): OracleJob.MedianTask;
+
+        /**
+         * Encodes the specified MedianTask message. Does not implicitly {@link OracleJob.MedianTask.verify|verify} messages.
+         * @param message MedianTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IMedianTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified MedianTask message, length delimited. Does not implicitly {@link OracleJob.MedianTask.verify|verify} messages.
+         * @param message MedianTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IMedianTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a MedianTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MedianTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.MedianTask;
+
+        /**
+         * Decodes a MedianTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MedianTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.MedianTask;
+
+        /**
+         * Verifies a MedianTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a MedianTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns MedianTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.MedianTask;
+
+        /**
+         * Creates a plain object from a MedianTask message. Also converts values to other types if specified.
+         * @param message MedianTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.MedianTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this MedianTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a MeanTask. */
+    interface IMeanTask {
+
+        /** MeanTask tasks */
+        tasks?: (OracleJob.ITask[]|null);
+    }
+
+    /** Represents a MeanTask. */
+    class MeanTask implements IMeanTask {
+
+        /**
+         * Constructs a new MeanTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IMeanTask);
+
+        /** MeanTask tasks. */
+        public tasks: OracleJob.ITask[];
+
+        /**
+         * Creates a new MeanTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MeanTask instance
+         */
+        public static create(properties?: OracleJob.IMeanTask): OracleJob.MeanTask;
+
+        /**
+         * Encodes the specified MeanTask message. Does not implicitly {@link OracleJob.MeanTask.verify|verify} messages.
+         * @param message MeanTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IMeanTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified MeanTask message, length delimited. Does not implicitly {@link OracleJob.MeanTask.verify|verify} messages.
+         * @param message MeanTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IMeanTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a MeanTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MeanTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.MeanTask;
+
+        /**
+         * Decodes a MeanTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MeanTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.MeanTask;
+
+        /**
+         * Verifies a MeanTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a MeanTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns MeanTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.MeanTask;
+
+        /**
+         * Creates a plain object from a MeanTask message. Also converts values to other types if specified.
+         * @param message MeanTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.MeanTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this MeanTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a WebsocketTask. */
+    interface IWebsocketTask {
+
+        /** WebsocketTask url */
+        url?: (string|null);
+
+        /** WebsocketTask subscription */
+        subscription?: (string|null);
+
+        /** WebsocketTask maxDataAgeSeconds */
+        maxDataAgeSeconds?: (number|null);
+
+        /** WebsocketTask filter */
+        filter?: (string|null);
+    }
+
+    /** Represents a WebsocketTask. */
+    class WebsocketTask implements IWebsocketTask {
+
+        /**
+         * Constructs a new WebsocketTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IWebsocketTask);
+
+        /** WebsocketTask url. */
+        public url: string;
+
+        /** WebsocketTask subscription. */
+        public subscription: string;
+
+        /** WebsocketTask maxDataAgeSeconds. */
+        public maxDataAgeSeconds: number;
+
+        /** WebsocketTask filter. */
+        public filter: string;
+
+        /**
+         * Creates a new WebsocketTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns WebsocketTask instance
+         */
+        public static create(properties?: OracleJob.IWebsocketTask): OracleJob.WebsocketTask;
+
+        /**
+         * Encodes the specified WebsocketTask message. Does not implicitly {@link OracleJob.WebsocketTask.verify|verify} messages.
+         * @param message WebsocketTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IWebsocketTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified WebsocketTask message, length delimited. Does not implicitly {@link OracleJob.WebsocketTask.verify|verify} messages.
+         * @param message WebsocketTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IWebsocketTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a WebsocketTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns WebsocketTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.WebsocketTask;
+
+        /**
+         * Decodes a WebsocketTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns WebsocketTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.WebsocketTask;
+
+        /**
+         * Verifies a WebsocketTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a WebsocketTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns WebsocketTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.WebsocketTask;
+
+        /**
+         * Creates a plain object from a WebsocketTask message. Also converts values to other types if specified.
+         * @param message WebsocketTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.WebsocketTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this WebsocketTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CcxtWsTask. */
+    interface ICcxtWsTask {
+
+        /** CcxtWsTask exchange */
+        exchange?: (string|null);
+
+        /** CcxtWsTask pair */
+        pair?: (string|null);
+    }
+
+    /** Represents a CcxtWsTask. */
+    class CcxtWsTask implements ICcxtWsTask {
+
+        /**
+         * Constructs a new CcxtWsTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ICcxtWsTask);
+
+        /** CcxtWsTask exchange. */
+        public exchange: string;
+
+        /** CcxtWsTask pair. */
+        public pair: string;
+
+        /**
+         * Creates a new CcxtWsTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CcxtWsTask instance
+         */
+        public static create(properties?: OracleJob.ICcxtWsTask): OracleJob.CcxtWsTask;
+
+        /**
+         * Encodes the specified CcxtWsTask message. Does not implicitly {@link OracleJob.CcxtWsTask.verify|verify} messages.
+         * @param message CcxtWsTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ICcxtWsTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CcxtWsTask message, length delimited. Does not implicitly {@link OracleJob.CcxtWsTask.verify|verify} messages.
+         * @param message CcxtWsTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ICcxtWsTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CcxtWsTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CcxtWsTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.CcxtWsTask;
+
+        /**
+         * Decodes a CcxtWsTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CcxtWsTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.CcxtWsTask;
+
+        /**
+         * Verifies a CcxtWsTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CcxtWsTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CcxtWsTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.CcxtWsTask;
+
+        /**
+         * Creates a plain object from a CcxtWsTask message. Also converts values to other types if specified.
+         * @param message CcxtWsTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.CcxtWsTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CcxtWsTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a Task. */
+    interface ITask {
+
+        /** Task httpTask */
+        httpTask?: (OracleJob.IHttpTask|null);
+
+        /** Task jsonParseTask */
+        jsonParseTask?: (OracleJob.IJsonParseTask|null);
+
+        /** Task medianTask */
+        medianTask?: (OracleJob.IMedianTask|null);
+
+        /** Task meanTask */
+        meanTask?: (OracleJob.IMeanTask|null);
+
+        /** Task websocketTask */
+        websocketTask?: (OracleJob.IWebsocketTask|null);
+
+        /** Task ccxtWsTask */
+        ccxtWsTask?: (OracleJob.ICcxtWsTask|null);
+    }
+
+    /** Represents a Task. */
+    class Task implements ITask {
+
+        /**
+         * Constructs a new Task.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ITask);
+
+        /** Task httpTask. */
+        public httpTask?: (OracleJob.IHttpTask|null);
+
+        /** Task jsonParseTask. */
+        public jsonParseTask?: (OracleJob.IJsonParseTask|null);
+
+        /** Task medianTask. */
+        public medianTask?: (OracleJob.IMedianTask|null);
+
+        /** Task meanTask. */
+        public meanTask?: (OracleJob.IMeanTask|null);
+
+        /** Task websocketTask. */
+        public websocketTask?: (OracleJob.IWebsocketTask|null);
+
+        /** Task ccxtWsTask. */
+        public ccxtWsTask?: (OracleJob.ICcxtWsTask|null);
+
+        /** Task Task. */
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"ccxtWsTask");
+
+        /**
+         * Creates a new Task instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Task instance
+         */
+        public static create(properties?: OracleJob.ITask): OracleJob.Task;
+
+        /**
+         * Encodes the specified Task message. Does not implicitly {@link OracleJob.Task.verify|verify} messages.
+         * @param message Task message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ITask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Task message, length delimited. Does not implicitly {@link OracleJob.Task.verify|verify} messages.
+         * @param message Task message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ITask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Task message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Task
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.Task;
+
+        /**
+         * Decodes a Task message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Task
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.Task;
+
+        /**
+         * Verifies a Task message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Task message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Task
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.Task;
+
+        /**
+         * Creates a plain object from a Task message. Also converts values to other types if specified.
+         * @param message Task
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.Task, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Task to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+}
+
+/** Properties of a JobPosting. */
+export interface IJobPosting {
+
+    /** JobPosting aggregatorStatePubkey */
+    aggregatorStatePubkey?: (Uint8Array|null);
+
+    /** JobPosting nodePubkeys */
+    nodePubkeys?: (Uint8Array[]|null);
+}
+
+/** Represents a JobPosting. */
+export class JobPosting implements IJobPosting {
+
+    /**
+     * Constructs a new JobPosting.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IJobPosting);
+
+    /** JobPosting aggregatorStatePubkey. */
+    public aggregatorStatePubkey: Uint8Array;
+
+    /** JobPosting nodePubkeys. */
+    public nodePubkeys: Uint8Array[];
+
+    /**
+     * Creates a new JobPosting instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns JobPosting instance
+     */
+    public static create(properties?: IJobPosting): JobPosting;
+
+    /**
+     * Encodes the specified JobPosting message. Does not implicitly {@link JobPosting.verify|verify} messages.
+     * @param message JobPosting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IJobPosting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified JobPosting message, length delimited. Does not implicitly {@link JobPosting.verify|verify} messages.
+     * @param message JobPosting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IJobPosting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a JobPosting message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns JobPosting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): JobPosting;
+
+    /**
+     * Decodes a JobPosting message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns JobPosting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): JobPosting;
+
+    /**
+     * Verifies a JobPosting message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a JobPosting message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns JobPosting
+     */
+    public static fromObject(object: { [k: string]: any }): JobPosting;
+
+    /**
+     * Creates a plain object from a JobPosting message. Also converts values to other types if specified.
+     * @param message JobPosting
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: JobPosting, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this JobPosting to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a JobResult. */
+export interface IJobResult {
+
+    /** JobResult jobPubkey */
+    jobPubkey?: (Uint8Array|null);
+
+    /** JobResult nodePubkey */
+    nodePubkey?: (Uint8Array|null);
+
+    /** JobResult result */
+    result?: (number|null);
+
+    /** JobResult error */
+    error?: (boolean|null);
+
+    /** JobResult slot */
+    slot?: (number|Long|null);
+
+    /** JobResult timestamp */
+    timestamp?: (number|Long|null);
+}
+
+/** Represents a JobResult. */
+export class JobResult implements IJobResult {
+
+    /**
+     * Constructs a new JobResult.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IJobResult);
+
+    /** JobResult jobPubkey. */
+    public jobPubkey: Uint8Array;
+
+    /** JobResult nodePubkey. */
+    public nodePubkey: Uint8Array;
+
+    /** JobResult result. */
+    public result: number;
+
+    /** JobResult error. */
+    public error: boolean;
+
+    /** JobResult slot. */
+    public slot: (number|Long);
+
+    /** JobResult timestamp. */
+    public timestamp: (number|Long);
+
+    /**
+     * Creates a new JobResult instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns JobResult instance
+     */
+    public static create(properties?: IJobResult): JobResult;
+
+    /**
+     * Encodes the specified JobResult message. Does not implicitly {@link JobResult.verify|verify} messages.
+     * @param message JobResult message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IJobResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified JobResult message, length delimited. Does not implicitly {@link JobResult.verify|verify} messages.
+     * @param message JobResult message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IJobResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a JobResult message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns JobResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): JobResult;
+
+    /**
+     * Decodes a JobResult message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns JobResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): JobResult;
+
+    /**
+     * Verifies a JobResult message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a JobResult message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns JobResult
+     */
+    public static fromObject(object: { [k: string]: any }): JobResult;
+
+    /**
+     * Creates a plain object from a JobResult message. Also converts values to other types if specified.
+     * @param message JobResult
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: JobResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this JobResult to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a FulfillmentEntry. */
+export interface IFulfillmentEntry {
+
+    /** FulfillmentEntry nodePubkey */
+    nodePubkey?: (Uint8Array|null);
+
+    /** FulfillmentEntry leaseCount */
+    leaseCount?: (number|null);
+
+    /** FulfillmentEntry slotExpiration */
+    slotExpiration?: (number|null);
+}
+
+/** Represents a FulfillmentEntry. */
+export class FulfillmentEntry implements IFulfillmentEntry {
+
+    /**
+     * Constructs a new FulfillmentEntry.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IFulfillmentEntry);
+
+    /** FulfillmentEntry nodePubkey. */
+    public nodePubkey: Uint8Array;
+
+    /** FulfillmentEntry leaseCount. */
+    public leaseCount: number;
+
+    /** FulfillmentEntry slotExpiration. */
+    public slotExpiration: number;
+
+    /**
+     * Creates a new FulfillmentEntry instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns FulfillmentEntry instance
+     */
+    public static create(properties?: IFulfillmentEntry): FulfillmentEntry;
+
+    /**
+     * Encodes the specified FulfillmentEntry message. Does not implicitly {@link FulfillmentEntry.verify|verify} messages.
+     * @param message FulfillmentEntry message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IFulfillmentEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified FulfillmentEntry message, length delimited. Does not implicitly {@link FulfillmentEntry.verify|verify} messages.
+     * @param message FulfillmentEntry message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IFulfillmentEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a FulfillmentEntry message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns FulfillmentEntry
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): FulfillmentEntry;
+
+    /**
+     * Decodes a FulfillmentEntry message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns FulfillmentEntry
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): FulfillmentEntry;
+
+    /**
+     * Verifies a FulfillmentEntry message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a FulfillmentEntry message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns FulfillmentEntry
+     */
+    public static fromObject(object: { [k: string]: any }): FulfillmentEntry;
+
+    /**
+     * Creates a plain object from a FulfillmentEntry message. Also converts values to other types if specified.
+     * @param message FulfillmentEntry
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: FulfillmentEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this FulfillmentEntry to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a FulfillmentManagerAuth. */
+export interface IFulfillmentManagerAuth {
+
+    /** FulfillmentManagerAuth nomineePubkey */
+    nomineePubkey?: (Uint8Array|null);
+
+    /** FulfillmentManagerAuth fulfillmentManagerPubkey */
+    fulfillmentManagerPubkey?: (Uint8Array|null);
+
+    /** FulfillmentManagerAuth authorizeHeartbeat */
+    authorizeHeartbeat?: (boolean|null);
+
+    /** FulfillmentManagerAuth authorizeUsage */
+    authorizeUsage?: (boolean|null);
+}
+
+/** Represents a FulfillmentManagerAuth. */
+export class FulfillmentManagerAuth implements IFulfillmentManagerAuth {
+
+    /**
+     * Constructs a new FulfillmentManagerAuth.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IFulfillmentManagerAuth);
+
+    /** FulfillmentManagerAuth nomineePubkey. */
+    public nomineePubkey: Uint8Array;
+
+    /** FulfillmentManagerAuth fulfillmentManagerPubkey. */
+    public fulfillmentManagerPubkey: Uint8Array;
+
+    /** FulfillmentManagerAuth authorizeHeartbeat. */
+    public authorizeHeartbeat: boolean;
+
+    /** FulfillmentManagerAuth authorizeUsage. */
+    public authorizeUsage: boolean;
+
+    /**
+     * Creates a new FulfillmentManagerAuth instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns FulfillmentManagerAuth instance
+     */
+    public static create(properties?: IFulfillmentManagerAuth): FulfillmentManagerAuth;
+
+    /**
+     * Encodes the specified FulfillmentManagerAuth message. Does not implicitly {@link FulfillmentManagerAuth.verify|verify} messages.
+     * @param message FulfillmentManagerAuth message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IFulfillmentManagerAuth, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified FulfillmentManagerAuth message, length delimited. Does not implicitly {@link FulfillmentManagerAuth.verify|verify} messages.
+     * @param message FulfillmentManagerAuth message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IFulfillmentManagerAuth, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a FulfillmentManagerAuth message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns FulfillmentManagerAuth
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): FulfillmentManagerAuth;
+
+    /**
+     * Decodes a FulfillmentManagerAuth message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns FulfillmentManagerAuth
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): FulfillmentManagerAuth;
+
+    /**
+     * Verifies a FulfillmentManagerAuth message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a FulfillmentManagerAuth message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns FulfillmentManagerAuth
+     */
+    public static fromObject(object: { [k: string]: any }): FulfillmentManagerAuth;
+
+    /**
+     * Creates a plain object from a FulfillmentManagerAuth message. Also converts values to other types if specified.
+     * @param message FulfillmentManagerAuth
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: FulfillmentManagerAuth, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this FulfillmentManagerAuth to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a FulfillmentManagerState. */
+export interface IFulfillmentManagerState {
+
+    /** FulfillmentManagerState version */
+    version?: (number|null);
+
+    /** FulfillmentManagerState configs */
+    configs?: (FulfillmentManagerState.IConfigs|null);
+
+    /** FulfillmentManagerState entries */
+    entries?: (IFulfillmentEntry[]|null);
+}
+
+/** Represents a FulfillmentManagerState. */
+export class FulfillmentManagerState implements IFulfillmentManagerState {
+
+    /**
+     * Constructs a new FulfillmentManagerState.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IFulfillmentManagerState);
+
+    /** FulfillmentManagerState version. */
+    public version: number;
+
+    /** FulfillmentManagerState configs. */
+    public configs?: (FulfillmentManagerState.IConfigs|null);
+
+    /** FulfillmentManagerState entries. */
+    public entries: IFulfillmentEntry[];
+
+    /**
+     * Creates a new FulfillmentManagerState instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns FulfillmentManagerState instance
+     */
+    public static create(properties?: IFulfillmentManagerState): FulfillmentManagerState;
+
+    /**
+     * Encodes the specified FulfillmentManagerState message. Does not implicitly {@link FulfillmentManagerState.verify|verify} messages.
+     * @param message FulfillmentManagerState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IFulfillmentManagerState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified FulfillmentManagerState message, length delimited. Does not implicitly {@link FulfillmentManagerState.verify|verify} messages.
+     * @param message FulfillmentManagerState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IFulfillmentManagerState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a FulfillmentManagerState message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns FulfillmentManagerState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): FulfillmentManagerState;
+
+    /**
+     * Decodes a FulfillmentManagerState message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns FulfillmentManagerState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): FulfillmentManagerState;
+
+    /**
+     * Verifies a FulfillmentManagerState message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a FulfillmentManagerState message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns FulfillmentManagerState
+     */
+    public static fromObject(object: { [k: string]: any }): FulfillmentManagerState;
+
+    /**
+     * Creates a plain object from a FulfillmentManagerState message. Also converts values to other types if specified.
+     * @param message FulfillmentManagerState
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: FulfillmentManagerState, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this FulfillmentManagerState to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace FulfillmentManagerState {
+
+    /** Properties of a Configs. */
+    interface IConfigs {
+
+        /** Configs heartbeatAuthRequired */
+        heartbeatAuthRequired?: (boolean|null);
+
+        /** Configs usageAuthRequired */
+        usageAuthRequired?: (boolean|null);
+
+        /** Configs locked */
+        locked?: (boolean|null);
+    }
+
+    /** Represents a Configs. */
+    class Configs implements IConfigs {
+
+        /**
+         * Constructs a new Configs.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: FulfillmentManagerState.IConfigs);
+
+        /** Configs heartbeatAuthRequired. */
+        public heartbeatAuthRequired: boolean;
+
+        /** Configs usageAuthRequired. */
+        public usageAuthRequired: boolean;
+
+        /** Configs locked. */
+        public locked: boolean;
+
+        /**
+         * Creates a new Configs instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Configs instance
+         */
+        public static create(properties?: FulfillmentManagerState.IConfigs): FulfillmentManagerState.Configs;
+
+        /**
+         * Encodes the specified Configs message. Does not implicitly {@link FulfillmentManagerState.Configs.verify|verify} messages.
+         * @param message Configs message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: FulfillmentManagerState.IConfigs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Configs message, length delimited. Does not implicitly {@link FulfillmentManagerState.Configs.verify|verify} messages.
+         * @param message Configs message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: FulfillmentManagerState.IConfigs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Configs message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Configs
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): FulfillmentManagerState.Configs;
+
+        /**
+         * Decodes a Configs message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Configs
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): FulfillmentManagerState.Configs;
+
+        /**
+         * Verifies a Configs message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Configs message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Configs
+         */
+        public static fromObject(object: { [k: string]: any }): FulfillmentManagerState.Configs;
+
+        /**
+         * Creates a plain object from a Configs message. Also converts values to other types if specified.
+         * @param message Configs
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: FulfillmentManagerState.Configs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Configs to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+}
+
+/** Properties of a SwitchboardInstruction. */
+export interface ISwitchboardInstruction {
+
+    /** SwitchboardInstruction initInstruction */
+    initInstruction?: (SwitchboardInstruction.IInitInstruction|null);
+
+    /** SwitchboardInstruction registerJobInstruction */
+    registerJobInstruction?: (SwitchboardInstruction.IRegisterJobInstruction|null);
+
+    /** SwitchboardInstruction unregisterJobInstruction */
+    unregisterJobInstruction?: (SwitchboardInstruction.IUnregisterJobInstruction|null);
+
+    /** SwitchboardInstruction updateAggregateInstruction */
+    updateAggregateInstruction?: (SwitchboardInstruction.IUpdateAggregateInstruction|null);
+
+    /** SwitchboardInstruction getAggregateInstruction */
+    getAggregateInstruction?: (SwitchboardInstruction.IGetAggregateInstruction|null);
+
+    /** SwitchboardInstruction saveResultInstruction */
+    saveResultInstruction?: (SwitchboardInstruction.ISaveResultInstruction|null);
+
+    /** SwitchboardInstruction setAggregatorConfigsInstruction */
+    setAggregatorConfigsInstruction?: (SwitchboardInstruction.ISetAggregatorConfigsInstruction|null);
+
+    /** SwitchboardInstruction setFulfillmentManagerConfigsInstruction */
+    setFulfillmentManagerConfigsInstruction?: (SwitchboardInstruction.ISetFulfillmentManagerConfigsInstruction|null);
+
+    /** SwitchboardInstruction heartbeatInstruction */
+    heartbeatInstruction?: (SwitchboardInstruction.IHeartbeatInstruction|null);
+
+    /** SwitchboardInstruction registerAuthInstruction */
+    registerAuthInstruction?: (SwitchboardInstruction.IRegisterAuthInstruction|null);
+}
+
+/** Represents a SwitchboardInstruction. */
+export class SwitchboardInstruction implements ISwitchboardInstruction {
+
+    /**
+     * Constructs a new SwitchboardInstruction.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ISwitchboardInstruction);
+
+    /** SwitchboardInstruction initInstruction. */
+    public initInstruction?: (SwitchboardInstruction.IInitInstruction|null);
+
+    /** SwitchboardInstruction registerJobInstruction. */
+    public registerJobInstruction?: (SwitchboardInstruction.IRegisterJobInstruction|null);
+
+    /** SwitchboardInstruction unregisterJobInstruction. */
+    public unregisterJobInstruction?: (SwitchboardInstruction.IUnregisterJobInstruction|null);
+
+    /** SwitchboardInstruction updateAggregateInstruction. */
+    public updateAggregateInstruction?: (SwitchboardInstruction.IUpdateAggregateInstruction|null);
+
+    /** SwitchboardInstruction getAggregateInstruction. */
+    public getAggregateInstruction?: (SwitchboardInstruction.IGetAggregateInstruction|null);
+
+    /** SwitchboardInstruction saveResultInstruction. */
+    public saveResultInstruction?: (SwitchboardInstruction.ISaveResultInstruction|null);
+
+    /** SwitchboardInstruction setAggregatorConfigsInstruction. */
+    public setAggregatorConfigsInstruction?: (SwitchboardInstruction.ISetAggregatorConfigsInstruction|null);
+
+    /** SwitchboardInstruction setFulfillmentManagerConfigsInstruction. */
+    public setFulfillmentManagerConfigsInstruction?: (SwitchboardInstruction.ISetFulfillmentManagerConfigsInstruction|null);
+
+    /** SwitchboardInstruction heartbeatInstruction. */
+    public heartbeatInstruction?: (SwitchboardInstruction.IHeartbeatInstruction|null);
+
+    /** SwitchboardInstruction registerAuthInstruction. */
+    public registerAuthInstruction?: (SwitchboardInstruction.IRegisterAuthInstruction|null);
+
+    /** SwitchboardInstruction instruction. */
+    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction");
+
+    /**
+     * Creates a new SwitchboardInstruction instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns SwitchboardInstruction instance
+     */
+    public static create(properties?: ISwitchboardInstruction): SwitchboardInstruction;
+
+    /**
+     * Encodes the specified SwitchboardInstruction message. Does not implicitly {@link SwitchboardInstruction.verify|verify} messages.
+     * @param message SwitchboardInstruction message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ISwitchboardInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified SwitchboardInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.verify|verify} messages.
+     * @param message SwitchboardInstruction message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ISwitchboardInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a SwitchboardInstruction message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns SwitchboardInstruction
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction;
+
+    /**
+     * Decodes a SwitchboardInstruction message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns SwitchboardInstruction
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction;
+
+    /**
+     * Verifies a SwitchboardInstruction message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a SwitchboardInstruction message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns SwitchboardInstruction
+     */
+    public static fromObject(object: { [k: string]: any }): SwitchboardInstruction;
+
+    /**
+     * Creates a plain object from a SwitchboardInstruction message. Also converts values to other types if specified.
+     * @param message SwitchboardInstruction
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: SwitchboardInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this SwitchboardInstruction to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace SwitchboardInstruction {
+
+    /** Properties of an InitInstruction. */
+    interface IInitInstruction {
+
+        /** InitInstruction type */
+        type?: (SwitchboardAccountType|null);
+    }
+
+    /** Represents an InitInstruction. */
+    class InitInstruction implements IInitInstruction {
+
+        /**
+         * Constructs a new InitInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IInitInstruction);
+
+        /** InitInstruction type. */
+        public type: SwitchboardAccountType;
+
+        /**
+         * Creates a new InitInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns InitInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IInitInstruction): SwitchboardInstruction.InitInstruction;
+
+        /**
+         * Encodes the specified InitInstruction message. Does not implicitly {@link SwitchboardInstruction.InitInstruction.verify|verify} messages.
+         * @param message InitInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IInitInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified InitInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.InitInstruction.verify|verify} messages.
+         * @param message InitInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IInitInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an InitInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns InitInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.InitInstruction;
+
+        /**
+         * Decodes an InitInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns InitInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.InitInstruction;
+
+        /**
+         * Verifies an InitInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an InitInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns InitInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.InitInstruction;
+
+        /**
+         * Creates a plain object from an InitInstruction message. Also converts values to other types if specified.
+         * @param message InitInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.InitInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this InitInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a RegisterJobInstruction. */
+    interface IRegisterJobInstruction {
+
+        /** RegisterJobInstruction job */
+        job?: (IOracleJob|null);
+    }
+
+    /** Represents a RegisterJobInstruction. */
+    class RegisterJobInstruction implements IRegisterJobInstruction {
+
+        /**
+         * Constructs a new RegisterJobInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IRegisterJobInstruction);
+
+        /** RegisterJobInstruction job. */
+        public job?: (IOracleJob|null);
+
+        /**
+         * Creates a new RegisterJobInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RegisterJobInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IRegisterJobInstruction): SwitchboardInstruction.RegisterJobInstruction;
+
+        /**
+         * Encodes the specified RegisterJobInstruction message. Does not implicitly {@link SwitchboardInstruction.RegisterJobInstruction.verify|verify} messages.
+         * @param message RegisterJobInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IRegisterJobInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified RegisterJobInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RegisterJobInstruction.verify|verify} messages.
+         * @param message RegisterJobInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IRegisterJobInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a RegisterJobInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RegisterJobInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.RegisterJobInstruction;
+
+        /**
+         * Decodes a RegisterJobInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RegisterJobInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.RegisterJobInstruction;
+
+        /**
+         * Verifies a RegisterJobInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a RegisterJobInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns RegisterJobInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.RegisterJobInstruction;
+
+        /**
+         * Creates a plain object from a RegisterJobInstruction message. Also converts values to other types if specified.
+         * @param message RegisterJobInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.RegisterJobInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this RegisterJobInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UnregisterJobInstruction. */
+    interface IUnregisterJobInstruction {
+
+        /** UnregisterJobInstruction jobPubkey */
+        jobPubkey?: (Uint8Array|null);
+    }
+
+    /** Represents an UnregisterJobInstruction. */
+    class UnregisterJobInstruction implements IUnregisterJobInstruction {
+
+        /**
+         * Constructs a new UnregisterJobInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IUnregisterJobInstruction);
+
+        /** UnregisterJobInstruction jobPubkey. */
+        public jobPubkey: Uint8Array;
+
+        /**
+         * Creates a new UnregisterJobInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UnregisterJobInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IUnregisterJobInstruction): SwitchboardInstruction.UnregisterJobInstruction;
+
+        /**
+         * Encodes the specified UnregisterJobInstruction message. Does not implicitly {@link SwitchboardInstruction.UnregisterJobInstruction.verify|verify} messages.
+         * @param message UnregisterJobInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IUnregisterJobInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UnregisterJobInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.UnregisterJobInstruction.verify|verify} messages.
+         * @param message UnregisterJobInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IUnregisterJobInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UnregisterJobInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UnregisterJobInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.UnregisterJobInstruction;
+
+        /**
+         * Decodes an UnregisterJobInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UnregisterJobInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.UnregisterJobInstruction;
+
+        /**
+         * Verifies an UnregisterJobInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UnregisterJobInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UnregisterJobInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.UnregisterJobInstruction;
+
+        /**
+         * Creates a plain object from an UnregisterJobInstruction message. Also converts values to other types if specified.
+         * @param message UnregisterJobInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.UnregisterJobInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UnregisterJobInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateAggregateInstruction. */
+    interface IUpdateAggregateInstruction {
+    }
+
+    /** Represents an UpdateAggregateInstruction. */
+    class UpdateAggregateInstruction implements IUpdateAggregateInstruction {
+
+        /**
+         * Constructs a new UpdateAggregateInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IUpdateAggregateInstruction);
+
+        /**
+         * Creates a new UpdateAggregateInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateAggregateInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IUpdateAggregateInstruction): SwitchboardInstruction.UpdateAggregateInstruction;
+
+        /**
+         * Encodes the specified UpdateAggregateInstruction message. Does not implicitly {@link SwitchboardInstruction.UpdateAggregateInstruction.verify|verify} messages.
+         * @param message UpdateAggregateInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IUpdateAggregateInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateAggregateInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.UpdateAggregateInstruction.verify|verify} messages.
+         * @param message UpdateAggregateInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IUpdateAggregateInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateAggregateInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateAggregateInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.UpdateAggregateInstruction;
+
+        /**
+         * Decodes an UpdateAggregateInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateAggregateInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.UpdateAggregateInstruction;
+
+        /**
+         * Verifies an UpdateAggregateInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateAggregateInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateAggregateInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.UpdateAggregateInstruction;
+
+        /**
+         * Creates a plain object from an UpdateAggregateInstruction message. Also converts values to other types if specified.
+         * @param message UpdateAggregateInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.UpdateAggregateInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateAggregateInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAggregateInstruction. */
+    interface IGetAggregateInstruction {
+    }
+
+    /** Represents a GetAggregateInstruction. */
+    class GetAggregateInstruction implements IGetAggregateInstruction {
+
+        /**
+         * Constructs a new GetAggregateInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IGetAggregateInstruction);
+
+        /**
+         * Creates a new GetAggregateInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAggregateInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IGetAggregateInstruction): SwitchboardInstruction.GetAggregateInstruction;
+
+        /**
+         * Encodes the specified GetAggregateInstruction message. Does not implicitly {@link SwitchboardInstruction.GetAggregateInstruction.verify|verify} messages.
+         * @param message GetAggregateInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IGetAggregateInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAggregateInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.GetAggregateInstruction.verify|verify} messages.
+         * @param message GetAggregateInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IGetAggregateInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAggregateInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAggregateInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.GetAggregateInstruction;
+
+        /**
+         * Decodes a GetAggregateInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAggregateInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.GetAggregateInstruction;
+
+        /**
+         * Verifies a GetAggregateInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAggregateInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAggregateInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.GetAggregateInstruction;
+
+        /**
+         * Creates a plain object from a GetAggregateInstruction message. Also converts values to other types if specified.
+         * @param message GetAggregateInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.GetAggregateInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAggregateInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SetAggregatorConfigsInstruction. */
+    interface ISetAggregatorConfigsInstruction {
+
+        /** SetAggregatorConfigsInstruction minConfirmations */
+        minConfirmations?: (number|null);
+
+        /** SetAggregatorConfigsInstruction minUpdateDelaySeconds */
+        minUpdateDelaySeconds?: (number|Long|null);
+
+        /** SetAggregatorConfigsInstruction fulfillmentManagerPubkey */
+        fulfillmentManagerPubkey?: (Uint8Array|null);
+
+        /** SetAggregatorConfigsInstruction lock */
+        lock?: (boolean|null);
+    }
+
+    /** Represents a SetAggregatorConfigsInstruction. */
+    class SetAggregatorConfigsInstruction implements ISetAggregatorConfigsInstruction {
+
+        /**
+         * Constructs a new SetAggregatorConfigsInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.ISetAggregatorConfigsInstruction);
+
+        /** SetAggregatorConfigsInstruction minConfirmations. */
+        public minConfirmations: number;
+
+        /** SetAggregatorConfigsInstruction minUpdateDelaySeconds. */
+        public minUpdateDelaySeconds: (number|Long);
+
+        /** SetAggregatorConfigsInstruction fulfillmentManagerPubkey. */
+        public fulfillmentManagerPubkey: Uint8Array;
+
+        /** SetAggregatorConfigsInstruction lock. */
+        public lock: boolean;
+
+        /**
+         * Creates a new SetAggregatorConfigsInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SetAggregatorConfigsInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.ISetAggregatorConfigsInstruction): SwitchboardInstruction.SetAggregatorConfigsInstruction;
+
+        /**
+         * Encodes the specified SetAggregatorConfigsInstruction message. Does not implicitly {@link SwitchboardInstruction.SetAggregatorConfigsInstruction.verify|verify} messages.
+         * @param message SetAggregatorConfigsInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.ISetAggregatorConfigsInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SetAggregatorConfigsInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SetAggregatorConfigsInstruction.verify|verify} messages.
+         * @param message SetAggregatorConfigsInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.ISetAggregatorConfigsInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SetAggregatorConfigsInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SetAggregatorConfigsInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.SetAggregatorConfigsInstruction;
+
+        /**
+         * Decodes a SetAggregatorConfigsInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SetAggregatorConfigsInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.SetAggregatorConfigsInstruction;
+
+        /**
+         * Verifies a SetAggregatorConfigsInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SetAggregatorConfigsInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SetAggregatorConfigsInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.SetAggregatorConfigsInstruction;
+
+        /**
+         * Creates a plain object from a SetAggregatorConfigsInstruction message. Also converts values to other types if specified.
+         * @param message SetAggregatorConfigsInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.SetAggregatorConfigsInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SetAggregatorConfigsInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SetFulfillmentManagerConfigsInstruction. */
+    interface ISetFulfillmentManagerConfigsInstruction {
+
+        /** SetFulfillmentManagerConfigsInstruction heartbeatAuthRequired */
+        heartbeatAuthRequired?: (boolean|null);
+
+        /** SetFulfillmentManagerConfigsInstruction usageAuthRequired */
+        usageAuthRequired?: (boolean|null);
+
+        /** SetFulfillmentManagerConfigsInstruction lock */
+        lock?: (boolean|null);
+    }
+
+    /** Represents a SetFulfillmentManagerConfigsInstruction. */
+    class SetFulfillmentManagerConfigsInstruction implements ISetFulfillmentManagerConfigsInstruction {
+
+        /**
+         * Constructs a new SetFulfillmentManagerConfigsInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.ISetFulfillmentManagerConfigsInstruction);
+
+        /** SetFulfillmentManagerConfigsInstruction heartbeatAuthRequired. */
+        public heartbeatAuthRequired: boolean;
+
+        /** SetFulfillmentManagerConfigsInstruction usageAuthRequired. */
+        public usageAuthRequired: boolean;
+
+        /** SetFulfillmentManagerConfigsInstruction lock. */
+        public lock: boolean;
+
+        /**
+         * Creates a new SetFulfillmentManagerConfigsInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SetFulfillmentManagerConfigsInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.ISetFulfillmentManagerConfigsInstruction): SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction;
+
+        /**
+         * Encodes the specified SetFulfillmentManagerConfigsInstruction message. Does not implicitly {@link SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction.verify|verify} messages.
+         * @param message SetFulfillmentManagerConfigsInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.ISetFulfillmentManagerConfigsInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SetFulfillmentManagerConfigsInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction.verify|verify} messages.
+         * @param message SetFulfillmentManagerConfigsInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.ISetFulfillmentManagerConfigsInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SetFulfillmentManagerConfigsInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SetFulfillmentManagerConfigsInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction;
+
+        /**
+         * Decodes a SetFulfillmentManagerConfigsInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SetFulfillmentManagerConfigsInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction;
+
+        /**
+         * Verifies a SetFulfillmentManagerConfigsInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SetFulfillmentManagerConfigsInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SetFulfillmentManagerConfigsInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction;
+
+        /**
+         * Creates a plain object from a SetFulfillmentManagerConfigsInstruction message. Also converts values to other types if specified.
+         * @param message SetFulfillmentManagerConfigsInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SetFulfillmentManagerConfigsInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SaveResultInstruction. */
+    interface ISaveResultInstruction {
+
+        /** SaveResultInstruction jobIdx */
+        jobIdx?: (number|null);
+
+        /** SaveResultInstruction nodeIdx */
+        nodeIdx?: (number|null);
+
+        /** SaveResultInstruction jobPubkey */
+        jobPubkey?: (Uint8Array|null);
+
+        /** SaveResultInstruction result */
+        result?: (number|null);
+
+        /** SaveResultInstruction error */
+        error?: (boolean|null);
+    }
+
+    /** Represents a SaveResultInstruction. */
+    class SaveResultInstruction implements ISaveResultInstruction {
+
+        /**
+         * Constructs a new SaveResultInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.ISaveResultInstruction);
+
+        /** SaveResultInstruction jobIdx. */
+        public jobIdx: number;
+
+        /** SaveResultInstruction nodeIdx. */
+        public nodeIdx: number;
+
+        /** SaveResultInstruction jobPubkey. */
+        public jobPubkey: Uint8Array;
+
+        /** SaveResultInstruction result. */
+        public result: number;
+
+        /** SaveResultInstruction error. */
+        public error: boolean;
+
+        /**
+         * Creates a new SaveResultInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SaveResultInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.ISaveResultInstruction): SwitchboardInstruction.SaveResultInstruction;
+
+        /**
+         * Encodes the specified SaveResultInstruction message. Does not implicitly {@link SwitchboardInstruction.SaveResultInstruction.verify|verify} messages.
+         * @param message SaveResultInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.ISaveResultInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SaveResultInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SaveResultInstruction.verify|verify} messages.
+         * @param message SaveResultInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.ISaveResultInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SaveResultInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SaveResultInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.SaveResultInstruction;
+
+        /**
+         * Decodes a SaveResultInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SaveResultInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.SaveResultInstruction;
+
+        /**
+         * Verifies a SaveResultInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SaveResultInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SaveResultInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.SaveResultInstruction;
+
+        /**
+         * Creates a plain object from a SaveResultInstruction message. Also converts values to other types if specified.
+         * @param message SaveResultInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.SaveResultInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SaveResultInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a HeartbeatInstruction. */
+    interface IHeartbeatInstruction {
+
+        /** HeartbeatInstruction leaseCount */
+        leaseCount?: (number|Long|null);
+
+        /** HeartbeatInstruction slotExpiration */
+        slotExpiration?: (number|Long|null);
+    }
+
+    /** Represents a HeartbeatInstruction. */
+    class HeartbeatInstruction implements IHeartbeatInstruction {
+
+        /**
+         * Constructs a new HeartbeatInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IHeartbeatInstruction);
+
+        /** HeartbeatInstruction leaseCount. */
+        public leaseCount: (number|Long);
+
+        /** HeartbeatInstruction slotExpiration. */
+        public slotExpiration: (number|Long);
+
+        /**
+         * Creates a new HeartbeatInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HeartbeatInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IHeartbeatInstruction): SwitchboardInstruction.HeartbeatInstruction;
+
+        /**
+         * Encodes the specified HeartbeatInstruction message. Does not implicitly {@link SwitchboardInstruction.HeartbeatInstruction.verify|verify} messages.
+         * @param message HeartbeatInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IHeartbeatInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified HeartbeatInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.HeartbeatInstruction.verify|verify} messages.
+         * @param message HeartbeatInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IHeartbeatInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a HeartbeatInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns HeartbeatInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.HeartbeatInstruction;
+
+        /**
+         * Decodes a HeartbeatInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns HeartbeatInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.HeartbeatInstruction;
+
+        /**
+         * Verifies a HeartbeatInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a HeartbeatInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns HeartbeatInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.HeartbeatInstruction;
+
+        /**
+         * Creates a plain object from a HeartbeatInstruction message. Also converts values to other types if specified.
+         * @param message HeartbeatInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.HeartbeatInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this HeartbeatInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a RegisterAuthInstruction. */
+    interface IRegisterAuthInstruction {
+
+        /** RegisterAuthInstruction authorizeHeartbeat */
+        authorizeHeartbeat?: (boolean|null);
+
+        /** RegisterAuthInstruction authorizeUsage */
+        authorizeUsage?: (boolean|null);
+    }
+
+    /** Represents a RegisterAuthInstruction. */
+    class RegisterAuthInstruction implements IRegisterAuthInstruction {
+
+        /**
+         * Constructs a new RegisterAuthInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IRegisterAuthInstruction);
+
+        /** RegisterAuthInstruction authorizeHeartbeat. */
+        public authorizeHeartbeat: boolean;
+
+        /** RegisterAuthInstruction authorizeUsage. */
+        public authorizeUsage: boolean;
+
+        /**
+         * Creates a new RegisterAuthInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RegisterAuthInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IRegisterAuthInstruction): SwitchboardInstruction.RegisterAuthInstruction;
+
+        /**
+         * Encodes the specified RegisterAuthInstruction message. Does not implicitly {@link SwitchboardInstruction.RegisterAuthInstruction.verify|verify} messages.
+         * @param message RegisterAuthInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IRegisterAuthInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified RegisterAuthInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RegisterAuthInstruction.verify|verify} messages.
+         * @param message RegisterAuthInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IRegisterAuthInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a RegisterAuthInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RegisterAuthInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.RegisterAuthInstruction;
+
+        /**
+         * Decodes a RegisterAuthInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RegisterAuthInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.RegisterAuthInstruction;
+
+        /**
+         * Verifies a RegisterAuthInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a RegisterAuthInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns RegisterAuthInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.RegisterAuthInstruction;
+
+        /**
+         * Creates a plain object from a RegisterAuthInstruction message. Also converts values to other types if specified.
+         * @param message RegisterAuthInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.RegisterAuthInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this RegisterAuthInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+}
+
+/** SwitchboardAccountType enum. */
+export enum SwitchboardAccountType {
+    TYPE_UNINITIALIZED = 0,
+    TYPE_AGGREGATOR = 1,
+    TYPE_FULFILLMENT_MANAGER = 2,
+    TYPE_JOB_DEFINITION = 3,
+    TYPE_FULFILLMENT_MANAGER_AUTH = 4
+}
