@@ -7,6 +7,9 @@ export interface IFulfillmentAgreement {
 
     /** FulfillmentAgreement completed */
     completed?: (Uint8Array|null);
+
+    /** FulfillmentAgreement requested */
+    requested?: (boolean|null);
 }
 
 /** Represents a FulfillmentAgreement. */
@@ -23,6 +26,9 @@ export class FulfillmentAgreement implements IFulfillmentAgreement {
 
     /** FulfillmentAgreement completed. */
     public completed: Uint8Array;
+
+    /** FulfillmentAgreement requested. */
+    public requested: boolean;
 
     /**
      * Creates a new FulfillmentAgreement instance using the specified properties.
@@ -360,9 +366,6 @@ export namespace AggregatorState {
 
         /** Configs minUpdateDelaySeconds */
         minUpdateDelaySeconds?: (number|Long|null);
-
-        /** Configs minRoundAgreementPercentage */
-        minRoundAgreementPercentage?: (number|null);
     }
 
     /** Represents a Configs. */
@@ -382,9 +385,6 @@ export namespace AggregatorState {
 
         /** Configs minUpdateDelaySeconds. */
         public minUpdateDelaySeconds: (number|Long);
-
-        /** Configs minRoundAgreementPercentage. */
-        public minRoundAgreementPercentage: number;
 
         /**
          * Creates a new Configs instance using the specified properties.
@@ -2027,6 +2027,9 @@ export interface ISwitchboardInstruction {
 
     /** SwitchboardInstruction registerAuthInstruction */
     registerAuthInstruction?: (SwitchboardInstruction.IRegisterAuthInstruction|null);
+
+    /** SwitchboardInstruction reachFulfillerAgreementInstruction */
+    reachFulfillerAgreementInstruction?: (SwitchboardInstruction.IReachFulfillerAgreementInstruction|null);
 }
 
 /** Represents a SwitchboardInstruction. */
@@ -2068,8 +2071,11 @@ export class SwitchboardInstruction implements ISwitchboardInstruction {
     /** SwitchboardInstruction registerAuthInstruction. */
     public registerAuthInstruction?: (SwitchboardInstruction.IRegisterAuthInstruction|null);
 
+    /** SwitchboardInstruction reachFulfillerAgreementInstruction. */
+    public reachFulfillerAgreementInstruction?: (SwitchboardInstruction.IReachFulfillerAgreementInstruction|null);
+
     /** SwitchboardInstruction instruction. */
-    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction");
+    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction");
 
     /**
      * Creates a new SwitchboardInstruction instance using the specified properties.
@@ -3093,6 +3099,90 @@ export namespace SwitchboardInstruction {
 
         /**
          * Converts this RegisterAuthInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ReachFulfillerAgreementInstruction. */
+    interface IReachFulfillerAgreementInstruction {
+    }
+
+    /** Represents a ReachFulfillerAgreementInstruction. */
+    class ReachFulfillerAgreementInstruction implements IReachFulfillerAgreementInstruction {
+
+        /**
+         * Constructs a new ReachFulfillerAgreementInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IReachFulfillerAgreementInstruction);
+
+        /**
+         * Creates a new ReachFulfillerAgreementInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ReachFulfillerAgreementInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IReachFulfillerAgreementInstruction): SwitchboardInstruction.ReachFulfillerAgreementInstruction;
+
+        /**
+         * Encodes the specified ReachFulfillerAgreementInstruction message. Does not implicitly {@link SwitchboardInstruction.ReachFulfillerAgreementInstruction.verify|verify} messages.
+         * @param message ReachFulfillerAgreementInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IReachFulfillerAgreementInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ReachFulfillerAgreementInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.ReachFulfillerAgreementInstruction.verify|verify} messages.
+         * @param message ReachFulfillerAgreementInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IReachFulfillerAgreementInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ReachFulfillerAgreementInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ReachFulfillerAgreementInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.ReachFulfillerAgreementInstruction;
+
+        /**
+         * Decodes a ReachFulfillerAgreementInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ReachFulfillerAgreementInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.ReachFulfillerAgreementInstruction;
+
+        /**
+         * Verifies a ReachFulfillerAgreementInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ReachFulfillerAgreementInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ReachFulfillerAgreementInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.ReachFulfillerAgreementInstruction;
+
+        /**
+         * Creates a plain object from a ReachFulfillerAgreementInstruction message. Also converts values to other types if specified.
+         * @param message ReachFulfillerAgreementInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.ReachFulfillerAgreementInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ReachFulfillerAgreementInstruction to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

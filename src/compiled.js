@@ -24,6 +24,7 @@
          * @interface IFulfillmentAgreement
          * @property {Array.<Uint8Array>|null} [nodePubkeys] FulfillmentAgreement nodePubkeys
          * @property {Uint8Array|null} [completed] FulfillmentAgreement completed
+         * @property {boolean|null} [requested] FulfillmentAgreement requested
          */
     
         /**
@@ -59,6 +60,14 @@
         FulfillmentAgreement.prototype.completed = $util.newBuffer([]);
     
         /**
+         * FulfillmentAgreement requested.
+         * @member {boolean} requested
+         * @memberof FulfillmentAgreement
+         * @instance
+         */
+        FulfillmentAgreement.prototype.requested = false;
+    
+        /**
          * Creates a new FulfillmentAgreement instance using the specified properties.
          * @function create
          * @memberof FulfillmentAgreement
@@ -87,6 +96,8 @@
                     writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.nodePubkeys[i]);
             if (message.completed != null && Object.hasOwnProperty.call(message, "completed"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.completed);
+            if (message.requested != null && Object.hasOwnProperty.call(message, "requested"))
+                writer.uint32(/* id 3, wireType 0 =*/24).bool(message.requested);
             return writer;
         };
     
@@ -128,6 +139,9 @@
                     break;
                 case 2:
                     message.completed = reader.bytes();
+                    break;
+                case 3:
+                    message.requested = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -174,6 +188,9 @@
             if (message.completed != null && message.hasOwnProperty("completed"))
                 if (!(message.completed && typeof message.completed.length === "number" || $util.isString(message.completed)))
                     return "completed: buffer expected";
+            if (message.requested != null && message.hasOwnProperty("requested"))
+                if (typeof message.requested !== "boolean")
+                    return "requested: boolean expected";
             return null;
         };
     
@@ -204,6 +221,8 @@
                     $util.base64.decode(object.completed, message.completed = $util.newBuffer($util.base64.length(object.completed)), 0);
                 else if (object.completed.length)
                     message.completed = object.completed;
+            if (object.requested != null)
+                message.requested = Boolean(object.requested);
             return message;
         };
     
@@ -222,7 +241,7 @@
             var object = {};
             if (options.arrays || options.defaults)
                 object.nodePubkeys = [];
-            if (options.defaults)
+            if (options.defaults) {
                 if (options.bytes === String)
                     object.completed = "";
                 else {
@@ -230,6 +249,8 @@
                     if (options.bytes !== Array)
                         object.completed = $util.newBuffer(object.completed);
                 }
+                object.requested = false;
+            }
             if (message.nodePubkeys && message.nodePubkeys.length) {
                 object.nodePubkeys = [];
                 for (var j = 0; j < message.nodePubkeys.length; ++j)
@@ -237,6 +258,8 @@
             }
             if (message.completed != null && message.hasOwnProperty("completed"))
                 object.completed = options.bytes === String ? $util.base64.encode(message.completed, 0, message.completed.length) : options.bytes === Array ? Array.prototype.slice.call(message.completed) : message.completed;
+            if (message.requested != null && message.hasOwnProperty("requested"))
+                object.requested = message.requested;
             return object;
         };
     
@@ -977,7 +1000,6 @@
              * @property {boolean|null} [locked] Configs locked
              * @property {number|null} [minConfirmations] Configs minConfirmations
              * @property {number|Long|null} [minUpdateDelaySeconds] Configs minUpdateDelaySeconds
-             * @property {number|null} [minRoundAgreementPercentage] Configs minRoundAgreementPercentage
              */
     
             /**
@@ -1020,14 +1042,6 @@
             Configs.prototype.minUpdateDelaySeconds = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
     
             /**
-             * Configs minRoundAgreementPercentage.
-             * @member {number} minRoundAgreementPercentage
-             * @memberof AggregatorState.Configs
-             * @instance
-             */
-            Configs.prototype.minRoundAgreementPercentage = 0;
-    
-            /**
              * Creates a new Configs instance using the specified properties.
              * @function create
              * @memberof AggregatorState.Configs
@@ -1057,8 +1071,6 @@
                     writer.uint32(/* id 2, wireType 0 =*/16).int32(message.minConfirmations);
                 if (message.minUpdateDelaySeconds != null && Object.hasOwnProperty.call(message, "minUpdateDelaySeconds"))
                     writer.uint32(/* id 3, wireType 0 =*/24).int64(message.minUpdateDelaySeconds);
-                if (message.minRoundAgreementPercentage != null && Object.hasOwnProperty.call(message, "minRoundAgreementPercentage"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.minRoundAgreementPercentage);
                 return writer;
             };
     
@@ -1101,9 +1113,6 @@
                         break;
                     case 3:
                         message.minUpdateDelaySeconds = reader.int64();
-                        break;
-                    case 4:
-                        message.minRoundAgreementPercentage = reader.int32();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -1149,9 +1158,6 @@
                 if (message.minUpdateDelaySeconds != null && message.hasOwnProperty("minUpdateDelaySeconds"))
                     if (!$util.isInteger(message.minUpdateDelaySeconds) && !(message.minUpdateDelaySeconds && $util.isInteger(message.minUpdateDelaySeconds.low) && $util.isInteger(message.minUpdateDelaySeconds.high)))
                         return "minUpdateDelaySeconds: integer|Long expected";
-                if (message.minRoundAgreementPercentage != null && message.hasOwnProperty("minRoundAgreementPercentage"))
-                    if (!$util.isInteger(message.minRoundAgreementPercentage))
-                        return "minRoundAgreementPercentage: integer expected";
                 return null;
             };
     
@@ -1180,8 +1186,6 @@
                         message.minUpdateDelaySeconds = object.minUpdateDelaySeconds;
                     else if (typeof object.minUpdateDelaySeconds === "object")
                         message.minUpdateDelaySeconds = new $util.LongBits(object.minUpdateDelaySeconds.low >>> 0, object.minUpdateDelaySeconds.high >>> 0).toNumber();
-                if (object.minRoundAgreementPercentage != null)
-                    message.minRoundAgreementPercentage = object.minRoundAgreementPercentage | 0;
                 return message;
             };
     
@@ -1206,7 +1210,6 @@
                         object.minUpdateDelaySeconds = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                     } else
                         object.minUpdateDelaySeconds = options.longs === String ? "0" : 0;
-                    object.minRoundAgreementPercentage = 0;
                 }
                 if (message.locked != null && message.hasOwnProperty("locked"))
                     object.locked = message.locked;
@@ -1217,8 +1220,6 @@
                         object.minUpdateDelaySeconds = options.longs === String ? String(message.minUpdateDelaySeconds) : message.minUpdateDelaySeconds;
                     else
                         object.minUpdateDelaySeconds = options.longs === String ? $util.Long.prototype.toString.call(message.minUpdateDelaySeconds) : options.longs === Number ? new $util.LongBits(message.minUpdateDelaySeconds.low >>> 0, message.minUpdateDelaySeconds.high >>> 0).toNumber() : message.minUpdateDelaySeconds;
-                if (message.minRoundAgreementPercentage != null && message.hasOwnProperty("minRoundAgreementPercentage"))
-                    object.minRoundAgreementPercentage = message.minRoundAgreementPercentage;
                 return object;
             };
     
@@ -5017,6 +5018,7 @@
          * @property {SwitchboardInstruction.ISetFulfillmentManagerConfigsInstruction|null} [setFulfillmentManagerConfigsInstruction] SwitchboardInstruction setFulfillmentManagerConfigsInstruction
          * @property {SwitchboardInstruction.IHeartbeatInstruction|null} [heartbeatInstruction] SwitchboardInstruction heartbeatInstruction
          * @property {SwitchboardInstruction.IRegisterAuthInstruction|null} [registerAuthInstruction] SwitchboardInstruction registerAuthInstruction
+         * @property {SwitchboardInstruction.IReachFulfillerAgreementInstruction|null} [reachFulfillerAgreementInstruction] SwitchboardInstruction reachFulfillerAgreementInstruction
          */
     
         /**
@@ -5114,17 +5116,25 @@
          */
         SwitchboardInstruction.prototype.registerAuthInstruction = null;
     
+        /**
+         * SwitchboardInstruction reachFulfillerAgreementInstruction.
+         * @member {SwitchboardInstruction.IReachFulfillerAgreementInstruction|null|undefined} reachFulfillerAgreementInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.reachFulfillerAgreementInstruction = null;
+    
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
     
         /**
          * SwitchboardInstruction instruction.
-         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|undefined} instruction
+         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|undefined} instruction
          * @memberof SwitchboardInstruction
          * @instance
          */
         Object.defineProperty(SwitchboardInstruction.prototype, "instruction", {
-            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction"]),
+            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
     
@@ -5172,6 +5182,8 @@
                 $root.SwitchboardInstruction.HeartbeatInstruction.encode(message.heartbeatInstruction, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
             if (message.registerAuthInstruction != null && Object.hasOwnProperty.call(message, "registerAuthInstruction"))
                 $root.SwitchboardInstruction.RegisterAuthInstruction.encode(message.registerAuthInstruction, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
+            if (message.reachFulfillerAgreementInstruction != null && Object.hasOwnProperty.call(message, "reachFulfillerAgreementInstruction"))
+                $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.encode(message.reachFulfillerAgreementInstruction, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
             return writer;
         };
     
@@ -5235,6 +5247,9 @@
                     break;
                 case 10:
                     message.registerAuthInstruction = $root.SwitchboardInstruction.RegisterAuthInstruction.decode(reader, reader.uint32());
+                    break;
+                case 11:
+                    message.reachFulfillerAgreementInstruction = $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5370,6 +5385,16 @@
                         return "registerAuthInstruction." + error;
                 }
             }
+            if (message.reachFulfillerAgreementInstruction != null && message.hasOwnProperty("reachFulfillerAgreementInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.verify(message.reachFulfillerAgreementInstruction);
+                    if (error)
+                        return "reachFulfillerAgreementInstruction." + error;
+                }
+            }
             return null;
         };
     
@@ -5434,6 +5459,11 @@
                 if (typeof object.registerAuthInstruction !== "object")
                     throw TypeError(".SwitchboardInstruction.registerAuthInstruction: object expected");
                 message.registerAuthInstruction = $root.SwitchboardInstruction.RegisterAuthInstruction.fromObject(object.registerAuthInstruction);
+            }
+            if (object.reachFulfillerAgreementInstruction != null) {
+                if (typeof object.reachFulfillerAgreementInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.reachFulfillerAgreementInstruction: object expected");
+                message.reachFulfillerAgreementInstruction = $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.fromObject(object.reachFulfillerAgreementInstruction);
             }
             return message;
         };
@@ -5500,6 +5530,11 @@
                 object.registerAuthInstruction = $root.SwitchboardInstruction.RegisterAuthInstruction.toObject(message.registerAuthInstruction, options);
                 if (options.oneofs)
                     object.instruction = "registerAuthInstruction";
+            }
+            if (message.reachFulfillerAgreementInstruction != null && message.hasOwnProperty("reachFulfillerAgreementInstruction")) {
+                object.reachFulfillerAgreementInstruction = $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.toObject(message.reachFulfillerAgreementInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "reachFulfillerAgreementInstruction";
             }
             return object;
         };
@@ -7678,6 +7713,166 @@
             };
     
             return RegisterAuthInstruction;
+        })();
+    
+        SwitchboardInstruction.ReachFulfillerAgreementInstruction = (function() {
+    
+            /**
+             * Properties of a ReachFulfillerAgreementInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface IReachFulfillerAgreementInstruction
+             */
+    
+            /**
+             * Constructs a new ReachFulfillerAgreementInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a ReachFulfillerAgreementInstruction.
+             * @implements IReachFulfillerAgreementInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.IReachFulfillerAgreementInstruction=} [properties] Properties to set
+             */
+            function ReachFulfillerAgreementInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Creates a new ReachFulfillerAgreementInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @static
+             * @param {SwitchboardInstruction.IReachFulfillerAgreementInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.ReachFulfillerAgreementInstruction} ReachFulfillerAgreementInstruction instance
+             */
+            ReachFulfillerAgreementInstruction.create = function create(properties) {
+                return new ReachFulfillerAgreementInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified ReachFulfillerAgreementInstruction message. Does not implicitly {@link SwitchboardInstruction.ReachFulfillerAgreementInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @static
+             * @param {SwitchboardInstruction.IReachFulfillerAgreementInstruction} message ReachFulfillerAgreementInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReachFulfillerAgreementInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified ReachFulfillerAgreementInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.ReachFulfillerAgreementInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @static
+             * @param {SwitchboardInstruction.IReachFulfillerAgreementInstruction} message ReachFulfillerAgreementInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReachFulfillerAgreementInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a ReachFulfillerAgreementInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.ReachFulfillerAgreementInstruction} ReachFulfillerAgreementInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReachFulfillerAgreementInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a ReachFulfillerAgreementInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.ReachFulfillerAgreementInstruction} ReachFulfillerAgreementInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReachFulfillerAgreementInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a ReachFulfillerAgreementInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ReachFulfillerAgreementInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+    
+            /**
+             * Creates a ReachFulfillerAgreementInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.ReachFulfillerAgreementInstruction} ReachFulfillerAgreementInstruction
+             */
+            ReachFulfillerAgreementInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction)
+                    return object;
+                return new $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction();
+            };
+    
+            /**
+             * Creates a plain object from a ReachFulfillerAgreementInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @static
+             * @param {SwitchboardInstruction.ReachFulfillerAgreementInstruction} message ReachFulfillerAgreementInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ReachFulfillerAgreementInstruction.toObject = function toObject() {
+                return {};
+            };
+    
+            /**
+             * Converts this ReachFulfillerAgreementInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.ReachFulfillerAgreementInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ReachFulfillerAgreementInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return ReachFulfillerAgreementInstruction;
         })();
     
         return SwitchboardInstruction;
