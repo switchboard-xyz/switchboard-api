@@ -562,8 +562,8 @@ export namespace OracleJob {
         /** HttpTask headers */
         headers?: (OracleJob.HttpTask.IHeader[]|null);
 
-        /** HttpTask stringifiedBody */
-        stringifiedBody?: (string|null);
+        /** HttpTask body */
+        body?: (string|null);
     }
 
     /** Represents a HttpTask. */
@@ -584,8 +584,8 @@ export namespace OracleJob {
         /** HttpTask headers. */
         public headers: OracleJob.HttpTask.IHeader[];
 
-        /** HttpTask stringifiedBody. */
-        public stringifiedBody: string;
+        /** HttpTask body. */
+        public body: string;
 
         /**
          * Creates a new HttpTask instance using the specified properties.
