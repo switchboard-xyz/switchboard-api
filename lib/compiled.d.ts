@@ -5,9 +5,6 @@ export interface IFulfillmentAgreement {
     /** FulfillmentAgreement nodePubkeys */
     nodePubkeys?: (Uint8Array[]|null);
 
-    /** FulfillmentAgreement completed */
-    completed?: (Uint8Array|null);
-
     /** FulfillmentAgreement requested */
     requested?: (boolean|null);
 }
@@ -23,9 +20,6 @@ export class FulfillmentAgreement implements IFulfillmentAgreement {
 
     /** FulfillmentAgreement nodePubkeys. */
     public nodePubkeys: Uint8Array[];
-
-    /** FulfillmentAgreement completed. */
-    public completed: Uint8Array;
 
     /** FulfillmentAgreement requested. */
     public requested: boolean;
@@ -101,6 +95,96 @@ export class FulfillmentAgreement implements IFulfillmentAgreement {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a Result. */
+export interface IResult {
+
+    /** Result result */
+    result?: (number|null);
+}
+
+/** Represents a Result. */
+export class Result implements IResult {
+
+    /**
+     * Constructs a new Result.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResult);
+
+    /** Result result. */
+    public result: number;
+
+    /**
+     * Creates a new Result instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns Result instance
+     */
+    public static create(properties?: IResult): Result;
+
+    /**
+     * Encodes the specified Result message. Does not implicitly {@link Result.verify|verify} messages.
+     * @param message Result message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified Result message, length delimited. Does not implicitly {@link Result.verify|verify} messages.
+     * @param message Result message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a Result message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Result
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Result;
+
+    /**
+     * Decodes a Result message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns Result
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Result;
+
+    /**
+     * Verifies a Result message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a Result message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns Result
+     */
+    public static fromObject(object: { [k: string]: any }): Result;
+
+    /**
+     * Creates a plain object from a Result message. Also converts values to other types if specified.
+     * @param message Result
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: Result, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this Result to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a RoundResult. */
 export interface IRoundResult {
 
@@ -124,6 +208,9 @@ export interface IRoundResult {
 
     /** RoundResult maxResponse */
     maxResponse?: (number|null);
+
+    /** RoundResult results */
+    results?: (IResult[]|null);
 }
 
 /** Represents a RoundResult. */
@@ -155,6 +242,9 @@ export class RoundResult implements IRoundResult {
 
     /** RoundResult maxResponse. */
     public maxResponse: number;
+
+    /** RoundResult results. */
+    public results: IResult[];
 
     /**
      * Creates a new RoundResult instance using the specified properties.
