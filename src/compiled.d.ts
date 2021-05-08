@@ -95,97 +95,97 @@ export class FulfillmentAgreement implements IFulfillmentAgreement {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of a Result. */
-export interface IResult {
+/** Properties of a NodeResponse. */
+export interface INodeResponse {
 
-    /** Result result */
+    /** NodeResponse result */
     result?: (number|null);
 
-    /** Result completed */
+    /** NodeResponse completed */
     completed?: (boolean|null);
 }
 
-/** Represents a Result. */
-export class Result implements IResult {
+/** Represents a NodeResponse. */
+export class NodeResponse implements INodeResponse {
 
     /**
-     * Constructs a new Result.
+     * Constructs a new NodeResponse.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IResult);
+    constructor(properties?: INodeResponse);
 
-    /** Result result. */
+    /** NodeResponse result. */
     public result: number;
 
-    /** Result completed. */
+    /** NodeResponse completed. */
     public completed: boolean;
 
     /**
-     * Creates a new Result instance using the specified properties.
+     * Creates a new NodeResponse instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns Result instance
+     * @returns NodeResponse instance
      */
-    public static create(properties?: IResult): Result;
+    public static create(properties?: INodeResponse): NodeResponse;
 
     /**
-     * Encodes the specified Result message. Does not implicitly {@link Result.verify|verify} messages.
-     * @param message Result message or plain object to encode
+     * Encodes the specified NodeResponse message. Does not implicitly {@link NodeResponse.verify|verify} messages.
+     * @param message NodeResponse message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IResult, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: INodeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Result message, length delimited. Does not implicitly {@link Result.verify|verify} messages.
-     * @param message Result message or plain object to encode
+     * Encodes the specified NodeResponse message, length delimited. Does not implicitly {@link NodeResponse.verify|verify} messages.
+     * @param message NodeResponse message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IResult, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: INodeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a Result message from the specified reader or buffer.
+     * Decodes a NodeResponse message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns Result
+     * @returns NodeResponse
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Result;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): NodeResponse;
 
     /**
-     * Decodes a Result message from the specified reader or buffer, length delimited.
+     * Decodes a NodeResponse message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns Result
+     * @returns NodeResponse
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Result;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): NodeResponse;
 
     /**
-     * Verifies a Result message.
+     * Verifies a NodeResponse message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a Result message from a plain object. Also converts values to their respective internal types.
+     * Creates a NodeResponse message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns Result
+     * @returns NodeResponse
      */
-    public static fromObject(object: { [k: string]: any }): Result;
+    public static fromObject(object: { [k: string]: any }): NodeResponse;
 
     /**
-     * Creates a plain object from a Result message. Also converts values to other types if specified.
-     * @param message Result
+     * Creates a plain object from a NodeResponse message. Also converts values to other types if specified.
+     * @param message NodeResponse
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: Result, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: NodeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this Result to JSON.
+     * Converts this NodeResponse to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
@@ -215,8 +215,8 @@ export interface IRoundResult {
     /** RoundResult maxResponse */
     maxResponse?: (number|null);
 
-    /** RoundResult results */
-    results?: (IResult[]|null);
+    /** RoundResult responses */
+    responses?: (INodeResponse[]|null);
 }
 
 /** Represents a RoundResult. */
@@ -249,8 +249,8 @@ export class RoundResult implements IRoundResult {
     /** RoundResult maxResponse. */
     public maxResponse: number;
 
-    /** RoundResult results. */
-    public results: IResult[];
+    /** RoundResult responses. */
+    public responses: INodeResponse[];
 
     /**
      * Creates a new RoundResult instance using the specified properties.

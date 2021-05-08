@@ -1,6 +1,6 @@
 {
   "name": "@switchboard-xyz/switchboard-api",
-  "version": "0.2.61",
+  "version": "0.2.62",
   "description": "A library for the Switchboard Oracle Network.",
   "directories": {
     "lib": "lib"
@@ -10,6 +10,7 @@
   ],
   "dependencies": {
     "@solana/web3.js": "^1.7.0",
+    "@switchboard-xyz/switchboard-api": "^0.2.61",
     "form-data": "^4.0.0",
     "protobufjs": "^6.10.2",
     "typedoc": "^0.20.36"
