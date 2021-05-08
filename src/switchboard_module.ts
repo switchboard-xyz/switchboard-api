@@ -122,7 +122,7 @@ export async function updateFeed(
   payerAccount: Account,
   dataFeedPubkey: PublicKey,
   authKey?: PublicKey) {
-    let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedPubkey);
+  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedPubkey);
   if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
   let aggregator = AggregatorState.decodeDelimited(dataFeedAccountInfo.data.slice(1));
 
@@ -135,8 +135,17 @@ export async function updateFeed(
   if (authKey != null) {
     keys.push({ pubkey: authKey, isSigner: false, isWritable: false });
   }
-  let transactionInstruction = new TransactionInstruction({
+  let agreementInstruction = new TransactionInstruction({
     keys,
+    programId: dataFeedAccountInfo.owner,
+    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
+      reachFulfillerAgreementInstruction: SwitchboardInstruction.ReachFulfillerAgreementInstruction.create({})
+    })).finish()),
+  });
+  let updateInstruction = new TransactionInstruction({
+    keys: [
+      { pubkey: dataFeedPubkey, isSigner: false, isWritable: true },
+    ],
     programId: dataFeedAccountInfo.owner,
     data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
       updateAggregateInstruction: SwitchboardInstruction.UpdateAggregateInstruction.create({})
@@ -144,7 +153,9 @@ export async function updateFeed(
   });
 
   let txAccounts = [payerAccount];
-  await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
+  await performTransaction(connection, new Transaction()
+    .add(agreementInstruction)
+    .add(updateInstruction), txAccounts);
 }
 
 /**
