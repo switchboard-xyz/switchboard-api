@@ -100,6 +100,9 @@ export interface IResult {
 
     /** Result result */
     result?: (number|null);
+
+    /** Result completed */
+    completed?: (boolean|null);
 }
 
 /** Represents a Result. */
@@ -113,6 +116,9 @@ export class Result implements IResult {
 
     /** Result result. */
     public result: number;
+
+    /** Result completed. */
+    public completed: boolean;
 
     /**
      * Creates a new Result instance using the specified properties.
