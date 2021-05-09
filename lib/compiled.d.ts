@@ -104,8 +104,8 @@ export interface IRoundResult {
     /** RoundResult numError */
     numError?: (number|null);
 
-    /** RoundResult mean */
-    mean?: (number|null);
+    /** RoundResult result */
+    result?: (number|null);
 
     /** RoundResult roundOpenSlot */
     roundOpenSlot?: (number|Long|null);
@@ -119,8 +119,8 @@ export interface IRoundResult {
     /** RoundResult maxResponse */
     maxResponse?: (number|null);
 
-    /** RoundResult responses */
-    responses?: (number[]|null);
+    /** RoundResult medians */
+    medians?: (number[]|null);
 }
 
 /** Represents a RoundResult. */
@@ -138,8 +138,8 @@ export class RoundResult implements IRoundResult {
     /** RoundResult numError. */
     public numError: number;
 
-    /** RoundResult mean. */
-    public mean: number;
+    /** RoundResult result. */
+    public result: number;
 
     /** RoundResult roundOpenSlot. */
     public roundOpenSlot: (number|Long);
@@ -153,8 +153,8 @@ export class RoundResult implements IRoundResult {
     /** RoundResult maxResponse. */
     public maxResponse: number;
 
-    /** RoundResult responses. */
-    public responses: number[];
+    /** RoundResult medians. */
+    public medians: number[];
 
     /**
      * Creates a new RoundResult instance using the specified properties.
@@ -1461,9 +1461,6 @@ export class JobPosting implements IJobPosting {
 /** Properties of a JobResult. */
 export interface IJobResult {
 
-    /** JobResult jobPubkey */
-    jobPubkey?: (Uint8Array|null);
-
     /** JobResult nodePubkey */
     nodePubkey?: (Uint8Array|null);
 
@@ -1488,9 +1485,6 @@ export class JobResult implements IJobResult {
      * @param [properties] Properties to set
      */
     constructor(properties?: IJobResult);
-
-    /** JobResult jobPubkey. */
-    public jobPubkey: Uint8Array;
 
     /** JobResult nodePubkey. */
     public nodePubkey: Uint8Array;
@@ -2801,14 +2795,8 @@ export namespace SwitchboardInstruction {
     /** Properties of a SaveResultInstruction. */
     interface ISaveResultInstruction {
 
-        /** SaveResultInstruction jobIdx */
-        jobIdx?: (number|null);
-
         /** SaveResultInstruction nodeIdx */
         nodeIdx?: (number|null);
-
-        /** SaveResultInstruction jobPubkey */
-        jobPubkey?: (Uint8Array|null);
 
         /** SaveResultInstruction result */
         result?: (number|null);
@@ -2826,14 +2814,8 @@ export namespace SwitchboardInstruction {
          */
         constructor(properties?: SwitchboardInstruction.ISaveResultInstruction);
 
-        /** SaveResultInstruction jobIdx. */
-        public jobIdx: number;
-
         /** SaveResultInstruction nodeIdx. */
         public nodeIdx: number;
-
-        /** SaveResultInstruction jobPubkey. */
-        public jobPubkey: Uint8Array;
 
         /** SaveResultInstruction result. */
         public result: number;
