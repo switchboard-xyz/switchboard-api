@@ -3436,6 +3436,7 @@
          * @interface IJobPosting
          * @property {Uint8Array|null} [aggregatorStatePubkey] JobPosting aggregatorStatePubkey
          * @property {Array.<Uint8Array>|null} [nodePubkeys] JobPosting nodePubkeys
+         * @property {number|Long|null} [slot] JobPosting slot
          */
     
         /**
@@ -3471,6 +3472,14 @@
         JobPosting.prototype.nodePubkeys = $util.emptyArray;
     
         /**
+         * JobPosting slot.
+         * @member {number|Long} slot
+         * @memberof JobPosting
+         * @instance
+         */
+        JobPosting.prototype.slot = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+    
+        /**
          * Creates a new JobPosting instance using the specified properties.
          * @function create
          * @memberof JobPosting
@@ -3499,6 +3508,8 @@
             if (message.nodePubkeys != null && message.nodePubkeys.length)
                 for (var i = 0; i < message.nodePubkeys.length; ++i)
                     writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.nodePubkeys[i]);
+            if (message.slot != null && Object.hasOwnProperty.call(message, "slot"))
+                writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.slot);
             return writer;
         };
     
@@ -3540,6 +3551,9 @@
                     if (!(message.nodePubkeys && message.nodePubkeys.length))
                         message.nodePubkeys = [];
                     message.nodePubkeys.push(reader.bytes());
+                    break;
+                case 3:
+                    message.slot = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3586,6 +3600,9 @@
                     if (!(message.nodePubkeys[i] && typeof message.nodePubkeys[i].length === "number" || $util.isString(message.nodePubkeys[i])))
                         return "nodePubkeys: buffer[] expected";
             }
+            if (message.slot != null && message.hasOwnProperty("slot"))
+                if (!$util.isInteger(message.slot) && !(message.slot && $util.isInteger(message.slot.low) && $util.isInteger(message.slot.high)))
+                    return "slot: integer|Long expected";
             return null;
         };
     
@@ -3616,6 +3633,15 @@
                     else if (object.nodePubkeys[i].length)
                         message.nodePubkeys[i] = object.nodePubkeys[i];
             }
+            if (object.slot != null)
+                if ($util.Long)
+                    (message.slot = $util.Long.fromValue(object.slot)).unsigned = true;
+                else if (typeof object.slot === "string")
+                    message.slot = parseInt(object.slot, 10);
+                else if (typeof object.slot === "number")
+                    message.slot = object.slot;
+                else if (typeof object.slot === "object")
+                    message.slot = new $util.LongBits(object.slot.low >>> 0, object.slot.high >>> 0).toNumber(true);
             return message;
         };
     
@@ -3634,7 +3660,7 @@
             var object = {};
             if (options.arrays || options.defaults)
                 object.nodePubkeys = [];
-            if (options.defaults)
+            if (options.defaults) {
                 if (options.bytes === String)
                     object.aggregatorStatePubkey = "";
                 else {
@@ -3642,6 +3668,12 @@
                     if (options.bytes !== Array)
                         object.aggregatorStatePubkey = $util.newBuffer(object.aggregatorStatePubkey);
                 }
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.slot = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.slot = options.longs === String ? "0" : 0;
+            }
             if (message.aggregatorStatePubkey != null && message.hasOwnProperty("aggregatorStatePubkey"))
                 object.aggregatorStatePubkey = options.bytes === String ? $util.base64.encode(message.aggregatorStatePubkey, 0, message.aggregatorStatePubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.aggregatorStatePubkey) : message.aggregatorStatePubkey;
             if (message.nodePubkeys && message.nodePubkeys.length) {
@@ -3649,6 +3681,11 @@
                 for (var j = 0; j < message.nodePubkeys.length; ++j)
                     object.nodePubkeys[j] = options.bytes === String ? $util.base64.encode(message.nodePubkeys[j], 0, message.nodePubkeys[j].length) : options.bytes === Array ? Array.prototype.slice.call(message.nodePubkeys[j]) : message.nodePubkeys[j];
             }
+            if (message.slot != null && message.hasOwnProperty("slot"))
+                if (typeof message.slot === "number")
+                    object.slot = options.longs === String ? String(message.slot) : message.slot;
+                else
+                    object.slot = options.longs === String ? $util.Long.prototype.toString.call(message.slot) : options.longs === Number ? new $util.LongBits(message.slot.low >>> 0, message.slot.high >>> 0).toNumber(true) : message.slot;
             return object;
         };
     

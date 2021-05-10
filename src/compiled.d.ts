@@ -1370,6 +1370,9 @@ export interface IJobPosting {
 
     /** JobPosting nodePubkeys */
     nodePubkeys?: (Uint8Array[]|null);
+
+    /** JobPosting slot */
+    slot?: (number|Long|null);
 }
 
 /** Represents a JobPosting. */
@@ -1386,6 +1389,9 @@ export class JobPosting implements IJobPosting {
 
     /** JobPosting nodePubkeys. */
     public nodePubkeys: Uint8Array[];
+
+    /** JobPosting slot. */
+    public slot: (number|Long);
 
     /**
      * Creates a new JobPosting instance using the specified properties.
