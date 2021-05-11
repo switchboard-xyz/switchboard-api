@@ -1,7 +1,6 @@
 import { Connection, PublicKey, Account } from '@solana/web3.js';
 import { OracleJob } from './compiled';
 export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
-export declare const DEFAULT_DEVNET_FULFILLER_PUBKEY: PublicKey;
 /**
  * Permanently sets the account type to an Aggregator account.
  * @param connection Solana network connection object.

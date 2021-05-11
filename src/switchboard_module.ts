@@ -12,8 +12,7 @@ import {
 import { AggregatorState, SwitchboardInstruction, OracleJob,
   SwitchboardAccountType } from './compiled';
 
-export const SWITCHBOARD_DEVNET_PID = new PublicKey("8EFPV8BmgmKKADScHi9gGw6CsgQ7Tg49R2NrkXZ7TtqE");
-export const DEFAULT_DEVNET_FULFILLER_PUBKEY = new PublicKey("HFsndonkaEpxxP2WLPVyDNVT4iGXTH8yHM4X1PaMPGo");
+export const SWITCHBOARD_DEVNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
 
 //  === Data Feed Utilities ===
 
@@ -153,9 +152,12 @@ export async function updateFeed(
   });
 
   let txAccounts = [payerAccount];
-  await performTransaction(connection, new Transaction()
+  await sendAndConfirmTransaction(connection, new Transaction()
     .add(agreementInstruction)
-    .add(updateInstruction), txAccounts);
+    .add(updateInstruction), txAccounts, {
+      commitment: connection.commitment,
+      preflightCommitment: connection.commitment,
+    });
 }
 
 /**
