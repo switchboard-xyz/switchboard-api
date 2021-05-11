@@ -12,7 +12,8 @@ import {
 import { AggregatorState, SwitchboardInstruction, OracleJob,
   SwitchboardAccountType } from './compiled';
 
-export const SWITCHBOARD_DEVNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
+export const SWITCHBOARD_DEVNET_PID = new PublicKey("7azgmy1pFXHikv36q1zZASvFq5vFa39TT9NweVugKKTU");
+export const SWITCHBOARD_TESTNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
 
 //  === Data Feed Utilities ===
 
