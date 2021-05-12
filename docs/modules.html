@@ -142,7 +142,7 @@
 					<div class="tsd-signature tsd-kind-icon">SWITCHBOARD_<wbr>DEVNET_<wbr>PID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PublicKey</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L15">switchboard_module.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L15">switchboard_module.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -152,7 +152,7 @@
 					<div class="tsd-signature tsd-kind-icon">SWITCHBOARD_<wbr>TESTNET_<wbr>PID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PublicKey</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L16">switchboard_module.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L16">switchboard_module.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -169,7 +169,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L53">switchboard_module.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L59">switchboard_module.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,13 +209,13 @@
 					<a name="createdatafeed" class="tsd-anchor"></a>
 					<h3>create<wbr>Data<wbr>Feed</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Data<wbr>Feed<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Connection</span>, payerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, switchboardPid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PublicKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Data<wbr>Feed<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Connection</span>, payerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, switchboardPid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PublicKey</span>, accountSize<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L39">switchboard_module.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L40">switchboard_module.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -243,6 +243,9 @@
 										<p>The Switchboard Program pubkey that will own the account.</p>
 									</div>
 								</li>
+								<li>
+									<h5>accountSize: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 50_000</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Account The new switchboard account that can hold a data feed.</p>
@@ -253,13 +256,13 @@
 					<a name="createfulfillmentmanager" class="tsd-anchor"></a>
 					<h3>create<wbr>Fulfillment<wbr>Manager</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Fulfillment<wbr>Manager<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Connection</span>, payerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, switchboardPid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PublicKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Fulfillment<wbr>Manager<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Connection</span>, payerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, switchboardPid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PublicKey</span>, accountSize<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L230">switchboard_module.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L237">switchboard_module.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -287,6 +290,9 @@
 										<p>The Switchboard Program pubkey.</p>
 									</div>
 								</li>
+								<li>
+									<h5>accountSize: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 50_000</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Account New switchboard account that can hold a fulfillment manager.</p>
@@ -297,13 +303,13 @@
 					<a name="createfulfillmentmanagerauth" class="tsd-anchor"></a>
 					<h3>create<wbr>Fulfillment<wbr>Manager<wbr>Auth</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Fulfillment<wbr>Manager<wbr>Auth<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Connection</span>, payerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, fulfillmentManagerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, nomineePubkey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PublicKey</span>, configs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Fulfillment<wbr>Manager<wbr>Auth<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Connection</span>, payerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, fulfillmentManagerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, nomineePubkey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PublicKey</span>, configs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, accountSize<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L304">switchboard_module.ts:304</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L317">switchboard_module.ts:317</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -345,6 +351,9 @@
 										<code>authorizeUsage</code>: Set to <code>true</code> to let the nominee use the provided Fulfillment manager to fulfill <a href="modules.html#updatefeed"><code>updateFeed</code></a> requests.</p>
 									</div>
 								</li>
+								<li>
+									<h5>accountSize: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 5000</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Account The account holding the new authorization config.</p>
@@ -361,7 +370,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L378">switchboard_module.ts:378</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L393">switchboard_module.ts:393</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -410,7 +419,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L26">switchboard_module.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L26">switchboard_module.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -453,7 +462,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L217">switchboard_module.ts:217</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L223">switchboard_module.ts:223</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -496,7 +505,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L286">switchboard_module.ts:286</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L298">switchboard_module.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -539,7 +548,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L89">switchboard_module.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L95">switchboard_module.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -588,7 +597,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L339">switchboard_module.ts:339</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L354">switchboard_module.ts:354</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -653,7 +662,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L175">switchboard_module.ts:175</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L181">switchboard_module.ts:181</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -706,7 +715,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L247">switchboard_module.ts:247</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L259">switchboard_module.ts:259</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -758,7 +767,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/21d1878/src/switchboard_module.ts#L120">switchboard_module.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/b9a2bae/src/switchboard_module.ts#L126">switchboard_module.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

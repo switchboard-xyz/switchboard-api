@@ -14,9 +14,10 @@ export declare function initDataFeedAccount(connection: Connection, payerAccount
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param switchboardPid The Switchboard Program pubkey that will own the account.
+ * @param accountSize: byte size to allocate for the created account.
  * @returns Account The new switchboard account that can hold a data feed.
  */
-export declare function createDataFeed(connection: Connection, payerAccount: Account, switchboardPid: PublicKey): Promise<Account>;
+export declare function createDataFeed(connection: Connection, payerAccount: Account, switchboardPid: PublicKey, accountSize?: number): Promise<Account>;
 /**
  * Adds a new task list to be performed when the provided data feed is updated.
  * @param connection Solana network connection object.
@@ -67,9 +68,10 @@ export declare function initFulfillmentManagerAccount(connection: Connection, pa
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param switchboardPid The Switchboard Program pubkey.
+ * @param accountSize: byte size to allocate for the created account.
  * @returns Account New switchboard account that can hold a fulfillment manager.
  */
-export declare function createFulfillmentManager(connection: Connection, payerAccount: Account, switchboardPid: PublicKey): Promise<Account>;
+export declare function createFulfillmentManager(connection: Connection, payerAccount: Account, switchboardPid: PublicKey, accountSize?: number): Promise<Account>;
 /**
  * setDataFeedConfigs allows settings changes to an owned data feed account
  * @param connection Solana network connection object.
@@ -97,9 +99,10 @@ export declare function initFulfillmentManagerAuthAccount(connection: Connection
  * @param configs Denotes the settings to initalize the authorization account with.<br>
  *                `authorizeHeartbeat`: Set to `true` to let this account authorize heartbeats from the `nomineePubkey` to the provided {@linkcode FulfillmentManagerState}.<br>
  *                `authorizeUsage`: Set to `true` to let the nominee use the provided Fulfillment manager to fulfill {@linkcode updateFeed} requests.
+ * @param accountSize: byte size to allocate for the created account.
  * @returns Account The account holding the new authorization config.
  */
-export declare function createFulfillmentManagerAuth(connection: Connection, payerAccount: Account, fulfillmentManagerAccount: Account, nomineePubkey: PublicKey, configs: any): Promise<Account>;
+export declare function createFulfillmentManagerAuth(connection: Connection, payerAccount: Account, fulfillmentManagerAccount: Account, nomineePubkey: PublicKey, configs: any, accountSize?: number): Promise<Account>;
 /**
  * Modifies an authorization account for a fulfillment manager. This can be used
  * to disable or enable authorization for an account to interact with a

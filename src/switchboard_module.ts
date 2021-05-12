@@ -34,10 +34,16 @@ export async function initDataFeedAccount(
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param switchboardPid The Switchboard Program pubkey that will own the account.
+ * @param accountSize: byte size to allocate for the created account.
  * @returns Account The new switchboard account that can hold a data feed.
  */
-export async function createDataFeed(connection: Connection, payerAccount: Account, switchboardPid: PublicKey): Promise<Account> {
-  let dataFeedAccount = await createOwnedStateAccount(connection, payerAccount, 50000, switchboardPid);
+export async function createDataFeed(
+  connection: Connection,
+  payerAccount: Account,
+  switchboardPid: PublicKey,
+  accountSize: number = 50_000,
+): Promise<Account> {
+  let dataFeedAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
   await initAccount(connection, payerAccount, dataFeedAccount,
     SwitchboardAccountType.TYPE_AGGREGATOR);
   return dataFeedAccount;
@@ -225,10 +231,16 @@ export async function initFulfillmentManagerAccount(
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param switchboardPid The Switchboard Program pubkey.
+ * @param accountSize: byte size to allocate for the created account.
  * @returns Account New switchboard account that can hold a fulfillment manager.
  */
-export async function createFulfillmentManager(connection: Connection, payerAccount: Account, switchboardPid: PublicKey): Promise<Account> {
-  let fulfillmentManagerAccount = await createOwnedStateAccount(connection, payerAccount, 50000, switchboardPid);
+export async function createFulfillmentManager(
+  connection: Connection,
+  payerAccount: Account,
+  switchboardPid: PublicKey,
+  accountSize: number = 50_000,
+): Promise<Account> {
+  let fulfillmentManagerAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
   await initAccount(connection, payerAccount, fulfillmentManagerAccount,
     SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER);
   return fulfillmentManagerAccount;
@@ -299,6 +311,7 @@ export async function initFulfillmentManagerAuthAccount(
  * @param configs Denotes the settings to initalize the authorization account with.<br>
  *                `authorizeHeartbeat`: Set to `true` to let this account authorize heartbeats from the `nomineePubkey` to the provided {@linkcode FulfillmentManagerState}.<br>
  *                `authorizeUsage`: Set to `true` to let the nominee use the provided Fulfillment manager to fulfill {@linkcode updateFeed} requests.
+ * @param accountSize: byte size to allocate for the created account.
  * @returns Account The account holding the new authorization config.
  */
 export async function createFulfillmentManagerAuth(
@@ -306,12 +319,14 @@ export async function createFulfillmentManagerAuth(
   payerAccount: Account,
   fulfillmentManagerAccount: Account,
   nomineePubkey: PublicKey,
-  configs: any): Promise<Account> {
+  configs: any,
+  accountSize: number = 5000,
+): Promise<Account> {
   let fmAccountInfo = await connection.getAccountInfo(fulfillmentManagerAccount.publicKey);
   if (fmAccountInfo == null) {
     throw new Error("Failed to fetch account info for " + fulfillmentManagerAccount.publicKey.toString());
   }
-  let fulfillmentManagerAuthAccount = await createOwnedStateAccount(connection, payerAccount, 50000, fmAccountInfo.owner);
+  let fulfillmentManagerAuthAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, fmAccountInfo.owner);
   await initFulfillmentManagerAuthAccount(connection, payerAccount, fulfillmentManagerAuthAccount);
   await setAuthConfigs(
     connection,
