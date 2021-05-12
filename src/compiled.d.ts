@@ -1142,102 +1142,6 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a CcxtWsTask. */
-    interface ICcxtWsTask {
-
-        /** CcxtWsTask exchange */
-        exchange?: (string|null);
-
-        /** CcxtWsTask pair */
-        pair?: (string|null);
-    }
-
-    /** Represents a CcxtWsTask. */
-    class CcxtWsTask implements ICcxtWsTask {
-
-        /**
-         * Constructs a new CcxtWsTask.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: OracleJob.ICcxtWsTask);
-
-        /** CcxtWsTask exchange. */
-        public exchange: string;
-
-        /** CcxtWsTask pair. */
-        public pair: string;
-
-        /**
-         * Creates a new CcxtWsTask instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns CcxtWsTask instance
-         */
-        public static create(properties?: OracleJob.ICcxtWsTask): OracleJob.CcxtWsTask;
-
-        /**
-         * Encodes the specified CcxtWsTask message. Does not implicitly {@link OracleJob.CcxtWsTask.verify|verify} messages.
-         * @param message CcxtWsTask message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: OracleJob.ICcxtWsTask, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified CcxtWsTask message, length delimited. Does not implicitly {@link OracleJob.CcxtWsTask.verify|verify} messages.
-         * @param message CcxtWsTask message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: OracleJob.ICcxtWsTask, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a CcxtWsTask message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns CcxtWsTask
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.CcxtWsTask;
-
-        /**
-         * Decodes a CcxtWsTask message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns CcxtWsTask
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.CcxtWsTask;
-
-        /**
-         * Verifies a CcxtWsTask message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a CcxtWsTask message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns CcxtWsTask
-         */
-        public static fromObject(object: { [k: string]: any }): OracleJob.CcxtWsTask;
-
-        /**
-         * Creates a plain object from a CcxtWsTask message. Also converts values to other types if specified.
-         * @param message CcxtWsTask
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: OracleJob.CcxtWsTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this CcxtWsTask to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
     /** Properties of a Task. */
     interface ITask {
 
@@ -1255,9 +1159,6 @@ export namespace OracleJob {
 
         /** Task websocketTask */
         websocketTask?: (OracleJob.IWebsocketTask|null);
-
-        /** Task ccxtWsTask */
-        ccxtWsTask?: (OracleJob.ICcxtWsTask|null);
     }
 
     /** Represents a Task. */
@@ -1284,11 +1185,8 @@ export namespace OracleJob {
         /** Task websocketTask. */
         public websocketTask?: (OracleJob.IWebsocketTask|null);
 
-        /** Task ccxtWsTask. */
-        public ccxtWsTask?: (OracleJob.ICcxtWsTask|null);
-
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"ccxtWsTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask");
 
         /**
          * Creates a new Task instance using the specified properties.
@@ -1475,12 +1373,6 @@ export interface IJobResult {
 
     /** JobResult error */
     error?: (boolean|null);
-
-    /** JobResult slot */
-    slot?: (number|Long|null);
-
-    /** JobResult timestamp */
-    timestamp?: (number|Long|null);
 }
 
 /** Represents a JobResult. */
@@ -1500,12 +1392,6 @@ export class JobResult implements IJobResult {
 
     /** JobResult error. */
     public error: boolean;
-
-    /** JobResult slot. */
-    public slot: (number|Long);
-
-    /** JobResult timestamp. */
-    public timestamp: (number|Long);
 
     /**
      * Creates a new JobResult instance using the specified properties.
