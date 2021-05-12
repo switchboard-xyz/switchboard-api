@@ -55,9 +55,10 @@ export async function createDataFeed(
  * @param payerAccount Transaction funder account.
  * @param dataFeedAccount The account holding the data feed being mutated.
  * @param tasks The {@linkcode OracleJob.Task} list representing the newly created job.
+ * @returns the Account holding the newly created job.
  */
 export async function addFeedJob(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account, jobTasks: OracleJob.Task[]) {
+  connection: Connection, payerAccount: Account, dataFeedAccount: Account, jobTasks: OracleJob.Task[]): Promise<Account> {
   let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
   if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
   let jobAccount = await createOwnedStateAccount(connection, payerAccount, 10_000, dataFeedAccountInfo.owner);
@@ -83,6 +84,7 @@ export async function addFeedJob(
     dataFeedAccount,
     jobAccount
   ]);
+  return jobAccount;
 }
 
 /**

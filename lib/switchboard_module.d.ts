@@ -24,8 +24,9 @@ export declare function createDataFeed(connection: Connection, payerAccount: Acc
  * @param payerAccount Transaction funder account.
  * @param dataFeedAccount The account holding the data feed being mutated.
  * @param tasks The {@linkcode OracleJob.Task} list representing the newly created job.
+ * @returns the Account holding the newly created job.
  */
-export declare function addFeedJob(connection: Connection, payerAccount: Account, dataFeedAccount: Account, jobTasks: OracleJob.Task[]): Promise<void>;
+export declare function addFeedJob(connection: Connection, payerAccount: Account, dataFeedAccount: Account, jobTasks: OracleJob.Task[]): Promise<Account>;
 /**
  * Adds a new task list to be performed when the provided data feed is updated.
  * @param connection Solana network connection object.
