@@ -8,3 +8,8 @@ the Switchboard API.
 ### npm
 
 `npm i @switchboard-xyz/switchboard-api`
+
+## Protcol Buffer Documentation
+
+For full documentation on the generated protocol buffers included in this package,
+please visit: https://switchboard-protodoc.tiiny.site/
