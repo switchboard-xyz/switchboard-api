@@ -61,7 +61,14 @@ export async function addFeedJob(
   connection: Connection, payerAccount: Account, dataFeedAccount: Account, jobTasks: OracleJob.Task[]): Promise<Account> {
   let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
   if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
-  let jobAccount = await createOwnedStateAccount(connection, payerAccount, 10_000, dataFeedAccountInfo.owner);
+  let buffer = Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
+      registerJobInstruction: SwitchboardInstruction.RegisterJobInstruction.create({
+        job: OracleJob.create({
+          tasks: jobTasks
+        })
+      })
+    })).finish());
+  let jobAccount = await createOwnedStateAccount(connection, payerAccount, buffer.length, dataFeedAccountInfo.owner);
 
   let transactionInstruction = new TransactionInstruction({
     keys: [
@@ -70,13 +77,7 @@ export async function addFeedJob(
       { pubkey: SYSVAR_RENT_PUBKEY, isSigner: false, isWritable: false },
     ],
     programId: dataFeedAccountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      registerJobInstruction: SwitchboardInstruction.RegisterJobInstruction.create({
-        job: OracleJob.create({
-          tasks: jobTasks
-        })
-      })
-    })).finish()),
+    data: buffer,
   });
 
   await performTransaction(connection, new Transaction().add(transactionInstruction), [
