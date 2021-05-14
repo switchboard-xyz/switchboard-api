@@ -41,7 +41,7 @@ export async function createDataFeed(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 50_000,
+  accountSize: number = 5_000,
 ): Promise<Account> {
   let dataFeedAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
   await initAccount(connection, payerAccount, dataFeedAccount,
@@ -240,7 +240,7 @@ export async function createFulfillmentManager(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 50_000,
+  accountSize: number = 5_000,
 ): Promise<Account> {
   let fulfillmentManagerAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
   await initAccount(connection, payerAccount, fulfillmentManagerAccount,
