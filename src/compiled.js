@@ -2834,6 +2834,242 @@
             return WebsocketTask;
         })();
     
+        OracleJob.DivideTask = (function() {
+    
+            /**
+             * Properties of a DivideTask.
+             * @memberof OracleJob
+             * @interface IDivideTask
+             * @property {number|null} [scalar] DivideTask scalar
+             * @property {Uint8Array|null} [aggregatorPubkey] DivideTask aggregatorPubkey
+             */
+    
+            /**
+             * Constructs a new DivideTask.
+             * @memberof OracleJob
+             * @classdesc Represents a DivideTask.
+             * @implements IDivideTask
+             * @constructor
+             * @param {OracleJob.IDivideTask=} [properties] Properties to set
+             */
+            function DivideTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * DivideTask scalar.
+             * @member {number} scalar
+             * @memberof OracleJob.DivideTask
+             * @instance
+             */
+            DivideTask.prototype.scalar = 0;
+    
+            /**
+             * DivideTask aggregatorPubkey.
+             * @member {Uint8Array} aggregatorPubkey
+             * @memberof OracleJob.DivideTask
+             * @instance
+             */
+            DivideTask.prototype.aggregatorPubkey = $util.newBuffer([]);
+    
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+    
+            /**
+             * DivideTask Denominator.
+             * @member {"scalar"|"aggregatorPubkey"|undefined} Denominator
+             * @memberof OracleJob.DivideTask
+             * @instance
+             */
+            Object.defineProperty(DivideTask.prototype, "Denominator", {
+                get: $util.oneOfGetter($oneOfFields = ["scalar", "aggregatorPubkey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+    
+            /**
+             * Creates a new DivideTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.DivideTask
+             * @static
+             * @param {OracleJob.IDivideTask=} [properties] Properties to set
+             * @returns {OracleJob.DivideTask} DivideTask instance
+             */
+            DivideTask.create = function create(properties) {
+                return new DivideTask(properties);
+            };
+    
+            /**
+             * Encodes the specified DivideTask message. Does not implicitly {@link OracleJob.DivideTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.DivideTask
+             * @static
+             * @param {OracleJob.IDivideTask} message DivideTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            DivideTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.scalar != null && Object.hasOwnProperty.call(message, "scalar"))
+                    writer.uint32(/* id 1, wireType 1 =*/9).double(message.scalar);
+                if (message.aggregatorPubkey != null && Object.hasOwnProperty.call(message, "aggregatorPubkey"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.aggregatorPubkey);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified DivideTask message, length delimited. Does not implicitly {@link OracleJob.DivideTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.DivideTask
+             * @static
+             * @param {OracleJob.IDivideTask} message DivideTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            DivideTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a DivideTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.DivideTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.DivideTask} DivideTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            DivideTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.DivideTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.scalar = reader.double();
+                        break;
+                    case 2:
+                        message.aggregatorPubkey = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a DivideTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.DivideTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.DivideTask} DivideTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            DivideTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a DivideTask message.
+             * @function verify
+             * @memberof OracleJob.DivideTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            DivideTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.scalar != null && message.hasOwnProperty("scalar")) {
+                    properties.Denominator = 1;
+                    if (typeof message.scalar !== "number")
+                        return "scalar: number expected";
+                }
+                if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey")) {
+                    if (properties.Denominator === 1)
+                        return "Denominator: multiple values";
+                    properties.Denominator = 1;
+                    if (!(message.aggregatorPubkey && typeof message.aggregatorPubkey.length === "number" || $util.isString(message.aggregatorPubkey)))
+                        return "aggregatorPubkey: buffer expected";
+                }
+                return null;
+            };
+    
+            /**
+             * Creates a DivideTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.DivideTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.DivideTask} DivideTask
+             */
+            DivideTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.DivideTask)
+                    return object;
+                var message = new $root.OracleJob.DivideTask();
+                if (object.scalar != null)
+                    message.scalar = Number(object.scalar);
+                if (object.aggregatorPubkey != null)
+                    if (typeof object.aggregatorPubkey === "string")
+                        $util.base64.decode(object.aggregatorPubkey, message.aggregatorPubkey = $util.newBuffer($util.base64.length(object.aggregatorPubkey)), 0);
+                    else if (object.aggregatorPubkey.length)
+                        message.aggregatorPubkey = object.aggregatorPubkey;
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a DivideTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.DivideTask
+             * @static
+             * @param {OracleJob.DivideTask} message DivideTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            DivideTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.scalar != null && message.hasOwnProperty("scalar")) {
+                    object.scalar = options.json && !isFinite(message.scalar) ? String(message.scalar) : message.scalar;
+                    if (options.oneofs)
+                        object.Denominator = "scalar";
+                }
+                if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey")) {
+                    object.aggregatorPubkey = options.bytes === String ? $util.base64.encode(message.aggregatorPubkey, 0, message.aggregatorPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.aggregatorPubkey) : message.aggregatorPubkey;
+                    if (options.oneofs)
+                        object.Denominator = "aggregatorPubkey";
+                }
+                return object;
+            };
+    
+            /**
+             * Converts this DivideTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.DivideTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            DivideTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return DivideTask;
+        })();
+    
         OracleJob.Task = (function() {
     
             /**
@@ -2845,6 +3081,7 @@
              * @property {OracleJob.IMedianTask|null} [medianTask] Task medianTask
              * @property {OracleJob.IMeanTask|null} [meanTask] Task meanTask
              * @property {OracleJob.IWebsocketTask|null} [websocketTask] Task websocketTask
+             * @property {OracleJob.IDivideTask|null} [divideTask] Task divideTask
              */
     
             /**
@@ -2902,17 +3139,25 @@
              */
             Task.prototype.websocketTask = null;
     
+            /**
+             * Task divideTask.
+             * @member {OracleJob.IDivideTask|null|undefined} divideTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.divideTask = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -2950,6 +3195,8 @@
                     $root.OracleJob.MeanTask.encode(message.meanTask, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                 if (message.websocketTask != null && Object.hasOwnProperty.call(message, "websocketTask"))
                     $root.OracleJob.WebsocketTask.encode(message.websocketTask, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                if (message.divideTask != null && Object.hasOwnProperty.call(message, "divideTask"))
+                    $root.OracleJob.DivideTask.encode(message.divideTask, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
                 return writer;
             };
     
@@ -2998,6 +3245,9 @@
                         break;
                     case 6:
                         message.websocketTask = $root.OracleJob.WebsocketTask.decode(reader, reader.uint32());
+                        break;
+                    case 7:
+                        message.divideTask = $root.OracleJob.DivideTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -3083,6 +3333,16 @@
                             return "websocketTask." + error;
                     }
                 }
+                if (message.divideTask != null && message.hasOwnProperty("divideTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.DivideTask.verify(message.divideTask);
+                        if (error)
+                            return "divideTask." + error;
+                    }
+                }
                 return null;
             };
     
@@ -3122,6 +3382,11 @@
                     if (typeof object.websocketTask !== "object")
                         throw TypeError(".OracleJob.Task.websocketTask: object expected");
                     message.websocketTask = $root.OracleJob.WebsocketTask.fromObject(object.websocketTask);
+                }
+                if (object.divideTask != null) {
+                    if (typeof object.divideTask !== "object")
+                        throw TypeError(".OracleJob.Task.divideTask: object expected");
+                    message.divideTask = $root.OracleJob.DivideTask.fromObject(object.divideTask);
                 }
                 return message;
             };
@@ -3163,6 +3428,11 @@
                     object.websocketTask = $root.OracleJob.WebsocketTask.toObject(message.websocketTask, options);
                     if (options.oneofs)
                         object.Task = "websocketTask";
+                }
+                if (message.divideTask != null && message.hasOwnProperty("divideTask")) {
+                    object.divideTask = $root.OracleJob.DivideTask.toObject(message.divideTask, options);
+                    if (options.oneofs)
+                        object.Task = "divideTask";
                 }
                 return object;
             };
