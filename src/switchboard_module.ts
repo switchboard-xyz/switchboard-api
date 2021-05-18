@@ -193,7 +193,7 @@ export async function setDataFeedConfigs(
     { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true }
   ];
   let fmPubkey = null;
-  if (configs["fulfillmentManagerPubkey"].length != 0) {
+  if (configs["fulfillmentManagerPubkey"] !== undefined) {
     fmPubkey = new PublicKey(configs["fulfillmentManagerPubkey"]);
     keys.push(
       { pubkey: fmPubkey, isSigner: false, isWritable: false });
@@ -218,7 +218,7 @@ export async function setDataFeedConfigs(
 //  === Fulfillment Manager Utilities ===
 
 /**
- * Permanently sets the account type to a FulfillmentManagerAuth account. 
+ * Permanently sets the account type to a FulfillmentManager account. 
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param fulfillmentManagerAccount The account for which type will be set.

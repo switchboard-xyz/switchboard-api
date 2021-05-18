@@ -58,7 +58,7 @@ export declare function updateFeed(connection: Connection, payerAccount: Account
  */
 export declare function setDataFeedConfigs(connection: Connection, payerAccount: Account, dataFeedAccount: Account, configs: any): Promise<void>;
 /**
- * Permanently sets the account type to a FulfillmentManagerAuth account.
+ * Permanently sets the account type to a FulfillmentManager account.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param fulfillmentManagerAccount The account for which type will be set.
