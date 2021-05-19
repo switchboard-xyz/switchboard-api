@@ -4991,6 +4991,7 @@
          * @property {SwitchboardInstruction.IHeartbeatInstruction|null} [heartbeatInstruction] SwitchboardInstruction heartbeatInstruction
          * @property {SwitchboardInstruction.IRegisterAuthInstruction|null} [registerAuthInstruction] SwitchboardInstruction registerAuthInstruction
          * @property {SwitchboardInstruction.IReachFulfillerAgreementInstruction|null} [reachFulfillerAgreementInstruction] SwitchboardInstruction reachFulfillerAgreementInstruction
+         * @property {SwitchboardInstruction.IRemoveFulfillerInstruction|null} [removeFulfillerInstruction] SwitchboardInstruction removeFulfillerInstruction
          */
     
         /**
@@ -5096,17 +5097,25 @@
          */
         SwitchboardInstruction.prototype.reachFulfillerAgreementInstruction = null;
     
+        /**
+         * SwitchboardInstruction removeFulfillerInstruction.
+         * @member {SwitchboardInstruction.IRemoveFulfillerInstruction|null|undefined} removeFulfillerInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.removeFulfillerInstruction = null;
+    
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
     
         /**
          * SwitchboardInstruction instruction.
-         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|undefined} instruction
+         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|undefined} instruction
          * @memberof SwitchboardInstruction
          * @instance
          */
         Object.defineProperty(SwitchboardInstruction.prototype, "instruction", {
-            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction"]),
+            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
     
@@ -5156,6 +5165,8 @@
                 $root.SwitchboardInstruction.RegisterAuthInstruction.encode(message.registerAuthInstruction, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
             if (message.reachFulfillerAgreementInstruction != null && Object.hasOwnProperty.call(message, "reachFulfillerAgreementInstruction"))
                 $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.encode(message.reachFulfillerAgreementInstruction, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+            if (message.removeFulfillerInstruction != null && Object.hasOwnProperty.call(message, "removeFulfillerInstruction"))
+                $root.SwitchboardInstruction.RemoveFulfillerInstruction.encode(message.removeFulfillerInstruction, writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
             return writer;
         };
     
@@ -5222,6 +5233,9 @@
                     break;
                 case 11:
                     message.reachFulfillerAgreementInstruction = $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.decode(reader, reader.uint32());
+                    break;
+                case 12:
+                    message.removeFulfillerInstruction = $root.SwitchboardInstruction.RemoveFulfillerInstruction.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5367,6 +5381,16 @@
                         return "reachFulfillerAgreementInstruction." + error;
                 }
             }
+            if (message.removeFulfillerInstruction != null && message.hasOwnProperty("removeFulfillerInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.RemoveFulfillerInstruction.verify(message.removeFulfillerInstruction);
+                    if (error)
+                        return "removeFulfillerInstruction." + error;
+                }
+            }
             return null;
         };
     
@@ -5436,6 +5460,11 @@
                 if (typeof object.reachFulfillerAgreementInstruction !== "object")
                     throw TypeError(".SwitchboardInstruction.reachFulfillerAgreementInstruction: object expected");
                 message.reachFulfillerAgreementInstruction = $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.fromObject(object.reachFulfillerAgreementInstruction);
+            }
+            if (object.removeFulfillerInstruction != null) {
+                if (typeof object.removeFulfillerInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.removeFulfillerInstruction: object expected");
+                message.removeFulfillerInstruction = $root.SwitchboardInstruction.RemoveFulfillerInstruction.fromObject(object.removeFulfillerInstruction);
             }
             return message;
         };
@@ -5507,6 +5536,11 @@
                 object.reachFulfillerAgreementInstruction = $root.SwitchboardInstruction.ReachFulfillerAgreementInstruction.toObject(message.reachFulfillerAgreementInstruction, options);
                 if (options.oneofs)
                     object.instruction = "reachFulfillerAgreementInstruction";
+            }
+            if (message.removeFulfillerInstruction != null && message.hasOwnProperty("removeFulfillerInstruction")) {
+                object.removeFulfillerInstruction = $root.SwitchboardInstruction.RemoveFulfillerInstruction.toObject(message.removeFulfillerInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "removeFulfillerInstruction";
             }
             return object;
         };
@@ -6963,6 +6997,7 @@
              * @property {number|null} [nodeIdx] SaveResultInstruction nodeIdx
              * @property {number|null} [result] SaveResultInstruction result
              * @property {boolean|null} [error] SaveResultInstruction error
+             * @property {number|Long|null} [roundSlot] SaveResultInstruction roundSlot
              */
     
             /**
@@ -7005,6 +7040,14 @@
             SaveResultInstruction.prototype.error = false;
     
             /**
+             * SaveResultInstruction roundSlot.
+             * @member {number|Long} roundSlot
+             * @memberof SwitchboardInstruction.SaveResultInstruction
+             * @instance
+             */
+            SaveResultInstruction.prototype.roundSlot = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+    
+            /**
              * Creates a new SaveResultInstruction instance using the specified properties.
              * @function create
              * @memberof SwitchboardInstruction.SaveResultInstruction
@@ -7034,6 +7077,8 @@
                     writer.uint32(/* id 4, wireType 1 =*/33).double(message.result);
                 if (message.error != null && Object.hasOwnProperty.call(message, "error"))
                     writer.uint32(/* id 5, wireType 0 =*/40).bool(message.error);
+                if (message.roundSlot != null && Object.hasOwnProperty.call(message, "roundSlot"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).uint64(message.roundSlot);
                 return writer;
             };
     
@@ -7076,6 +7121,9 @@
                         break;
                     case 5:
                         message.error = reader.bool();
+                        break;
+                    case 6:
+                        message.roundSlot = reader.uint64();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -7121,6 +7169,9 @@
                 if (message.error != null && message.hasOwnProperty("error"))
                     if (typeof message.error !== "boolean")
                         return "error: boolean expected";
+                if (message.roundSlot != null && message.hasOwnProperty("roundSlot"))
+                    if (!$util.isInteger(message.roundSlot) && !(message.roundSlot && $util.isInteger(message.roundSlot.low) && $util.isInteger(message.roundSlot.high)))
+                        return "roundSlot: integer|Long expected";
                 return null;
             };
     
@@ -7142,6 +7193,15 @@
                     message.result = Number(object.result);
                 if (object.error != null)
                     message.error = Boolean(object.error);
+                if (object.roundSlot != null)
+                    if ($util.Long)
+                        (message.roundSlot = $util.Long.fromValue(object.roundSlot)).unsigned = true;
+                    else if (typeof object.roundSlot === "string")
+                        message.roundSlot = parseInt(object.roundSlot, 10);
+                    else if (typeof object.roundSlot === "number")
+                        message.roundSlot = object.roundSlot;
+                    else if (typeof object.roundSlot === "object")
+                        message.roundSlot = new $util.LongBits(object.roundSlot.low >>> 0, object.roundSlot.high >>> 0).toNumber(true);
                 return message;
             };
     
@@ -7162,6 +7222,11 @@
                     object.nodeIdx = 0;
                     object.result = 0;
                     object.error = false;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, true);
+                        object.roundSlot = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.roundSlot = options.longs === String ? "0" : 0;
                 }
                 if (message.nodeIdx != null && message.hasOwnProperty("nodeIdx"))
                     object.nodeIdx = message.nodeIdx;
@@ -7169,6 +7234,11 @@
                     object.result = options.json && !isFinite(message.result) ? String(message.result) : message.result;
                 if (message.error != null && message.hasOwnProperty("error"))
                     object.error = message.error;
+                if (message.roundSlot != null && message.hasOwnProperty("roundSlot"))
+                    if (typeof message.roundSlot === "number")
+                        object.roundSlot = options.longs === String ? String(message.roundSlot) : message.roundSlot;
+                    else
+                        object.roundSlot = options.longs === String ? $util.Long.prototype.toString.call(message.roundSlot) : options.longs === Number ? new $util.LongBits(message.roundSlot.low >>> 0, message.roundSlot.high >>> 0).toNumber(true) : message.roundSlot;
                 return object;
             };
     
@@ -7792,6 +7862,166 @@
             };
     
             return ReachFulfillerAgreementInstruction;
+        })();
+    
+        SwitchboardInstruction.RemoveFulfillerInstruction = (function() {
+    
+            /**
+             * Properties of a RemoveFulfillerInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface IRemoveFulfillerInstruction
+             */
+    
+            /**
+             * Constructs a new RemoveFulfillerInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a RemoveFulfillerInstruction.
+             * @implements IRemoveFulfillerInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.IRemoveFulfillerInstruction=} [properties] Properties to set
+             */
+            function RemoveFulfillerInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Creates a new RemoveFulfillerInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRemoveFulfillerInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.RemoveFulfillerInstruction} RemoveFulfillerInstruction instance
+             */
+            RemoveFulfillerInstruction.create = function create(properties) {
+                return new RemoveFulfillerInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified RemoveFulfillerInstruction message. Does not implicitly {@link SwitchboardInstruction.RemoveFulfillerInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRemoveFulfillerInstruction} message RemoveFulfillerInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RemoveFulfillerInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified RemoveFulfillerInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RemoveFulfillerInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRemoveFulfillerInstruction} message RemoveFulfillerInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RemoveFulfillerInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a RemoveFulfillerInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.RemoveFulfillerInstruction} RemoveFulfillerInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RemoveFulfillerInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.RemoveFulfillerInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a RemoveFulfillerInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.RemoveFulfillerInstruction} RemoveFulfillerInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RemoveFulfillerInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a RemoveFulfillerInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RemoveFulfillerInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+    
+            /**
+             * Creates a RemoveFulfillerInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.RemoveFulfillerInstruction} RemoveFulfillerInstruction
+             */
+            RemoveFulfillerInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.RemoveFulfillerInstruction)
+                    return object;
+                return new $root.SwitchboardInstruction.RemoveFulfillerInstruction();
+            };
+    
+            /**
+             * Creates a plain object from a RemoveFulfillerInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @static
+             * @param {SwitchboardInstruction.RemoveFulfillerInstruction} message RemoveFulfillerInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RemoveFulfillerInstruction.toObject = function toObject() {
+                return {};
+            };
+    
+            /**
+             * Converts this RemoveFulfillerInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.RemoveFulfillerInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RemoveFulfillerInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return RemoveFulfillerInstruction;
         })();
     
         return SwitchboardInstruction;

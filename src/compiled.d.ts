@@ -2021,6 +2021,9 @@ export interface ISwitchboardInstruction {
 
     /** SwitchboardInstruction reachFulfillerAgreementInstruction */
     reachFulfillerAgreementInstruction?: (SwitchboardInstruction.IReachFulfillerAgreementInstruction|null);
+
+    /** SwitchboardInstruction removeFulfillerInstruction */
+    removeFulfillerInstruction?: (SwitchboardInstruction.IRemoveFulfillerInstruction|null);
 }
 
 /** Represents a SwitchboardInstruction. */
@@ -2065,8 +2068,11 @@ export class SwitchboardInstruction implements ISwitchboardInstruction {
     /** SwitchboardInstruction reachFulfillerAgreementInstruction. */
     public reachFulfillerAgreementInstruction?: (SwitchboardInstruction.IReachFulfillerAgreementInstruction|null);
 
+    /** SwitchboardInstruction removeFulfillerInstruction. */
+    public removeFulfillerInstruction?: (SwitchboardInstruction.IRemoveFulfillerInstruction|null);
+
     /** SwitchboardInstruction instruction. */
-    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction");
+    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction");
 
     /**
      * Creates a new SwitchboardInstruction instance using the specified properties.
@@ -2800,6 +2806,9 @@ export namespace SwitchboardInstruction {
 
         /** SaveResultInstruction error */
         error?: (boolean|null);
+
+        /** SaveResultInstruction roundSlot */
+        roundSlot?: (number|Long|null);
     }
 
     /** Represents a SaveResultInstruction. */
@@ -2819,6 +2828,9 @@ export namespace SwitchboardInstruction {
 
         /** SaveResultInstruction error. */
         public error: boolean;
+
+        /** SaveResultInstruction roundSlot. */
+        public roundSlot: (number|Long);
 
         /**
          * Creates a new SaveResultInstruction instance using the specified properties.
@@ -3162,6 +3174,90 @@ export namespace SwitchboardInstruction {
 
         /**
          * Converts this ReachFulfillerAgreementInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a RemoveFulfillerInstruction. */
+    interface IRemoveFulfillerInstruction {
+    }
+
+    /** Represents a RemoveFulfillerInstruction. */
+    class RemoveFulfillerInstruction implements IRemoveFulfillerInstruction {
+
+        /**
+         * Constructs a new RemoveFulfillerInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IRemoveFulfillerInstruction);
+
+        /**
+         * Creates a new RemoveFulfillerInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RemoveFulfillerInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IRemoveFulfillerInstruction): SwitchboardInstruction.RemoveFulfillerInstruction;
+
+        /**
+         * Encodes the specified RemoveFulfillerInstruction message. Does not implicitly {@link SwitchboardInstruction.RemoveFulfillerInstruction.verify|verify} messages.
+         * @param message RemoveFulfillerInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IRemoveFulfillerInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified RemoveFulfillerInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RemoveFulfillerInstruction.verify|verify} messages.
+         * @param message RemoveFulfillerInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IRemoveFulfillerInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a RemoveFulfillerInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RemoveFulfillerInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.RemoveFulfillerInstruction;
+
+        /**
+         * Decodes a RemoveFulfillerInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RemoveFulfillerInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.RemoveFulfillerInstruction;
+
+        /**
+         * Verifies a RemoveFulfillerInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a RemoveFulfillerInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns RemoveFulfillerInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.RemoveFulfillerInstruction;
+
+        /**
+         * Creates a plain object from a RemoveFulfillerInstruction message. Also converts values to other types if specified.
+         * @param message RemoveFulfillerInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.RemoveFulfillerInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this RemoveFulfillerInstruction to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
