@@ -1149,7 +1149,7 @@ export namespace OracleJob {
         scalar?: (number|null);
 
         /** DivideTask aggregatorPubkey */
-        aggregatorPubkey?: (Uint8Array|null);
+        aggregatorPubkey?: (string|null);
     }
 
     /** Represents a DivideTask. */
@@ -1165,7 +1165,7 @@ export namespace OracleJob {
         public scalar: number;
 
         /** DivideTask aggregatorPubkey. */
-        public aggregatorPubkey: Uint8Array;
+        public aggregatorPubkey: string;
 
         /** DivideTask Denominator. */
         public Denominator?: ("scalar"|"aggregatorPubkey");

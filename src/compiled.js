@@ -2841,7 +2841,7 @@
              * @memberof OracleJob
              * @interface IDivideTask
              * @property {number|null} [scalar] DivideTask scalar
-             * @property {Uint8Array|null} [aggregatorPubkey] DivideTask aggregatorPubkey
+             * @property {string|null} [aggregatorPubkey] DivideTask aggregatorPubkey
              */
     
             /**
@@ -2869,11 +2869,11 @@
     
             /**
              * DivideTask aggregatorPubkey.
-             * @member {Uint8Array} aggregatorPubkey
+             * @member {string} aggregatorPubkey
              * @memberof OracleJob.DivideTask
              * @instance
              */
-            DivideTask.prototype.aggregatorPubkey = $util.newBuffer([]);
+            DivideTask.prototype.aggregatorPubkey = "";
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -2916,7 +2916,7 @@
                 if (message.scalar != null && Object.hasOwnProperty.call(message, "scalar"))
                     writer.uint32(/* id 1, wireType 1 =*/9).double(message.scalar);
                 if (message.aggregatorPubkey != null && Object.hasOwnProperty.call(message, "aggregatorPubkey"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.aggregatorPubkey);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.aggregatorPubkey);
                 return writer;
             };
     
@@ -2955,7 +2955,7 @@
                         message.scalar = reader.double();
                         break;
                     case 2:
-                        message.aggregatorPubkey = reader.bytes();
+                        message.aggregatorPubkey = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -3002,8 +3002,8 @@
                     if (properties.Denominator === 1)
                         return "Denominator: multiple values";
                     properties.Denominator = 1;
-                    if (!(message.aggregatorPubkey && typeof message.aggregatorPubkey.length === "number" || $util.isString(message.aggregatorPubkey)))
-                        return "aggregatorPubkey: buffer expected";
+                    if (!$util.isString(message.aggregatorPubkey))
+                        return "aggregatorPubkey: string expected";
                 }
                 return null;
             };
@@ -3023,10 +3023,7 @@
                 if (object.scalar != null)
                     message.scalar = Number(object.scalar);
                 if (object.aggregatorPubkey != null)
-                    if (typeof object.aggregatorPubkey === "string")
-                        $util.base64.decode(object.aggregatorPubkey, message.aggregatorPubkey = $util.newBuffer($util.base64.length(object.aggregatorPubkey)), 0);
-                    else if (object.aggregatorPubkey.length)
-                        message.aggregatorPubkey = object.aggregatorPubkey;
+                    message.aggregatorPubkey = String(object.aggregatorPubkey);
                 return message;
             };
     
@@ -3049,7 +3046,7 @@
                         object.Denominator = "scalar";
                 }
                 if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey")) {
-                    object.aggregatorPubkey = options.bytes === String ? $util.base64.encode(message.aggregatorPubkey, 0, message.aggregatorPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.aggregatorPubkey) : message.aggregatorPubkey;
+                    object.aggregatorPubkey = message.aggregatorPubkey;
                     if (options.oneofs)
                         object.Denominator = "aggregatorPubkey";
                 }
