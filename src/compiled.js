@@ -3067,6 +3067,239 @@
             return DivideTask;
         })();
     
+        OracleJob.MultiplyTask = (function() {
+    
+            /**
+             * Properties of a MultiplyTask.
+             * @memberof OracleJob
+             * @interface IMultiplyTask
+             * @property {number|null} [scalar] MultiplyTask scalar
+             * @property {string|null} [aggregatorPubkey] MultiplyTask aggregatorPubkey
+             */
+    
+            /**
+             * Constructs a new MultiplyTask.
+             * @memberof OracleJob
+             * @classdesc Represents a MultiplyTask.
+             * @implements IMultiplyTask
+             * @constructor
+             * @param {OracleJob.IMultiplyTask=} [properties] Properties to set
+             */
+            function MultiplyTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * MultiplyTask scalar.
+             * @member {number} scalar
+             * @memberof OracleJob.MultiplyTask
+             * @instance
+             */
+            MultiplyTask.prototype.scalar = 0;
+    
+            /**
+             * MultiplyTask aggregatorPubkey.
+             * @member {string} aggregatorPubkey
+             * @memberof OracleJob.MultiplyTask
+             * @instance
+             */
+            MultiplyTask.prototype.aggregatorPubkey = "";
+    
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+    
+            /**
+             * MultiplyTask Multiple.
+             * @member {"scalar"|"aggregatorPubkey"|undefined} Multiple
+             * @memberof OracleJob.MultiplyTask
+             * @instance
+             */
+            Object.defineProperty(MultiplyTask.prototype, "Multiple", {
+                get: $util.oneOfGetter($oneOfFields = ["scalar", "aggregatorPubkey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+    
+            /**
+             * Creates a new MultiplyTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.MultiplyTask
+             * @static
+             * @param {OracleJob.IMultiplyTask=} [properties] Properties to set
+             * @returns {OracleJob.MultiplyTask} MultiplyTask instance
+             */
+            MultiplyTask.create = function create(properties) {
+                return new MultiplyTask(properties);
+            };
+    
+            /**
+             * Encodes the specified MultiplyTask message. Does not implicitly {@link OracleJob.MultiplyTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.MultiplyTask
+             * @static
+             * @param {OracleJob.IMultiplyTask} message MultiplyTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MultiplyTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.scalar != null && Object.hasOwnProperty.call(message, "scalar"))
+                    writer.uint32(/* id 1, wireType 1 =*/9).double(message.scalar);
+                if (message.aggregatorPubkey != null && Object.hasOwnProperty.call(message, "aggregatorPubkey"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.aggregatorPubkey);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified MultiplyTask message, length delimited. Does not implicitly {@link OracleJob.MultiplyTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.MultiplyTask
+             * @static
+             * @param {OracleJob.IMultiplyTask} message MultiplyTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MultiplyTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a MultiplyTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.MultiplyTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.MultiplyTask} MultiplyTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MultiplyTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.MultiplyTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.scalar = reader.double();
+                        break;
+                    case 2:
+                        message.aggregatorPubkey = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a MultiplyTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.MultiplyTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.MultiplyTask} MultiplyTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MultiplyTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a MultiplyTask message.
+             * @function verify
+             * @memberof OracleJob.MultiplyTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MultiplyTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.scalar != null && message.hasOwnProperty("scalar")) {
+                    properties.Multiple = 1;
+                    if (typeof message.scalar !== "number")
+                        return "scalar: number expected";
+                }
+                if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey")) {
+                    if (properties.Multiple === 1)
+                        return "Multiple: multiple values";
+                    properties.Multiple = 1;
+                    if (!$util.isString(message.aggregatorPubkey))
+                        return "aggregatorPubkey: string expected";
+                }
+                return null;
+            };
+    
+            /**
+             * Creates a MultiplyTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.MultiplyTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.MultiplyTask} MultiplyTask
+             */
+            MultiplyTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.MultiplyTask)
+                    return object;
+                var message = new $root.OracleJob.MultiplyTask();
+                if (object.scalar != null)
+                    message.scalar = Number(object.scalar);
+                if (object.aggregatorPubkey != null)
+                    message.aggregatorPubkey = String(object.aggregatorPubkey);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a MultiplyTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.MultiplyTask
+             * @static
+             * @param {OracleJob.MultiplyTask} message MultiplyTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MultiplyTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.scalar != null && message.hasOwnProperty("scalar")) {
+                    object.scalar = options.json && !isFinite(message.scalar) ? String(message.scalar) : message.scalar;
+                    if (options.oneofs)
+                        object.Multiple = "scalar";
+                }
+                if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey")) {
+                    object.aggregatorPubkey = message.aggregatorPubkey;
+                    if (options.oneofs)
+                        object.Multiple = "aggregatorPubkey";
+                }
+                return object;
+            };
+    
+            /**
+             * Converts this MultiplyTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.MultiplyTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MultiplyTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return MultiplyTask;
+        })();
+    
         OracleJob.Task = (function() {
     
             /**
@@ -3079,6 +3312,7 @@
              * @property {OracleJob.IMeanTask|null} [meanTask] Task meanTask
              * @property {OracleJob.IWebsocketTask|null} [websocketTask] Task websocketTask
              * @property {OracleJob.IDivideTask|null} [divideTask] Task divideTask
+             * @property {OracleJob.IMultiplyTask|null} [multiplyTask] Task multiplyTask
              */
     
             /**
@@ -3144,17 +3378,25 @@
              */
             Task.prototype.divideTask = null;
     
+            /**
+             * Task multiplyTask.
+             * @member {OracleJob.IMultiplyTask|null|undefined} multiplyTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.multiplyTask = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -3194,6 +3436,8 @@
                     $root.OracleJob.WebsocketTask.encode(message.websocketTask, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
                 if (message.divideTask != null && Object.hasOwnProperty.call(message, "divideTask"))
                     $root.OracleJob.DivideTask.encode(message.divideTask, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                if (message.multiplyTask != null && Object.hasOwnProperty.call(message, "multiplyTask"))
+                    $root.OracleJob.MultiplyTask.encode(message.multiplyTask, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                 return writer;
             };
     
@@ -3245,6 +3489,9 @@
                         break;
                     case 7:
                         message.divideTask = $root.OracleJob.DivideTask.decode(reader, reader.uint32());
+                        break;
+                    case 8:
+                        message.multiplyTask = $root.OracleJob.MultiplyTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -3340,6 +3587,16 @@
                             return "divideTask." + error;
                     }
                 }
+                if (message.multiplyTask != null && message.hasOwnProperty("multiplyTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.MultiplyTask.verify(message.multiplyTask);
+                        if (error)
+                            return "multiplyTask." + error;
+                    }
+                }
                 return null;
             };
     
@@ -3384,6 +3641,11 @@
                     if (typeof object.divideTask !== "object")
                         throw TypeError(".OracleJob.Task.divideTask: object expected");
                     message.divideTask = $root.OracleJob.DivideTask.fromObject(object.divideTask);
+                }
+                if (object.multiplyTask != null) {
+                    if (typeof object.multiplyTask !== "object")
+                        throw TypeError(".OracleJob.Task.multiplyTask: object expected");
+                    message.multiplyTask = $root.OracleJob.MultiplyTask.fromObject(object.multiplyTask);
                 }
                 return message;
             };
@@ -3430,6 +3692,11 @@
                     object.divideTask = $root.OracleJob.DivideTask.toObject(message.divideTask, options);
                     if (options.oneofs)
                         object.Task = "divideTask";
+                }
+                if (message.multiplyTask != null && message.hasOwnProperty("multiplyTask")) {
+                    object.multiplyTask = $root.OracleJob.MultiplyTask.toObject(message.multiplyTask, options);
+                    if (options.oneofs)
+                        object.Task = "multiplyTask";
                 }
                 return object;
             };
