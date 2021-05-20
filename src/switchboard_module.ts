@@ -15,6 +15,30 @@ import { AggregatorState, SwitchboardInstruction, OracleJob,
 export const SWITCHBOARD_DEVNET_PID = new PublicKey("7azgmy1pFXHikv36q1zZASvFq5vFa39TT9NweVugKKTU");
 export const SWITCHBOARD_TESTNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
 
+export async function publishSwitchboardAccount(
+  connection: Connection,
+  account: Account,
+  payerAccount: Account,
+  switchboardPid: PublicKey,
+  type: SwitchboardAccountType,
+  accountSize: number = 5_000,
+): Promise<Account> {
+  const space = accountSize;
+  const lamports = await connection.getMinimumBalanceForRentExemption(space);
+  const transaction = new Transaction().add(
+    SystemProgram.createAccount({
+      fromPubkey: payerAccount.publicKey,
+      newAccountPubkey: account.publicKey,
+      lamports,
+      space,
+      programId: switchboardPid,
+    })
+  );
+  await performTransaction(connection, transaction, [payerAccount, account]);
+  await initAccount(connection, payerAccount, account, type);
+  return account;
+}
+
 //  === Data Feed Utilities ===
 
 /**
