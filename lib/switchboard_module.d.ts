@@ -2,6 +2,16 @@ import { Connection, PublicKey, Account } from '@solana/web3.js';
 import { OracleJob, SwitchboardAccountType } from './compiled';
 export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
 export declare const SWITCHBOARD_TESTNET_PID: PublicKey;
+export declare const SWITCHBOARD_MAINNET_PID: PublicKey;
+/**
+ * Publishes a premade account on chain, initialized as the provided account type.
+ * @param connection Solana network connection object.
+ * @param account The account which will be published and type will be set.
+ * @param payerAccount Transaction funder account.
+ * @param switchboardPid Switchboard program ID.
+ * @param type The type to set the account to.
+ * @param accountSize The size to initialize the account to.
+ */
 export declare function publishSwitchboardAccount(connection: Connection, account: Account, payerAccount: Account, switchboardPid: PublicKey, type: SwitchboardAccountType, accountSize?: number): Promise<Account>;
 /**
  * Permanently sets the account type to an Aggregator account.

@@ -14,7 +14,17 @@ import { AggregatorState, SwitchboardInstruction, OracleJob,
 
 export const SWITCHBOARD_DEVNET_PID = new PublicKey("7azgmy1pFXHikv36q1zZASvFq5vFa39TT9NweVugKKTU");
 export const SWITCHBOARD_TESTNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
+export const SWITCHBOARD_MAINNET_PID = new PublicKey("DtmE9D2CSB4L5D6A15mraeEjrGMm6auWVzgaD8hK2tZM");
 
+/**
+ * Publishes a premade account on chain, initialized as the provided account type. 
+ * @param connection Solana network connection object.
+ * @param account The account which will be published and type will be set.
+ * @param payerAccount Transaction funder account.
+ * @param switchboardPid Switchboard program ID.
+ * @param type The type to set the account to.
+ * @param accountSize The size to initialize the account to.
+ */
 export async function publishSwitchboardAccount(
   connection: Connection,
   account: Account,
