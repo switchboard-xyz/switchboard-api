@@ -1,4 +1,4 @@
-import { Connection, PublicKey, Account } from '@solana/web3.js';
+import { Account, Connection, PublicKey, TransactionSignature } from '@solana/web3.js';
 import { OracleJob, SwitchboardAccountType } from './compiled';
 export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
 export declare const SWITCHBOARD_TESTNET_PID: PublicKey;
@@ -54,8 +54,9 @@ export declare function removeFeedJob(connection: Connection, payerAccount: Acco
  * @param dataFeedPubkey The public key of the data feed being updated.
  * @param authKey The public key of the authorization account allowing this data feed to use the linked fulfillment manager.
  * @throws Error If authorization fails or if the data feed is not allowed to be updated at the time of calling.
+ * @returns TransactionSignature of the update transaction.
  */
-export declare function updateFeed(connection: Connection, payerAccount: Account, dataFeedPubkey: PublicKey, authKey?: PublicKey): Promise<void>;
+export declare function updateFeed(connection: Connection, payerAccount: Account, dataFeedPubkey: PublicKey, authKey?: PublicKey): Promise<TransactionSignature>;
 /**
  * setDataFeedConfigs allows settings changes to an owned data feed account
  * @param connection Solana network connection object.

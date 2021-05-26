@@ -1,13 +1,14 @@
 import {
+  Account,
   Connection,
   PublicKey,
-  Transaction,
-  TransactionInstruction,
-  Account,
-  sendAndConfirmTransaction,
-  SystemProgram,
   SYSVAR_CLOCK_PUBKEY,
   SYSVAR_RENT_PUBKEY,
+  SystemProgram,
+  Transaction,
+  TransactionInstruction,
+  TransactionSignature,
+  sendAndConfirmTransaction,
 } from '@solana/web3.js';
 import { AggregatorState, SwitchboardInstruction, OracleJob,
   SwitchboardAccountType } from './compiled';
@@ -159,12 +160,13 @@ export async function removeFeedJob(
  * @param dataFeedPubkey The public key of the data feed being updated.
  * @param authKey The public key of the authorization account allowing this data feed to use the linked fulfillment manager.
  * @throws Error If authorization fails or if the data feed is not allowed to be updated at the time of calling.
+ * @returns TransactionSignature of the update transaction.
  */
 export async function updateFeed(
   connection: Connection,
   payerAccount: Account,
   dataFeedPubkey: PublicKey,
-  authKey?: PublicKey) {
+  authKey?: PublicKey): Promise<TransactionSignature> {
   let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedPubkey);
   if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
   let aggregator = AggregatorState.decodeDelimited(dataFeedAccountInfo.data.slice(1));
@@ -196,7 +198,7 @@ export async function updateFeed(
   });
 
   let txAccounts = [payerAccount];
-  await sendAndConfirmTransaction(connection, new Transaction()
+  return sendAndConfirmTransaction(connection, new Transaction()
     .add(agreementInstruction)
     .add(updateInstruction), txAccounts, {
       commitment: connection.commitment,
