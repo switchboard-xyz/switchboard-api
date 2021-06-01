@@ -1012,6 +1012,7 @@
              * @property {boolean|null} [locked] Configs locked
              * @property {number|null} [minConfirmations] Configs minConfirmations
              * @property {number|Long|null} [minUpdateDelaySeconds] Configs minUpdateDelaySeconds
+             * @property {string|null} [schedule] Configs schedule
              */
     
             /**
@@ -1054,6 +1055,14 @@
             Configs.prototype.minUpdateDelaySeconds = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
     
             /**
+             * Configs schedule.
+             * @member {string} schedule
+             * @memberof AggregatorState.Configs
+             * @instance
+             */
+            Configs.prototype.schedule = "";
+    
+            /**
              * Creates a new Configs instance using the specified properties.
              * @function create
              * @memberof AggregatorState.Configs
@@ -1083,6 +1092,8 @@
                     writer.uint32(/* id 2, wireType 0 =*/16).int32(message.minConfirmations);
                 if (message.minUpdateDelaySeconds != null && Object.hasOwnProperty.call(message, "minUpdateDelaySeconds"))
                     writer.uint32(/* id 3, wireType 0 =*/24).int64(message.minUpdateDelaySeconds);
+                if (message.schedule != null && Object.hasOwnProperty.call(message, "schedule"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.schedule);
                 return writer;
             };
     
@@ -1125,6 +1136,9 @@
                         break;
                     case 3:
                         message.minUpdateDelaySeconds = reader.int64();
+                        break;
+                    case 5:
+                        message.schedule = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -1170,6 +1184,9 @@
                 if (message.minUpdateDelaySeconds != null && message.hasOwnProperty("minUpdateDelaySeconds"))
                     if (!$util.isInteger(message.minUpdateDelaySeconds) && !(message.minUpdateDelaySeconds && $util.isInteger(message.minUpdateDelaySeconds.low) && $util.isInteger(message.minUpdateDelaySeconds.high)))
                         return "minUpdateDelaySeconds: integer|Long expected";
+                if (message.schedule != null && message.hasOwnProperty("schedule"))
+                    if (!$util.isString(message.schedule))
+                        return "schedule: string expected";
                 return null;
             };
     
@@ -1198,6 +1215,8 @@
                         message.minUpdateDelaySeconds = object.minUpdateDelaySeconds;
                     else if (typeof object.minUpdateDelaySeconds === "object")
                         message.minUpdateDelaySeconds = new $util.LongBits(object.minUpdateDelaySeconds.low >>> 0, object.minUpdateDelaySeconds.high >>> 0).toNumber();
+                if (object.schedule != null)
+                    message.schedule = String(object.schedule);
                 return message;
             };
     
@@ -1222,6 +1241,7 @@
                         object.minUpdateDelaySeconds = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                     } else
                         object.minUpdateDelaySeconds = options.longs === String ? "0" : 0;
+                    object.schedule = "";
                 }
                 if (message.locked != null && message.hasOwnProperty("locked"))
                     object.locked = message.locked;
@@ -1232,6 +1252,8 @@
                         object.minUpdateDelaySeconds = options.longs === String ? String(message.minUpdateDelaySeconds) : message.minUpdateDelaySeconds;
                     else
                         object.minUpdateDelaySeconds = options.longs === String ? $util.Long.prototype.toString.call(message.minUpdateDelaySeconds) : options.longs === Number ? new $util.LongBits(message.minUpdateDelaySeconds.low >>> 0, message.minUpdateDelaySeconds.high >>> 0).toNumber() : message.minUpdateDelaySeconds;
+                if (message.schedule != null && message.hasOwnProperty("schedule"))
+                    object.schedule = message.schedule;
                 return object;
             };
     

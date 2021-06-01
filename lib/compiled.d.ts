@@ -366,6 +366,9 @@ export namespace AggregatorState {
 
         /** Configs minUpdateDelaySeconds */
         minUpdateDelaySeconds?: (number|Long|null);
+
+        /** Configs schedule */
+        schedule?: (string|null);
     }
 
     /** Represents a Configs. */
@@ -385,6 +388,9 @@ export namespace AggregatorState {
 
         /** Configs minUpdateDelaySeconds. */
         public minUpdateDelaySeconds: (number|Long);
+
+        /** Configs schedule. */
+        public schedule: string;
 
         /**
          * Creates a new Configs instance using the specified properties.
