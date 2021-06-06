@@ -1,8 +1,29 @@
 import { Account, Connection, PublicKey, TransactionSignature } from '@solana/web3.js';
-import { OracleJob, SwitchboardAccountType } from './compiled';
+import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType } from './compiled';
 export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
 export declare const SWITCHBOARD_TESTNET_PID: PublicKey;
 export declare const SWITCHBOARD_MAINNET_PID: PublicKey;
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the aggregator account to parse.
+ * @return AggregatorState
+ */
+export declare function parseAggregatorAccountData(connection: Connection, address: PublicKey): Promise<AggregatorState>;
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the Fulfillment Manager account to parse.
+ * @return FulfillmentManagerState
+ */
+export declare function parseFulfillmentAccountData(connection: Connection, address: PublicKey): Promise<FulfillmentManagerState>;
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the Oracle Job account to parse.
+ * @return OracleJob
+ */
+export declare function parseOracleJobAccountData(connection: Connection, address: PublicKey): Promise<OracleJob>;
 /**
  * Publishes a premade account on chain, initialized as the provided account type.
  * @param connection Solana network connection object.

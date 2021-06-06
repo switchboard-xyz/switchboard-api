@@ -11,11 +11,74 @@ import {
   sendAndConfirmTransaction,
 } from '@solana/web3.js';
 import { AggregatorState, SwitchboardInstruction, OracleJob,
-  SwitchboardAccountType } from './compiled';
+  FulfillmentManagerState, SwitchboardAccountType } from './compiled';
 
 export const SWITCHBOARD_DEVNET_PID = new PublicKey("7azgmy1pFXHikv36q1zZASvFq5vFa39TT9NweVugKKTU");
 export const SWITCHBOARD_TESTNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
 export const SWITCHBOARD_MAINNET_PID = new PublicKey("DtmE9D2CSB4L5D6A15mraeEjrGMm6auWVzgaD8hK2tZM");
+
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the aggregator account to parse.
+ * @return AggregatorState
+ */
+export async function parseAggregatorAccountData(
+  connection: Connection,
+  address: PublicKey,
+): Promise<AggregatorState> {
+  let accountInfo = await connection.getAccountInfo(address);
+  if (accountInfo == null) {
+    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+  }
+  let data = accountInfo.data;
+  if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_AGGREGATOR) {
+    throw new Error(`Switchboard account parser was not provided with an aggregator account: ${address.toBase58()}`);
+  }
+  return AggregatorState.decodeDelimited(accountInfo.data.slice(1));
+}
+
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the Fulfillment Manager account to parse.
+ * @return FulfillmentManagerState
+ */
+export async function parseFulfillmentAccountData(
+  connection: Connection,
+  address: PublicKey,
+): Promise<FulfillmentManagerState> {
+  let accountInfo = await connection.getAccountInfo(address);
+  if (accountInfo == null) {
+    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+  }
+  let data = accountInfo.data;
+  if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER) {
+    throw new Error(`Switchboard account parser was not provided with a fulfillment manager account: ${address.toBase58()}`);
+  }
+  return FulfillmentManagerState.decodeDelimited(accountInfo.data.slice(1));
+}
+
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the Oracle Job account to parse.
+ * @return OracleJob
+ */
+export async function parseOracleJobAccountData(
+  connection: Connection,
+  address: PublicKey,
+): Promise<OracleJob> {
+  let accountInfo = await connection.getAccountInfo(address);
+  if (accountInfo == null) {
+    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+  }
+  let data = accountInfo.data;
+  if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_JOB_DEFINITION) {
+    throw new Error(`Switchboard account parser was not provided with a fulfillment manager account: ${address.toBase58()}`);
+  }
+  return OracleJob.decodeDelimited(accountInfo.data.slice(1));
+}
 
 /**
  * Publishes a premade account on chain, initialized as the provided account type. 
