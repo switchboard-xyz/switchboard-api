@@ -2,10 +2,10 @@
 (function(global, factory) { /* global define, require, module */
 
     /* AMD */ if (typeof define === 'function' && define.amd)
-        define(["protobufjs/minimal"], factory);
+        define(["protobufjs-dbx/minimal"], factory);
 
     /* CommonJS */ else if (typeof require === 'function' && typeof module === 'object' && module && module.exports)
-        module.exports = factory(require("protobufjs/minimal"));
+        module.exports = factory(require("protobufjs-dbx/minimal"));
 
 })(this, function($protobuf) {
     "use strict";
@@ -16,7 +16,7 @@
     // Exported root namespace
     var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
     
-    $root.FulfillmentAgreement = (function() {
+    $root.FulfillmentAgreement = (function(FulfillmentAgreement) {
     
         /**
          * Properties of a FulfillmentAgreement.
@@ -243,9 +243,9 @@
         };
     
         return FulfillmentAgreement;
-    })();
+    })($root.FulfillmentAgreement || {});
     
-    $root.RoundResult = (function() {
+    $root.RoundResult = (function(RoundResult) {
     
         /**
          * Properties of a RoundResult.
@@ -635,9 +635,9 @@
         };
     
         return RoundResult;
-    })();
+    })($root.RoundResult || {});
     
-    $root.AggregatorState = (function() {
+    $root.AggregatorState = (function(AggregatorState) {
     
         /**
          * Properties of an AggregatorState.
@@ -1003,7 +1003,7 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        AggregatorState.Configs = (function() {
+        AggregatorState.Configs = (function(Configs) {
     
             /**
              * Properties of a Configs.
@@ -1269,12 +1269,12 @@
             };
     
             return Configs;
-        })();
+        })(AggregatorState.Configs || {});
     
         return AggregatorState;
-    })();
+    })($root.AggregatorState || {});
     
-    $root.OracleJob = (function() {
+    $root.OracleJob = (function(OracleJob) {
     
         /**
          * Properties of an OracleJob.
@@ -1479,7 +1479,7 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        OracleJob.HttpTask = (function() {
+        OracleJob.HttpTask = (function(HttpTask) {
     
             /**
              * Properties of a HttpTask.
@@ -1773,7 +1773,7 @@
             /**
              * Method enum.
              * @name OracleJob.HttpTask.Method
-             * @enum {number}
+             * @enum {string}
              * @property {number} METHOD_UNKOWN=0 METHOD_UNKOWN value
              * @property {number} METHOD_GET=1 METHOD_GET value
              * @property {number} METHOD_POST=2 METHOD_POST value
@@ -1786,7 +1786,7 @@
                 return values;
             })();
     
-            HttpTask.Header = (function() {
+            HttpTask.Header = (function(Header) {
     
                 /**
                  * Properties of a Header.
@@ -1994,12 +1994,12 @@
                 };
     
                 return Header;
-            })();
+            })(HttpTask.Header || {});
     
             return HttpTask;
-        })();
+        })(OracleJob.HttpTask || {});
     
-        OracleJob.JsonParseTask = (function() {
+        OracleJob.JsonParseTask = (function(JsonParseTask) {
     
             /**
              * Properties of a JsonParseTask.
@@ -2184,9 +2184,9 @@
             };
     
             return JsonParseTask;
-        })();
+        })(OracleJob.JsonParseTask || {});
     
-        OracleJob.MedianTask = (function() {
+        OracleJob.MedianTask = (function(MedianTask) {
     
             /**
              * Properties of a MedianTask.
@@ -2392,9 +2392,9 @@
             };
     
             return MedianTask;
-        })();
+        })(OracleJob.MedianTask || {});
     
-        OracleJob.MeanTask = (function() {
+        OracleJob.MeanTask = (function(MeanTask) {
     
             /**
              * Properties of a MeanTask.
@@ -2600,9 +2600,9 @@
             };
     
             return MeanTask;
-        })();
+        })(OracleJob.MeanTask || {});
     
-        OracleJob.WebsocketTask = (function() {
+        OracleJob.WebsocketTask = (function(WebsocketTask) {
     
             /**
              * Properties of a WebsocketTask.
@@ -2854,9 +2854,9 @@
             };
     
             return WebsocketTask;
-        })();
+        })(OracleJob.WebsocketTask || {});
     
-        OracleJob.DivideTask = (function() {
+        OracleJob.DivideTask = (function(DivideTask) {
     
             /**
              * Properties of a DivideTask.
@@ -3087,9 +3087,9 @@
             };
     
             return DivideTask;
-        })();
+        })(OracleJob.DivideTask || {});
     
-        OracleJob.MultiplyTask = (function() {
+        OracleJob.MultiplyTask = (function(MultiplyTask) {
     
             /**
              * Properties of a MultiplyTask.
@@ -3320,9 +3320,9 @@
             };
     
             return MultiplyTask;
-        })();
+        })(OracleJob.MultiplyTask || {});
     
-        OracleJob.Task = (function() {
+        OracleJob.Task = (function(Task) {
     
             /**
              * Properties of a Task.
@@ -3735,12 +3735,12 @@
             };
     
             return Task;
-        })();
+        })(OracleJob.Task || {});
     
         return OracleJob;
-    })();
+    })($root.OracleJob || {});
     
-    $root.JobPosting = (function() {
+    $root.JobPosting = (function(JobPosting) {
     
         /**
          * Properties of a JobPosting.
@@ -4013,9 +4013,9 @@
         };
     
         return JobPosting;
-    })();
+    })($root.JobPosting || {});
     
-    $root.JobResult = (function() {
+    $root.JobResult = (function(JobResult) {
     
         /**
          * Properties of a JobResult.
@@ -4254,9 +4254,9 @@
         };
     
         return JobResult;
-    })();
+    })($root.JobResult || {});
     
-    $root.FulfillmentEntry = (function() {
+    $root.FulfillmentEntry = (function(FulfillmentEntry) {
     
         /**
          * Properties of a FulfillmentEntry.
@@ -4495,9 +4495,9 @@
         };
     
         return FulfillmentEntry;
-    })();
+    })($root.FulfillmentEntry || {});
     
-    $root.FulfillmentManagerAuth = (function() {
+    $root.FulfillmentManagerAuth = (function(FulfillmentManagerAuth) {
     
         /**
          * Properties of a FulfillmentManagerAuth.
@@ -4767,9 +4767,9 @@
         };
     
         return FulfillmentManagerAuth;
-    })();
+    })($root.FulfillmentManagerAuth || {});
     
-    $root.FulfillmentManagerState = (function() {
+    $root.FulfillmentManagerState = (function(FulfillmentManagerState) {
     
         /**
          * Properties of a FulfillmentManagerState.
@@ -5025,7 +5025,7 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        FulfillmentManagerState.Configs = (function() {
+        FulfillmentManagerState.Configs = (function(Configs) {
     
             /**
              * Properties of a Configs.
@@ -5255,12 +5255,12 @@
             };
     
             return Configs;
-        })();
+        })(FulfillmentManagerState.Configs || {});
     
         return FulfillmentManagerState;
-    })();
+    })($root.FulfillmentManagerState || {});
     
-    $root.SwitchboardInstruction = (function() {
+    $root.SwitchboardInstruction = (function(SwitchboardInstruction) {
     
         /**
          * Properties of a SwitchboardInstruction.
@@ -5842,7 +5842,7 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        SwitchboardInstruction.InitInstruction = (function() {
+        SwitchboardInstruction.InitInstruction = (function(InitInstruction) {
     
             /**
              * Properties of an InitInstruction.
@@ -5981,6 +5981,7 @@
                     case 2:
                     case 3:
                     case 4:
+                    case 5:
                         break;
                     }
                 return null;
@@ -6019,6 +6020,10 @@
                 case 4:
                     message.type = 4;
                     break;
+                case "TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED":
+                case 5:
+                    message.type = 5;
+                    break;
                 }
                 return message;
             };
@@ -6055,9 +6060,9 @@
             };
     
             return InitInstruction;
-        })();
+        })(SwitchboardInstruction.InitInstruction || {});
     
-        SwitchboardInstruction.RegisterJobInstruction = (function() {
+        SwitchboardInstruction.RegisterJobInstruction = (function(RegisterJobInstruction) {
     
             /**
              * Properties of a RegisterJobInstruction.
@@ -6247,9 +6252,9 @@
             };
     
             return RegisterJobInstruction;
-        })();
+        })(SwitchboardInstruction.RegisterJobInstruction || {});
     
-        SwitchboardInstruction.UnregisterJobInstruction = (function() {
+        SwitchboardInstruction.UnregisterJobInstruction = (function(UnregisterJobInstruction) {
     
             /**
              * Properties of an UnregisterJobInstruction.
@@ -6443,9 +6448,9 @@
             };
     
             return UnregisterJobInstruction;
-        })();
+        })(SwitchboardInstruction.UnregisterJobInstruction || {});
     
-        SwitchboardInstruction.UpdateAggregateInstruction = (function() {
+        SwitchboardInstruction.UpdateAggregateInstruction = (function(UpdateAggregateInstruction) {
     
             /**
              * Properties of an UpdateAggregateInstruction.
@@ -6603,9 +6608,9 @@
             };
     
             return UpdateAggregateInstruction;
-        })();
+        })(SwitchboardInstruction.UpdateAggregateInstruction || {});
     
-        SwitchboardInstruction.GetAggregateInstruction = (function() {
+        SwitchboardInstruction.GetAggregateInstruction = (function(GetAggregateInstruction) {
     
             /**
              * Properties of a GetAggregateInstruction.
@@ -6763,9 +6768,9 @@
             };
     
             return GetAggregateInstruction;
-        })();
+        })(SwitchboardInstruction.GetAggregateInstruction || {});
     
-        SwitchboardInstruction.SetAggregatorConfigsInstruction = (function() {
+        SwitchboardInstruction.SetAggregatorConfigsInstruction = (function(SetAggregatorConfigsInstruction) {
     
             /**
              * Properties of a SetAggregatorConfigsInstruction.
@@ -7040,9 +7045,9 @@
             };
     
             return SetAggregatorConfigsInstruction;
-        })();
+        })(SwitchboardInstruction.SetAggregatorConfigsInstruction || {});
     
-        SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction = (function() {
+        SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction = (function(SetFulfillmentManagerConfigsInstruction) {
     
             /**
              * Properties of a SetFulfillmentManagerConfigsInstruction.
@@ -7272,9 +7277,9 @@
             };
     
             return SetFulfillmentManagerConfigsInstruction;
-        })();
+        })(SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction || {});
     
-        SwitchboardInstruction.SaveResultInstruction = (function() {
+        SwitchboardInstruction.SaveResultInstruction = (function(SaveResultInstruction) {
     
             /**
              * Properties of a SaveResultInstruction.
@@ -7540,9 +7545,9 @@
             };
     
             return SaveResultInstruction;
-        })();
+        })(SwitchboardInstruction.SaveResultInstruction || {});
     
-        SwitchboardInstruction.HeartbeatInstruction = (function() {
+        SwitchboardInstruction.HeartbeatInstruction = (function(HeartbeatInstruction) {
     
             /**
              * Properties of a HeartbeatInstruction.
@@ -7778,9 +7783,9 @@
             };
     
             return HeartbeatInstruction;
-        })();
+        })(SwitchboardInstruction.HeartbeatInstruction || {});
     
-        SwitchboardInstruction.RegisterAuthInstruction = (function() {
+        SwitchboardInstruction.RegisterAuthInstruction = (function(RegisterAuthInstruction) {
     
             /**
              * Properties of a RegisterAuthInstruction.
@@ -7988,9 +7993,9 @@
             };
     
             return RegisterAuthInstruction;
-        })();
+        })(SwitchboardInstruction.RegisterAuthInstruction || {});
     
-        SwitchboardInstruction.ReachFulfillerAgreementInstruction = (function() {
+        SwitchboardInstruction.ReachFulfillerAgreementInstruction = (function(ReachFulfillerAgreementInstruction) {
     
             /**
              * Properties of a ReachFulfillerAgreementInstruction.
@@ -8148,9 +8153,9 @@
             };
     
             return ReachFulfillerAgreementInstruction;
-        })();
+        })(SwitchboardInstruction.ReachFulfillerAgreementInstruction || {});
     
-        SwitchboardInstruction.RemoveFulfillerInstruction = (function() {
+        SwitchboardInstruction.RemoveFulfillerInstruction = (function(RemoveFulfillerInstruction) {
     
             /**
              * Properties of a RemoveFulfillerInstruction.
@@ -8308,20 +8313,21 @@
             };
     
             return RemoveFulfillerInstruction;
-        })();
+        })(SwitchboardInstruction.RemoveFulfillerInstruction || {});
     
         return SwitchboardInstruction;
-    })();
+    })($root.SwitchboardInstruction || {});
     
     /**
      * SwitchboardAccountType enum.
      * @exports SwitchboardAccountType
-     * @enum {number}
+     * @enum {string}
      * @property {number} TYPE_UNINITIALIZED=0 TYPE_UNINITIALIZED value
      * @property {number} TYPE_AGGREGATOR=1 TYPE_AGGREGATOR value
      * @property {number} TYPE_FULFILLMENT_MANAGER=2 TYPE_FULFILLMENT_MANAGER value
      * @property {number} TYPE_JOB_DEFINITION=3 TYPE_JOB_DEFINITION value
      * @property {number} TYPE_FULFILLMENT_MANAGER_AUTH=4 TYPE_FULFILLMENT_MANAGER_AUTH value
+     * @property {number} TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED=5 TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED value
      */
     $root.SwitchboardAccountType = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -8330,6 +8336,7 @@
         values[valuesById[2] = "TYPE_FULFILLMENT_MANAGER"] = 2;
         values[valuesById[3] = "TYPE_JOB_DEFINITION"] = 3;
         values[valuesById[4] = "TYPE_FULFILLMENT_MANAGER_AUTH"] = 4;
+        values[valuesById[5] = "TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED"] = 5;
         return values;
     })();
 
