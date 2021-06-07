@@ -1,5 +1,4 @@
-import * as Long from "long";
-
+import * as $protobuf from "protobufjs";
 /** Properties of a FulfillmentAgreement. */
 export interface IFulfillmentAgreement {
 
@@ -3374,4 +3373,14 @@ export namespace SwitchboardInstruction {
          */
         public toJSON(): { [k: string]: any };
     }
+}
+
+/** SwitchboardAccountType enum. */
+export enum SwitchboardAccountType {
+    TYPE_UNINITIALIZED = 0,
+    TYPE_AGGREGATOR = 1,
+    TYPE_FULFILLMENT_MANAGER = 2,
+    TYPE_JOB_DEFINITION = 3,
+    TYPE_FULFILLMENT_MANAGER_AUTH = 4,
+    TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED = 5
 }
