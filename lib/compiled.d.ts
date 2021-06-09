@@ -2141,6 +2141,9 @@ export interface ISwitchboardInstruction {
 
     /** SwitchboardInstruction removeFulfillerInstruction */
     removeFulfillerInstruction?: (SwitchboardInstruction.IRemoveFulfillerInstruction|null);
+
+    /** SwitchboardInstruction linkParseOptimizedAccountInstruction */
+    linkParseOptimizedAccountInstruction?: (SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction|null);
 }
 
 /** Represents a SwitchboardInstruction. */
@@ -2188,8 +2191,11 @@ export class SwitchboardInstruction implements ISwitchboardInstruction {
     /** SwitchboardInstruction removeFulfillerInstruction. */
     public removeFulfillerInstruction?: (SwitchboardInstruction.IRemoveFulfillerInstruction|null);
 
+    /** SwitchboardInstruction linkParseOptimizedAccountInstruction. */
+    public linkParseOptimizedAccountInstruction?: (SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction|null);
+
     /** SwitchboardInstruction instruction. */
-    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction");
+    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction");
 
     /**
      * Creates a new SwitchboardInstruction instance using the specified properties.

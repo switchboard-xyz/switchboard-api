@@ -118,6 +118,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="modules.html#addfeedjob" class="tsd-kind-icon">add<wbr>Feed<wbr>Job</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#addfeedparseoptimizedaccount" class="tsd-kind-icon">add<wbr>Feed<wbr>Parse<wbr>Optimized<wbr>Account</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#createdatafeed" class="tsd-kind-icon">create<wbr>Data<wbr>Feed</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#createfulfillmentmanager" class="tsd-kind-icon">create<wbr>Fulfillment<wbr>Manager</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#createfulfillmentmanagerauth" class="tsd-kind-icon">create<wbr>Fulfillment<wbr>Manager<wbr>Auth</a></li>
@@ -147,7 +148,7 @@
 					<div class="tsd-signature tsd-kind-icon">SWITCHBOARD_<wbr>DEVNET_<wbr>PID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PublicKey</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L16">switchboard_module.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L16">switchboard_module.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">SWITCHBOARD_<wbr>MAINNET_<wbr>PID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PublicKey</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L18">switchboard_module.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L18">switchboard_module.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">SWITCHBOARD_<wbr>TESTNET_<wbr>PID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PublicKey</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L17">switchboard_module.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L17">switchboard_module.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L158">switchboard_module.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L158">switchboard_module.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -222,6 +223,57 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="addfeedparseoptimizedaccount" class="tsd-anchor"></a>
+					<h3>add<wbr>Feed<wbr>Parse<wbr>Optimized<wbr>Account</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Feed<wbr>Parse<wbr>Optimized<wbr>Account<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Connection</span>, payerAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, dataFeedAccount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Account</span>, accountSize<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L198">switchboard_module.ts:198</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a borsh serialized account that holds information surrounding the last
+									confirmed aggregator result.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>connection: <span class="tsd-signature-type">Connection</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Solana network connection object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>payerAccount: <span class="tsd-signature-type">Account</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Transaction funder account.</p>
+									</div>
+								</li>
+								<li>
+									<h5>dataFeedAccount: <span class="tsd-signature-type">Account</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The account holding the data feed being mutated.</p>
+									</div>
+								</li>
+								<li>
+									<h5>accountSize: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1_000</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Size of the parseOptimizedAcccount to be created.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Account</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>the AggregatorParseOptimized account</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="createdatafeed" class="tsd-anchor"></a>
 					<h3>create<wbr>Data<wbr>Feed</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -231,7 +283,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L138">switchboard_module.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L138">switchboard_module.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -278,7 +330,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L339">switchboard_module.ts:339</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L376">switchboard_module.ts:376</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -325,7 +377,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L419">switchboard_module.ts:419</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L456">switchboard_module.ts:456</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -386,7 +438,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L495">switchboard_module.ts:495</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L532">switchboard_module.ts:532</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -435,7 +487,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L124">switchboard_module.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L124">switchboard_module.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -478,7 +530,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L325">switchboard_module.ts:325</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L362">switchboard_module.ts:362</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -521,7 +573,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L400">switchboard_module.ts:400</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L437">switchboard_module.ts:437</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -564,7 +616,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L26">switchboard_module.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L26">switchboard_module.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -602,7 +654,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L47">switchboard_module.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L47">switchboard_module.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -640,7 +692,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L68">switchboard_module.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L68">switchboard_module.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -678,7 +730,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L92">switchboard_module.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L92">switchboard_module.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -739,7 +791,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L196">switchboard_module.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L233">switchboard_module.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -788,7 +840,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L456">switchboard_module.ts:456</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L493">switchboard_module.ts:493</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -853,7 +905,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L283">switchboard_module.ts:283</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L320">switchboard_module.ts:320</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -906,7 +958,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L361">switchboard_module.ts:361</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L398">switchboard_module.ts:398</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -958,7 +1010,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/3638192/src/switchboard_module.ts#L228">switchboard_module.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbb6944/src/switchboard_module.ts#L265">switchboard_module.ts:265</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1105,6 +1157,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#addfeedjob" class="tsd-kind-icon">add<wbr>Feed<wbr>Job</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#addfeedparseoptimizedaccount" class="tsd-kind-icon">add<wbr>Feed<wbr>Parse<wbr>Optimized<wbr>Account</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#createdatafeed" class="tsd-kind-icon">create<wbr>Data<wbr>Feed</a>
