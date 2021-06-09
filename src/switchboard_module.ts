@@ -211,7 +211,7 @@ export async function addFeedParseOptimizedAccount(
     ],
     programId: dataFeedAccountInfo.owner,
     data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      linkedParseOptimizedResultAccountInstruction: SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.create({})
+      linkedParseOptimizedResultAccountInstruction: SwitchboardInstruction.LinkParseOptimizedAccountInstruction.create({})
     })).finish()),
   });
 
