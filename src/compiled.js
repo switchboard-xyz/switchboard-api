@@ -8346,6 +8346,166 @@
             return RemoveFulfillerInstruction;
         })();
     
+        SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction = (function() {
+    
+            /**
+             * Properties of a LinkedParseOptimizedResultAccountInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface ILinkedParseOptimizedResultAccountInstruction
+             */
+    
+            /**
+             * Constructs a new LinkedParseOptimizedResultAccountInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a LinkedParseOptimizedResultAccountInstruction.
+             * @implements ILinkedParseOptimizedResultAccountInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction=} [properties] Properties to set
+             */
+            function LinkedParseOptimizedResultAccountInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Creates a new LinkedParseOptimizedResultAccountInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @static
+             * @param {SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction} LinkedParseOptimizedResultAccountInstruction instance
+             */
+            LinkedParseOptimizedResultAccountInstruction.create = function create(properties) {
+                return new LinkedParseOptimizedResultAccountInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified LinkedParseOptimizedResultAccountInstruction message. Does not implicitly {@link SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @static
+             * @param {SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction} message LinkedParseOptimizedResultAccountInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LinkedParseOptimizedResultAccountInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified LinkedParseOptimizedResultAccountInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @static
+             * @param {SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction} message LinkedParseOptimizedResultAccountInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LinkedParseOptimizedResultAccountInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a LinkedParseOptimizedResultAccountInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction} LinkedParseOptimizedResultAccountInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LinkedParseOptimizedResultAccountInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a LinkedParseOptimizedResultAccountInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction} LinkedParseOptimizedResultAccountInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LinkedParseOptimizedResultAccountInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a LinkedParseOptimizedResultAccountInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LinkedParseOptimizedResultAccountInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+    
+            /**
+             * Creates a LinkedParseOptimizedResultAccountInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction} LinkedParseOptimizedResultAccountInstruction
+             */
+            LinkedParseOptimizedResultAccountInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction)
+                    return object;
+                return new $root.SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction();
+            };
+    
+            /**
+             * Creates a plain object from a LinkedParseOptimizedResultAccountInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @static
+             * @param {SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction} message LinkedParseOptimizedResultAccountInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LinkedParseOptimizedResultAccountInstruction.toObject = function toObject() {
+                return {};
+            };
+    
+            /**
+             * Converts this LinkedParseOptimizedResultAccountInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LinkedParseOptimizedResultAccountInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return LinkedParseOptimizedResultAccountInstruction;
+        })();
+    
         return SwitchboardInstruction;
     })();
     

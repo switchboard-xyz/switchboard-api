@@ -3379,6 +3379,90 @@ export namespace SwitchboardInstruction {
          */
         public toJSON(): { [k: string]: any };
     }
+
+    /** Properties of a LinkedParseOptimizedResultAccountInstruction. */
+    interface ILinkedParseOptimizedResultAccountInstruction {
+    }
+
+    /** Represents a LinkedParseOptimizedResultAccountInstruction. */
+    class LinkedParseOptimizedResultAccountInstruction implements ILinkedParseOptimizedResultAccountInstruction {
+
+        /**
+         * Constructs a new LinkedParseOptimizedResultAccountInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction);
+
+        /**
+         * Creates a new LinkedParseOptimizedResultAccountInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LinkedParseOptimizedResultAccountInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction): SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction;
+
+        /**
+         * Encodes the specified LinkedParseOptimizedResultAccountInstruction message. Does not implicitly {@link SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.verify|verify} messages.
+         * @param message LinkedParseOptimizedResultAccountInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LinkedParseOptimizedResultAccountInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.verify|verify} messages.
+         * @param message LinkedParseOptimizedResultAccountInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LinkedParseOptimizedResultAccountInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LinkedParseOptimizedResultAccountInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction;
+
+        /**
+         * Decodes a LinkedParseOptimizedResultAccountInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LinkedParseOptimizedResultAccountInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction;
+
+        /**
+         * Verifies a LinkedParseOptimizedResultAccountInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LinkedParseOptimizedResultAccountInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LinkedParseOptimizedResultAccountInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction;
+
+        /**
+         * Creates a plain object from a LinkedParseOptimizedResultAccountInstruction message. Also converts values to other types if specified.
+         * @param message LinkedParseOptimizedResultAccountInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LinkedParseOptimizedResultAccountInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
 }
 
 /** SwitchboardAccountType enum. */
