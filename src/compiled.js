@@ -650,6 +650,7 @@
          * @property {IFulfillmentAgreement|null} [agreement] AggregatorState agreement
          * @property {IRoundResult|null} [currentRoundResult] AggregatorState currentRoundResult
          * @property {IRoundResult|null} [lastRoundResult] AggregatorState lastRoundResult
+         * @property {Uint8Array|null} [parseOptimizedResultAddress] AggregatorState parseOptimizedResultAddress
          */
     
         /**
@@ -725,6 +726,14 @@
         AggregatorState.prototype.lastRoundResult = null;
     
         /**
+         * AggregatorState parseOptimizedResultAddress.
+         * @member {Uint8Array} parseOptimizedResultAddress
+         * @memberof AggregatorState
+         * @instance
+         */
+        AggregatorState.prototype.parseOptimizedResultAddress = $util.newBuffer([]);
+    
+        /**
          * Creates a new AggregatorState instance using the specified properties.
          * @function create
          * @memberof AggregatorState
@@ -763,6 +772,8 @@
                 $root.RoundResult.encode(message.currentRoundResult, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
             if (message.lastRoundResult != null && Object.hasOwnProperty.call(message, "lastRoundResult"))
                 $root.RoundResult.encode(message.lastRoundResult, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+            if (message.parseOptimizedResultAddress != null && Object.hasOwnProperty.call(message, "parseOptimizedResultAddress"))
+                writer.uint32(/* id 8, wireType 2 =*/66).bytes(message.parseOptimizedResultAddress);
             return writer;
         };
     
@@ -819,6 +830,9 @@
                     break;
                 case 7:
                     message.lastRoundResult = $root.RoundResult.decode(reader, reader.uint32());
+                    break;
+                case 8:
+                    message.parseOptimizedResultAddress = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -888,6 +902,9 @@
                 if (error)
                     return "lastRoundResult." + error;
             }
+            if (message.parseOptimizedResultAddress != null && message.hasOwnProperty("parseOptimizedResultAddress"))
+                if (!(message.parseOptimizedResultAddress && typeof message.parseOptimizedResultAddress.length === "number" || $util.isString(message.parseOptimizedResultAddress)))
+                    return "parseOptimizedResultAddress: buffer expected";
             return null;
         };
     
@@ -940,6 +957,11 @@
                     throw TypeError(".AggregatorState.lastRoundResult: object expected");
                 message.lastRoundResult = $root.RoundResult.fromObject(object.lastRoundResult);
             }
+            if (object.parseOptimizedResultAddress != null)
+                if (typeof object.parseOptimizedResultAddress === "string")
+                    $util.base64.decode(object.parseOptimizedResultAddress, message.parseOptimizedResultAddress = $util.newBuffer($util.base64.length(object.parseOptimizedResultAddress)), 0);
+                else if (object.parseOptimizedResultAddress.length)
+                    message.parseOptimizedResultAddress = object.parseOptimizedResultAddress;
             return message;
         };
     
@@ -971,6 +993,13 @@
                 object.agreement = null;
                 object.currentRoundResult = null;
                 object.lastRoundResult = null;
+                if (options.bytes === String)
+                    object.parseOptimizedResultAddress = "";
+                else {
+                    object.parseOptimizedResultAddress = [];
+                    if (options.bytes !== Array)
+                        object.parseOptimizedResultAddress = $util.newBuffer(object.parseOptimizedResultAddress);
+                }
             }
             if (message.version != null && message.hasOwnProperty("version"))
                 object.version = message.version;
@@ -989,6 +1018,8 @@
                 object.currentRoundResult = $root.RoundResult.toObject(message.currentRoundResult, options);
             if (message.lastRoundResult != null && message.hasOwnProperty("lastRoundResult"))
                 object.lastRoundResult = $root.RoundResult.toObject(message.lastRoundResult, options);
+            if (message.parseOptimizedResultAddress != null && message.hasOwnProperty("parseOptimizedResultAddress"))
+                object.parseOptimizedResultAddress = options.bytes === String ? $util.base64.encode(message.parseOptimizedResultAddress, 0, message.parseOptimizedResultAddress.length) : options.bytes === Array ? Array.prototype.slice.call(message.parseOptimizedResultAddress) : message.parseOptimizedResultAddress;
             return object;
         };
     

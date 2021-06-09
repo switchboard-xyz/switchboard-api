@@ -250,6 +250,9 @@ export interface IAggregatorState {
 
     /** AggregatorState lastRoundResult */
     lastRoundResult?: (IRoundResult|null);
+
+    /** AggregatorState parseOptimizedResultAddress */
+    parseOptimizedResultAddress?: (Uint8Array|null);
 }
 
 /** Represents an AggregatorState. */
@@ -281,6 +284,9 @@ export class AggregatorState implements IAggregatorState {
 
     /** AggregatorState lastRoundResult. */
     public lastRoundResult?: (IRoundResult|null);
+
+    /** AggregatorState parseOptimizedResultAddress. */
+    public parseOptimizedResultAddress: Uint8Array;
 
     /**
      * Creates a new AggregatorState instance using the specified properties.
