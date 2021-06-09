@@ -60,6 +60,16 @@ export declare function createDataFeed(connection: Connection, payerAccount: Acc
  */
 export declare function addFeedJob(connection: Connection, payerAccount: Account, dataFeedAccount: Account, jobTasks: OracleJob.Task[]): Promise<Account>;
 /**
+ * Adds a borsh serialized account that holds information surrounding the last
+ * confirmed aggregator result.
+ * @param connection Solana network connection object.
+ * @param payerAccount Transaction funder account.
+ * @param dataFeedAccount The account holding the data feed being mutated.
+ * @param accountSize Size of the parseOptimizedAcccount to be created.
+ * @returns the AggregatorParseOptimized account
+ */
+export declare function addFeedParseOptimizedAccount(connection: Connection, payerAccount: Account, dataFeedAccount: Account, accountSize?: number): Promise<Account>;
+/**
  * Adds a new task list to be performed when the provided data feed is updated.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.

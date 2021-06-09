@@ -187,6 +187,43 @@ export async function addFeedJob(
 }
 
 /**
+ * Adds a borsh serialized account that holds information surrounding the last
+ * confirmed aggregator result.
+ * @param connection Solana network connection object.
+ * @param payerAccount Transaction funder account.
+ * @param dataFeedAccount The account holding the data feed being mutated.
+ * @param accountSize Size of the parseOptimizedAcccount to be created.
+ * @returns the AggregatorParseOptimized account
+ */
+export async function addFeedParseOptimizedAccount(
+  connection: Connection, payerAccount: Account, dataFeedAccount: Account, accountSize: number = 1_000): Promise<Account> {
+  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
+  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
+
+  let parseOptimizedAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, dataFeedAccountInfo.owner);
+  await initAccount(connection, payerAccount, parseOptimizedAccount,
+    SwitchboardAccountType.TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED);
+
+  let transactionInstruction = new TransactionInstruction({
+    keys: [
+      { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true },
+      { pubkey: parseOptimizedAccount.publicKey, isSigner: true, isWritable: true },
+    ],
+    programId: dataFeedAccountInfo.owner,
+    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
+      linkedParseOptimizedResultAccountInstruction: SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.create({})
+    })).finish()),
+  });
+
+  await performTransaction(connection, new Transaction().add(transactionInstruction), [
+    payerAccount,
+    dataFeedAccount,
+    parseOptimizedAccount
+  ]);
+  return parseOptimizedAccount;
+}
+
+/**
  * Adds a new task list to be performed when the provided data feed is updated.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
