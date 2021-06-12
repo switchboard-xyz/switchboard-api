@@ -2932,6 +2932,12 @@ export namespace SwitchboardInstruction {
 
         /** SaveResultInstruction roundSlot */
         roundSlot?: (number|Long|null);
+
+        /** SaveResultInstruction minResponse */
+        minResponse?: (number|null);
+
+        /** SaveResultInstruction maxResponse */
+        maxResponse?: (number|null);
     }
 
     /** Represents a SaveResultInstruction. */
@@ -2954,6 +2960,12 @@ export namespace SwitchboardInstruction {
 
         /** SaveResultInstruction roundSlot. */
         public roundSlot: (number|Long);
+
+        /** SaveResultInstruction minResponse. */
+        public minResponse: number;
+
+        /** SaveResultInstruction maxResponse. */
+        public maxResponse: number;
 
         /**
          * Creates a new SaveResultInstruction instance using the specified properties.
