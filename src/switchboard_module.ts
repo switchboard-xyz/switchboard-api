@@ -300,10 +300,7 @@ export async function updateFeed(
   let txAccounts = [payerAccount];
   return connection.sendTransaction(new Transaction()
     .add(agreementInstruction)
-    .add(updateInstruction), txAccounts, {
-      commitment: connection.commitment,
-      preflightCommitment: connection.commitment,
-    });
+    .add(updateInstruction), txAccounts);
 }
 
 /**
