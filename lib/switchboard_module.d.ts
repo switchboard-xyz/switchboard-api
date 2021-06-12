@@ -1,4 +1,4 @@
-import { Account, Connection, PublicKey, TransactionSignature } from '@solana/web3.js';
+import { Account, Connection, PublicKey } from '@solana/web3.js';
 import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType } from './compiled';
 export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
 export declare const SWITCHBOARD_TESTNET_PID: PublicKey;
@@ -87,7 +87,7 @@ export declare function removeFeedJob(connection: Connection, payerAccount: Acco
  * @throws Error If authorization fails or if the data feed is not allowed to be updated at the time of calling.
  * @returns TransactionSignature of the update transaction.
  */
-export declare function updateFeed(connection: Connection, payerAccount: Account, dataFeedPubkey: PublicKey, authKey?: PublicKey): Promise<TransactionSignature>;
+export declare function updateFeed(connection: Connection, payerAccount: Account, dataFeedPubkey: PublicKey, authKey?: PublicKey): Promise<string>;
 /**
  * setDataFeedConfigs allows settings changes to an owned data feed account
  * @param connection Solana network connection object.

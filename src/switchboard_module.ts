@@ -266,7 +266,7 @@ export async function updateFeed(
   connection: Connection,
   payerAccount: Account,
   dataFeedPubkey: PublicKey,
-  authKey?: PublicKey): Promise<TransactionSignature> {
+  authKey?: PublicKey): Promise<string> {
   let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedPubkey);
   if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
   let aggregator = AggregatorState.decodeDelimited(dataFeedAccountInfo.data.slice(1));
@@ -298,7 +298,7 @@ export async function updateFeed(
   });
 
   let txAccounts = [payerAccount];
-  return sendAndConfirmTransaction(connection, new Transaction()
+  return connection.sendTransaction(new Transaction()
     .add(agreementInstruction)
     .add(updateInstruction), txAccounts, {
       commitment: connection.commitment,
