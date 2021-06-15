@@ -564,7 +564,7 @@ async function performTransaction(
 }
 
 // Internal account initialization helper
-async function initAccount(
+export async function initAccount(
   connection: Connection, payerAccount: Account, account: Account, type: SwitchboardAccountType) {
   let accountInfo = await connection.getAccountInfo(account.publicKey);
   if (accountInfo == null) {

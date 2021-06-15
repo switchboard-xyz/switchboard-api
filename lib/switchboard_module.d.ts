@@ -169,3 +169,4 @@ export declare function setAuthConfigs(connection: Connection, payerAccount: Acc
  * @param parent The public key of the program that will own this account.
  */
 export declare function createOwnedStateAccount(connection: Connection, payerAccount: Account, size: number, parent: PublicKey, programStateAccount?: Account | null): Promise<Account>;
+export declare function initAccount(connection: Connection, payerAccount: Account, account: Account, type: SwitchboardAccountType): Promise<void>;
