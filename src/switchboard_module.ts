@@ -527,8 +527,15 @@ export async function setAuthConfigs(
  * @param parent The public key of the program that will own this account.
  */
 export async function createOwnedStateAccount(
-  connection: Connection, payerAccount: Account, size: number, parent: PublicKey): Promise<Account> {
-  const programStateAccount = new Account();
+  connection: Connection,
+  payerAccount: Account,
+  size: number,
+  parent: PublicKey,
+  programStateAccount: Account | null = null
+): Promise<Account> {
+  if (programStateAccount == null) {
+    programStateAccount = new Account();
+  }
   let stateAccountPubkey = programStateAccount.publicKey;
 
   const space = size;

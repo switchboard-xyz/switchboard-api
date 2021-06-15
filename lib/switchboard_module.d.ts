@@ -168,4 +168,4 @@ export declare function setAuthConfigs(connection: Connection, payerAccount: Acc
  * @param size Data size this account will be able to hold
  * @param parent The public key of the program that will own this account.
  */
-export declare function createOwnedStateAccount(connection: Connection, payerAccount: Account, size: number, parent: PublicKey): Promise<Account>;
+export declare function createOwnedStateAccount(connection: Connection, payerAccount: Account, size: number, parent: PublicKey, programStateAccount?: Account | null): Promise<Account>;
