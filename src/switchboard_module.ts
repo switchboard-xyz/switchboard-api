@@ -374,7 +374,7 @@ export async function createFulfillmentManager(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 300,
+  accountSize: number = 3_000,
 ): Promise<Account> {
   let fulfillmentManagerAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
   await initAccount(connection, payerAccount, fulfillmentManagerAccount,
@@ -456,7 +456,7 @@ export async function createFulfillmentManagerAuth(
   fulfillmentManagerAccount: Account,
   nomineePubkey: PublicKey,
   configs: any,
-  accountSize: number = 5000,
+  accountSize: number = 300,
 ): Promise<Account> {
   let fmAccountInfo = await connection.getAccountInfo(fulfillmentManagerAccount.publicKey);
   if (fmAccountInfo == null) {
