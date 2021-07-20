@@ -253,6 +253,9 @@ export interface IAggregatorState {
 
     /** AggregatorState parseOptimizedResultAddress */
     parseOptimizedResultAddress?: (Uint8Array|null);
+
+    /** AggregatorState bundleAuthAddresses */
+    bundleAuthAddresses?: (Uint8Array[]|null);
 }
 
 /** Represents an AggregatorState. */
@@ -287,6 +290,9 @@ export class AggregatorState implements IAggregatorState {
 
     /** AggregatorState parseOptimizedResultAddress. */
     public parseOptimizedResultAddress: Uint8Array;
+
+    /** AggregatorState bundleAuthAddresses. */
+    public bundleAuthAddresses: Uint8Array[];
 
     /**
      * Creates a new AggregatorState instance using the specified properties.
@@ -1681,6 +1687,114 @@ export class JobResult implements IJobResult {
 
     /**
      * Converts this JobResult to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a BundleAuth. */
+export interface IBundleAuth {
+
+    /** BundleAuth version */
+    version?: (number|null);
+
+    /** BundleAuth aggregatorAddress */
+    aggregatorAddress?: (Uint8Array|null);
+
+    /** BundleAuth bundleAddress */
+    bundleAddress?: (Uint8Array|null);
+
+    /** BundleAuth idx */
+    idx?: (number|null);
+}
+
+/** Represents a BundleAuth. */
+export class BundleAuth implements IBundleAuth {
+
+    /**
+     * Constructs a new BundleAuth.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IBundleAuth);
+
+    /** BundleAuth version. */
+    public version: number;
+
+    /** BundleAuth aggregatorAddress. */
+    public aggregatorAddress: Uint8Array;
+
+    /** BundleAuth bundleAddress. */
+    public bundleAddress: Uint8Array;
+
+    /** BundleAuth idx. */
+    public idx: number;
+
+    /**
+     * Creates a new BundleAuth instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns BundleAuth instance
+     */
+    public static create(properties?: IBundleAuth): BundleAuth;
+
+    /**
+     * Encodes the specified BundleAuth message. Does not implicitly {@link BundleAuth.verify|verify} messages.
+     * @param message BundleAuth message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IBundleAuth, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified BundleAuth message, length delimited. Does not implicitly {@link BundleAuth.verify|verify} messages.
+     * @param message BundleAuth message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IBundleAuth, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a BundleAuth message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns BundleAuth
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): BundleAuth;
+
+    /**
+     * Decodes a BundleAuth message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns BundleAuth
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): BundleAuth;
+
+    /**
+     * Verifies a BundleAuth message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a BundleAuth message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns BundleAuth
+     */
+    public static fromObject(object: { [k: string]: any }): BundleAuth;
+
+    /**
+     * Creates a plain object from a BundleAuth message. Also converts values to other types if specified.
+     * @param message BundleAuth
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: BundleAuth, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this BundleAuth to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
@@ -3490,5 +3604,7 @@ export enum SwitchboardAccountType {
     TYPE_FULFILLMENT_MANAGER = 2,
     TYPE_JOB_DEFINITION = 3,
     TYPE_FULFILLMENT_MANAGER_AUTH = 4,
-    TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED = 5
+    TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED = 5,
+    TYPE_BUNDLE = 6,
+    TYPE_BUNDLE_AUTH = 7
 }

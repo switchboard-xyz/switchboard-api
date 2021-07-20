@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IFulfillmentEntry | @switchboard-xyz/switchboard-api</title>
+	<title>IBundleAuth | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">@switchboard-xyz/switchboard-api</a>
 				</li>
 				<li>
-					<a href="ifulfillmententry.html">IFulfillmentEntry</a>
+					<a href="ibundleauth.html">IBundleAuth</a>
 				</li>
 			</ul>
-			<h1>Interface IFulfillmentEntry</h1>
+			<h1>Interface IBundleAuth</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a FulfillmentEntry.</p>
+						<p>Properties of a BundleAuth.</p>
 					</div>
 				</div>
 			</section>
@@ -76,14 +76,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IFulfillmentEntry</span>
+						<span class="target">IBundleAuth</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/fulfillmententry.html" class="tsd-signature-type" data-tsd-kind="Class">FulfillmentEntry</a></li>
+					<li><a href="../classes/bundleauth.html" class="tsd-signature-type" data-tsd-kind="Class">BundleAuth</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -93,9 +93,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmententry.html#leasecount" class="tsd-kind-icon">lease<wbr>Count</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmententry.html#nodepubkey" class="tsd-kind-icon">node<wbr>Pubkey</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmententry.html#slotexpiration" class="tsd-kind-icon">slot<wbr>Expiration</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibundleauth.html#aggregatoraddress" class="tsd-kind-icon">aggregator<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibundleauth.html#bundleaddress" class="tsd-kind-icon">bundle<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibundleauth.html#idx" class="tsd-kind-icon">idx</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibundleauth.html#version" class="tsd-kind-icon">version</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,47 +105,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="leasecount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> lease<wbr>Count</h3>
-					<div class="tsd-signature tsd-kind-icon">lease<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="aggregatoraddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> aggregator<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">aggregator<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/5890c3b/src/compiled.d.ts#L1810">compiled.d.ts:1810</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/5890c3b/src/compiled.d.ts#L1702">compiled.d.ts:1702</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>FulfillmentEntry leaseCount</p>
+							<p>BundleAuth aggregatorAddress</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nodepubkey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> node<wbr>Pubkey</h3>
-					<div class="tsd-signature tsd-kind-icon">node<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
+					<a name="bundleaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> bundle<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">bundle<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/5890c3b/src/compiled.d.ts#L1807">compiled.d.ts:1807</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/5890c3b/src/compiled.d.ts#L1705">compiled.d.ts:1705</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>FulfillmentEntry nodePubkey</p>
+							<p>BundleAuth bundleAddress</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="slotexpiration" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> slot<wbr>Expiration</h3>
-					<div class="tsd-signature tsd-kind-icon">slot<wbr>Expiration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="idx" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> idx</h3>
+					<div class="tsd-signature tsd-kind-icon">idx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/5890c3b/src/compiled.d.ts#L1813">compiled.d.ts:1813</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/5890c3b/src/compiled.d.ts#L1708">compiled.d.ts:1708</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>FulfillmentEntry slotExpiration</p>
+							<p>BundleAuth idx</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="version" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> version</h3>
+					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/5890c3b/src/compiled.d.ts#L1699">compiled.d.ts:1699</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>BundleAuth version</p>
 						</div>
 					</div>
 				</section>
@@ -163,16 +179,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="ifulfillmententry.html" class="tsd-kind-icon">IFulfillment<wbr>Entry</a>
+						<a href="ibundleauth.html" class="tsd-kind-icon">IBundle<wbr>Auth</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmententry.html#leasecount" class="tsd-kind-icon">lease<wbr>Count</a>
+								<a href="ibundleauth.html#aggregatoraddress" class="tsd-kind-icon">aggregator<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmententry.html#nodepubkey" class="tsd-kind-icon">node<wbr>Pubkey</a>
+								<a href="ibundleauth.html#bundleaddress" class="tsd-kind-icon">bundle<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmententry.html#slotexpiration" class="tsd-kind-icon">slot<wbr>Expiration</a>
+								<a href="ibundleauth.html#idx" class="tsd-kind-icon">idx</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ibundleauth.html#version" class="tsd-kind-icon">version</a>
 							</li>
 						</ul>
 					</li>
