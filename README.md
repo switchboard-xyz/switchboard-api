@@ -9,6 +9,10 @@ the Switchboard API.
 
 `npm i @switchboard-xyz/switchboard-api`
 
+## Git Pages
+
+See https://switchboard-xyz.github.io/switchboard-api/ for module documentation.
+
 ## Protcol Buffer Documentation
 
 For full documentation on the generated protocol buffers included in this package,
