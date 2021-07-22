@@ -5627,6 +5627,7 @@
          * @property {SwitchboardInstruction.ISetBundleAuthConfigsInstruction|null} [setBundleAuthConfigsInstruction] SwitchboardInstruction setBundleAuthConfigsInstruction
          * @property {SwitchboardInstruction.IAddBundleAuthInstruction|null} [addBundleAuthInstruction] SwitchboardInstruction addBundleAuthInstruction
          * @property {SwitchboardInstruction.IRemoveBundleAuthInstruction|null} [removeBundleAuthInstruction] SwitchboardInstruction removeBundleAuthInstruction
+         * @property {SwitchboardInstruction.ISaveBundleResultInstruction|null} [saveBundleResultInstruction] SwitchboardInstruction saveBundleResultInstruction
          */
     
         /**
@@ -5772,17 +5773,25 @@
          */
         SwitchboardInstruction.prototype.removeBundleAuthInstruction = null;
     
+        /**
+         * SwitchboardInstruction saveBundleResultInstruction.
+         * @member {SwitchboardInstruction.ISaveBundleResultInstruction|null|undefined} saveBundleResultInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.saveBundleResultInstruction = null;
+    
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
     
         /**
          * SwitchboardInstruction instruction.
-         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|undefined} instruction
+         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction"|undefined} instruction
          * @memberof SwitchboardInstruction
          * @instance
          */
         Object.defineProperty(SwitchboardInstruction.prototype, "instruction", {
-            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction", "linkParseOptimizedAccountInstruction", "setBundleAuthConfigsInstruction", "addBundleAuthInstruction", "removeBundleAuthInstruction"]),
+            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction", "linkParseOptimizedAccountInstruction", "setBundleAuthConfigsInstruction", "addBundleAuthInstruction", "removeBundleAuthInstruction", "saveBundleResultInstruction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
     
@@ -5842,6 +5851,8 @@
                 $root.SwitchboardInstruction.AddBundleAuthInstruction.encode(message.addBundleAuthInstruction, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
             if (message.removeBundleAuthInstruction != null && Object.hasOwnProperty.call(message, "removeBundleAuthInstruction"))
                 $root.SwitchboardInstruction.RemoveBundleAuthInstruction.encode(message.removeBundleAuthInstruction, writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
+            if (message.saveBundleResultInstruction != null && Object.hasOwnProperty.call(message, "saveBundleResultInstruction"))
+                $root.SwitchboardInstruction.SaveBundleResultInstruction.encode(message.saveBundleResultInstruction, writer.uint32(/* id 17, wireType 2 =*/138).fork()).ldelim();
             return writer;
         };
     
@@ -5923,6 +5934,9 @@
                     break;
                 case 16:
                     message.removeBundleAuthInstruction = $root.SwitchboardInstruction.RemoveBundleAuthInstruction.decode(reader, reader.uint32());
+                    break;
+                case 17:
+                    message.saveBundleResultInstruction = $root.SwitchboardInstruction.SaveBundleResultInstruction.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6118,6 +6132,16 @@
                         return "removeBundleAuthInstruction." + error;
                 }
             }
+            if (message.saveBundleResultInstruction != null && message.hasOwnProperty("saveBundleResultInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.SaveBundleResultInstruction.verify(message.saveBundleResultInstruction);
+                    if (error)
+                        return "saveBundleResultInstruction." + error;
+                }
+            }
             return null;
         };
     
@@ -6212,6 +6236,11 @@
                 if (typeof object.removeBundleAuthInstruction !== "object")
                     throw TypeError(".SwitchboardInstruction.removeBundleAuthInstruction: object expected");
                 message.removeBundleAuthInstruction = $root.SwitchboardInstruction.RemoveBundleAuthInstruction.fromObject(object.removeBundleAuthInstruction);
+            }
+            if (object.saveBundleResultInstruction != null) {
+                if (typeof object.saveBundleResultInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.saveBundleResultInstruction: object expected");
+                message.saveBundleResultInstruction = $root.SwitchboardInstruction.SaveBundleResultInstruction.fromObject(object.saveBundleResultInstruction);
             }
             return message;
         };
@@ -6308,6 +6337,11 @@
                 object.removeBundleAuthInstruction = $root.SwitchboardInstruction.RemoveBundleAuthInstruction.toObject(message.removeBundleAuthInstruction, options);
                 if (options.oneofs)
                     object.instruction = "removeBundleAuthInstruction";
+            }
+            if (message.saveBundleResultInstruction != null && message.hasOwnProperty("saveBundleResultInstruction")) {
+                object.saveBundleResultInstruction = $root.SwitchboardInstruction.SaveBundleResultInstruction.toObject(message.saveBundleResultInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "saveBundleResultInstruction";
             }
             return object;
         };
@@ -9515,6 +9549,166 @@
             };
     
             return RemoveBundleAuthInstruction;
+        })();
+    
+        SwitchboardInstruction.SaveBundleResultInstruction = (function() {
+    
+            /**
+             * Properties of a SaveBundleResultInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface ISaveBundleResultInstruction
+             */
+    
+            /**
+             * Constructs a new SaveBundleResultInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a SaveBundleResultInstruction.
+             * @implements ISaveBundleResultInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.ISaveBundleResultInstruction=} [properties] Properties to set
+             */
+            function SaveBundleResultInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Creates a new SaveBundleResultInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISaveBundleResultInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.SaveBundleResultInstruction} SaveBundleResultInstruction instance
+             */
+            SaveBundleResultInstruction.create = function create(properties) {
+                return new SaveBundleResultInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified SaveBundleResultInstruction message. Does not implicitly {@link SwitchboardInstruction.SaveBundleResultInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISaveBundleResultInstruction} message SaveBundleResultInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SaveBundleResultInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified SaveBundleResultInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SaveBundleResultInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISaveBundleResultInstruction} message SaveBundleResultInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SaveBundleResultInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a SaveBundleResultInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.SaveBundleResultInstruction} SaveBundleResultInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SaveBundleResultInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.SaveBundleResultInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a SaveBundleResultInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.SaveBundleResultInstruction} SaveBundleResultInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SaveBundleResultInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a SaveBundleResultInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SaveBundleResultInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+    
+            /**
+             * Creates a SaveBundleResultInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.SaveBundleResultInstruction} SaveBundleResultInstruction
+             */
+            SaveBundleResultInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.SaveBundleResultInstruction)
+                    return object;
+                return new $root.SwitchboardInstruction.SaveBundleResultInstruction();
+            };
+    
+            /**
+             * Creates a plain object from a SaveBundleResultInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @static
+             * @param {SwitchboardInstruction.SaveBundleResultInstruction} message SaveBundleResultInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SaveBundleResultInstruction.toObject = function toObject() {
+                return {};
+            };
+    
+            /**
+             * Converts this SaveBundleResultInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.SaveBundleResultInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SaveBundleResultInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return SaveBundleResultInstruction;
         })();
     
         return SwitchboardInstruction;

@@ -2267,6 +2267,9 @@ export interface ISwitchboardInstruction {
 
     /** SwitchboardInstruction removeBundleAuthInstruction */
     removeBundleAuthInstruction?: (SwitchboardInstruction.IRemoveBundleAuthInstruction|null);
+
+    /** SwitchboardInstruction saveBundleResultInstruction */
+    saveBundleResultInstruction?: (SwitchboardInstruction.ISaveBundleResultInstruction|null);
 }
 
 /** Represents a SwitchboardInstruction. */
@@ -2326,8 +2329,11 @@ export class SwitchboardInstruction implements ISwitchboardInstruction {
     /** SwitchboardInstruction removeBundleAuthInstruction. */
     public removeBundleAuthInstruction?: (SwitchboardInstruction.IRemoveBundleAuthInstruction|null);
 
+    /** SwitchboardInstruction saveBundleResultInstruction. */
+    public saveBundleResultInstruction?: (SwitchboardInstruction.ISaveBundleResultInstruction|null);
+
     /** SwitchboardInstruction instruction. */
-    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction");
+    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction");
 
     /**
      * Creates a new SwitchboardInstruction instance using the specified properties.
@@ -3867,6 +3873,90 @@ export namespace SwitchboardInstruction {
 
         /**
          * Converts this RemoveBundleAuthInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SaveBundleResultInstruction. */
+    interface ISaveBundleResultInstruction {
+    }
+
+    /** Represents a SaveBundleResultInstruction. */
+    class SaveBundleResultInstruction implements ISaveBundleResultInstruction {
+
+        /**
+         * Constructs a new SaveBundleResultInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.ISaveBundleResultInstruction);
+
+        /**
+         * Creates a new SaveBundleResultInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SaveBundleResultInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.ISaveBundleResultInstruction): SwitchboardInstruction.SaveBundleResultInstruction;
+
+        /**
+         * Encodes the specified SaveBundleResultInstruction message. Does not implicitly {@link SwitchboardInstruction.SaveBundleResultInstruction.verify|verify} messages.
+         * @param message SaveBundleResultInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.ISaveBundleResultInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SaveBundleResultInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SaveBundleResultInstruction.verify|verify} messages.
+         * @param message SaveBundleResultInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.ISaveBundleResultInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SaveBundleResultInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SaveBundleResultInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.SaveBundleResultInstruction;
+
+        /**
+         * Decodes a SaveBundleResultInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SaveBundleResultInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.SaveBundleResultInstruction;
+
+        /**
+         * Verifies a SaveBundleResultInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SaveBundleResultInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SaveBundleResultInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.SaveBundleResultInstruction;
+
+        /**
+         * Creates a plain object from a SaveBundleResultInstruction message. Also converts values to other types if specified.
+         * @param message SaveBundleResultInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.SaveBundleResultInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SaveBundleResultInstruction to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
