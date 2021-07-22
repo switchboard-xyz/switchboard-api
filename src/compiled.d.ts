@@ -2258,6 +2258,15 @@ export interface ISwitchboardInstruction {
 
     /** SwitchboardInstruction linkParseOptimizedAccountInstruction */
     linkParseOptimizedAccountInstruction?: (SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction|null);
+
+    /** SwitchboardInstruction setBundleAuthConfigsInstruction */
+    setBundleAuthConfigsInstruction?: (SwitchboardInstruction.ISetBundleAuthConfigsInstruction|null);
+
+    /** SwitchboardInstruction addBundleAuthInstruction */
+    addBundleAuthInstruction?: (SwitchboardInstruction.IAddBundleAuthInstruction|null);
+
+    /** SwitchboardInstruction removeBundleAuthInstruction */
+    removeBundleAuthInstruction?: (SwitchboardInstruction.IRemoveBundleAuthInstruction|null);
 }
 
 /** Represents a SwitchboardInstruction. */
@@ -2308,8 +2317,17 @@ export class SwitchboardInstruction implements ISwitchboardInstruction {
     /** SwitchboardInstruction linkParseOptimizedAccountInstruction. */
     public linkParseOptimizedAccountInstruction?: (SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction|null);
 
+    /** SwitchboardInstruction setBundleAuthConfigsInstruction. */
+    public setBundleAuthConfigsInstruction?: (SwitchboardInstruction.ISetBundleAuthConfigsInstruction|null);
+
+    /** SwitchboardInstruction addBundleAuthInstruction. */
+    public addBundleAuthInstruction?: (SwitchboardInstruction.IAddBundleAuthInstruction|null);
+
+    /** SwitchboardInstruction removeBundleAuthInstruction. */
+    public removeBundleAuthInstruction?: (SwitchboardInstruction.IRemoveBundleAuthInstruction|null);
+
     /** SwitchboardInstruction instruction. */
-    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction");
+    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction");
 
     /**
      * Creates a new SwitchboardInstruction instance using the specified properties.
@@ -3591,6 +3609,264 @@ export namespace SwitchboardInstruction {
 
         /**
          * Converts this LinkedParseOptimizedResultAccountInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SetBundleAuthConfigsInstruction. */
+    interface ISetBundleAuthConfigsInstruction {
+
+        /** SetBundleAuthConfigsInstruction idx */
+        idx?: (number|null);
+    }
+
+    /** Represents a SetBundleAuthConfigsInstruction. */
+    class SetBundleAuthConfigsInstruction implements ISetBundleAuthConfigsInstruction {
+
+        /**
+         * Constructs a new SetBundleAuthConfigsInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.ISetBundleAuthConfigsInstruction);
+
+        /** SetBundleAuthConfigsInstruction idx. */
+        public idx: number;
+
+        /**
+         * Creates a new SetBundleAuthConfigsInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SetBundleAuthConfigsInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.ISetBundleAuthConfigsInstruction): SwitchboardInstruction.SetBundleAuthConfigsInstruction;
+
+        /**
+         * Encodes the specified SetBundleAuthConfigsInstruction message. Does not implicitly {@link SwitchboardInstruction.SetBundleAuthConfigsInstruction.verify|verify} messages.
+         * @param message SetBundleAuthConfigsInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.ISetBundleAuthConfigsInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SetBundleAuthConfigsInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SetBundleAuthConfigsInstruction.verify|verify} messages.
+         * @param message SetBundleAuthConfigsInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.ISetBundleAuthConfigsInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SetBundleAuthConfigsInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SetBundleAuthConfigsInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.SetBundleAuthConfigsInstruction;
+
+        /**
+         * Decodes a SetBundleAuthConfigsInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SetBundleAuthConfigsInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.SetBundleAuthConfigsInstruction;
+
+        /**
+         * Verifies a SetBundleAuthConfigsInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SetBundleAuthConfigsInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SetBundleAuthConfigsInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.SetBundleAuthConfigsInstruction;
+
+        /**
+         * Creates a plain object from a SetBundleAuthConfigsInstruction message. Also converts values to other types if specified.
+         * @param message SetBundleAuthConfigsInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.SetBundleAuthConfigsInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SetBundleAuthConfigsInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an AddBundleAuthInstruction. */
+    interface IAddBundleAuthInstruction {
+    }
+
+    /** Represents an AddBundleAuthInstruction. */
+    class AddBundleAuthInstruction implements IAddBundleAuthInstruction {
+
+        /**
+         * Constructs a new AddBundleAuthInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IAddBundleAuthInstruction);
+
+        /**
+         * Creates a new AddBundleAuthInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AddBundleAuthInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IAddBundleAuthInstruction): SwitchboardInstruction.AddBundleAuthInstruction;
+
+        /**
+         * Encodes the specified AddBundleAuthInstruction message. Does not implicitly {@link SwitchboardInstruction.AddBundleAuthInstruction.verify|verify} messages.
+         * @param message AddBundleAuthInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IAddBundleAuthInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified AddBundleAuthInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.AddBundleAuthInstruction.verify|verify} messages.
+         * @param message AddBundleAuthInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IAddBundleAuthInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an AddBundleAuthInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AddBundleAuthInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.AddBundleAuthInstruction;
+
+        /**
+         * Decodes an AddBundleAuthInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AddBundleAuthInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.AddBundleAuthInstruction;
+
+        /**
+         * Verifies an AddBundleAuthInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an AddBundleAuthInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns AddBundleAuthInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.AddBundleAuthInstruction;
+
+        /**
+         * Creates a plain object from an AddBundleAuthInstruction message. Also converts values to other types if specified.
+         * @param message AddBundleAuthInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.AddBundleAuthInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this AddBundleAuthInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a RemoveBundleAuthInstruction. */
+    interface IRemoveBundleAuthInstruction {
+    }
+
+    /** Represents a RemoveBundleAuthInstruction. */
+    class RemoveBundleAuthInstruction implements IRemoveBundleAuthInstruction {
+
+        /**
+         * Constructs a new RemoveBundleAuthInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IRemoveBundleAuthInstruction);
+
+        /**
+         * Creates a new RemoveBundleAuthInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RemoveBundleAuthInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IRemoveBundleAuthInstruction): SwitchboardInstruction.RemoveBundleAuthInstruction;
+
+        /**
+         * Encodes the specified RemoveBundleAuthInstruction message. Does not implicitly {@link SwitchboardInstruction.RemoveBundleAuthInstruction.verify|verify} messages.
+         * @param message RemoveBundleAuthInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IRemoveBundleAuthInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified RemoveBundleAuthInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RemoveBundleAuthInstruction.verify|verify} messages.
+         * @param message RemoveBundleAuthInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IRemoveBundleAuthInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a RemoveBundleAuthInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RemoveBundleAuthInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.RemoveBundleAuthInstruction;
+
+        /**
+         * Decodes a RemoveBundleAuthInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RemoveBundleAuthInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.RemoveBundleAuthInstruction;
+
+        /**
+         * Verifies a RemoveBundleAuthInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a RemoveBundleAuthInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns RemoveBundleAuthInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.RemoveBundleAuthInstruction;
+
+        /**
+         * Creates a plain object from a RemoveBundleAuthInstruction message. Also converts values to other types if specified.
+         * @param message RemoveBundleAuthInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.RemoveBundleAuthInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this RemoveBundleAuthInstruction to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

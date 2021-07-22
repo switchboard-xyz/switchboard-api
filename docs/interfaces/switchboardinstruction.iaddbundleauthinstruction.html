@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IRegisterAuthInstruction | @switchboard-xyz/switchboard-api</title>
+	<title>IAddBundleAuthInstruction | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/switchboardinstruction.html">SwitchboardInstruction</a>
 				</li>
 				<li>
-					<a href="switchboardinstruction.iregisterauthinstruction.html">IRegisterAuthInstruction</a>
+					<a href="switchboardinstruction.iaddbundleauthinstruction.html">IAddBundleAuthInstruction</a>
 				</li>
 			</ul>
-			<h1>Interface IRegisterAuthInstruction</h1>
+			<h1>Interface IAddBundleAuthInstruction</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a RegisterAuthInstruction.</p>
+						<p>Properties of an AddBundleAuthInstruction.</p>
 					</div>
 				</div>
 			</section>
@@ -79,62 +79,15 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IRegisterAuthInstruction</span>
+						<span class="target">IAddBundleAuthInstruction</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/switchboardinstruction.registerauthinstruction.html" class="tsd-signature-type" data-tsd-kind="Class">RegisterAuthInstruction</a></li>
+					<li><a href="../classes/switchboardinstruction.addbundleauthinstruction.html" class="tsd-signature-type" data-tsd-kind="Class">AddBundleAuthInstruction</a></li>
 				</ul>
-			</section>
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.iregisterauthinstruction.html#authorizeheartbeat" class="tsd-kind-icon">authorize<wbr>Heartbeat</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.iregisterauthinstruction.html#authorizeusage" class="tsd-kind-icon">authorize<wbr>Usage</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authorizeheartbeat" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> authorize<wbr>Heartbeat</h3>
-					<div class="tsd-signature tsd-kind-icon">authorize<wbr>Heartbeat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/90c9502/src/compiled.d.ts#L3273">compiled.d.ts:3273</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>RegisterAuthInstruction authorizeHeartbeat</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authorizeusage" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> authorize<wbr>Usage</h3>
-					<div class="tsd-signature tsd-kind-icon">authorize<wbr>Usage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/90c9502/src/compiled.d.ts#L3276">compiled.d.ts:3276</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>RegisterAuthInstruction authorizeUsage</p>
-						</div>
-					</div>
-				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -210,9 +163,13 @@
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="../classes/switchboardinstruction.updateaggregateinstruction.html" class="tsd-kind-icon">Update<wbr>Aggregate<wbr>Instruction</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="switchboardinstruction.iaddbundleauthinstruction.html" class="tsd-kind-icon">IAdd<wbr>Bundle<wbr>Auth<wbr>Instruction</a>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="switchboardinstruction.igetaggregateinstruction.html" class="tsd-kind-icon">IGet<wbr>Aggregate<wbr>Instruction</a>
 					</li>
@@ -228,21 +185,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="switchboardinstruction.ireachfulfilleragreementinstruction.html" class="tsd-kind-icon">IReach<wbr>Fulfiller<wbr>Agreement<wbr>Instruction</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="switchboardinstruction.iregisterauthinstruction.html" class="tsd-kind-icon">IRegister<wbr>Auth<wbr>Instruction</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="switchboardinstruction.iregisterauthinstruction.html#authorizeheartbeat" class="tsd-kind-icon">authorize<wbr>Heartbeat</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="switchboardinstruction.iregisterauthinstruction.html#authorizeusage" class="tsd-kind-icon">authorize<wbr>Usage</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="switchboardinstruction.iregisterjobinstruction.html" class="tsd-kind-icon">IRegister<wbr>Job<wbr>Instruction</a>
 					</li>

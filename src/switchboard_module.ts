@@ -11,11 +11,32 @@ import {
   sendAndConfirmTransaction,
 } from '@solana/web3.js';
 import { AggregatorState, SwitchboardInstruction, OracleJob,
-  FulfillmentManagerState, SwitchboardAccountType } from './compiled';
+  FulfillmentManagerState, SwitchboardAccountType, BundleAuth } from './compiled';
 
 export const SWITCHBOARD_DEVNET_PID = new PublicKey("7azgmy1pFXHikv36q1zZASvFq5vFa39TT9NweVugKKTU");
 export const SWITCHBOARD_TESTNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
 export const SWITCHBOARD_MAINNET_PID = new PublicKey("DtmE9D2CSB4L5D6A15mraeEjrGMm6auWVzgaD8hK2tZM");
+
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the bundle auth account to parse.
+ * @return BundleAuth
+ */
+export async function parseBundleAuthAccountData(
+  connection: Connection,
+  address: PublicKey,
+): Promise<BundleAuth> {
+  let accountInfo = await connection.getAccountInfo(address);
+  if (accountInfo == null) {
+    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+  }
+  let data = accountInfo.data;
+  if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_BUNDLE_AUTH) {
+    throw new Error(`Switchboard account parser was not provided with a bundle auth account: ${address.toBase58()}`);
+  }
+  return BundleAuth.decodeDelimited(accountInfo.data.slice(1));
+}
 
 /**
  * Pull accountInfo from a provided account address and attempt to parse the state.
@@ -516,6 +537,116 @@ export async function setAuthConfigs(
 
   let txAccounts = [payerAccount, fulfillmentManagerAccount];
   await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
+}
+
+export async function createBundle(
+  connection: Connection,
+  payerAccount: Account,
+  switchboardPid: PublicKey,
+  accountSize: number = 10_000_000,
+): Promise<Account> {
+  let account = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
+  await initAccount(connection, payerAccount, account,
+    SwitchboardAccountType.TYPE_BUNDLE);
+  return account;
+}
+
+/**
+ * Creates an account which controls permissions access to write to a bundle.
+ * @param connection Solana network connection object.
+ * @param payerAccount Transaction funder account.
+ * @param switchboardPid Switchboard program ID.
+ * @param accountSize: byte size to allocate for the created account.
+ * @returns Account The account holding the new authorization config.
+ */
+export async function createBundleAuth(
+  connection: Connection,
+  payerAccount: Account,
+  switchboardPid: PublicKey,
+  accountSize: number = 500,
+): Promise<Account> {
+  let account = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
+  await initAccount(connection, payerAccount, account,
+    SwitchboardAccountType.TYPE_BUNDLE_AUTH);
+  return account;
+}
+
+export async function setBundleAuthConfigs(
+  connection: Connection,
+  payerAccount: Account,
+  bundleAuthAccount: Account,
+  bundleAccount: Account,
+  aggregatorPubkey: PublicKey,
+  auth_idx: number
+) {
+  let pid = (await connection.getAccountInfo(bundleAuthAccount.publicKey))?.owner;
+  if (pid == null) {
+    throw new Error("Failed to fetch account info for " + bundleAuthAccount.publicKey.toString());
+  }
+  let transactionInstruction = new TransactionInstruction({
+    keys: [
+      { pubkey: bundleAuthAccount.publicKey, isSigner: true, isWritable: true },
+      { pubkey: bundleAccount.publicKey, isSigner: true, isWritable: false },
+      { pubkey: aggregatorPubkey, isSigner: false, isWritable: false },
+    ],
+    programId: pid,
+    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
+      setBundleAuthConfigsInstruction: SwitchboardInstruction.SetBundleAuthConfigsInstruction.create({
+        idx: auth_idx,
+      })
+    })).finish()),
+  });
+
+  let txAccounts = [payerAccount, bundleAuthAccount, bundleAccount];
+  await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
+}
+
+export async function addFeedBundle(
+  connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: Account) {
+  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
+  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
+  let buffer = Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
+      addBundleAuthInstruction: SwitchboardInstruction.AddBundleAuthInstruction.create({})
+    })).finish());
+
+  let transactionInstruction = new TransactionInstruction({
+    keys: [
+      { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true },
+      { pubkey: bundleAuth.publicKey, isSigner: false, isWritable: false },
+    ],
+    programId: dataFeedAccountInfo.owner,
+    data: buffer,
+  });
+
+  await performTransaction(connection, new Transaction().add(transactionInstruction), [
+    payerAccount,
+    dataFeedAccount,
+  ]);
+  return null;
+}
+
+export async function removeFeedBundle(
+  connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: Account) {
+  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
+  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
+  let buffer = Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
+      removeBundleAuthInstruction: SwitchboardInstruction.RemoveBundleAuthInstruction.create({})
+    })).finish());
+
+  let transactionInstruction = new TransactionInstruction({
+    keys: [
+      { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true },
+      { pubkey: bundleAuth.publicKey, isSigner: false, isWritable: false },
+    ],
+    programId: dataFeedAccountInfo.owner,
+    data: buffer,
+  });
+
+  await performTransaction(connection, new Transaction().add(transactionInstruction), [
+    payerAccount,
+    dataFeedAccount,
+  ]);
+  return null;
 }
 
 // === Exported Helpers ===

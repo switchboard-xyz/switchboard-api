@@ -1,8 +1,15 @@
 import { Account, Connection, PublicKey } from '@solana/web3.js';
-import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType } from './compiled';
+import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType, BundleAuth } from './compiled';
 export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
 export declare const SWITCHBOARD_TESTNET_PID: PublicKey;
 export declare const SWITCHBOARD_MAINNET_PID: PublicKey;
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the bundle auth account to parse.
+ * @return BundleAuth
+ */
+export declare function parseBundleAuthAccountData(connection: Connection, address: PublicKey): Promise<BundleAuth>;
 /**
  * Pull accountInfo from a provided account address and attempt to parse the state.
  * @param connection Solana network connection object.
@@ -161,6 +168,19 @@ export declare function createFulfillmentManagerAuth(connection: Connection, pay
  *                `authorizeUsage`: Set to `true` to let the nominee use the provided Fulfillment manager to fulfill {@linkcode updateFeed} requests.
  */
 export declare function setAuthConfigs(connection: Connection, payerAccount: Account, fulfillmentManagerAccount: Account, fulfillmentManagerAuthPubkey: PublicKey, nomineePubkey: PublicKey, configs: any): Promise<void>;
+export declare function createBundle(connection: Connection, payerAccount: Account, switchboardPid: PublicKey, accountSize?: number): Promise<Account>;
+/**
+ * Creates an account which controls permissions access to write to a bundle.
+ * @param connection Solana network connection object.
+ * @param payerAccount Transaction funder account.
+ * @param switchboardPid Switchboard program ID.
+ * @param accountSize: byte size to allocate for the created account.
+ * @returns Account The account holding the new authorization config.
+ */
+export declare function createBundleAuth(connection: Connection, payerAccount: Account, switchboardPid: PublicKey, accountSize?: number): Promise<Account>;
+export declare function setBundleAuthConfigs(connection: Connection, payerAccount: Account, bundleAuthAccount: Account, bundleAccount: Account, aggregatorPubkey: PublicKey, auth_idx: number): Promise<void>;
+export declare function addFeedBundle(connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: Account): Promise<null>;
+export declare function removeFeedBundle(connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: Account): Promise<null>;
 /**
  * Helper for creating rent exempted accounts.
  * @param connection Solana network connection object.

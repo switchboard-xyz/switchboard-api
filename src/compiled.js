@@ -5624,6 +5624,9 @@
          * @property {SwitchboardInstruction.IReachFulfillerAgreementInstruction|null} [reachFulfillerAgreementInstruction] SwitchboardInstruction reachFulfillerAgreementInstruction
          * @property {SwitchboardInstruction.IRemoveFulfillerInstruction|null} [removeFulfillerInstruction] SwitchboardInstruction removeFulfillerInstruction
          * @property {SwitchboardInstruction.ILinkedParseOptimizedResultAccountInstruction|null} [linkParseOptimizedAccountInstruction] SwitchboardInstruction linkParseOptimizedAccountInstruction
+         * @property {SwitchboardInstruction.ISetBundleAuthConfigsInstruction|null} [setBundleAuthConfigsInstruction] SwitchboardInstruction setBundleAuthConfigsInstruction
+         * @property {SwitchboardInstruction.IAddBundleAuthInstruction|null} [addBundleAuthInstruction] SwitchboardInstruction addBundleAuthInstruction
+         * @property {SwitchboardInstruction.IRemoveBundleAuthInstruction|null} [removeBundleAuthInstruction] SwitchboardInstruction removeBundleAuthInstruction
          */
     
         /**
@@ -5745,17 +5748,41 @@
          */
         SwitchboardInstruction.prototype.linkParseOptimizedAccountInstruction = null;
     
+        /**
+         * SwitchboardInstruction setBundleAuthConfigsInstruction.
+         * @member {SwitchboardInstruction.ISetBundleAuthConfigsInstruction|null|undefined} setBundleAuthConfigsInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.setBundleAuthConfigsInstruction = null;
+    
+        /**
+         * SwitchboardInstruction addBundleAuthInstruction.
+         * @member {SwitchboardInstruction.IAddBundleAuthInstruction|null|undefined} addBundleAuthInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.addBundleAuthInstruction = null;
+    
+        /**
+         * SwitchboardInstruction removeBundleAuthInstruction.
+         * @member {SwitchboardInstruction.IRemoveBundleAuthInstruction|null|undefined} removeBundleAuthInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.removeBundleAuthInstruction = null;
+    
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
     
         /**
          * SwitchboardInstruction instruction.
-         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|undefined} instruction
+         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|undefined} instruction
          * @memberof SwitchboardInstruction
          * @instance
          */
         Object.defineProperty(SwitchboardInstruction.prototype, "instruction", {
-            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction", "linkParseOptimizedAccountInstruction"]),
+            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction", "linkParseOptimizedAccountInstruction", "setBundleAuthConfigsInstruction", "addBundleAuthInstruction", "removeBundleAuthInstruction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
     
@@ -5809,6 +5836,12 @@
                 $root.SwitchboardInstruction.RemoveFulfillerInstruction.encode(message.removeFulfillerInstruction, writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
             if (message.linkParseOptimizedAccountInstruction != null && Object.hasOwnProperty.call(message, "linkParseOptimizedAccountInstruction"))
                 $root.SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.encode(message.linkParseOptimizedAccountInstruction, writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
+            if (message.setBundleAuthConfigsInstruction != null && Object.hasOwnProperty.call(message, "setBundleAuthConfigsInstruction"))
+                $root.SwitchboardInstruction.SetBundleAuthConfigsInstruction.encode(message.setBundleAuthConfigsInstruction, writer.uint32(/* id 14, wireType 2 =*/114).fork()).ldelim();
+            if (message.addBundleAuthInstruction != null && Object.hasOwnProperty.call(message, "addBundleAuthInstruction"))
+                $root.SwitchboardInstruction.AddBundleAuthInstruction.encode(message.addBundleAuthInstruction, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
+            if (message.removeBundleAuthInstruction != null && Object.hasOwnProperty.call(message, "removeBundleAuthInstruction"))
+                $root.SwitchboardInstruction.RemoveBundleAuthInstruction.encode(message.removeBundleAuthInstruction, writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
             return writer;
         };
     
@@ -5881,6 +5914,15 @@
                     break;
                 case 13:
                     message.linkParseOptimizedAccountInstruction = $root.SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.decode(reader, reader.uint32());
+                    break;
+                case 14:
+                    message.setBundleAuthConfigsInstruction = $root.SwitchboardInstruction.SetBundleAuthConfigsInstruction.decode(reader, reader.uint32());
+                    break;
+                case 15:
+                    message.addBundleAuthInstruction = $root.SwitchboardInstruction.AddBundleAuthInstruction.decode(reader, reader.uint32());
+                    break;
+                case 16:
+                    message.removeBundleAuthInstruction = $root.SwitchboardInstruction.RemoveBundleAuthInstruction.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6046,6 +6088,36 @@
                         return "linkParseOptimizedAccountInstruction." + error;
                 }
             }
+            if (message.setBundleAuthConfigsInstruction != null && message.hasOwnProperty("setBundleAuthConfigsInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.SetBundleAuthConfigsInstruction.verify(message.setBundleAuthConfigsInstruction);
+                    if (error)
+                        return "setBundleAuthConfigsInstruction." + error;
+                }
+            }
+            if (message.addBundleAuthInstruction != null && message.hasOwnProperty("addBundleAuthInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.AddBundleAuthInstruction.verify(message.addBundleAuthInstruction);
+                    if (error)
+                        return "addBundleAuthInstruction." + error;
+                }
+            }
+            if (message.removeBundleAuthInstruction != null && message.hasOwnProperty("removeBundleAuthInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.RemoveBundleAuthInstruction.verify(message.removeBundleAuthInstruction);
+                    if (error)
+                        return "removeBundleAuthInstruction." + error;
+                }
+            }
             return null;
         };
     
@@ -6125,6 +6197,21 @@
                 if (typeof object.linkParseOptimizedAccountInstruction !== "object")
                     throw TypeError(".SwitchboardInstruction.linkParseOptimizedAccountInstruction: object expected");
                 message.linkParseOptimizedAccountInstruction = $root.SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.fromObject(object.linkParseOptimizedAccountInstruction);
+            }
+            if (object.setBundleAuthConfigsInstruction != null) {
+                if (typeof object.setBundleAuthConfigsInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.setBundleAuthConfigsInstruction: object expected");
+                message.setBundleAuthConfigsInstruction = $root.SwitchboardInstruction.SetBundleAuthConfigsInstruction.fromObject(object.setBundleAuthConfigsInstruction);
+            }
+            if (object.addBundleAuthInstruction != null) {
+                if (typeof object.addBundleAuthInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.addBundleAuthInstruction: object expected");
+                message.addBundleAuthInstruction = $root.SwitchboardInstruction.AddBundleAuthInstruction.fromObject(object.addBundleAuthInstruction);
+            }
+            if (object.removeBundleAuthInstruction != null) {
+                if (typeof object.removeBundleAuthInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.removeBundleAuthInstruction: object expected");
+                message.removeBundleAuthInstruction = $root.SwitchboardInstruction.RemoveBundleAuthInstruction.fromObject(object.removeBundleAuthInstruction);
             }
             return message;
         };
@@ -6206,6 +6293,21 @@
                 object.linkParseOptimizedAccountInstruction = $root.SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.toObject(message.linkParseOptimizedAccountInstruction, options);
                 if (options.oneofs)
                     object.instruction = "linkParseOptimizedAccountInstruction";
+            }
+            if (message.setBundleAuthConfigsInstruction != null && message.hasOwnProperty("setBundleAuthConfigsInstruction")) {
+                object.setBundleAuthConfigsInstruction = $root.SwitchboardInstruction.SetBundleAuthConfigsInstruction.toObject(message.setBundleAuthConfigsInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "setBundleAuthConfigsInstruction";
+            }
+            if (message.addBundleAuthInstruction != null && message.hasOwnProperty("addBundleAuthInstruction")) {
+                object.addBundleAuthInstruction = $root.SwitchboardInstruction.AddBundleAuthInstruction.toObject(message.addBundleAuthInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "addBundleAuthInstruction";
+            }
+            if (message.removeBundleAuthInstruction != null && message.hasOwnProperty("removeBundleAuthInstruction")) {
+                object.removeBundleAuthInstruction = $root.SwitchboardInstruction.RemoveBundleAuthInstruction.toObject(message.removeBundleAuthInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "removeBundleAuthInstruction";
             }
             return object;
         };
@@ -8906,6 +9008,513 @@
             };
     
             return LinkedParseOptimizedResultAccountInstruction;
+        })();
+    
+        SwitchboardInstruction.SetBundleAuthConfigsInstruction = (function() {
+    
+            /**
+             * Properties of a SetBundleAuthConfigsInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface ISetBundleAuthConfigsInstruction
+             * @property {number|null} [idx] SetBundleAuthConfigsInstruction idx
+             */
+    
+            /**
+             * Constructs a new SetBundleAuthConfigsInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a SetBundleAuthConfigsInstruction.
+             * @implements ISetBundleAuthConfigsInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.ISetBundleAuthConfigsInstruction=} [properties] Properties to set
+             */
+            function SetBundleAuthConfigsInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * SetBundleAuthConfigsInstruction idx.
+             * @member {number} idx
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @instance
+             */
+            SetBundleAuthConfigsInstruction.prototype.idx = 0;
+    
+            /**
+             * Creates a new SetBundleAuthConfigsInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetBundleAuthConfigsInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.SetBundleAuthConfigsInstruction} SetBundleAuthConfigsInstruction instance
+             */
+            SetBundleAuthConfigsInstruction.create = function create(properties) {
+                return new SetBundleAuthConfigsInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified SetBundleAuthConfigsInstruction message. Does not implicitly {@link SwitchboardInstruction.SetBundleAuthConfigsInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetBundleAuthConfigsInstruction} message SetBundleAuthConfigsInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetBundleAuthConfigsInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.idx != null && Object.hasOwnProperty.call(message, "idx"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.idx);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified SetBundleAuthConfigsInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SetBundleAuthConfigsInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetBundleAuthConfigsInstruction} message SetBundleAuthConfigsInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetBundleAuthConfigsInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a SetBundleAuthConfigsInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.SetBundleAuthConfigsInstruction} SetBundleAuthConfigsInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetBundleAuthConfigsInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.SetBundleAuthConfigsInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.idx = reader.int32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a SetBundleAuthConfigsInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.SetBundleAuthConfigsInstruction} SetBundleAuthConfigsInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetBundleAuthConfigsInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a SetBundleAuthConfigsInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SetBundleAuthConfigsInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.idx != null && message.hasOwnProperty("idx"))
+                    if (!$util.isInteger(message.idx))
+                        return "idx: integer expected";
+                return null;
+            };
+    
+            /**
+             * Creates a SetBundleAuthConfigsInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.SetBundleAuthConfigsInstruction} SetBundleAuthConfigsInstruction
+             */
+            SetBundleAuthConfigsInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.SetBundleAuthConfigsInstruction)
+                    return object;
+                var message = new $root.SwitchboardInstruction.SetBundleAuthConfigsInstruction();
+                if (object.idx != null)
+                    message.idx = object.idx | 0;
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a SetBundleAuthConfigsInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @static
+             * @param {SwitchboardInstruction.SetBundleAuthConfigsInstruction} message SetBundleAuthConfigsInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SetBundleAuthConfigsInstruction.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.idx = 0;
+                if (message.idx != null && message.hasOwnProperty("idx"))
+                    object.idx = message.idx;
+                return object;
+            };
+    
+            /**
+             * Converts this SetBundleAuthConfigsInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.SetBundleAuthConfigsInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SetBundleAuthConfigsInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return SetBundleAuthConfigsInstruction;
+        })();
+    
+        SwitchboardInstruction.AddBundleAuthInstruction = (function() {
+    
+            /**
+             * Properties of an AddBundleAuthInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface IAddBundleAuthInstruction
+             */
+    
+            /**
+             * Constructs a new AddBundleAuthInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents an AddBundleAuthInstruction.
+             * @implements IAddBundleAuthInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.IAddBundleAuthInstruction=} [properties] Properties to set
+             */
+            function AddBundleAuthInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Creates a new AddBundleAuthInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @static
+             * @param {SwitchboardInstruction.IAddBundleAuthInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.AddBundleAuthInstruction} AddBundleAuthInstruction instance
+             */
+            AddBundleAuthInstruction.create = function create(properties) {
+                return new AddBundleAuthInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified AddBundleAuthInstruction message. Does not implicitly {@link SwitchboardInstruction.AddBundleAuthInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @static
+             * @param {SwitchboardInstruction.IAddBundleAuthInstruction} message AddBundleAuthInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AddBundleAuthInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified AddBundleAuthInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.AddBundleAuthInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @static
+             * @param {SwitchboardInstruction.IAddBundleAuthInstruction} message AddBundleAuthInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AddBundleAuthInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes an AddBundleAuthInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.AddBundleAuthInstruction} AddBundleAuthInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AddBundleAuthInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.AddBundleAuthInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes an AddBundleAuthInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.AddBundleAuthInstruction} AddBundleAuthInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AddBundleAuthInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies an AddBundleAuthInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AddBundleAuthInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+    
+            /**
+             * Creates an AddBundleAuthInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.AddBundleAuthInstruction} AddBundleAuthInstruction
+             */
+            AddBundleAuthInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.AddBundleAuthInstruction)
+                    return object;
+                return new $root.SwitchboardInstruction.AddBundleAuthInstruction();
+            };
+    
+            /**
+             * Creates a plain object from an AddBundleAuthInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @static
+             * @param {SwitchboardInstruction.AddBundleAuthInstruction} message AddBundleAuthInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AddBundleAuthInstruction.toObject = function toObject() {
+                return {};
+            };
+    
+            /**
+             * Converts this AddBundleAuthInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.AddBundleAuthInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AddBundleAuthInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return AddBundleAuthInstruction;
+        })();
+    
+        SwitchboardInstruction.RemoveBundleAuthInstruction = (function() {
+    
+            /**
+             * Properties of a RemoveBundleAuthInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface IRemoveBundleAuthInstruction
+             */
+    
+            /**
+             * Constructs a new RemoveBundleAuthInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a RemoveBundleAuthInstruction.
+             * @implements IRemoveBundleAuthInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.IRemoveBundleAuthInstruction=} [properties] Properties to set
+             */
+            function RemoveBundleAuthInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Creates a new RemoveBundleAuthInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRemoveBundleAuthInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.RemoveBundleAuthInstruction} RemoveBundleAuthInstruction instance
+             */
+            RemoveBundleAuthInstruction.create = function create(properties) {
+                return new RemoveBundleAuthInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified RemoveBundleAuthInstruction message. Does not implicitly {@link SwitchboardInstruction.RemoveBundleAuthInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRemoveBundleAuthInstruction} message RemoveBundleAuthInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RemoveBundleAuthInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified RemoveBundleAuthInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RemoveBundleAuthInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRemoveBundleAuthInstruction} message RemoveBundleAuthInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RemoveBundleAuthInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a RemoveBundleAuthInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.RemoveBundleAuthInstruction} RemoveBundleAuthInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RemoveBundleAuthInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.RemoveBundleAuthInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a RemoveBundleAuthInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.RemoveBundleAuthInstruction} RemoveBundleAuthInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RemoveBundleAuthInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a RemoveBundleAuthInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RemoveBundleAuthInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+    
+            /**
+             * Creates a RemoveBundleAuthInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.RemoveBundleAuthInstruction} RemoveBundleAuthInstruction
+             */
+            RemoveBundleAuthInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.RemoveBundleAuthInstruction)
+                    return object;
+                return new $root.SwitchboardInstruction.RemoveBundleAuthInstruction();
+            };
+    
+            /**
+             * Creates a plain object from a RemoveBundleAuthInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @static
+             * @param {SwitchboardInstruction.RemoveBundleAuthInstruction} message RemoveBundleAuthInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RemoveBundleAuthInstruction.toObject = function toObject() {
+                return {};
+            };
+    
+            /**
+             * Converts this RemoveBundleAuthInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.RemoveBundleAuthInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RemoveBundleAuthInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return RemoveBundleAuthInstruction;
         })();
     
         return SwitchboardInstruction;
