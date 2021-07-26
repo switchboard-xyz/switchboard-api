@@ -179,8 +179,8 @@ export declare function createBundle(connection: Connection, payerAccount: Accou
  */
 export declare function createBundleAuth(connection: Connection, payerAccount: Account, switchboardPid: PublicKey, accountSize?: number): Promise<Account>;
 export declare function setBundleAuthConfigs(connection: Connection, payerAccount: Account, bundleAuthAccount: Account, bundleAccount: Account, aggregatorPubkey: PublicKey, auth_idx: number): Promise<void>;
-export declare function addFeedBundle(connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: Account): Promise<null>;
-export declare function removeFeedBundle(connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: Account): Promise<null>;
+export declare function addFeedBundle(connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: PublicKey): Promise<void>;
+export declare function removeFeedBundle(connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: PublicKey): Promise<null>;
 /**
  * Helper for creating rent exempted accounts.
  * @param connection Solana network connection object.

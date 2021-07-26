@@ -602,7 +602,7 @@ export async function setBundleAuthConfigs(
 }
 
 export async function addFeedBundle(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: Account) {
+  connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: PublicKey) {
   let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
   if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
   let buffer = Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
@@ -612,7 +612,7 @@ export async function addFeedBundle(
   let transactionInstruction = new TransactionInstruction({
     keys: [
       { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true },
-      { pubkey: bundleAuth.publicKey, isSigner: false, isWritable: false },
+      { pubkey: bundleAuth, isSigner: false, isWritable: false },
     ],
     programId: dataFeedAccountInfo.owner,
     data: buffer,
@@ -622,11 +622,10 @@ export async function addFeedBundle(
     payerAccount,
     dataFeedAccount,
   ]);
-  return null;
 }
 
 export async function removeFeedBundle(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: Account) {
+  connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: PublicKey) {
   let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
   if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
   let buffer = Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
@@ -636,7 +635,7 @@ export async function removeFeedBundle(
   let transactionInstruction = new TransactionInstruction({
     keys: [
       { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true },
-      { pubkey: bundleAuth.publicKey, isSigner: false, isWritable: false },
+      { pubkey: bundleAuth, isSigner: false, isWritable: false },
     ],
     programId: dataFeedAccountInfo.owner,
     data: buffer,
