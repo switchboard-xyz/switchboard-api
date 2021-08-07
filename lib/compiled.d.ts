@@ -1465,6 +1465,12 @@ export namespace OracleJob {
 
         /** LpExchangeRateTask saberPoolAddress */
         saberPoolAddress?: (string|null);
+
+        /** LpExchangeRateTask inTokenAddress */
+        inTokenAddress?: (string|null);
+
+        /** LpExchangeRateTask outTokenAddress */
+        outTokenAddress?: (string|null);
     }
 
     /** Represents a LpExchangeRateTask. */
@@ -1481,6 +1487,12 @@ export namespace OracleJob {
 
         /** LpExchangeRateTask saberPoolAddress. */
         public saberPoolAddress: string;
+
+        /** LpExchangeRateTask inTokenAddress. */
+        public inTokenAddress: string;
+
+        /** LpExchangeRateTask outTokenAddress. */
+        public outTokenAddress: string;
 
         /** LpExchangeRateTask LPPoolAddress. */
         public LPPoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
