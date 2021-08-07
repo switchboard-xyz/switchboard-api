@@ -1494,8 +1494,8 @@ export namespace OracleJob {
         /** LpExchangeRateTask outTokenAddress. */
         public outTokenAddress: string;
 
-        /** LpExchangeRateTask LPPoolAddress. */
-        public LPPoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
+        /** LpExchangeRateTask PoolAddress. */
+        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
 
         /**
          * Creates a new LpExchangeRateTask instance using the specified properties.
