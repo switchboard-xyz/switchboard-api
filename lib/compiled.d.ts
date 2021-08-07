@@ -1591,6 +1591,12 @@ export namespace OracleJob {
 
         /** Task multiplyTask */
         multiplyTask?: (OracleJob.IMultiplyTask|null);
+
+        /** Task lpTokenPriceTask */
+        lpTokenPriceTask?: (OracleJob.ILpTokenPriceTask|null);
+
+        /** Task lpExchangeRateTask */
+        lpExchangeRateTask?: (OracleJob.ILpExchangeRateTask|null);
     }
 
     /** Represents a Task. */
@@ -1623,8 +1629,14 @@ export namespace OracleJob {
         /** Task multiplyTask. */
         public multiplyTask?: (OracleJob.IMultiplyTask|null);
 
+        /** Task lpTokenPriceTask. */
+        public lpTokenPriceTask?: (OracleJob.ILpTokenPriceTask|null);
+
+        /** Task lpExchangeRateTask. */
+        public lpExchangeRateTask?: (OracleJob.ILpExchangeRateTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask");
 
         /**
          * Creates a new Task instance using the specified properties.

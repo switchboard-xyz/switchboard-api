@@ -3920,6 +3920,8 @@
              * @property {OracleJob.IWebsocketTask|null} [websocketTask] Task websocketTask
              * @property {OracleJob.IDivideTask|null} [divideTask] Task divideTask
              * @property {OracleJob.IMultiplyTask|null} [multiplyTask] Task multiplyTask
+             * @property {OracleJob.ILpTokenPriceTask|null} [lpTokenPriceTask] Task lpTokenPriceTask
+             * @property {OracleJob.ILpExchangeRateTask|null} [lpExchangeRateTask] Task lpExchangeRateTask
              */
     
             /**
@@ -3993,17 +3995,33 @@
              */
             Task.prototype.multiplyTask = null;
     
+            /**
+             * Task lpTokenPriceTask.
+             * @member {OracleJob.ILpTokenPriceTask|null|undefined} lpTokenPriceTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.lpTokenPriceTask = null;
+    
+            /**
+             * Task lpExchangeRateTask.
+             * @member {OracleJob.ILpExchangeRateTask|null|undefined} lpExchangeRateTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.lpExchangeRateTask = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -4045,6 +4063,10 @@
                     $root.OracleJob.DivideTask.encode(message.divideTask, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
                 if (message.multiplyTask != null && Object.hasOwnProperty.call(message, "multiplyTask"))
                     $root.OracleJob.MultiplyTask.encode(message.multiplyTask, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                if (message.lpTokenPriceTask != null && Object.hasOwnProperty.call(message, "lpTokenPriceTask"))
+                    $root.OracleJob.LpTokenPriceTask.encode(message.lpTokenPriceTask, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                if (message.lpExchangeRateTask != null && Object.hasOwnProperty.call(message, "lpExchangeRateTask"))
+                    $root.OracleJob.LpExchangeRateTask.encode(message.lpExchangeRateTask, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                 return writer;
             };
     
@@ -4099,6 +4121,12 @@
                         break;
                     case 8:
                         message.multiplyTask = $root.OracleJob.MultiplyTask.decode(reader, reader.uint32());
+                        break;
+                    case 9:
+                        message.lpTokenPriceTask = $root.OracleJob.LpTokenPriceTask.decode(reader, reader.uint32());
+                        break;
+                    case 10:
+                        message.lpExchangeRateTask = $root.OracleJob.LpExchangeRateTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -4204,6 +4232,26 @@
                             return "multiplyTask." + error;
                     }
                 }
+                if (message.lpTokenPriceTask != null && message.hasOwnProperty("lpTokenPriceTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.LpTokenPriceTask.verify(message.lpTokenPriceTask);
+                        if (error)
+                            return "lpTokenPriceTask." + error;
+                    }
+                }
+                if (message.lpExchangeRateTask != null && message.hasOwnProperty("lpExchangeRateTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.LpExchangeRateTask.verify(message.lpExchangeRateTask);
+                        if (error)
+                            return "lpExchangeRateTask." + error;
+                    }
+                }
                 return null;
             };
     
@@ -4253,6 +4301,16 @@
                     if (typeof object.multiplyTask !== "object")
                         throw TypeError(".OracleJob.Task.multiplyTask: object expected");
                     message.multiplyTask = $root.OracleJob.MultiplyTask.fromObject(object.multiplyTask);
+                }
+                if (object.lpTokenPriceTask != null) {
+                    if (typeof object.lpTokenPriceTask !== "object")
+                        throw TypeError(".OracleJob.Task.lpTokenPriceTask: object expected");
+                    message.lpTokenPriceTask = $root.OracleJob.LpTokenPriceTask.fromObject(object.lpTokenPriceTask);
+                }
+                if (object.lpExchangeRateTask != null) {
+                    if (typeof object.lpExchangeRateTask !== "object")
+                        throw TypeError(".OracleJob.Task.lpExchangeRateTask: object expected");
+                    message.lpExchangeRateTask = $root.OracleJob.LpExchangeRateTask.fromObject(object.lpExchangeRateTask);
                 }
                 return message;
             };
@@ -4304,6 +4362,16 @@
                     object.multiplyTask = $root.OracleJob.MultiplyTask.toObject(message.multiplyTask, options);
                     if (options.oneofs)
                         object.Task = "multiplyTask";
+                }
+                if (message.lpTokenPriceTask != null && message.hasOwnProperty("lpTokenPriceTask")) {
+                    object.lpTokenPriceTask = $root.OracleJob.LpTokenPriceTask.toObject(message.lpTokenPriceTask, options);
+                    if (options.oneofs)
+                        object.Task = "lpTokenPriceTask";
+                }
+                if (message.lpExchangeRateTask != null && message.hasOwnProperty("lpExchangeRateTask")) {
+                    object.lpExchangeRateTask = $root.OracleJob.LpExchangeRateTask.toObject(message.lpExchangeRateTask, options);
+                    if (options.oneofs)
+                        object.Task = "lpExchangeRateTask";
                 }
                 return object;
             };
