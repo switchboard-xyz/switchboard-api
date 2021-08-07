@@ -1460,17 +1460,17 @@ export namespace OracleJob {
     /** Properties of a LpExchangeRateTask. */
     interface ILpExchangeRateTask {
 
-        /** LpExchangeRateTask mercurialPoolAddress */
-        mercurialPoolAddress?: (string|null);
-
-        /** LpExchangeRateTask saberPoolAddress */
-        saberPoolAddress?: (string|null);
-
         /** LpExchangeRateTask inTokenAddress */
         inTokenAddress?: (string|null);
 
         /** LpExchangeRateTask outTokenAddress */
         outTokenAddress?: (string|null);
+
+        /** LpExchangeRateTask mercurialPoolAddress */
+        mercurialPoolAddress?: (string|null);
+
+        /** LpExchangeRateTask saberPoolAddress */
+        saberPoolAddress?: (string|null);
     }
 
     /** Represents a LpExchangeRateTask. */
@@ -1482,17 +1482,17 @@ export namespace OracleJob {
          */
         constructor(properties?: OracleJob.ILpExchangeRateTask);
 
-        /** LpExchangeRateTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
-
-        /** LpExchangeRateTask saberPoolAddress. */
-        public saberPoolAddress: string;
-
         /** LpExchangeRateTask inTokenAddress. */
         public inTokenAddress: string;
 
         /** LpExchangeRateTask outTokenAddress. */
         public outTokenAddress: string;
+
+        /** LpExchangeRateTask mercurialPoolAddress. */
+        public mercurialPoolAddress: string;
+
+        /** LpExchangeRateTask saberPoolAddress. */
+        public saberPoolAddress: string;
 
         /** LpExchangeRateTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
