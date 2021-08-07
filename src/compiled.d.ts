@@ -1457,6 +1457,105 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a LpExchangeRateTask. */
+    interface ILpExchangeRateTask {
+
+        /** LpExchangeRateTask mercurialPoolAddress */
+        mercurialPoolAddress?: (string|null);
+
+        /** LpExchangeRateTask saberPoolAddress */
+        saberPoolAddress?: (string|null);
+    }
+
+    /** Represents a LpExchangeRateTask. */
+    class LpExchangeRateTask implements ILpExchangeRateTask {
+
+        /**
+         * Constructs a new LpExchangeRateTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ILpExchangeRateTask);
+
+        /** LpExchangeRateTask mercurialPoolAddress. */
+        public mercurialPoolAddress: string;
+
+        /** LpExchangeRateTask saberPoolAddress. */
+        public saberPoolAddress: string;
+
+        /** LpExchangeRateTask LPPoolAddress. */
+        public LPPoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
+
+        /**
+         * Creates a new LpExchangeRateTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LpExchangeRateTask instance
+         */
+        public static create(properties?: OracleJob.ILpExchangeRateTask): OracleJob.LpExchangeRateTask;
+
+        /**
+         * Encodes the specified LpExchangeRateTask message. Does not implicitly {@link OracleJob.LpExchangeRateTask.verify|verify} messages.
+         * @param message LpExchangeRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ILpExchangeRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LpExchangeRateTask message, length delimited. Does not implicitly {@link OracleJob.LpExchangeRateTask.verify|verify} messages.
+         * @param message LpExchangeRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ILpExchangeRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LpExchangeRateTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LpExchangeRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.LpExchangeRateTask;
+
+        /**
+         * Decodes a LpExchangeRateTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LpExchangeRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.LpExchangeRateTask;
+
+        /**
+         * Verifies a LpExchangeRateTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LpExchangeRateTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LpExchangeRateTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.LpExchangeRateTask;
+
+        /**
+         * Creates a plain object from a LpExchangeRateTask message. Also converts values to other types if specified.
+         * @param message LpExchangeRateTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.LpExchangeRateTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LpExchangeRateTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 

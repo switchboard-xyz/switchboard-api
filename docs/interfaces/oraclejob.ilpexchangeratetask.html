@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IHttpTask | @switchboard-xyz/switchboard-api</title>
+	<title>ILpExchangeRateTask | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/oraclejob.html">OracleJob</a>
 				</li>
 				<li>
-					<a href="oraclejob.ihttptask.html">IHttpTask</a>
+					<a href="oraclejob.ilpexchangeratetask.html">ILpExchangeRateTask</a>
 				</li>
 			</ul>
-			<h1>Interface IHttpTask</h1>
+			<h1>Interface ILpExchangeRateTask</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a HttpTask.</p>
+						<p>Properties of a LpExchangeRateTask.</p>
 					</div>
 				</div>
 			</section>
@@ -79,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IHttpTask</span>
+						<span class="target">ILpExchangeRateTask</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/oraclejob.httptask-1.html" class="tsd-signature-type" data-tsd-kind="Class">HttpTask</a></li>
+					<li><a href="../classes/oraclejob.lpexchangeratetask.html" class="tsd-signature-type" data-tsd-kind="Class">LpExchangeRateTask</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,10 +96,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ihttptask.html#body" class="tsd-kind-icon">body</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ihttptask.html#headers" class="tsd-kind-icon">headers</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ihttptask.html#method" class="tsd-kind-icon">method</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ihttptask.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ilpexchangeratetask.html#mercurialpooladdress" class="tsd-kind-icon">mercurial<wbr>Pool<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ilpexchangeratetask.html#saberpooladdress" class="tsd-kind-icon">saber<wbr>Pool<wbr>Address</a></li>
 							</ul>
 						</section>
 					</div>
@@ -108,62 +106,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="body" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> body</h3>
-					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="mercurialpooladdress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mercurial<wbr>Pool<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">mercurial<wbr>Pool<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/39e78e2/src/compiled.d.ts#L584">compiled.d.ts:584</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/39e78e2/src/compiled.d.ts#L1464">compiled.d.ts:1464</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>HttpTask body</p>
+							<p>LpExchangeRateTask mercurialPoolAddress</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="headers" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> headers</h3>
-					<div class="tsd-signature tsd-kind-icon">headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="oraclejob.httptask.iheader.html" class="tsd-signature-type" data-tsd-kind="Interface">IHeader</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="saberpooladdress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> saber<wbr>Pool<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">saber<wbr>Pool<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/39e78e2/src/compiled.d.ts#L581">compiled.d.ts:581</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/39e78e2/src/compiled.d.ts#L1467">compiled.d.ts:1467</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>HttpTask headers</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="method" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> method</h3>
-					<div class="tsd-signature tsd-kind-icon">method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../enums/oraclejob.httptask.method.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Method</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/39e78e2/src/compiled.d.ts#L578">compiled.d.ts:578</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>HttpTask method</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="url" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> url</h3>
-					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/39e78e2/src/compiled.d.ts#L575">compiled.d.ts:575</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>HttpTask url</p>
+							<p>LpExchangeRateTask saberPoolAddress</p>
 						</div>
 					</div>
 				</section>
@@ -227,33 +195,27 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="oraclejob.idividetask.html" class="tsd-kind-icon">IDivide<wbr>Task</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="oraclejob.ihttptask.html" class="tsd-kind-icon">IHttp<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="oraclejob.ijsonparsetask.html" class="tsd-kind-icon">IJson<wbr>Parse<wbr>Task</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="oraclejob.ihttptask.html" class="tsd-kind-icon">IHttp<wbr>Task</a>
+						<a href="oraclejob.ilpexchangeratetask.html" class="tsd-kind-icon">ILp<wbr>Exchange<wbr>Rate<wbr>Task</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ihttptask.html#body" class="tsd-kind-icon">body</a>
+								<a href="oraclejob.ilpexchangeratetask.html#mercurialpooladdress" class="tsd-kind-icon">mercurial<wbr>Pool<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ihttptask.html#headers" class="tsd-kind-icon">headers</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ihttptask.html#method" class="tsd-kind-icon">method</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ihttptask.html#url" class="tsd-kind-icon">url</a>
+								<a href="oraclejob.ilpexchangeratetask.html#saberpooladdress" class="tsd-kind-icon">saber<wbr>Pool<wbr>Address</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="oraclejob.ijsonparsetask.html" class="tsd-kind-icon">IJson<wbr>Parse<wbr>Task</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="oraclejob.ilpexchangeratetask.html" class="tsd-kind-icon">ILp<wbr>Exchange<wbr>Rate<wbr>Task</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="oraclejob.ilptokenpricetask.html" class="tsd-kind-icon">ILp<wbr>Token<wbr>Price<wbr>Task</a>
 					</li>
