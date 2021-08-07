@@ -3440,12 +3440,12 @@
             var $oneOfFields;
     
             /**
-             * LpTokenPriceTask LPPoolAddress.
-             * @member {"mercurialPoolAddress"|"saberPoolAddress"|undefined} LPPoolAddress
+             * LpTokenPriceTask PoolAddress.
+             * @member {"mercurialPoolAddress"|"saberPoolAddress"|undefined} PoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
-            Object.defineProperty(LpTokenPriceTask.prototype, "LPPoolAddress", {
+            Object.defineProperty(LpTokenPriceTask.prototype, "PoolAddress", {
                 get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -3555,14 +3555,14 @@
                     return "object expected";
                 var properties = {};
                 if (message.mercurialPoolAddress != null && message.hasOwnProperty("mercurialPoolAddress")) {
-                    properties.LPPoolAddress = 1;
+                    properties.PoolAddress = 1;
                     if (!$util.isString(message.mercurialPoolAddress))
                         return "mercurialPoolAddress: string expected";
                 }
                 if (message.saberPoolAddress != null && message.hasOwnProperty("saberPoolAddress")) {
-                    if (properties.LPPoolAddress === 1)
-                        return "LPPoolAddress: multiple values";
-                    properties.LPPoolAddress = 1;
+                    if (properties.PoolAddress === 1)
+                        return "PoolAddress: multiple values";
+                    properties.PoolAddress = 1;
                     if (!$util.isString(message.saberPoolAddress))
                         return "saberPoolAddress: string expected";
                 }
@@ -3604,12 +3604,12 @@
                 if (message.mercurialPoolAddress != null && message.hasOwnProperty("mercurialPoolAddress")) {
                     object.mercurialPoolAddress = message.mercurialPoolAddress;
                     if (options.oneofs)
-                        object.LPPoolAddress = "mercurialPoolAddress";
+                        object.PoolAddress = "mercurialPoolAddress";
                 }
                 if (message.saberPoolAddress != null && message.hasOwnProperty("saberPoolAddress")) {
                     object.saberPoolAddress = message.saberPoolAddress;
                     if (options.oneofs)
-                        object.LPPoolAddress = "saberPoolAddress";
+                        object.PoolAddress = "saberPoolAddress";
                 }
                 return object;
             };

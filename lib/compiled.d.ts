@@ -1383,8 +1383,8 @@ export namespace OracleJob {
         /** LpTokenPriceTask saberPoolAddress. */
         public saberPoolAddress: string;
 
-        /** LpTokenPriceTask LPPoolAddress. */
-        public LPPoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
+        /** LpTokenPriceTask PoolAddress. */
+        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
 
         /**
          * Creates a new LpTokenPriceTask instance using the specified properties.
