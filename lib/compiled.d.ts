@@ -1358,6 +1358,105 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a LpTokenPriceTask. */
+    interface ILpTokenPriceTask {
+
+        /** LpTokenPriceTask mercurialPoolAddress */
+        mercurialPoolAddress?: (string|null);
+
+        /** LpTokenPriceTask saberPoolAddress */
+        saberPoolAddress?: (string|null);
+    }
+
+    /** Represents a LpTokenPriceTask. */
+    class LpTokenPriceTask implements ILpTokenPriceTask {
+
+        /**
+         * Constructs a new LpTokenPriceTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ILpTokenPriceTask);
+
+        /** LpTokenPriceTask mercurialPoolAddress. */
+        public mercurialPoolAddress: string;
+
+        /** LpTokenPriceTask saberPoolAddress. */
+        public saberPoolAddress: string;
+
+        /** LpTokenPriceTask LPPoolAddress. */
+        public LPPoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
+
+        /**
+         * Creates a new LpTokenPriceTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LpTokenPriceTask instance
+         */
+        public static create(properties?: OracleJob.ILpTokenPriceTask): OracleJob.LpTokenPriceTask;
+
+        /**
+         * Encodes the specified LpTokenPriceTask message. Does not implicitly {@link OracleJob.LpTokenPriceTask.verify|verify} messages.
+         * @param message LpTokenPriceTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ILpTokenPriceTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LpTokenPriceTask message, length delimited. Does not implicitly {@link OracleJob.LpTokenPriceTask.verify|verify} messages.
+         * @param message LpTokenPriceTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ILpTokenPriceTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LpTokenPriceTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LpTokenPriceTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.LpTokenPriceTask;
+
+        /**
+         * Decodes a LpTokenPriceTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LpTokenPriceTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.LpTokenPriceTask;
+
+        /**
+         * Verifies a LpTokenPriceTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LpTokenPriceTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LpTokenPriceTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.LpTokenPriceTask;
+
+        /**
+         * Creates a plain object from a LpTokenPriceTask message. Also converts values to other types if specified.
+         * @param message LpTokenPriceTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.LpTokenPriceTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LpTokenPriceTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
