@@ -4915,6 +4915,7 @@
          * Properties of a VrfAccount.
          * @exports IVrfAccount
          * @interface IVrfAccount
+         * @property {Uint8Array|null} [selfPubkey] VrfAccount selfPubkey
          * @property {Uint8Array|null} [vrfPubkey] VrfAccount vrfPubkey
          * @property {Uint8Array|null} [fulfillmentManagerPubkey] VrfAccount fulfillmentManagerPubkey
          * @property {number|null} [numRequiredConfirmations] VrfAccount numRequiredConfirmations
@@ -4938,6 +4939,14 @@
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+    
+        /**
+         * VrfAccount selfPubkey.
+         * @member {Uint8Array} selfPubkey
+         * @memberof VrfAccount
+         * @instance
+         */
+        VrfAccount.prototype.selfPubkey = $util.newBuffer([]);
     
         /**
          * VrfAccount vrfPubkey.
@@ -5019,20 +5028,22 @@
         VrfAccount.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.selfPubkey != null && Object.hasOwnProperty.call(message, "selfPubkey"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.selfPubkey);
             if (message.vrfPubkey != null && Object.hasOwnProperty.call(message, "vrfPubkey"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.vrfPubkey);
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.vrfPubkey);
             if (message.fulfillmentManagerPubkey != null && Object.hasOwnProperty.call(message, "fulfillmentManagerPubkey"))
-                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.fulfillmentManagerPubkey);
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.fulfillmentManagerPubkey);
             if (message.numRequiredConfirmations != null && Object.hasOwnProperty.call(message, "numRequiredConfirmations"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.numRequiredConfirmations);
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.numRequiredConfirmations);
             if (message.counter != null && Object.hasOwnProperty.call(message, "counter"))
-                writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.counter);
+                writer.uint32(/* id 5, wireType 0 =*/40).uint64(message.counter);
             if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.value);
+                writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.value);
             if (message.proof != null && Object.hasOwnProperty.call(message, "proof"))
-                writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.proof);
+                writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.proof);
             if (message.numProofConfirmations != null && Object.hasOwnProperty.call(message, "numProofConfirmations"))
-                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.numProofConfirmations);
+                writer.uint32(/* id 8, wireType 0 =*/64).int32(message.numProofConfirmations);
             return writer;
         };
     
@@ -5068,24 +5079,27 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.vrfPubkey = reader.bytes();
+                    message.selfPubkey = reader.bytes();
                     break;
                 case 2:
-                    message.fulfillmentManagerPubkey = reader.bytes();
+                    message.vrfPubkey = reader.bytes();
                     break;
                 case 3:
-                    message.numRequiredConfirmations = reader.int32();
+                    message.fulfillmentManagerPubkey = reader.bytes();
                     break;
                 case 4:
-                    message.counter = reader.uint64();
+                    message.numRequiredConfirmations = reader.int32();
                     break;
                 case 5:
-                    message.value = reader.bytes();
+                    message.counter = reader.uint64();
                     break;
                 case 6:
-                    message.proof = reader.bytes();
+                    message.value = reader.bytes();
                     break;
                 case 7:
+                    message.proof = reader.bytes();
+                    break;
+                case 8:
                     message.numProofConfirmations = reader.int32();
                     break;
                 default:
@@ -5123,6 +5137,9 @@
         VrfAccount.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (message.selfPubkey != null && message.hasOwnProperty("selfPubkey"))
+                if (!(message.selfPubkey && typeof message.selfPubkey.length === "number" || $util.isString(message.selfPubkey)))
+                    return "selfPubkey: buffer expected";
             if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
                 if (!(message.vrfPubkey && typeof message.vrfPubkey.length === "number" || $util.isString(message.vrfPubkey)))
                     return "vrfPubkey: buffer expected";
@@ -5159,6 +5176,11 @@
             if (object instanceof $root.VrfAccount)
                 return object;
             var message = new $root.VrfAccount();
+            if (object.selfPubkey != null)
+                if (typeof object.selfPubkey === "string")
+                    $util.base64.decode(object.selfPubkey, message.selfPubkey = $util.newBuffer($util.base64.length(object.selfPubkey)), 0);
+                else if (object.selfPubkey.length)
+                    message.selfPubkey = object.selfPubkey;
             if (object.vrfPubkey != null)
                 if (typeof object.vrfPubkey === "string")
                     $util.base64.decode(object.vrfPubkey, message.vrfPubkey = $util.newBuffer($util.base64.length(object.vrfPubkey)), 0);
@@ -5210,6 +5232,13 @@
             var object = {};
             if (options.defaults) {
                 if (options.bytes === String)
+                    object.selfPubkey = "";
+                else {
+                    object.selfPubkey = [];
+                    if (options.bytes !== Array)
+                        object.selfPubkey = $util.newBuffer(object.selfPubkey);
+                }
+                if (options.bytes === String)
                     object.vrfPubkey = "";
                 else {
                     object.vrfPubkey = [];
@@ -5245,6 +5274,8 @@
                 }
                 object.numProofConfirmations = 0;
             }
+            if (message.selfPubkey != null && message.hasOwnProperty("selfPubkey"))
+                object.selfPubkey = options.bytes === String ? $util.base64.encode(message.selfPubkey, 0, message.selfPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.selfPubkey) : message.selfPubkey;
             if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
                 object.vrfPubkey = options.bytes === String ? $util.base64.encode(message.vrfPubkey, 0, message.vrfPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.vrfPubkey) : message.vrfPubkey;
             if (message.fulfillmentManagerPubkey != null && message.hasOwnProperty("fulfillmentManagerPubkey"))
@@ -11446,7 +11477,6 @@
              * Properties of a ConfirmRandomnessProofInstruction.
              * @memberof SwitchboardInstruction
              * @interface IConfirmRandomnessProofInstruction
-             * @property {Uint8Array|null} [proof] ConfirmRandomnessProofInstruction proof
              */
     
             /**
@@ -11463,14 +11493,6 @@
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
-    
-            /**
-             * ConfirmRandomnessProofInstruction proof.
-             * @member {Uint8Array} proof
-             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
-             * @instance
-             */
-            ConfirmRandomnessProofInstruction.prototype.proof = $util.newBuffer([]);
     
             /**
              * Creates a new ConfirmRandomnessProofInstruction instance using the specified properties.
@@ -11496,8 +11518,6 @@
             ConfirmRandomnessProofInstruction.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.proof != null && Object.hasOwnProperty.call(message, "proof"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.proof);
                 return writer;
             };
     
@@ -11532,9 +11552,6 @@
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.proof = reader.bytes();
-                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -11570,9 +11587,6 @@
             ConfirmRandomnessProofInstruction.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.proof != null && message.hasOwnProperty("proof"))
-                    if (!(message.proof && typeof message.proof.length === "number" || $util.isString(message.proof)))
-                        return "proof: buffer expected";
                 return null;
             };
     
@@ -11587,13 +11601,7 @@
             ConfirmRandomnessProofInstruction.fromObject = function fromObject(object) {
                 if (object instanceof $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction)
                     return object;
-                var message = new $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction();
-                if (object.proof != null)
-                    if (typeof object.proof === "string")
-                        $util.base64.decode(object.proof, message.proof = $util.newBuffer($util.base64.length(object.proof)), 0);
-                    else if (object.proof.length)
-                        message.proof = object.proof;
-                return message;
+                return new $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction();
             };
     
             /**
@@ -11605,21 +11613,8 @@
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            ConfirmRandomnessProofInstruction.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults)
-                    if (options.bytes === String)
-                        object.proof = "";
-                    else {
-                        object.proof = [];
-                        if (options.bytes !== Array)
-                            object.proof = $util.newBuffer(object.proof);
-                    }
-                if (message.proof != null && message.hasOwnProperty("proof"))
-                    object.proof = options.bytes === String ? $util.base64.encode(message.proof, 0, message.proof.length) : options.bytes === Array ? Array.prototype.slice.call(message.proof) : message.proof;
-                return object;
+            ConfirmRandomnessProofInstruction.toObject = function toObject() {
+                return {};
             };
     
             /**

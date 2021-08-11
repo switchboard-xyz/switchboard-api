@@ -1917,6 +1917,9 @@ export class JobResult implements IJobResult {
 /** Properties of a VrfAccount. */
 export interface IVrfAccount {
 
+    /** VrfAccount selfPubkey */
+    selfPubkey?: (Uint8Array|null);
+
     /** VrfAccount vrfPubkey */
     vrfPubkey?: (Uint8Array|null);
 
@@ -1947,6 +1950,9 @@ export class VrfAccount implements IVrfAccount {
      * @param [properties] Properties to set
      */
     constructor(properties?: IVrfAccount);
+
+    /** VrfAccount selfPubkey. */
+    public selfPubkey: Uint8Array;
 
     /** VrfAccount vrfPubkey. */
     public vrfPubkey: Uint8Array;
@@ -4618,9 +4624,6 @@ export namespace SwitchboardInstruction {
 
     /** Properties of a ConfirmRandomnessProofInstruction. */
     interface IConfirmRandomnessProofInstruction {
-
-        /** ConfirmRandomnessProofInstruction proof */
-        proof?: (Uint8Array|null);
     }
 
     /** Represents a ConfirmRandomnessProofInstruction. */
@@ -4631,9 +4634,6 @@ export namespace SwitchboardInstruction {
          * @param [properties] Properties to set
          */
         constructor(properties?: SwitchboardInstruction.IConfirmRandomnessProofInstruction);
-
-        /** ConfirmRandomnessProofInstruction proof. */
-        public proof: Uint8Array;
 
         /**
          * Creates a new ConfirmRandomnessProofInstruction instance using the specified properties.
