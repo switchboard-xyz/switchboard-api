@@ -4909,6 +4909,376 @@
         return JobResult;
     })();
     
+    $root.VrfAccount = (function() {
+    
+        /**
+         * Properties of a VrfAccount.
+         * @exports IVrfAccount
+         * @interface IVrfAccount
+         * @property {Uint8Array|null} [vrfPubkey] VrfAccount vrfPubkey
+         * @property {Uint8Array|null} [fulfillmentManagerPubkey] VrfAccount fulfillmentManagerPubkey
+         * @property {number|null} [numRequiredConfirmations] VrfAccount numRequiredConfirmations
+         * @property {number|Long|null} [counter] VrfAccount counter
+         * @property {Uint8Array|null} [value] VrfAccount value
+         * @property {Uint8Array|null} [proof] VrfAccount proof
+         * @property {number|null} [numProofConfirmations] VrfAccount numProofConfirmations
+         */
+    
+        /**
+         * Constructs a new VrfAccount.
+         * @exports VrfAccount
+         * @classdesc Represents a VrfAccount.
+         * @implements IVrfAccount
+         * @constructor
+         * @param {IVrfAccount=} [properties] Properties to set
+         */
+        function VrfAccount(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * VrfAccount vrfPubkey.
+         * @member {Uint8Array} vrfPubkey
+         * @memberof VrfAccount
+         * @instance
+         */
+        VrfAccount.prototype.vrfPubkey = $util.newBuffer([]);
+    
+        /**
+         * VrfAccount fulfillmentManagerPubkey.
+         * @member {Uint8Array} fulfillmentManagerPubkey
+         * @memberof VrfAccount
+         * @instance
+         */
+        VrfAccount.prototype.fulfillmentManagerPubkey = $util.newBuffer([]);
+    
+        /**
+         * VrfAccount numRequiredConfirmations.
+         * @member {number} numRequiredConfirmations
+         * @memberof VrfAccount
+         * @instance
+         */
+        VrfAccount.prototype.numRequiredConfirmations = 0;
+    
+        /**
+         * VrfAccount counter.
+         * @member {number|Long} counter
+         * @memberof VrfAccount
+         * @instance
+         */
+        VrfAccount.prototype.counter = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+    
+        /**
+         * VrfAccount value.
+         * @member {Uint8Array} value
+         * @memberof VrfAccount
+         * @instance
+         */
+        VrfAccount.prototype.value = $util.newBuffer([]);
+    
+        /**
+         * VrfAccount proof.
+         * @member {Uint8Array} proof
+         * @memberof VrfAccount
+         * @instance
+         */
+        VrfAccount.prototype.proof = $util.newBuffer([]);
+    
+        /**
+         * VrfAccount numProofConfirmations.
+         * @member {number} numProofConfirmations
+         * @memberof VrfAccount
+         * @instance
+         */
+        VrfAccount.prototype.numProofConfirmations = 0;
+    
+        /**
+         * Creates a new VrfAccount instance using the specified properties.
+         * @function create
+         * @memberof VrfAccount
+         * @static
+         * @param {IVrfAccount=} [properties] Properties to set
+         * @returns {VrfAccount} VrfAccount instance
+         */
+        VrfAccount.create = function create(properties) {
+            return new VrfAccount(properties);
+        };
+    
+        /**
+         * Encodes the specified VrfAccount message. Does not implicitly {@link VrfAccount.verify|verify} messages.
+         * @function encode
+         * @memberof VrfAccount
+         * @static
+         * @param {IVrfAccount} message VrfAccount message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VrfAccount.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.vrfPubkey != null && Object.hasOwnProperty.call(message, "vrfPubkey"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.vrfPubkey);
+            if (message.fulfillmentManagerPubkey != null && Object.hasOwnProperty.call(message, "fulfillmentManagerPubkey"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.fulfillmentManagerPubkey);
+            if (message.numRequiredConfirmations != null && Object.hasOwnProperty.call(message, "numRequiredConfirmations"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.numRequiredConfirmations);
+            if (message.counter != null && Object.hasOwnProperty.call(message, "counter"))
+                writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.counter);
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.value);
+            if (message.proof != null && Object.hasOwnProperty.call(message, "proof"))
+                writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.proof);
+            if (message.numProofConfirmations != null && Object.hasOwnProperty.call(message, "numProofConfirmations"))
+                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.numProofConfirmations);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified VrfAccount message, length delimited. Does not implicitly {@link VrfAccount.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof VrfAccount
+         * @static
+         * @param {IVrfAccount} message VrfAccount message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VrfAccount.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a VrfAccount message from the specified reader or buffer.
+         * @function decode
+         * @memberof VrfAccount
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {VrfAccount} VrfAccount
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VrfAccount.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VrfAccount();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.vrfPubkey = reader.bytes();
+                    break;
+                case 2:
+                    message.fulfillmentManagerPubkey = reader.bytes();
+                    break;
+                case 3:
+                    message.numRequiredConfirmations = reader.int32();
+                    break;
+                case 4:
+                    message.counter = reader.uint64();
+                    break;
+                case 5:
+                    message.value = reader.bytes();
+                    break;
+                case 6:
+                    message.proof = reader.bytes();
+                    break;
+                case 7:
+                    message.numProofConfirmations = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a VrfAccount message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof VrfAccount
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {VrfAccount} VrfAccount
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VrfAccount.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a VrfAccount message.
+         * @function verify
+         * @memberof VrfAccount
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        VrfAccount.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
+                if (!(message.vrfPubkey && typeof message.vrfPubkey.length === "number" || $util.isString(message.vrfPubkey)))
+                    return "vrfPubkey: buffer expected";
+            if (message.fulfillmentManagerPubkey != null && message.hasOwnProperty("fulfillmentManagerPubkey"))
+                if (!(message.fulfillmentManagerPubkey && typeof message.fulfillmentManagerPubkey.length === "number" || $util.isString(message.fulfillmentManagerPubkey)))
+                    return "fulfillmentManagerPubkey: buffer expected";
+            if (message.numRequiredConfirmations != null && message.hasOwnProperty("numRequiredConfirmations"))
+                if (!$util.isInteger(message.numRequiredConfirmations))
+                    return "numRequiredConfirmations: integer expected";
+            if (message.counter != null && message.hasOwnProperty("counter"))
+                if (!$util.isInteger(message.counter) && !(message.counter && $util.isInteger(message.counter.low) && $util.isInteger(message.counter.high)))
+                    return "counter: integer|Long expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                    return "value: buffer expected";
+            if (message.proof != null && message.hasOwnProperty("proof"))
+                if (!(message.proof && typeof message.proof.length === "number" || $util.isString(message.proof)))
+                    return "proof: buffer expected";
+            if (message.numProofConfirmations != null && message.hasOwnProperty("numProofConfirmations"))
+                if (!$util.isInteger(message.numProofConfirmations))
+                    return "numProofConfirmations: integer expected";
+            return null;
+        };
+    
+        /**
+         * Creates a VrfAccount message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof VrfAccount
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {VrfAccount} VrfAccount
+         */
+        VrfAccount.fromObject = function fromObject(object) {
+            if (object instanceof $root.VrfAccount)
+                return object;
+            var message = new $root.VrfAccount();
+            if (object.vrfPubkey != null)
+                if (typeof object.vrfPubkey === "string")
+                    $util.base64.decode(object.vrfPubkey, message.vrfPubkey = $util.newBuffer($util.base64.length(object.vrfPubkey)), 0);
+                else if (object.vrfPubkey.length)
+                    message.vrfPubkey = object.vrfPubkey;
+            if (object.fulfillmentManagerPubkey != null)
+                if (typeof object.fulfillmentManagerPubkey === "string")
+                    $util.base64.decode(object.fulfillmentManagerPubkey, message.fulfillmentManagerPubkey = $util.newBuffer($util.base64.length(object.fulfillmentManagerPubkey)), 0);
+                else if (object.fulfillmentManagerPubkey.length)
+                    message.fulfillmentManagerPubkey = object.fulfillmentManagerPubkey;
+            if (object.numRequiredConfirmations != null)
+                message.numRequiredConfirmations = object.numRequiredConfirmations | 0;
+            if (object.counter != null)
+                if ($util.Long)
+                    (message.counter = $util.Long.fromValue(object.counter)).unsigned = true;
+                else if (typeof object.counter === "string")
+                    message.counter = parseInt(object.counter, 10);
+                else if (typeof object.counter === "number")
+                    message.counter = object.counter;
+                else if (typeof object.counter === "object")
+                    message.counter = new $util.LongBits(object.counter.low >>> 0, object.counter.high >>> 0).toNumber(true);
+            if (object.value != null)
+                if (typeof object.value === "string")
+                    $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                else if (object.value.length)
+                    message.value = object.value;
+            if (object.proof != null)
+                if (typeof object.proof === "string")
+                    $util.base64.decode(object.proof, message.proof = $util.newBuffer($util.base64.length(object.proof)), 0);
+                else if (object.proof.length)
+                    message.proof = object.proof;
+            if (object.numProofConfirmations != null)
+                message.numProofConfirmations = object.numProofConfirmations | 0;
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a VrfAccount message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof VrfAccount
+         * @static
+         * @param {VrfAccount} message VrfAccount
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        VrfAccount.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.vrfPubkey = "";
+                else {
+                    object.vrfPubkey = [];
+                    if (options.bytes !== Array)
+                        object.vrfPubkey = $util.newBuffer(object.vrfPubkey);
+                }
+                if (options.bytes === String)
+                    object.fulfillmentManagerPubkey = "";
+                else {
+                    object.fulfillmentManagerPubkey = [];
+                    if (options.bytes !== Array)
+                        object.fulfillmentManagerPubkey = $util.newBuffer(object.fulfillmentManagerPubkey);
+                }
+                object.numRequiredConfirmations = 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.counter = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.counter = options.longs === String ? "0" : 0;
+                if (options.bytes === String)
+                    object.value = "";
+                else {
+                    object.value = [];
+                    if (options.bytes !== Array)
+                        object.value = $util.newBuffer(object.value);
+                }
+                if (options.bytes === String)
+                    object.proof = "";
+                else {
+                    object.proof = [];
+                    if (options.bytes !== Array)
+                        object.proof = $util.newBuffer(object.proof);
+                }
+                object.numProofConfirmations = 0;
+            }
+            if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
+                object.vrfPubkey = options.bytes === String ? $util.base64.encode(message.vrfPubkey, 0, message.vrfPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.vrfPubkey) : message.vrfPubkey;
+            if (message.fulfillmentManagerPubkey != null && message.hasOwnProperty("fulfillmentManagerPubkey"))
+                object.fulfillmentManagerPubkey = options.bytes === String ? $util.base64.encode(message.fulfillmentManagerPubkey, 0, message.fulfillmentManagerPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.fulfillmentManagerPubkey) : message.fulfillmentManagerPubkey;
+            if (message.numRequiredConfirmations != null && message.hasOwnProperty("numRequiredConfirmations"))
+                object.numRequiredConfirmations = message.numRequiredConfirmations;
+            if (message.counter != null && message.hasOwnProperty("counter"))
+                if (typeof message.counter === "number")
+                    object.counter = options.longs === String ? String(message.counter) : message.counter;
+                else
+                    object.counter = options.longs === String ? $util.Long.prototype.toString.call(message.counter) : options.longs === Number ? new $util.LongBits(message.counter.low >>> 0, message.counter.high >>> 0).toNumber(true) : message.counter;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+            if (message.proof != null && message.hasOwnProperty("proof"))
+                object.proof = options.bytes === String ? $util.base64.encode(message.proof, 0, message.proof.length) : options.bytes === Array ? Array.prototype.slice.call(message.proof) : message.proof;
+            if (message.numProofConfirmations != null && message.hasOwnProperty("numProofConfirmations"))
+                object.numProofConfirmations = message.numProofConfirmations;
+            return object;
+        };
+    
+        /**
+         * Converts this VrfAccount to JSON.
+         * @function toJSON
+         * @memberof VrfAccount
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        VrfAccount.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return VrfAccount;
+    })();
+    
     $root.BundleAuth = (function() {
     
         /**
@@ -6208,6 +6578,10 @@
          * @property {SwitchboardInstruction.IAddBundleAuthInstruction|null} [addBundleAuthInstruction] SwitchboardInstruction addBundleAuthInstruction
          * @property {SwitchboardInstruction.IRemoveBundleAuthInstruction|null} [removeBundleAuthInstruction] SwitchboardInstruction removeBundleAuthInstruction
          * @property {SwitchboardInstruction.ISaveBundleResultInstruction|null} [saveBundleResultInstruction] SwitchboardInstruction saveBundleResultInstruction
+         * @property {SwitchboardInstruction.ISetVrfConfigsInstruction|null} [setVrfConfigsInstruction] SwitchboardInstruction setVrfConfigsInstruction
+         * @property {SwitchboardInstruction.IRequestRandomnessInstruction|null} [requestRandomnessInstruction] SwitchboardInstruction requestRandomnessInstruction
+         * @property {SwitchboardInstruction.IRespondRandomnessInstruction|null} [respondRandomnessInstruction] SwitchboardInstruction respondRandomnessInstruction
+         * @property {SwitchboardInstruction.IConfirmRandomnessProofInstruction|null} [confirmRandomnessProofInstruction] SwitchboardInstruction confirmRandomnessProofInstruction
          */
     
         /**
@@ -6361,17 +6735,49 @@
          */
         SwitchboardInstruction.prototype.saveBundleResultInstruction = null;
     
+        /**
+         * SwitchboardInstruction setVrfConfigsInstruction.
+         * @member {SwitchboardInstruction.ISetVrfConfigsInstruction|null|undefined} setVrfConfigsInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.setVrfConfigsInstruction = null;
+    
+        /**
+         * SwitchboardInstruction requestRandomnessInstruction.
+         * @member {SwitchboardInstruction.IRequestRandomnessInstruction|null|undefined} requestRandomnessInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.requestRandomnessInstruction = null;
+    
+        /**
+         * SwitchboardInstruction respondRandomnessInstruction.
+         * @member {SwitchboardInstruction.IRespondRandomnessInstruction|null|undefined} respondRandomnessInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.respondRandomnessInstruction = null;
+    
+        /**
+         * SwitchboardInstruction confirmRandomnessProofInstruction.
+         * @member {SwitchboardInstruction.IConfirmRandomnessProofInstruction|null|undefined} confirmRandomnessProofInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.confirmRandomnessProofInstruction = null;
+    
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
     
         /**
          * SwitchboardInstruction instruction.
-         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction"|undefined} instruction
+         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction"|"setVrfConfigsInstruction"|"requestRandomnessInstruction"|"respondRandomnessInstruction"|"confirmRandomnessProofInstruction"|undefined} instruction
          * @memberof SwitchboardInstruction
          * @instance
          */
         Object.defineProperty(SwitchboardInstruction.prototype, "instruction", {
-            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction", "linkParseOptimizedAccountInstruction", "setBundleAuthConfigsInstruction", "addBundleAuthInstruction", "removeBundleAuthInstruction", "saveBundleResultInstruction"]),
+            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction", "linkParseOptimizedAccountInstruction", "setBundleAuthConfigsInstruction", "addBundleAuthInstruction", "removeBundleAuthInstruction", "saveBundleResultInstruction", "setVrfConfigsInstruction", "requestRandomnessInstruction", "respondRandomnessInstruction", "confirmRandomnessProofInstruction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
     
@@ -6433,6 +6839,14 @@
                 $root.SwitchboardInstruction.RemoveBundleAuthInstruction.encode(message.removeBundleAuthInstruction, writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
             if (message.saveBundleResultInstruction != null && Object.hasOwnProperty.call(message, "saveBundleResultInstruction"))
                 $root.SwitchboardInstruction.SaveBundleResultInstruction.encode(message.saveBundleResultInstruction, writer.uint32(/* id 17, wireType 2 =*/138).fork()).ldelim();
+            if (message.setVrfConfigsInstruction != null && Object.hasOwnProperty.call(message, "setVrfConfigsInstruction"))
+                $root.SwitchboardInstruction.SetVrfConfigsInstruction.encode(message.setVrfConfigsInstruction, writer.uint32(/* id 18, wireType 2 =*/146).fork()).ldelim();
+            if (message.requestRandomnessInstruction != null && Object.hasOwnProperty.call(message, "requestRandomnessInstruction"))
+                $root.SwitchboardInstruction.RequestRandomnessInstruction.encode(message.requestRandomnessInstruction, writer.uint32(/* id 19, wireType 2 =*/154).fork()).ldelim();
+            if (message.respondRandomnessInstruction != null && Object.hasOwnProperty.call(message, "respondRandomnessInstruction"))
+                $root.SwitchboardInstruction.RespondRandomnessInstruction.encode(message.respondRandomnessInstruction, writer.uint32(/* id 20, wireType 2 =*/162).fork()).ldelim();
+            if (message.confirmRandomnessProofInstruction != null && Object.hasOwnProperty.call(message, "confirmRandomnessProofInstruction"))
+                $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.encode(message.confirmRandomnessProofInstruction, writer.uint32(/* id 21, wireType 2 =*/170).fork()).ldelim();
             return writer;
         };
     
@@ -6517,6 +6931,18 @@
                     break;
                 case 17:
                     message.saveBundleResultInstruction = $root.SwitchboardInstruction.SaveBundleResultInstruction.decode(reader, reader.uint32());
+                    break;
+                case 18:
+                    message.setVrfConfigsInstruction = $root.SwitchboardInstruction.SetVrfConfigsInstruction.decode(reader, reader.uint32());
+                    break;
+                case 19:
+                    message.requestRandomnessInstruction = $root.SwitchboardInstruction.RequestRandomnessInstruction.decode(reader, reader.uint32());
+                    break;
+                case 20:
+                    message.respondRandomnessInstruction = $root.SwitchboardInstruction.RespondRandomnessInstruction.decode(reader, reader.uint32());
+                    break;
+                case 21:
+                    message.confirmRandomnessProofInstruction = $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6722,6 +7148,46 @@
                         return "saveBundleResultInstruction." + error;
                 }
             }
+            if (message.setVrfConfigsInstruction != null && message.hasOwnProperty("setVrfConfigsInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.SetVrfConfigsInstruction.verify(message.setVrfConfigsInstruction);
+                    if (error)
+                        return "setVrfConfigsInstruction." + error;
+                }
+            }
+            if (message.requestRandomnessInstruction != null && message.hasOwnProperty("requestRandomnessInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.RequestRandomnessInstruction.verify(message.requestRandomnessInstruction);
+                    if (error)
+                        return "requestRandomnessInstruction." + error;
+                }
+            }
+            if (message.respondRandomnessInstruction != null && message.hasOwnProperty("respondRandomnessInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.RespondRandomnessInstruction.verify(message.respondRandomnessInstruction);
+                    if (error)
+                        return "respondRandomnessInstruction." + error;
+                }
+            }
+            if (message.confirmRandomnessProofInstruction != null && message.hasOwnProperty("confirmRandomnessProofInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.verify(message.confirmRandomnessProofInstruction);
+                    if (error)
+                        return "confirmRandomnessProofInstruction." + error;
+                }
+            }
             return null;
         };
     
@@ -6821,6 +7287,26 @@
                 if (typeof object.saveBundleResultInstruction !== "object")
                     throw TypeError(".SwitchboardInstruction.saveBundleResultInstruction: object expected");
                 message.saveBundleResultInstruction = $root.SwitchboardInstruction.SaveBundleResultInstruction.fromObject(object.saveBundleResultInstruction);
+            }
+            if (object.setVrfConfigsInstruction != null) {
+                if (typeof object.setVrfConfigsInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.setVrfConfigsInstruction: object expected");
+                message.setVrfConfigsInstruction = $root.SwitchboardInstruction.SetVrfConfigsInstruction.fromObject(object.setVrfConfigsInstruction);
+            }
+            if (object.requestRandomnessInstruction != null) {
+                if (typeof object.requestRandomnessInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.requestRandomnessInstruction: object expected");
+                message.requestRandomnessInstruction = $root.SwitchboardInstruction.RequestRandomnessInstruction.fromObject(object.requestRandomnessInstruction);
+            }
+            if (object.respondRandomnessInstruction != null) {
+                if (typeof object.respondRandomnessInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.respondRandomnessInstruction: object expected");
+                message.respondRandomnessInstruction = $root.SwitchboardInstruction.RespondRandomnessInstruction.fromObject(object.respondRandomnessInstruction);
+            }
+            if (object.confirmRandomnessProofInstruction != null) {
+                if (typeof object.confirmRandomnessProofInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.confirmRandomnessProofInstruction: object expected");
+                message.confirmRandomnessProofInstruction = $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.fromObject(object.confirmRandomnessProofInstruction);
             }
             return message;
         };
@@ -6922,6 +7408,26 @@
                 object.saveBundleResultInstruction = $root.SwitchboardInstruction.SaveBundleResultInstruction.toObject(message.saveBundleResultInstruction, options);
                 if (options.oneofs)
                     object.instruction = "saveBundleResultInstruction";
+            }
+            if (message.setVrfConfigsInstruction != null && message.hasOwnProperty("setVrfConfigsInstruction")) {
+                object.setVrfConfigsInstruction = $root.SwitchboardInstruction.SetVrfConfigsInstruction.toObject(message.setVrfConfigsInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "setVrfConfigsInstruction";
+            }
+            if (message.requestRandomnessInstruction != null && message.hasOwnProperty("requestRandomnessInstruction")) {
+                object.requestRandomnessInstruction = $root.SwitchboardInstruction.RequestRandomnessInstruction.toObject(message.requestRandomnessInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "requestRandomnessInstruction";
+            }
+            if (message.respondRandomnessInstruction != null && message.hasOwnProperty("respondRandomnessInstruction")) {
+                object.respondRandomnessInstruction = $root.SwitchboardInstruction.RespondRandomnessInstruction.toObject(message.respondRandomnessInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "respondRandomnessInstruction";
+            }
+            if (message.confirmRandomnessProofInstruction != null && message.hasOwnProperty("confirmRandomnessProofInstruction")) {
+                object.confirmRandomnessProofInstruction = $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.toObject(message.confirmRandomnessProofInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "confirmRandomnessProofInstruction";
             }
             return object;
         };
@@ -7079,6 +7585,7 @@
                     case 5:
                     case 6:
                     case 7:
+                    case 8:
                         break;
                     }
                 return null;
@@ -7128,6 +7635,10 @@
                 case "TYPE_BUNDLE_AUTH":
                 case 7:
                     message.type = 7;
+                    break;
+                case "TYPE_VRF":
+                case 8:
+                    message.type = 8;
                     break;
                 }
                 return message;
@@ -10291,6 +10802,840 @@
             return SaveBundleResultInstruction;
         })();
     
+        SwitchboardInstruction.SetVrfConfigsInstruction = (function() {
+    
+            /**
+             * Properties of a SetVrfConfigsInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface ISetVrfConfigsInstruction
+             * @property {Uint8Array|null} [vrfPubkey] SetVrfConfigsInstruction vrfPubkey
+             * @property {Uint8Array|null} [fmPubkey] SetVrfConfigsInstruction fmPubkey
+             * @property {number|null} [minProofConfirmations] SetVrfConfigsInstruction minProofConfirmations
+             */
+    
+            /**
+             * Constructs a new SetVrfConfigsInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a SetVrfConfigsInstruction.
+             * @implements ISetVrfConfigsInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.ISetVrfConfigsInstruction=} [properties] Properties to set
+             */
+            function SetVrfConfigsInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * SetVrfConfigsInstruction vrfPubkey.
+             * @member {Uint8Array} vrfPubkey
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @instance
+             */
+            SetVrfConfigsInstruction.prototype.vrfPubkey = $util.newBuffer([]);
+    
+            /**
+             * SetVrfConfigsInstruction fmPubkey.
+             * @member {Uint8Array} fmPubkey
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @instance
+             */
+            SetVrfConfigsInstruction.prototype.fmPubkey = $util.newBuffer([]);
+    
+            /**
+             * SetVrfConfigsInstruction minProofConfirmations.
+             * @member {number} minProofConfirmations
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @instance
+             */
+            SetVrfConfigsInstruction.prototype.minProofConfirmations = 0;
+    
+            /**
+             * Creates a new SetVrfConfigsInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetVrfConfigsInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.SetVrfConfigsInstruction} SetVrfConfigsInstruction instance
+             */
+            SetVrfConfigsInstruction.create = function create(properties) {
+                return new SetVrfConfigsInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified SetVrfConfigsInstruction message. Does not implicitly {@link SwitchboardInstruction.SetVrfConfigsInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetVrfConfigsInstruction} message SetVrfConfigsInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetVrfConfigsInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.vrfPubkey != null && Object.hasOwnProperty.call(message, "vrfPubkey"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.vrfPubkey);
+                if (message.fmPubkey != null && Object.hasOwnProperty.call(message, "fmPubkey"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.fmPubkey);
+                if (message.minProofConfirmations != null && Object.hasOwnProperty.call(message, "minProofConfirmations"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.minProofConfirmations);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified SetVrfConfigsInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SetVrfConfigsInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetVrfConfigsInstruction} message SetVrfConfigsInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetVrfConfigsInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a SetVrfConfigsInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.SetVrfConfigsInstruction} SetVrfConfigsInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetVrfConfigsInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.SetVrfConfigsInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.vrfPubkey = reader.bytes();
+                        break;
+                    case 2:
+                        message.fmPubkey = reader.bytes();
+                        break;
+                    case 3:
+                        message.minProofConfirmations = reader.int32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a SetVrfConfigsInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.SetVrfConfigsInstruction} SetVrfConfigsInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetVrfConfigsInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a SetVrfConfigsInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SetVrfConfigsInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
+                    if (!(message.vrfPubkey && typeof message.vrfPubkey.length === "number" || $util.isString(message.vrfPubkey)))
+                        return "vrfPubkey: buffer expected";
+                if (message.fmPubkey != null && message.hasOwnProperty("fmPubkey"))
+                    if (!(message.fmPubkey && typeof message.fmPubkey.length === "number" || $util.isString(message.fmPubkey)))
+                        return "fmPubkey: buffer expected";
+                if (message.minProofConfirmations != null && message.hasOwnProperty("minProofConfirmations"))
+                    if (!$util.isInteger(message.minProofConfirmations))
+                        return "minProofConfirmations: integer expected";
+                return null;
+            };
+    
+            /**
+             * Creates a SetVrfConfigsInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.SetVrfConfigsInstruction} SetVrfConfigsInstruction
+             */
+            SetVrfConfigsInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.SetVrfConfigsInstruction)
+                    return object;
+                var message = new $root.SwitchboardInstruction.SetVrfConfigsInstruction();
+                if (object.vrfPubkey != null)
+                    if (typeof object.vrfPubkey === "string")
+                        $util.base64.decode(object.vrfPubkey, message.vrfPubkey = $util.newBuffer($util.base64.length(object.vrfPubkey)), 0);
+                    else if (object.vrfPubkey.length)
+                        message.vrfPubkey = object.vrfPubkey;
+                if (object.fmPubkey != null)
+                    if (typeof object.fmPubkey === "string")
+                        $util.base64.decode(object.fmPubkey, message.fmPubkey = $util.newBuffer($util.base64.length(object.fmPubkey)), 0);
+                    else if (object.fmPubkey.length)
+                        message.fmPubkey = object.fmPubkey;
+                if (object.minProofConfirmations != null)
+                    message.minProofConfirmations = object.minProofConfirmations | 0;
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a SetVrfConfigsInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @static
+             * @param {SwitchboardInstruction.SetVrfConfigsInstruction} message SetVrfConfigsInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SetVrfConfigsInstruction.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    if (options.bytes === String)
+                        object.vrfPubkey = "";
+                    else {
+                        object.vrfPubkey = [];
+                        if (options.bytes !== Array)
+                            object.vrfPubkey = $util.newBuffer(object.vrfPubkey);
+                    }
+                    if (options.bytes === String)
+                        object.fmPubkey = "";
+                    else {
+                        object.fmPubkey = [];
+                        if (options.bytes !== Array)
+                            object.fmPubkey = $util.newBuffer(object.fmPubkey);
+                    }
+                    object.minProofConfirmations = 0;
+                }
+                if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
+                    object.vrfPubkey = options.bytes === String ? $util.base64.encode(message.vrfPubkey, 0, message.vrfPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.vrfPubkey) : message.vrfPubkey;
+                if (message.fmPubkey != null && message.hasOwnProperty("fmPubkey"))
+                    object.fmPubkey = options.bytes === String ? $util.base64.encode(message.fmPubkey, 0, message.fmPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.fmPubkey) : message.fmPubkey;
+                if (message.minProofConfirmations != null && message.hasOwnProperty("minProofConfirmations"))
+                    object.minProofConfirmations = message.minProofConfirmations;
+                return object;
+            };
+    
+            /**
+             * Converts this SetVrfConfigsInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SetVrfConfigsInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return SetVrfConfigsInstruction;
+        })();
+    
+        SwitchboardInstruction.RequestRandomnessInstruction = (function() {
+    
+            /**
+             * Properties of a RequestRandomnessInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface IRequestRandomnessInstruction
+             */
+    
+            /**
+             * Constructs a new RequestRandomnessInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a RequestRandomnessInstruction.
+             * @implements IRequestRandomnessInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.IRequestRandomnessInstruction=} [properties] Properties to set
+             */
+            function RequestRandomnessInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Creates a new RequestRandomnessInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRequestRandomnessInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.RequestRandomnessInstruction} RequestRandomnessInstruction instance
+             */
+            RequestRandomnessInstruction.create = function create(properties) {
+                return new RequestRandomnessInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified RequestRandomnessInstruction message. Does not implicitly {@link SwitchboardInstruction.RequestRandomnessInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRequestRandomnessInstruction} message RequestRandomnessInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RequestRandomnessInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified RequestRandomnessInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RequestRandomnessInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRequestRandomnessInstruction} message RequestRandomnessInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RequestRandomnessInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a RequestRandomnessInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.RequestRandomnessInstruction} RequestRandomnessInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RequestRandomnessInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.RequestRandomnessInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a RequestRandomnessInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.RequestRandomnessInstruction} RequestRandomnessInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RequestRandomnessInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a RequestRandomnessInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RequestRandomnessInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+    
+            /**
+             * Creates a RequestRandomnessInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.RequestRandomnessInstruction} RequestRandomnessInstruction
+             */
+            RequestRandomnessInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.RequestRandomnessInstruction)
+                    return object;
+                return new $root.SwitchboardInstruction.RequestRandomnessInstruction();
+            };
+    
+            /**
+             * Creates a plain object from a RequestRandomnessInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @static
+             * @param {SwitchboardInstruction.RequestRandomnessInstruction} message RequestRandomnessInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RequestRandomnessInstruction.toObject = function toObject() {
+                return {};
+            };
+    
+            /**
+             * Converts this RequestRandomnessInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.RequestRandomnessInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RequestRandomnessInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return RequestRandomnessInstruction;
+        })();
+    
+        SwitchboardInstruction.RespondRandomnessInstruction = (function() {
+    
+            /**
+             * Properties of a RespondRandomnessInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface IRespondRandomnessInstruction
+             * @property {Uint8Array|null} [value] RespondRandomnessInstruction value
+             * @property {Uint8Array|null} [proof] RespondRandomnessInstruction proof
+             */
+    
+            /**
+             * Constructs a new RespondRandomnessInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a RespondRandomnessInstruction.
+             * @implements IRespondRandomnessInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.IRespondRandomnessInstruction=} [properties] Properties to set
+             */
+            function RespondRandomnessInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * RespondRandomnessInstruction value.
+             * @member {Uint8Array} value
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @instance
+             */
+            RespondRandomnessInstruction.prototype.value = $util.newBuffer([]);
+    
+            /**
+             * RespondRandomnessInstruction proof.
+             * @member {Uint8Array} proof
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @instance
+             */
+            RespondRandomnessInstruction.prototype.proof = $util.newBuffer([]);
+    
+            /**
+             * Creates a new RespondRandomnessInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRespondRandomnessInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.RespondRandomnessInstruction} RespondRandomnessInstruction instance
+             */
+            RespondRandomnessInstruction.create = function create(properties) {
+                return new RespondRandomnessInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified RespondRandomnessInstruction message. Does not implicitly {@link SwitchboardInstruction.RespondRandomnessInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRespondRandomnessInstruction} message RespondRandomnessInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RespondRandomnessInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.value);
+                if (message.proof != null && Object.hasOwnProperty.call(message, "proof"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.proof);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified RespondRandomnessInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RespondRandomnessInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @static
+             * @param {SwitchboardInstruction.IRespondRandomnessInstruction} message RespondRandomnessInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RespondRandomnessInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a RespondRandomnessInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.RespondRandomnessInstruction} RespondRandomnessInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RespondRandomnessInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.RespondRandomnessInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.value = reader.bytes();
+                        break;
+                    case 2:
+                        message.proof = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a RespondRandomnessInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.RespondRandomnessInstruction} RespondRandomnessInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RespondRandomnessInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a RespondRandomnessInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RespondRandomnessInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.proof != null && message.hasOwnProperty("proof"))
+                    if (!(message.proof && typeof message.proof.length === "number" || $util.isString(message.proof)))
+                        return "proof: buffer expected";
+                return null;
+            };
+    
+            /**
+             * Creates a RespondRandomnessInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.RespondRandomnessInstruction} RespondRandomnessInstruction
+             */
+            RespondRandomnessInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.RespondRandomnessInstruction)
+                    return object;
+                var message = new $root.SwitchboardInstruction.RespondRandomnessInstruction();
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.proof != null)
+                    if (typeof object.proof === "string")
+                        $util.base64.decode(object.proof, message.proof = $util.newBuffer($util.base64.length(object.proof)), 0);
+                    else if (object.proof.length)
+                        message.proof = object.proof;
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a RespondRandomnessInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @static
+             * @param {SwitchboardInstruction.RespondRandomnessInstruction} message RespondRandomnessInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RespondRandomnessInstruction.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    if (options.bytes === String)
+                        object.proof = "";
+                    else {
+                        object.proof = [];
+                        if (options.bytes !== Array)
+                            object.proof = $util.newBuffer(object.proof);
+                    }
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.proof != null && message.hasOwnProperty("proof"))
+                    object.proof = options.bytes === String ? $util.base64.encode(message.proof, 0, message.proof.length) : options.bytes === Array ? Array.prototype.slice.call(message.proof) : message.proof;
+                return object;
+            };
+    
+            /**
+             * Converts this RespondRandomnessInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.RespondRandomnessInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RespondRandomnessInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return RespondRandomnessInstruction;
+        })();
+    
+        SwitchboardInstruction.ConfirmRandomnessProofInstruction = (function() {
+    
+            /**
+             * Properties of a ConfirmRandomnessProofInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface IConfirmRandomnessProofInstruction
+             * @property {Uint8Array|null} [proof] ConfirmRandomnessProofInstruction proof
+             */
+    
+            /**
+             * Constructs a new ConfirmRandomnessProofInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a ConfirmRandomnessProofInstruction.
+             * @implements IConfirmRandomnessProofInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.IConfirmRandomnessProofInstruction=} [properties] Properties to set
+             */
+            function ConfirmRandomnessProofInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * ConfirmRandomnessProofInstruction proof.
+             * @member {Uint8Array} proof
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @instance
+             */
+            ConfirmRandomnessProofInstruction.prototype.proof = $util.newBuffer([]);
+    
+            /**
+             * Creates a new ConfirmRandomnessProofInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @static
+             * @param {SwitchboardInstruction.IConfirmRandomnessProofInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.ConfirmRandomnessProofInstruction} ConfirmRandomnessProofInstruction instance
+             */
+            ConfirmRandomnessProofInstruction.create = function create(properties) {
+                return new ConfirmRandomnessProofInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified ConfirmRandomnessProofInstruction message. Does not implicitly {@link SwitchboardInstruction.ConfirmRandomnessProofInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @static
+             * @param {SwitchboardInstruction.IConfirmRandomnessProofInstruction} message ConfirmRandomnessProofInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ConfirmRandomnessProofInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.proof != null && Object.hasOwnProperty.call(message, "proof"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.proof);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified ConfirmRandomnessProofInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.ConfirmRandomnessProofInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @static
+             * @param {SwitchboardInstruction.IConfirmRandomnessProofInstruction} message ConfirmRandomnessProofInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ConfirmRandomnessProofInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a ConfirmRandomnessProofInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.ConfirmRandomnessProofInstruction} ConfirmRandomnessProofInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ConfirmRandomnessProofInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.proof = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a ConfirmRandomnessProofInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.ConfirmRandomnessProofInstruction} ConfirmRandomnessProofInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ConfirmRandomnessProofInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a ConfirmRandomnessProofInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ConfirmRandomnessProofInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.proof != null && message.hasOwnProperty("proof"))
+                    if (!(message.proof && typeof message.proof.length === "number" || $util.isString(message.proof)))
+                        return "proof: buffer expected";
+                return null;
+            };
+    
+            /**
+             * Creates a ConfirmRandomnessProofInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.ConfirmRandomnessProofInstruction} ConfirmRandomnessProofInstruction
+             */
+            ConfirmRandomnessProofInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction)
+                    return object;
+                var message = new $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction();
+                if (object.proof != null)
+                    if (typeof object.proof === "string")
+                        $util.base64.decode(object.proof, message.proof = $util.newBuffer($util.base64.length(object.proof)), 0);
+                    else if (object.proof.length)
+                        message.proof = object.proof;
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a ConfirmRandomnessProofInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @static
+             * @param {SwitchboardInstruction.ConfirmRandomnessProofInstruction} message ConfirmRandomnessProofInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ConfirmRandomnessProofInstruction.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    if (options.bytes === String)
+                        object.proof = "";
+                    else {
+                        object.proof = [];
+                        if (options.bytes !== Array)
+                            object.proof = $util.newBuffer(object.proof);
+                    }
+                if (message.proof != null && message.hasOwnProperty("proof"))
+                    object.proof = options.bytes === String ? $util.base64.encode(message.proof, 0, message.proof.length) : options.bytes === Array ? Array.prototype.slice.call(message.proof) : message.proof;
+                return object;
+            };
+    
+            /**
+             * Converts this ConfirmRandomnessProofInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.ConfirmRandomnessProofInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ConfirmRandomnessProofInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return ConfirmRandomnessProofInstruction;
+        })();
+    
         return SwitchboardInstruction;
     })();
     
@@ -10306,6 +11651,7 @@
      * @property {number} TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED=5 TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED value
      * @property {number} TYPE_BUNDLE=6 result replicas.
      * @property {number} TYPE_BUNDLE_AUTH=7 Denotes an authorization account that lets an aggregator write to a bundle.
+     * @property {number} TYPE_VRF=8 TYPE_VRF value
      */
     $root.SwitchboardAccountType = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -10317,6 +11663,7 @@
         values[valuesById[5] = "TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED"] = 5;
         values[valuesById[6] = "TYPE_BUNDLE"] = 6;
         values[valuesById[7] = "TYPE_BUNDLE_AUTH"] = 7;
+        values[valuesById[8] = "TYPE_VRF"] = 8;
         return values;
     })();
 

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IConfigs | @switchboard-xyz/switchboard-api</title>
+	<title>ISetVrfConfigsInstruction | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@switchboard-xyz/switchboard-api</a>
 				</li>
 				<li>
-					<a href="../modules/fulfillmentmanagerstate.html">FulfillmentManagerState</a>
+					<a href="../modules/switchboardinstruction.html">SwitchboardInstruction</a>
 				</li>
 				<li>
-					<a href="fulfillmentmanagerstate.iconfigs.html">IConfigs</a>
+					<a href="switchboardinstruction.isetvrfconfigsinstruction.html">ISetVrfConfigsInstruction</a>
 				</li>
 			</ul>
-			<h1>Interface IConfigs</h1>
+			<h1>Interface ISetVrfConfigsInstruction</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a Configs.</p>
+						<p>Properties of a SetVrfConfigsInstruction.</p>
 					</div>
 				</div>
 			</section>
@@ -79,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IConfigs</span>
+						<span class="target">ISetVrfConfigsInstruction</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/fulfillmentmanagerstate.configs.html" class="tsd-signature-type" data-tsd-kind="Class">Configs</a></li>
+					<li><a href="../classes/switchboardinstruction.setvrfconfigsinstruction.html" class="tsd-signature-type" data-tsd-kind="Class">SetVrfConfigsInstruction</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,9 +96,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fulfillmentmanagerstate.iconfigs.html#heartbeatauthrequired" class="tsd-kind-icon">heartbeat<wbr>Auth<wbr>Required</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fulfillmentmanagerstate.iconfigs.html#locked" class="tsd-kind-icon">locked</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="fulfillmentmanagerstate.iconfigs.html#usageauthrequired" class="tsd-kind-icon">usage<wbr>Auth<wbr>Required</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#fmpubkey" class="tsd-kind-icon">fm<wbr>Pubkey</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#minproofconfirmations" class="tsd-kind-icon">min<wbr>Proof<wbr>Confirmations</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#vrfpubkey" class="tsd-kind-icon">vrf<wbr>Pubkey</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,47 +107,47 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="heartbeatauthrequired" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> heartbeat<wbr>Auth<wbr>Required</h3>
-					<div class="tsd-signature tsd-kind-icon">heartbeat<wbr>Auth<wbr>Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<a name="fmpubkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> fm<wbr>Pubkey</h3>
+					<div class="tsd-signature tsd-kind-icon">fm<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/4a3d79f/src/compiled.d.ts#L2469">compiled.d.ts:2469</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/4a3d79f/src/compiled.d.ts#L4344">compiled.d.ts:4344</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Configs heartbeatAuthRequired</p>
+							<p>SetVrfConfigsInstruction fmPubkey</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="locked" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> locked</h3>
-					<div class="tsd-signature tsd-kind-icon">locked<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<a name="minproofconfirmations" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> min<wbr>Proof<wbr>Confirmations</h3>
+					<div class="tsd-signature tsd-kind-icon">min<wbr>Proof<wbr>Confirmations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/4a3d79f/src/compiled.d.ts#L2475">compiled.d.ts:2475</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/4a3d79f/src/compiled.d.ts#L4347">compiled.d.ts:4347</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Configs locked</p>
+							<p>SetVrfConfigsInstruction minProofConfirmations</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="usageauthrequired" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> usage<wbr>Auth<wbr>Required</h3>
-					<div class="tsd-signature tsd-kind-icon">usage<wbr>Auth<wbr>Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<a name="vrfpubkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> vrf<wbr>Pubkey</h3>
+					<div class="tsd-signature tsd-kind-icon">vrf<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/4a3d79f/src/compiled.d.ts#L2472">compiled.d.ts:2472</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/4a3d79f/src/compiled.d.ts#L4341">compiled.d.ts:4341</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Configs usageAuthRequired</p>
+							<p>SetVrfConfigsInstruction vrfPubkey</p>
 						</div>
 					</div>
 				</section>
@@ -162,7 +162,7 @@
 					<li class=" tsd-kind-namespace">
 						<a href="../modules/aggregatorstate.html">Aggregator<wbr>State</a>
 					</li>
-					<li class="current tsd-kind-namespace">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/fulfillmentmanagerstate.html">Fulfillment<wbr>Manager<wbr>State</a>
 					</li>
 					<li class=" tsd-kind-namespace">
@@ -171,29 +171,26 @@
 					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
 						<a href="../modules/oraclejob.httptask.html">Oracle<wbr>Job.<wbr>Http<wbr>Task</a>
 					</li>
-					<li class=" tsd-kind-namespace">
+					<li class="current tsd-kind-namespace">
 						<a href="../modules/switchboardinstruction.html">Switchboard<wbr>Instruction</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-namespace">
-						<a href="../classes/fulfillmentmanagerstate.configs.html" class="tsd-kind-icon">Configs</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="fulfillmentmanagerstate.iconfigs.html" class="tsd-kind-icon">IConfigs</a>
+						<a href="switchboardinstruction.isetvrfconfigsinstruction.html" class="tsd-kind-icon">ISet<wbr>Vrf<wbr>Configs<wbr>Instruction</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="fulfillmentmanagerstate.iconfigs.html#heartbeatauthrequired" class="tsd-kind-icon">heartbeat<wbr>Auth<wbr>Required</a>
+								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#fmpubkey" class="tsd-kind-icon">fm<wbr>Pubkey</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="fulfillmentmanagerstate.iconfigs.html#locked" class="tsd-kind-icon">locked</a>
+								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#minproofconfirmations" class="tsd-kind-icon">min<wbr>Proof<wbr>Confirmations</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="fulfillmentmanagerstate.iconfigs.html#usageauthrequired" class="tsd-kind-icon">usage<wbr>Auth<wbr>Required</a>
+								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#vrfpubkey" class="tsd-kind-icon">vrf<wbr>Pubkey</a>
 							</li>
 						</ul>
 					</li>

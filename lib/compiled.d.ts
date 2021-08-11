@@ -1914,6 +1914,132 @@ export class JobResult implements IJobResult {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a VrfAccount. */
+export interface IVrfAccount {
+
+    /** VrfAccount vrfPubkey */
+    vrfPubkey?: (Uint8Array|null);
+
+    /** VrfAccount fulfillmentManagerPubkey */
+    fulfillmentManagerPubkey?: (Uint8Array|null);
+
+    /** VrfAccount numRequiredConfirmations */
+    numRequiredConfirmations?: (number|null);
+
+    /** VrfAccount counter */
+    counter?: (number|Long|null);
+
+    /** VrfAccount value */
+    value?: (Uint8Array|null);
+
+    /** VrfAccount proof */
+    proof?: (Uint8Array|null);
+
+    /** VrfAccount numProofConfirmations */
+    numProofConfirmations?: (number|null);
+}
+
+/** Represents a VrfAccount. */
+export class VrfAccount implements IVrfAccount {
+
+    /**
+     * Constructs a new VrfAccount.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IVrfAccount);
+
+    /** VrfAccount vrfPubkey. */
+    public vrfPubkey: Uint8Array;
+
+    /** VrfAccount fulfillmentManagerPubkey. */
+    public fulfillmentManagerPubkey: Uint8Array;
+
+    /** VrfAccount numRequiredConfirmations. */
+    public numRequiredConfirmations: number;
+
+    /** VrfAccount counter. */
+    public counter: (number|Long);
+
+    /** VrfAccount value. */
+    public value: Uint8Array;
+
+    /** VrfAccount proof. */
+    public proof: Uint8Array;
+
+    /** VrfAccount numProofConfirmations. */
+    public numProofConfirmations: number;
+
+    /**
+     * Creates a new VrfAccount instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns VrfAccount instance
+     */
+    public static create(properties?: IVrfAccount): VrfAccount;
+
+    /**
+     * Encodes the specified VrfAccount message. Does not implicitly {@link VrfAccount.verify|verify} messages.
+     * @param message VrfAccount message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IVrfAccount, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified VrfAccount message, length delimited. Does not implicitly {@link VrfAccount.verify|verify} messages.
+     * @param message VrfAccount message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IVrfAccount, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a VrfAccount message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns VrfAccount
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): VrfAccount;
+
+    /**
+     * Decodes a VrfAccount message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns VrfAccount
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): VrfAccount;
+
+    /**
+     * Verifies a VrfAccount message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a VrfAccount message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns VrfAccount
+     */
+    public static fromObject(object: { [k: string]: any }): VrfAccount;
+
+    /**
+     * Creates a plain object from a VrfAccount message. Also converts values to other types if specified.
+     * @param message VrfAccount
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: VrfAccount, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this VrfAccount to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a BundleAuth. */
 export interface IBundleAuth {
 
@@ -2492,6 +2618,18 @@ export interface ISwitchboardInstruction {
 
     /** SwitchboardInstruction saveBundleResultInstruction */
     saveBundleResultInstruction?: (SwitchboardInstruction.ISaveBundleResultInstruction|null);
+
+    /** SwitchboardInstruction setVrfConfigsInstruction */
+    setVrfConfigsInstruction?: (SwitchboardInstruction.ISetVrfConfigsInstruction|null);
+
+    /** SwitchboardInstruction requestRandomnessInstruction */
+    requestRandomnessInstruction?: (SwitchboardInstruction.IRequestRandomnessInstruction|null);
+
+    /** SwitchboardInstruction respondRandomnessInstruction */
+    respondRandomnessInstruction?: (SwitchboardInstruction.IRespondRandomnessInstruction|null);
+
+    /** SwitchboardInstruction confirmRandomnessProofInstruction */
+    confirmRandomnessProofInstruction?: (SwitchboardInstruction.IConfirmRandomnessProofInstruction|null);
 }
 
 /** Represents a SwitchboardInstruction. */
@@ -2554,8 +2692,20 @@ export class SwitchboardInstruction implements ISwitchboardInstruction {
     /** SwitchboardInstruction saveBundleResultInstruction. */
     public saveBundleResultInstruction?: (SwitchboardInstruction.ISaveBundleResultInstruction|null);
 
+    /** SwitchboardInstruction setVrfConfigsInstruction. */
+    public setVrfConfigsInstruction?: (SwitchboardInstruction.ISetVrfConfigsInstruction|null);
+
+    /** SwitchboardInstruction requestRandomnessInstruction. */
+    public requestRandomnessInstruction?: (SwitchboardInstruction.IRequestRandomnessInstruction|null);
+
+    /** SwitchboardInstruction respondRandomnessInstruction. */
+    public respondRandomnessInstruction?: (SwitchboardInstruction.IRespondRandomnessInstruction|null);
+
+    /** SwitchboardInstruction confirmRandomnessProofInstruction. */
+    public confirmRandomnessProofInstruction?: (SwitchboardInstruction.IConfirmRandomnessProofInstruction|null);
+
     /** SwitchboardInstruction instruction. */
-    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction");
+    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction"|"setVrfConfigsInstruction"|"requestRandomnessInstruction"|"respondRandomnessInstruction"|"confirmRandomnessProofInstruction");
 
     /**
      * Creates a new SwitchboardInstruction instance using the specified properties.
@@ -4183,6 +4333,378 @@ export namespace SwitchboardInstruction {
          */
         public toJSON(): { [k: string]: any };
     }
+
+    /** Properties of a SetVrfConfigsInstruction. */
+    interface ISetVrfConfigsInstruction {
+
+        /** SetVrfConfigsInstruction vrfPubkey */
+        vrfPubkey?: (Uint8Array|null);
+
+        /** SetVrfConfigsInstruction fmPubkey */
+        fmPubkey?: (Uint8Array|null);
+
+        /** SetVrfConfigsInstruction minProofConfirmations */
+        minProofConfirmations?: (number|null);
+    }
+
+    /** Represents a SetVrfConfigsInstruction. */
+    class SetVrfConfigsInstruction implements ISetVrfConfigsInstruction {
+
+        /**
+         * Constructs a new SetVrfConfigsInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.ISetVrfConfigsInstruction);
+
+        /** SetVrfConfigsInstruction vrfPubkey. */
+        public vrfPubkey: Uint8Array;
+
+        /** SetVrfConfigsInstruction fmPubkey. */
+        public fmPubkey: Uint8Array;
+
+        /** SetVrfConfigsInstruction minProofConfirmations. */
+        public minProofConfirmations: number;
+
+        /**
+         * Creates a new SetVrfConfigsInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SetVrfConfigsInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.ISetVrfConfigsInstruction): SwitchboardInstruction.SetVrfConfigsInstruction;
+
+        /**
+         * Encodes the specified SetVrfConfigsInstruction message. Does not implicitly {@link SwitchboardInstruction.SetVrfConfigsInstruction.verify|verify} messages.
+         * @param message SetVrfConfigsInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.ISetVrfConfigsInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SetVrfConfigsInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SetVrfConfigsInstruction.verify|verify} messages.
+         * @param message SetVrfConfigsInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.ISetVrfConfigsInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SetVrfConfigsInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SetVrfConfigsInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.SetVrfConfigsInstruction;
+
+        /**
+         * Decodes a SetVrfConfigsInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SetVrfConfigsInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.SetVrfConfigsInstruction;
+
+        /**
+         * Verifies a SetVrfConfigsInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SetVrfConfigsInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SetVrfConfigsInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.SetVrfConfigsInstruction;
+
+        /**
+         * Creates a plain object from a SetVrfConfigsInstruction message. Also converts values to other types if specified.
+         * @param message SetVrfConfigsInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.SetVrfConfigsInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SetVrfConfigsInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a RequestRandomnessInstruction. */
+    interface IRequestRandomnessInstruction {
+    }
+
+    /** Represents a RequestRandomnessInstruction. */
+    class RequestRandomnessInstruction implements IRequestRandomnessInstruction {
+
+        /**
+         * Constructs a new RequestRandomnessInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IRequestRandomnessInstruction);
+
+        /**
+         * Creates a new RequestRandomnessInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RequestRandomnessInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IRequestRandomnessInstruction): SwitchboardInstruction.RequestRandomnessInstruction;
+
+        /**
+         * Encodes the specified RequestRandomnessInstruction message. Does not implicitly {@link SwitchboardInstruction.RequestRandomnessInstruction.verify|verify} messages.
+         * @param message RequestRandomnessInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IRequestRandomnessInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified RequestRandomnessInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RequestRandomnessInstruction.verify|verify} messages.
+         * @param message RequestRandomnessInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IRequestRandomnessInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a RequestRandomnessInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RequestRandomnessInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.RequestRandomnessInstruction;
+
+        /**
+         * Decodes a RequestRandomnessInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RequestRandomnessInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.RequestRandomnessInstruction;
+
+        /**
+         * Verifies a RequestRandomnessInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a RequestRandomnessInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns RequestRandomnessInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.RequestRandomnessInstruction;
+
+        /**
+         * Creates a plain object from a RequestRandomnessInstruction message. Also converts values to other types if specified.
+         * @param message RequestRandomnessInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.RequestRandomnessInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this RequestRandomnessInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a RespondRandomnessInstruction. */
+    interface IRespondRandomnessInstruction {
+
+        /** RespondRandomnessInstruction value */
+        value?: (Uint8Array|null);
+
+        /** RespondRandomnessInstruction proof */
+        proof?: (Uint8Array|null);
+    }
+
+    /** Represents a RespondRandomnessInstruction. */
+    class RespondRandomnessInstruction implements IRespondRandomnessInstruction {
+
+        /**
+         * Constructs a new RespondRandomnessInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IRespondRandomnessInstruction);
+
+        /** RespondRandomnessInstruction value. */
+        public value: Uint8Array;
+
+        /** RespondRandomnessInstruction proof. */
+        public proof: Uint8Array;
+
+        /**
+         * Creates a new RespondRandomnessInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RespondRandomnessInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IRespondRandomnessInstruction): SwitchboardInstruction.RespondRandomnessInstruction;
+
+        /**
+         * Encodes the specified RespondRandomnessInstruction message. Does not implicitly {@link SwitchboardInstruction.RespondRandomnessInstruction.verify|verify} messages.
+         * @param message RespondRandomnessInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IRespondRandomnessInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified RespondRandomnessInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.RespondRandomnessInstruction.verify|verify} messages.
+         * @param message RespondRandomnessInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IRespondRandomnessInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a RespondRandomnessInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RespondRandomnessInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.RespondRandomnessInstruction;
+
+        /**
+         * Decodes a RespondRandomnessInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RespondRandomnessInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.RespondRandomnessInstruction;
+
+        /**
+         * Verifies a RespondRandomnessInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a RespondRandomnessInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns RespondRandomnessInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.RespondRandomnessInstruction;
+
+        /**
+         * Creates a plain object from a RespondRandomnessInstruction message. Also converts values to other types if specified.
+         * @param message RespondRandomnessInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.RespondRandomnessInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this RespondRandomnessInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ConfirmRandomnessProofInstruction. */
+    interface IConfirmRandomnessProofInstruction {
+
+        /** ConfirmRandomnessProofInstruction proof */
+        proof?: (Uint8Array|null);
+    }
+
+    /** Represents a ConfirmRandomnessProofInstruction. */
+    class ConfirmRandomnessProofInstruction implements IConfirmRandomnessProofInstruction {
+
+        /**
+         * Constructs a new ConfirmRandomnessProofInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.IConfirmRandomnessProofInstruction);
+
+        /** ConfirmRandomnessProofInstruction proof. */
+        public proof: Uint8Array;
+
+        /**
+         * Creates a new ConfirmRandomnessProofInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ConfirmRandomnessProofInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.IConfirmRandomnessProofInstruction): SwitchboardInstruction.ConfirmRandomnessProofInstruction;
+
+        /**
+         * Encodes the specified ConfirmRandomnessProofInstruction message. Does not implicitly {@link SwitchboardInstruction.ConfirmRandomnessProofInstruction.verify|verify} messages.
+         * @param message ConfirmRandomnessProofInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.IConfirmRandomnessProofInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ConfirmRandomnessProofInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.ConfirmRandomnessProofInstruction.verify|verify} messages.
+         * @param message ConfirmRandomnessProofInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.IConfirmRandomnessProofInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ConfirmRandomnessProofInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ConfirmRandomnessProofInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.ConfirmRandomnessProofInstruction;
+
+        /**
+         * Decodes a ConfirmRandomnessProofInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ConfirmRandomnessProofInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.ConfirmRandomnessProofInstruction;
+
+        /**
+         * Verifies a ConfirmRandomnessProofInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ConfirmRandomnessProofInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ConfirmRandomnessProofInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.ConfirmRandomnessProofInstruction;
+
+        /**
+         * Creates a plain object from a ConfirmRandomnessProofInstruction message. Also converts values to other types if specified.
+         * @param message ConfirmRandomnessProofInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.ConfirmRandomnessProofInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ConfirmRandomnessProofInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
 }
 
 /** SwitchboardAccountType enum. */
@@ -4194,5 +4716,6 @@ export enum SwitchboardAccountType {
     TYPE_FULFILLMENT_MANAGER_AUTH = 4,
     TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED = 5,
     TYPE_BUNDLE = 6,
-    TYPE_BUNDLE_AUTH = 7
+    TYPE_BUNDLE_AUTH = 7,
+    TYPE_VRF = 8
 }
