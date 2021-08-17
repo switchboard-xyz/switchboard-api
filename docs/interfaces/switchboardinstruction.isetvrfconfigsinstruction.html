@@ -97,8 +97,9 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#fmpubkey" class="tsd-kind-icon">fm<wbr>Pubkey</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#lockconfigs" class="tsd-kind-icon">lock<wbr>Configs</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#minproofconfirmations" class="tsd-kind-icon">min<wbr>Proof<wbr>Confirmations</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#vrfpubkey" class="tsd-kind-icon">vrf<wbr>Pubkey</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#randomnessproducerpubkey" class="tsd-kind-icon">randomness<wbr>Producer<wbr>Pubkey</a></li>
 							</ul>
 						</section>
 					</div>
@@ -112,7 +113,7 @@
 					<div class="tsd-signature tsd-kind-icon">fm<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/cf6d99f/src/compiled.d.ts#L4350">compiled.d.ts:4350</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/18a7035/src/compiled.d.ts#L4368">compiled.d.ts:4368</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -122,12 +123,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="lockconfigs" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> lock<wbr>Configs</h3>
+					<div class="tsd-signature tsd-kind-icon">lock<wbr>Configs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/18a7035/src/compiled.d.ts#L4374">compiled.d.ts:4374</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>SetVrfConfigsInstruction lockConfigs</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="minproofconfirmations" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> min<wbr>Proof<wbr>Confirmations</h3>
 					<div class="tsd-signature tsd-kind-icon">min<wbr>Proof<wbr>Confirmations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/cf6d99f/src/compiled.d.ts#L4353">compiled.d.ts:4353</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/18a7035/src/compiled.d.ts#L4371">compiled.d.ts:4371</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -137,17 +153,17 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="vrfpubkey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> vrf<wbr>Pubkey</h3>
-					<div class="tsd-signature tsd-kind-icon">vrf<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
+					<a name="randomnessproducerpubkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> randomness<wbr>Producer<wbr>Pubkey</h3>
+					<div class="tsd-signature tsd-kind-icon">randomness<wbr>Producer<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/cf6d99f/src/compiled.d.ts#L4347">compiled.d.ts:4347</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/18a7035/src/compiled.d.ts#L4365">compiled.d.ts:4365</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>SetVrfConfigsInstruction vrfPubkey</p>
+							<p>SetVrfConfigsInstruction randomnessProducerPubkey</p>
 						</div>
 					</div>
 				</section>
@@ -187,10 +203,13 @@
 								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#fmpubkey" class="tsd-kind-icon">fm<wbr>Pubkey</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#lockconfigs" class="tsd-kind-icon">lock<wbr>Configs</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#minproofconfirmations" class="tsd-kind-icon">min<wbr>Proof<wbr>Confirmations</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#vrfpubkey" class="tsd-kind-icon">vrf<wbr>Pubkey</a>
+								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#randomnessproducerpubkey" class="tsd-kind-icon">randomness<wbr>Producer<wbr>Pubkey</a>
 							</li>
 						</ul>
 					</li>

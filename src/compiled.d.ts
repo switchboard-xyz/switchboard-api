@@ -1914,133 +1914,151 @@ export class JobResult implements IJobResult {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of a VrfAccount. */
-export interface IVrfAccount {
+/** Properties of a VrfAccountData. */
+export interface IVrfAccountData {
 
-    /** VrfAccount selfPubkey */
+    /** VrfAccountData selfPubkey */
     selfPubkey?: (Uint8Array|null);
 
-    /** VrfAccount vrfPubkey */
-    vrfPubkey?: (Uint8Array|null);
+    /** VrfAccountData randomnessProducerPubkey */
+    randomnessProducerPubkey?: (Uint8Array|null);
 
-    /** VrfAccount fulfillmentManagerPubkey */
+    /** VrfAccountData fulfillmentManagerPubkey */
     fulfillmentManagerPubkey?: (Uint8Array|null);
 
-    /** VrfAccount numRequiredConfirmations */
-    numRequiredConfirmations?: (number|null);
+    /** VrfAccountData minProofConfirmations */
+    minProofConfirmations?: (number|null);
 
-    /** VrfAccount counter */
+    /** VrfAccountData lockConfigs */
+    lockConfigs?: (boolean|null);
+
+    /** VrfAccountData counter */
     counter?: (number|Long|null);
 
-    /** VrfAccount value */
+    /** VrfAccountData msg */
+    msg?: (Uint8Array|null);
+
+    /** VrfAccountData value */
     value?: (Uint8Array|null);
 
-    /** VrfAccount proof */
+    /** VrfAccountData proof */
     proof?: (Uint8Array|null);
 
-    /** VrfAccount numProofConfirmations */
+    /** VrfAccountData numProofConfirmations */
     numProofConfirmations?: (number|null);
+
+    /** VrfAccountData lastRequestTimestamp */
+    lastRequestTimestamp?: (number|Long|null);
 }
 
-/** Represents a VrfAccount. */
-export class VrfAccount implements IVrfAccount {
+/** Represents a VrfAccountData. */
+export class VrfAccountData implements IVrfAccountData {
 
     /**
-     * Constructs a new VrfAccount.
+     * Constructs a new VrfAccountData.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IVrfAccount);
+    constructor(properties?: IVrfAccountData);
 
-    /** VrfAccount selfPubkey. */
+    /** VrfAccountData selfPubkey. */
     public selfPubkey: Uint8Array;
 
-    /** VrfAccount vrfPubkey. */
-    public vrfPubkey: Uint8Array;
+    /** VrfAccountData randomnessProducerPubkey. */
+    public randomnessProducerPubkey: Uint8Array;
 
-    /** VrfAccount fulfillmentManagerPubkey. */
+    /** VrfAccountData fulfillmentManagerPubkey. */
     public fulfillmentManagerPubkey: Uint8Array;
 
-    /** VrfAccount numRequiredConfirmations. */
-    public numRequiredConfirmations: number;
+    /** VrfAccountData minProofConfirmations. */
+    public minProofConfirmations: number;
 
-    /** VrfAccount counter. */
+    /** VrfAccountData lockConfigs. */
+    public lockConfigs: boolean;
+
+    /** VrfAccountData counter. */
     public counter: (number|Long);
 
-    /** VrfAccount value. */
+    /** VrfAccountData msg. */
+    public msg: Uint8Array;
+
+    /** VrfAccountData value. */
     public value: Uint8Array;
 
-    /** VrfAccount proof. */
+    /** VrfAccountData proof. */
     public proof: Uint8Array;
 
-    /** VrfAccount numProofConfirmations. */
+    /** VrfAccountData numProofConfirmations. */
     public numProofConfirmations: number;
 
+    /** VrfAccountData lastRequestTimestamp. */
+    public lastRequestTimestamp: (number|Long);
+
     /**
-     * Creates a new VrfAccount instance using the specified properties.
+     * Creates a new VrfAccountData instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns VrfAccount instance
+     * @returns VrfAccountData instance
      */
-    public static create(properties?: IVrfAccount): VrfAccount;
+    public static create(properties?: IVrfAccountData): VrfAccountData;
 
     /**
-     * Encodes the specified VrfAccount message. Does not implicitly {@link VrfAccount.verify|verify} messages.
-     * @param message VrfAccount message or plain object to encode
+     * Encodes the specified VrfAccountData message. Does not implicitly {@link VrfAccountData.verify|verify} messages.
+     * @param message VrfAccountData message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IVrfAccount, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IVrfAccountData, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified VrfAccount message, length delimited. Does not implicitly {@link VrfAccount.verify|verify} messages.
-     * @param message VrfAccount message or plain object to encode
+     * Encodes the specified VrfAccountData message, length delimited. Does not implicitly {@link VrfAccountData.verify|verify} messages.
+     * @param message VrfAccountData message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IVrfAccount, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IVrfAccountData, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a VrfAccount message from the specified reader or buffer.
+     * Decodes a VrfAccountData message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns VrfAccount
+     * @returns VrfAccountData
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): VrfAccount;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): VrfAccountData;
 
     /**
-     * Decodes a VrfAccount message from the specified reader or buffer, length delimited.
+     * Decodes a VrfAccountData message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns VrfAccount
+     * @returns VrfAccountData
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): VrfAccount;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): VrfAccountData;
 
     /**
-     * Verifies a VrfAccount message.
+     * Verifies a VrfAccountData message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a VrfAccount message from a plain object. Also converts values to their respective internal types.
+     * Creates a VrfAccountData message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns VrfAccount
+     * @returns VrfAccountData
      */
-    public static fromObject(object: { [k: string]: any }): VrfAccount;
+    public static fromObject(object: { [k: string]: any }): VrfAccountData;
 
     /**
-     * Creates a plain object from a VrfAccount message. Also converts values to other types if specified.
-     * @param message VrfAccount
+     * Creates a plain object from a VrfAccountData message. Also converts values to other types if specified.
+     * @param message VrfAccountData
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: VrfAccount, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: VrfAccountData, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this VrfAccount to JSON.
+     * Converts this VrfAccountData to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
@@ -4343,14 +4361,17 @@ export namespace SwitchboardInstruction {
     /** Properties of a SetVrfConfigsInstruction. */
     interface ISetVrfConfigsInstruction {
 
-        /** SetVrfConfigsInstruction vrfPubkey */
-        vrfPubkey?: (Uint8Array|null);
+        /** SetVrfConfigsInstruction randomnessProducerPubkey */
+        randomnessProducerPubkey?: (Uint8Array|null);
 
         /** SetVrfConfigsInstruction fmPubkey */
         fmPubkey?: (Uint8Array|null);
 
         /** SetVrfConfigsInstruction minProofConfirmations */
         minProofConfirmations?: (number|null);
+
+        /** SetVrfConfigsInstruction lockConfigs */
+        lockConfigs?: (boolean|null);
     }
 
     /** Represents a SetVrfConfigsInstruction. */
@@ -4362,14 +4383,17 @@ export namespace SwitchboardInstruction {
          */
         constructor(properties?: SwitchboardInstruction.ISetVrfConfigsInstruction);
 
-        /** SetVrfConfigsInstruction vrfPubkey. */
-        public vrfPubkey: Uint8Array;
+        /** SetVrfConfigsInstruction randomnessProducerPubkey. */
+        public randomnessProducerPubkey: Uint8Array;
 
         /** SetVrfConfigsInstruction fmPubkey. */
         public fmPubkey: Uint8Array;
 
         /** SetVrfConfigsInstruction minProofConfirmations. */
         public minProofConfirmations: number;
+
+        /** SetVrfConfigsInstruction lockConfigs. */
+        public lockConfigs: boolean;
 
         /**
          * Creates a new SetVrfConfigsInstruction instance using the specified properties.

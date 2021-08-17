@@ -4909,31 +4909,34 @@
         return JobResult;
     })();
     
-    $root.VrfAccount = (function() {
+    $root.VrfAccountData = (function() {
     
         /**
-         * Properties of a VrfAccount.
-         * @exports IVrfAccount
-         * @interface IVrfAccount
-         * @property {Uint8Array|null} [selfPubkey] VrfAccount selfPubkey
-         * @property {Uint8Array|null} [vrfPubkey] VrfAccount vrfPubkey
-         * @property {Uint8Array|null} [fulfillmentManagerPubkey] VrfAccount fulfillmentManagerPubkey
-         * @property {number|null} [numRequiredConfirmations] VrfAccount numRequiredConfirmations
-         * @property {number|Long|null} [counter] VrfAccount counter
-         * @property {Uint8Array|null} [value] VrfAccount value
-         * @property {Uint8Array|null} [proof] VrfAccount proof
-         * @property {number|null} [numProofConfirmations] VrfAccount numProofConfirmations
+         * Properties of a VrfAccountData.
+         * @exports IVrfAccountData
+         * @interface IVrfAccountData
+         * @property {Uint8Array|null} [selfPubkey] VrfAccountData selfPubkey
+         * @property {Uint8Array|null} [randomnessProducerPubkey] VrfAccountData randomnessProducerPubkey
+         * @property {Uint8Array|null} [fulfillmentManagerPubkey] VrfAccountData fulfillmentManagerPubkey
+         * @property {number|null} [minProofConfirmations] VrfAccountData minProofConfirmations
+         * @property {boolean|null} [lockConfigs] VrfAccountData lockConfigs
+         * @property {number|Long|null} [counter] VrfAccountData counter
+         * @property {Uint8Array|null} [msg] VrfAccountData msg
+         * @property {Uint8Array|null} [value] VrfAccountData value
+         * @property {Uint8Array|null} [proof] VrfAccountData proof
+         * @property {number|null} [numProofConfirmations] VrfAccountData numProofConfirmations
+         * @property {number|Long|null} [lastRequestTimestamp] VrfAccountData lastRequestTimestamp
          */
     
         /**
-         * Constructs a new VrfAccount.
-         * @exports VrfAccount
-         * @classdesc Represents a VrfAccount.
-         * @implements IVrfAccount
+         * Constructs a new VrfAccountData.
+         * @exports VrfAccountData
+         * @classdesc Represents a VrfAccountData.
+         * @implements IVrfAccountData
          * @constructor
-         * @param {IVrfAccount=} [properties] Properties to set
+         * @param {IVrfAccountData=} [properties] Properties to set
          */
-        function VrfAccount(properties) {
+        function VrfAccountData(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -4941,140 +4944,170 @@
         }
     
         /**
-         * VrfAccount selfPubkey.
+         * VrfAccountData selfPubkey.
          * @member {Uint8Array} selfPubkey
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @instance
          */
-        VrfAccount.prototype.selfPubkey = $util.newBuffer([]);
+        VrfAccountData.prototype.selfPubkey = $util.newBuffer([]);
     
         /**
-         * VrfAccount vrfPubkey.
-         * @member {Uint8Array} vrfPubkey
-         * @memberof VrfAccount
+         * VrfAccountData randomnessProducerPubkey.
+         * @member {Uint8Array} randomnessProducerPubkey
+         * @memberof VrfAccountData
          * @instance
          */
-        VrfAccount.prototype.vrfPubkey = $util.newBuffer([]);
+        VrfAccountData.prototype.randomnessProducerPubkey = $util.newBuffer([]);
     
         /**
-         * VrfAccount fulfillmentManagerPubkey.
+         * VrfAccountData fulfillmentManagerPubkey.
          * @member {Uint8Array} fulfillmentManagerPubkey
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @instance
          */
-        VrfAccount.prototype.fulfillmentManagerPubkey = $util.newBuffer([]);
+        VrfAccountData.prototype.fulfillmentManagerPubkey = $util.newBuffer([]);
     
         /**
-         * VrfAccount numRequiredConfirmations.
-         * @member {number} numRequiredConfirmations
-         * @memberof VrfAccount
+         * VrfAccountData minProofConfirmations.
+         * @member {number} minProofConfirmations
+         * @memberof VrfAccountData
          * @instance
          */
-        VrfAccount.prototype.numRequiredConfirmations = 0;
+        VrfAccountData.prototype.minProofConfirmations = 0;
     
         /**
-         * VrfAccount counter.
+         * VrfAccountData lockConfigs.
+         * @member {boolean} lockConfigs
+         * @memberof VrfAccountData
+         * @instance
+         */
+        VrfAccountData.prototype.lockConfigs = false;
+    
+        /**
+         * VrfAccountData counter.
          * @member {number|Long} counter
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @instance
          */
-        VrfAccount.prototype.counter = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        VrfAccountData.prototype.counter = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
     
         /**
-         * VrfAccount value.
+         * VrfAccountData msg.
+         * @member {Uint8Array} msg
+         * @memberof VrfAccountData
+         * @instance
+         */
+        VrfAccountData.prototype.msg = $util.newBuffer([]);
+    
+        /**
+         * VrfAccountData value.
          * @member {Uint8Array} value
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @instance
          */
-        VrfAccount.prototype.value = $util.newBuffer([]);
+        VrfAccountData.prototype.value = $util.newBuffer([]);
     
         /**
-         * VrfAccount proof.
+         * VrfAccountData proof.
          * @member {Uint8Array} proof
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @instance
          */
-        VrfAccount.prototype.proof = $util.newBuffer([]);
+        VrfAccountData.prototype.proof = $util.newBuffer([]);
     
         /**
-         * VrfAccount numProofConfirmations.
+         * VrfAccountData numProofConfirmations.
          * @member {number} numProofConfirmations
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @instance
          */
-        VrfAccount.prototype.numProofConfirmations = 0;
+        VrfAccountData.prototype.numProofConfirmations = 0;
     
         /**
-         * Creates a new VrfAccount instance using the specified properties.
-         * @function create
-         * @memberof VrfAccount
-         * @static
-         * @param {IVrfAccount=} [properties] Properties to set
-         * @returns {VrfAccount} VrfAccount instance
+         * VrfAccountData lastRequestTimestamp.
+         * @member {number|Long} lastRequestTimestamp
+         * @memberof VrfAccountData
+         * @instance
          */
-        VrfAccount.create = function create(properties) {
-            return new VrfAccount(properties);
+        VrfAccountData.prototype.lastRequestTimestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+    
+        /**
+         * Creates a new VrfAccountData instance using the specified properties.
+         * @function create
+         * @memberof VrfAccountData
+         * @static
+         * @param {IVrfAccountData=} [properties] Properties to set
+         * @returns {VrfAccountData} VrfAccountData instance
+         */
+        VrfAccountData.create = function create(properties) {
+            return new VrfAccountData(properties);
         };
     
         /**
-         * Encodes the specified VrfAccount message. Does not implicitly {@link VrfAccount.verify|verify} messages.
+         * Encodes the specified VrfAccountData message. Does not implicitly {@link VrfAccountData.verify|verify} messages.
          * @function encode
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @static
-         * @param {IVrfAccount} message VrfAccount message or plain object to encode
+         * @param {IVrfAccountData} message VrfAccountData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        VrfAccount.encode = function encode(message, writer) {
+        VrfAccountData.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.selfPubkey != null && Object.hasOwnProperty.call(message, "selfPubkey"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.selfPubkey);
-            if (message.vrfPubkey != null && Object.hasOwnProperty.call(message, "vrfPubkey"))
-                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.vrfPubkey);
+            if (message.randomnessProducerPubkey != null && Object.hasOwnProperty.call(message, "randomnessProducerPubkey"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.randomnessProducerPubkey);
             if (message.fulfillmentManagerPubkey != null && Object.hasOwnProperty.call(message, "fulfillmentManagerPubkey"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.fulfillmentManagerPubkey);
-            if (message.numRequiredConfirmations != null && Object.hasOwnProperty.call(message, "numRequiredConfirmations"))
-                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.numRequiredConfirmations);
+            if (message.minProofConfirmations != null && Object.hasOwnProperty.call(message, "minProofConfirmations"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.minProofConfirmations);
+            if (message.lockConfigs != null && Object.hasOwnProperty.call(message, "lockConfigs"))
+                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.lockConfigs);
             if (message.counter != null && Object.hasOwnProperty.call(message, "counter"))
-                writer.uint32(/* id 5, wireType 0 =*/40).uint64(message.counter);
+                writer.uint32(/* id 6, wireType 0 =*/48).uint64(message.counter);
+            if (message.msg != null && Object.hasOwnProperty.call(message, "msg"))
+                writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.msg);
             if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.value);
+                writer.uint32(/* id 8, wireType 2 =*/66).bytes(message.value);
             if (message.proof != null && Object.hasOwnProperty.call(message, "proof"))
-                writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.proof);
+                writer.uint32(/* id 9, wireType 2 =*/74).bytes(message.proof);
             if (message.numProofConfirmations != null && Object.hasOwnProperty.call(message, "numProofConfirmations"))
-                writer.uint32(/* id 8, wireType 0 =*/64).int32(message.numProofConfirmations);
+                writer.uint32(/* id 10, wireType 0 =*/80).int32(message.numProofConfirmations);
+            if (message.lastRequestTimestamp != null && Object.hasOwnProperty.call(message, "lastRequestTimestamp"))
+                writer.uint32(/* id 11, wireType 0 =*/88).int64(message.lastRequestTimestamp);
             return writer;
         };
     
         /**
-         * Encodes the specified VrfAccount message, length delimited. Does not implicitly {@link VrfAccount.verify|verify} messages.
+         * Encodes the specified VrfAccountData message, length delimited. Does not implicitly {@link VrfAccountData.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @static
-         * @param {IVrfAccount} message VrfAccount message or plain object to encode
+         * @param {IVrfAccountData} message VrfAccountData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        VrfAccount.encodeDelimited = function encodeDelimited(message, writer) {
+        VrfAccountData.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a VrfAccount message from the specified reader or buffer.
+         * Decodes a VrfAccountData message from the specified reader or buffer.
          * @function decode
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {VrfAccount} VrfAccount
+         * @returns {VrfAccountData} VrfAccountData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        VrfAccount.decode = function decode(reader, length) {
+        VrfAccountData.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VrfAccount();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VrfAccountData();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5082,25 +5115,34 @@
                     message.selfPubkey = reader.bytes();
                     break;
                 case 2:
-                    message.vrfPubkey = reader.bytes();
+                    message.randomnessProducerPubkey = reader.bytes();
                     break;
                 case 3:
                     message.fulfillmentManagerPubkey = reader.bytes();
                     break;
                 case 4:
-                    message.numRequiredConfirmations = reader.int32();
+                    message.minProofConfirmations = reader.int32();
                     break;
                 case 5:
-                    message.counter = reader.uint64();
+                    message.lockConfigs = reader.bool();
                     break;
                 case 6:
-                    message.value = reader.bytes();
+                    message.counter = reader.uint64();
                     break;
                 case 7:
-                    message.proof = reader.bytes();
+                    message.msg = reader.bytes();
                     break;
                 case 8:
+                    message.value = reader.bytes();
+                    break;
+                case 9:
+                    message.proof = reader.bytes();
+                    break;
+                case 10:
                     message.numProofConfirmations = reader.int32();
+                    break;
+                case 11:
+                    message.lastRequestTimestamp = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5111,47 +5153,53 @@
         };
     
         /**
-         * Decodes a VrfAccount message from the specified reader or buffer, length delimited.
+         * Decodes a VrfAccountData message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {VrfAccount} VrfAccount
+         * @returns {VrfAccountData} VrfAccountData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        VrfAccount.decodeDelimited = function decodeDelimited(reader) {
+        VrfAccountData.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a VrfAccount message.
+         * Verifies a VrfAccountData message.
          * @function verify
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        VrfAccount.verify = function verify(message) {
+        VrfAccountData.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.selfPubkey != null && message.hasOwnProperty("selfPubkey"))
                 if (!(message.selfPubkey && typeof message.selfPubkey.length === "number" || $util.isString(message.selfPubkey)))
                     return "selfPubkey: buffer expected";
-            if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
-                if (!(message.vrfPubkey && typeof message.vrfPubkey.length === "number" || $util.isString(message.vrfPubkey)))
-                    return "vrfPubkey: buffer expected";
+            if (message.randomnessProducerPubkey != null && message.hasOwnProperty("randomnessProducerPubkey"))
+                if (!(message.randomnessProducerPubkey && typeof message.randomnessProducerPubkey.length === "number" || $util.isString(message.randomnessProducerPubkey)))
+                    return "randomnessProducerPubkey: buffer expected";
             if (message.fulfillmentManagerPubkey != null && message.hasOwnProperty("fulfillmentManagerPubkey"))
                 if (!(message.fulfillmentManagerPubkey && typeof message.fulfillmentManagerPubkey.length === "number" || $util.isString(message.fulfillmentManagerPubkey)))
                     return "fulfillmentManagerPubkey: buffer expected";
-            if (message.numRequiredConfirmations != null && message.hasOwnProperty("numRequiredConfirmations"))
-                if (!$util.isInteger(message.numRequiredConfirmations))
-                    return "numRequiredConfirmations: integer expected";
+            if (message.minProofConfirmations != null && message.hasOwnProperty("minProofConfirmations"))
+                if (!$util.isInteger(message.minProofConfirmations))
+                    return "minProofConfirmations: integer expected";
+            if (message.lockConfigs != null && message.hasOwnProperty("lockConfigs"))
+                if (typeof message.lockConfigs !== "boolean")
+                    return "lockConfigs: boolean expected";
             if (message.counter != null && message.hasOwnProperty("counter"))
                 if (!$util.isInteger(message.counter) && !(message.counter && $util.isInteger(message.counter.low) && $util.isInteger(message.counter.high)))
                     return "counter: integer|Long expected";
+            if (message.msg != null && message.hasOwnProperty("msg"))
+                if (!(message.msg && typeof message.msg.length === "number" || $util.isString(message.msg)))
+                    return "msg: buffer expected";
             if (message.value != null && message.hasOwnProperty("value"))
                 if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
                     return "value: buffer expected";
@@ -5161,38 +5209,43 @@
             if (message.numProofConfirmations != null && message.hasOwnProperty("numProofConfirmations"))
                 if (!$util.isInteger(message.numProofConfirmations))
                     return "numProofConfirmations: integer expected";
+            if (message.lastRequestTimestamp != null && message.hasOwnProperty("lastRequestTimestamp"))
+                if (!$util.isInteger(message.lastRequestTimestamp) && !(message.lastRequestTimestamp && $util.isInteger(message.lastRequestTimestamp.low) && $util.isInteger(message.lastRequestTimestamp.high)))
+                    return "lastRequestTimestamp: integer|Long expected";
             return null;
         };
     
         /**
-         * Creates a VrfAccount message from a plain object. Also converts values to their respective internal types.
+         * Creates a VrfAccountData message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {VrfAccount} VrfAccount
+         * @returns {VrfAccountData} VrfAccountData
          */
-        VrfAccount.fromObject = function fromObject(object) {
-            if (object instanceof $root.VrfAccount)
+        VrfAccountData.fromObject = function fromObject(object) {
+            if (object instanceof $root.VrfAccountData)
                 return object;
-            var message = new $root.VrfAccount();
+            var message = new $root.VrfAccountData();
             if (object.selfPubkey != null)
                 if (typeof object.selfPubkey === "string")
                     $util.base64.decode(object.selfPubkey, message.selfPubkey = $util.newBuffer($util.base64.length(object.selfPubkey)), 0);
                 else if (object.selfPubkey.length)
                     message.selfPubkey = object.selfPubkey;
-            if (object.vrfPubkey != null)
-                if (typeof object.vrfPubkey === "string")
-                    $util.base64.decode(object.vrfPubkey, message.vrfPubkey = $util.newBuffer($util.base64.length(object.vrfPubkey)), 0);
-                else if (object.vrfPubkey.length)
-                    message.vrfPubkey = object.vrfPubkey;
+            if (object.randomnessProducerPubkey != null)
+                if (typeof object.randomnessProducerPubkey === "string")
+                    $util.base64.decode(object.randomnessProducerPubkey, message.randomnessProducerPubkey = $util.newBuffer($util.base64.length(object.randomnessProducerPubkey)), 0);
+                else if (object.randomnessProducerPubkey.length)
+                    message.randomnessProducerPubkey = object.randomnessProducerPubkey;
             if (object.fulfillmentManagerPubkey != null)
                 if (typeof object.fulfillmentManagerPubkey === "string")
                     $util.base64.decode(object.fulfillmentManagerPubkey, message.fulfillmentManagerPubkey = $util.newBuffer($util.base64.length(object.fulfillmentManagerPubkey)), 0);
                 else if (object.fulfillmentManagerPubkey.length)
                     message.fulfillmentManagerPubkey = object.fulfillmentManagerPubkey;
-            if (object.numRequiredConfirmations != null)
-                message.numRequiredConfirmations = object.numRequiredConfirmations | 0;
+            if (object.minProofConfirmations != null)
+                message.minProofConfirmations = object.minProofConfirmations | 0;
+            if (object.lockConfigs != null)
+                message.lockConfigs = Boolean(object.lockConfigs);
             if (object.counter != null)
                 if ($util.Long)
                     (message.counter = $util.Long.fromValue(object.counter)).unsigned = true;
@@ -5202,6 +5255,11 @@
                     message.counter = object.counter;
                 else if (typeof object.counter === "object")
                     message.counter = new $util.LongBits(object.counter.low >>> 0, object.counter.high >>> 0).toNumber(true);
+            if (object.msg != null)
+                if (typeof object.msg === "string")
+                    $util.base64.decode(object.msg, message.msg = $util.newBuffer($util.base64.length(object.msg)), 0);
+                else if (object.msg.length)
+                    message.msg = object.msg;
             if (object.value != null)
                 if (typeof object.value === "string")
                     $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
@@ -5214,19 +5272,28 @@
                     message.proof = object.proof;
             if (object.numProofConfirmations != null)
                 message.numProofConfirmations = object.numProofConfirmations | 0;
+            if (object.lastRequestTimestamp != null)
+                if ($util.Long)
+                    (message.lastRequestTimestamp = $util.Long.fromValue(object.lastRequestTimestamp)).unsigned = false;
+                else if (typeof object.lastRequestTimestamp === "string")
+                    message.lastRequestTimestamp = parseInt(object.lastRequestTimestamp, 10);
+                else if (typeof object.lastRequestTimestamp === "number")
+                    message.lastRequestTimestamp = object.lastRequestTimestamp;
+                else if (typeof object.lastRequestTimestamp === "object")
+                    message.lastRequestTimestamp = new $util.LongBits(object.lastRequestTimestamp.low >>> 0, object.lastRequestTimestamp.high >>> 0).toNumber();
             return message;
         };
     
         /**
-         * Creates a plain object from a VrfAccount message. Also converts values to other types if specified.
+         * Creates a plain object from a VrfAccountData message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @static
-         * @param {VrfAccount} message VrfAccount
+         * @param {VrfAccountData} message VrfAccountData
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        VrfAccount.toObject = function toObject(message, options) {
+        VrfAccountData.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -5239,11 +5306,11 @@
                         object.selfPubkey = $util.newBuffer(object.selfPubkey);
                 }
                 if (options.bytes === String)
-                    object.vrfPubkey = "";
+                    object.randomnessProducerPubkey = "";
                 else {
-                    object.vrfPubkey = [];
+                    object.randomnessProducerPubkey = [];
                     if (options.bytes !== Array)
-                        object.vrfPubkey = $util.newBuffer(object.vrfPubkey);
+                        object.randomnessProducerPubkey = $util.newBuffer(object.randomnessProducerPubkey);
                 }
                 if (options.bytes === String)
                     object.fulfillmentManagerPubkey = "";
@@ -5252,12 +5319,20 @@
                     if (options.bytes !== Array)
                         object.fulfillmentManagerPubkey = $util.newBuffer(object.fulfillmentManagerPubkey);
                 }
-                object.numRequiredConfirmations = 0;
+                object.minProofConfirmations = 0;
+                object.lockConfigs = false;
                 if ($util.Long) {
                     var long = new $util.Long(0, 0, true);
                     object.counter = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.counter = options.longs === String ? "0" : 0;
+                if (options.bytes === String)
+                    object.msg = "";
+                else {
+                    object.msg = [];
+                    if (options.bytes !== Array)
+                        object.msg = $util.newBuffer(object.msg);
+                }
                 if (options.bytes === String)
                     object.value = "";
                 else {
@@ -5273,41 +5348,55 @@
                         object.proof = $util.newBuffer(object.proof);
                 }
                 object.numProofConfirmations = 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.lastRequestTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.lastRequestTimestamp = options.longs === String ? "0" : 0;
             }
             if (message.selfPubkey != null && message.hasOwnProperty("selfPubkey"))
                 object.selfPubkey = options.bytes === String ? $util.base64.encode(message.selfPubkey, 0, message.selfPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.selfPubkey) : message.selfPubkey;
-            if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
-                object.vrfPubkey = options.bytes === String ? $util.base64.encode(message.vrfPubkey, 0, message.vrfPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.vrfPubkey) : message.vrfPubkey;
+            if (message.randomnessProducerPubkey != null && message.hasOwnProperty("randomnessProducerPubkey"))
+                object.randomnessProducerPubkey = options.bytes === String ? $util.base64.encode(message.randomnessProducerPubkey, 0, message.randomnessProducerPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.randomnessProducerPubkey) : message.randomnessProducerPubkey;
             if (message.fulfillmentManagerPubkey != null && message.hasOwnProperty("fulfillmentManagerPubkey"))
                 object.fulfillmentManagerPubkey = options.bytes === String ? $util.base64.encode(message.fulfillmentManagerPubkey, 0, message.fulfillmentManagerPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.fulfillmentManagerPubkey) : message.fulfillmentManagerPubkey;
-            if (message.numRequiredConfirmations != null && message.hasOwnProperty("numRequiredConfirmations"))
-                object.numRequiredConfirmations = message.numRequiredConfirmations;
+            if (message.minProofConfirmations != null && message.hasOwnProperty("minProofConfirmations"))
+                object.minProofConfirmations = message.minProofConfirmations;
+            if (message.lockConfigs != null && message.hasOwnProperty("lockConfigs"))
+                object.lockConfigs = message.lockConfigs;
             if (message.counter != null && message.hasOwnProperty("counter"))
                 if (typeof message.counter === "number")
                     object.counter = options.longs === String ? String(message.counter) : message.counter;
                 else
                     object.counter = options.longs === String ? $util.Long.prototype.toString.call(message.counter) : options.longs === Number ? new $util.LongBits(message.counter.low >>> 0, message.counter.high >>> 0).toNumber(true) : message.counter;
+            if (message.msg != null && message.hasOwnProperty("msg"))
+                object.msg = options.bytes === String ? $util.base64.encode(message.msg, 0, message.msg.length) : options.bytes === Array ? Array.prototype.slice.call(message.msg) : message.msg;
             if (message.value != null && message.hasOwnProperty("value"))
                 object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
             if (message.proof != null && message.hasOwnProperty("proof"))
                 object.proof = options.bytes === String ? $util.base64.encode(message.proof, 0, message.proof.length) : options.bytes === Array ? Array.prototype.slice.call(message.proof) : message.proof;
             if (message.numProofConfirmations != null && message.hasOwnProperty("numProofConfirmations"))
                 object.numProofConfirmations = message.numProofConfirmations;
+            if (message.lastRequestTimestamp != null && message.hasOwnProperty("lastRequestTimestamp"))
+                if (typeof message.lastRequestTimestamp === "number")
+                    object.lastRequestTimestamp = options.longs === String ? String(message.lastRequestTimestamp) : message.lastRequestTimestamp;
+                else
+                    object.lastRequestTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.lastRequestTimestamp) : options.longs === Number ? new $util.LongBits(message.lastRequestTimestamp.low >>> 0, message.lastRequestTimestamp.high >>> 0).toNumber() : message.lastRequestTimestamp;
             return object;
         };
     
         /**
-         * Converts this VrfAccount to JSON.
+         * Converts this VrfAccountData to JSON.
          * @function toJSON
-         * @memberof VrfAccount
+         * @memberof VrfAccountData
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        VrfAccount.prototype.toJSON = function toJSON() {
+        VrfAccountData.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return VrfAccount;
+        return VrfAccountData;
     })();
     
     $root.BundleAuth = (function() {
@@ -10839,9 +10928,10 @@
              * Properties of a SetVrfConfigsInstruction.
              * @memberof SwitchboardInstruction
              * @interface ISetVrfConfigsInstruction
-             * @property {Uint8Array|null} [vrfPubkey] SetVrfConfigsInstruction vrfPubkey
+             * @property {Uint8Array|null} [randomnessProducerPubkey] SetVrfConfigsInstruction randomnessProducerPubkey
              * @property {Uint8Array|null} [fmPubkey] SetVrfConfigsInstruction fmPubkey
              * @property {number|null} [minProofConfirmations] SetVrfConfigsInstruction minProofConfirmations
+             * @property {boolean|null} [lockConfigs] SetVrfConfigsInstruction lockConfigs
              */
     
             /**
@@ -10860,12 +10950,12 @@
             }
     
             /**
-             * SetVrfConfigsInstruction vrfPubkey.
-             * @member {Uint8Array} vrfPubkey
+             * SetVrfConfigsInstruction randomnessProducerPubkey.
+             * @member {Uint8Array} randomnessProducerPubkey
              * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
              * @instance
              */
-            SetVrfConfigsInstruction.prototype.vrfPubkey = $util.newBuffer([]);
+            SetVrfConfigsInstruction.prototype.randomnessProducerPubkey = $util.newBuffer([]);
     
             /**
              * SetVrfConfigsInstruction fmPubkey.
@@ -10882,6 +10972,14 @@
              * @instance
              */
             SetVrfConfigsInstruction.prototype.minProofConfirmations = 0;
+    
+            /**
+             * SetVrfConfigsInstruction lockConfigs.
+             * @member {boolean} lockConfigs
+             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
+             * @instance
+             */
+            SetVrfConfigsInstruction.prototype.lockConfigs = false;
     
             /**
              * Creates a new SetVrfConfigsInstruction instance using the specified properties.
@@ -10907,12 +11005,14 @@
             SetVrfConfigsInstruction.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.vrfPubkey != null && Object.hasOwnProperty.call(message, "vrfPubkey"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.vrfPubkey);
+                if (message.randomnessProducerPubkey != null && Object.hasOwnProperty.call(message, "randomnessProducerPubkey"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.randomnessProducerPubkey);
                 if (message.fmPubkey != null && Object.hasOwnProperty.call(message, "fmPubkey"))
                     writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.fmPubkey);
                 if (message.minProofConfirmations != null && Object.hasOwnProperty.call(message, "minProofConfirmations"))
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.minProofConfirmations);
+                if (message.lockConfigs != null && Object.hasOwnProperty.call(message, "lockConfigs"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.lockConfigs);
                 return writer;
             };
     
@@ -10948,13 +11048,16 @@
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.vrfPubkey = reader.bytes();
+                        message.randomnessProducerPubkey = reader.bytes();
                         break;
                     case 2:
                         message.fmPubkey = reader.bytes();
                         break;
                     case 3:
                         message.minProofConfirmations = reader.int32();
+                        break;
+                    case 4:
+                        message.lockConfigs = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -10991,15 +11094,18 @@
             SetVrfConfigsInstruction.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
-                    if (!(message.vrfPubkey && typeof message.vrfPubkey.length === "number" || $util.isString(message.vrfPubkey)))
-                        return "vrfPubkey: buffer expected";
+                if (message.randomnessProducerPubkey != null && message.hasOwnProperty("randomnessProducerPubkey"))
+                    if (!(message.randomnessProducerPubkey && typeof message.randomnessProducerPubkey.length === "number" || $util.isString(message.randomnessProducerPubkey)))
+                        return "randomnessProducerPubkey: buffer expected";
                 if (message.fmPubkey != null && message.hasOwnProperty("fmPubkey"))
                     if (!(message.fmPubkey && typeof message.fmPubkey.length === "number" || $util.isString(message.fmPubkey)))
                         return "fmPubkey: buffer expected";
                 if (message.minProofConfirmations != null && message.hasOwnProperty("minProofConfirmations"))
                     if (!$util.isInteger(message.minProofConfirmations))
                         return "minProofConfirmations: integer expected";
+                if (message.lockConfigs != null && message.hasOwnProperty("lockConfigs"))
+                    if (typeof message.lockConfigs !== "boolean")
+                        return "lockConfigs: boolean expected";
                 return null;
             };
     
@@ -11015,11 +11121,11 @@
                 if (object instanceof $root.SwitchboardInstruction.SetVrfConfigsInstruction)
                     return object;
                 var message = new $root.SwitchboardInstruction.SetVrfConfigsInstruction();
-                if (object.vrfPubkey != null)
-                    if (typeof object.vrfPubkey === "string")
-                        $util.base64.decode(object.vrfPubkey, message.vrfPubkey = $util.newBuffer($util.base64.length(object.vrfPubkey)), 0);
-                    else if (object.vrfPubkey.length)
-                        message.vrfPubkey = object.vrfPubkey;
+                if (object.randomnessProducerPubkey != null)
+                    if (typeof object.randomnessProducerPubkey === "string")
+                        $util.base64.decode(object.randomnessProducerPubkey, message.randomnessProducerPubkey = $util.newBuffer($util.base64.length(object.randomnessProducerPubkey)), 0);
+                    else if (object.randomnessProducerPubkey.length)
+                        message.randomnessProducerPubkey = object.randomnessProducerPubkey;
                 if (object.fmPubkey != null)
                     if (typeof object.fmPubkey === "string")
                         $util.base64.decode(object.fmPubkey, message.fmPubkey = $util.newBuffer($util.base64.length(object.fmPubkey)), 0);
@@ -11027,6 +11133,8 @@
                         message.fmPubkey = object.fmPubkey;
                 if (object.minProofConfirmations != null)
                     message.minProofConfirmations = object.minProofConfirmations | 0;
+                if (object.lockConfigs != null)
+                    message.lockConfigs = Boolean(object.lockConfigs);
                 return message;
             };
     
@@ -11045,11 +11153,11 @@
                 var object = {};
                 if (options.defaults) {
                     if (options.bytes === String)
-                        object.vrfPubkey = "";
+                        object.randomnessProducerPubkey = "";
                     else {
-                        object.vrfPubkey = [];
+                        object.randomnessProducerPubkey = [];
                         if (options.bytes !== Array)
-                            object.vrfPubkey = $util.newBuffer(object.vrfPubkey);
+                            object.randomnessProducerPubkey = $util.newBuffer(object.randomnessProducerPubkey);
                     }
                     if (options.bytes === String)
                         object.fmPubkey = "";
@@ -11059,13 +11167,16 @@
                             object.fmPubkey = $util.newBuffer(object.fmPubkey);
                     }
                     object.minProofConfirmations = 0;
+                    object.lockConfigs = false;
                 }
-                if (message.vrfPubkey != null && message.hasOwnProperty("vrfPubkey"))
-                    object.vrfPubkey = options.bytes === String ? $util.base64.encode(message.vrfPubkey, 0, message.vrfPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.vrfPubkey) : message.vrfPubkey;
+                if (message.randomnessProducerPubkey != null && message.hasOwnProperty("randomnessProducerPubkey"))
+                    object.randomnessProducerPubkey = options.bytes === String ? $util.base64.encode(message.randomnessProducerPubkey, 0, message.randomnessProducerPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.randomnessProducerPubkey) : message.randomnessProducerPubkey;
                 if (message.fmPubkey != null && message.hasOwnProperty("fmPubkey"))
                     object.fmPubkey = options.bytes === String ? $util.base64.encode(message.fmPubkey, 0, message.fmPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.fmPubkey) : message.fmPubkey;
                 if (message.minProofConfirmations != null && message.hasOwnProperty("minProofConfirmations"))
                     object.minProofConfirmations = message.minProofConfirmations;
+                if (message.lockConfigs != null && message.hasOwnProperty("lockConfigs"))
+                    object.lockConfigs = message.lockConfigs;
                 return object;
             };
     
