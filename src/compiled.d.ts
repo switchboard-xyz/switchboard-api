@@ -1949,6 +1949,9 @@ export interface IVrfAccountData {
 
     /** VrfAccountData lastRequestTimestamp */
     lastRequestTimestamp?: (number|Long|null);
+
+    /** VrfAccountData verifierPubkeys */
+    verifierPubkeys?: (Uint8Array[]|null);
 }
 
 /** Represents a VrfAccountData. */
@@ -1992,6 +1995,9 @@ export class VrfAccountData implements IVrfAccountData {
 
     /** VrfAccountData lastRequestTimestamp. */
     public lastRequestTimestamp: (number|Long);
+
+    /** VrfAccountData verifierPubkeys. */
+    public verifierPubkeys: Uint8Array[];
 
     /**
      * Creates a new VrfAccountData instance using the specified properties.
@@ -4648,6 +4654,9 @@ export namespace SwitchboardInstruction {
 
     /** Properties of a ConfirmRandomnessProofInstruction. */
     interface IConfirmRandomnessProofInstruction {
+
+        /** ConfirmRandomnessProofInstruction proof */
+        proof?: (Uint8Array|null);
     }
 
     /** Represents a ConfirmRandomnessProofInstruction. */
@@ -4658,6 +4667,9 @@ export namespace SwitchboardInstruction {
          * @param [properties] Properties to set
          */
         constructor(properties?: SwitchboardInstruction.IConfirmRandomnessProofInstruction);
+
+        /** ConfirmRandomnessProofInstruction proof. */
+        public proof: Uint8Array;
 
         /**
          * Creates a new ConfirmRandomnessProofInstruction instance using the specified properties.
