@@ -67,7 +67,7 @@ export declare function createDataFeed(connection: Connection, payerAccount: Acc
  */
 export declare function addFeedJob(connection: Connection, payerAccount: Account, dataFeedAccount: Account, jobTasks: OracleJob.Task[]): Promise<Account>;
 /**
- * Adds a borsh serialized account that holds information surrounding the last
+ * Adds a zero-copy mirror account that holds information surrounding the last
  * confirmed aggregator result.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.

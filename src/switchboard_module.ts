@@ -208,7 +208,7 @@ export async function addFeedJob(
 }
 
 /**
- * Adds a borsh serialized account that holds information surrounding the last
+ * Adds a zero-copy mirror account that holds information surrounding the last
  * confirmed aggregator result.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
