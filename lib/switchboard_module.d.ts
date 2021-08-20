@@ -1,8 +1,8 @@
 import { Account, Connection, PublicKey } from '@solana/web3.js';
 import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType, BundleAuth } from './compiled';
-export declare const SWITCHBOARD_DEVNET_PID: any;
-export declare const SWITCHBOARD_TESTNET_PID: any;
-export declare const SWITCHBOARD_MAINNET_PID: any;
+export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
+export declare const SWITCHBOARD_TESTNET_PID: PublicKey;
+export declare const SWITCHBOARD_MAINNET_PID: PublicKey;
 /**
  * Pull accountInfo from a provided account address and attempt to parse the state.
  * @param connection Solana network connection object.
