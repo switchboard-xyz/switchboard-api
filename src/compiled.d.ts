@@ -1186,10 +1186,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IDivideTask);
 
         /** DivideTask scalar. */
-        public scalar?: (number|null);
+        public scalar: number;
 
         /** DivideTask aggregatorPubkey. */
-        public aggregatorPubkey?: (string|null);
+        public aggregatorPubkey: string;
 
         /** DivideTask Denominator. */
         public Denominator?: ("scalar"|"aggregatorPubkey");
@@ -1285,10 +1285,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IMultiplyTask);
 
         /** MultiplyTask scalar. */
-        public scalar?: (number|null);
+        public scalar: number;
 
         /** MultiplyTask aggregatorPubkey. */
-        public aggregatorPubkey?: (string|null);
+        public aggregatorPubkey: string;
 
         /** MultiplyTask Multiple. */
         public Multiple?: ("scalar"|"aggregatorPubkey");
@@ -1384,10 +1384,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.ILpTokenPriceTask);
 
         /** LpTokenPriceTask mercurialPoolAddress. */
-        public mercurialPoolAddress?: (string|null);
+        public mercurialPoolAddress: string;
 
         /** LpTokenPriceTask saberPoolAddress. */
-        public saberPoolAddress?: (string|null);
+        public saberPoolAddress: string;
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
@@ -1477,6 +1477,9 @@ export namespace OracleJob {
 
         /** LpExchangeRateTask saberPoolAddress */
         saberPoolAddress?: (string|null);
+
+        /** LpExchangeRateTask orcaPoolTokenMintAddress */
+        orcaPoolTokenMintAddress?: (string|null);
     }
 
     /** Represents a LpExchangeRateTask. */
@@ -1495,13 +1498,16 @@ export namespace OracleJob {
         public outTokenAddress: string;
 
         /** LpExchangeRateTask mercurialPoolAddress. */
-        public mercurialPoolAddress?: (string|null);
+        public mercurialPoolAddress: string;
 
         /** LpExchangeRateTask saberPoolAddress. */
-        public saberPoolAddress?: (string|null);
+        public saberPoolAddress: string;
+
+        /** LpExchangeRateTask orcaPoolTokenMintAddress. */
+        public orcaPoolTokenMintAddress: string;
 
         /** LpExchangeRateTask PoolAddress. */
-        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
+        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress");
 
         /**
          * Creates a new LpExchangeRateTask instance using the specified properties.
