@@ -788,8 +788,8 @@ export namespace OracleJob {
         /** JsonParseTask path */
         path?: (string|null);
 
-        /** JsonParseTask ifAbsent */
-        ifAbsent?: (number|null);
+        /** JsonParseTask default */
+        "default"?: (number|null);
     }
 
     /** Represents a JsonParseTask. */
@@ -804,8 +804,8 @@ export namespace OracleJob {
         /** JsonParseTask path. */
         public path: string;
 
-        /** JsonParseTask ifAbsent. */
-        public ifAbsent: number;
+        /** JsonParseTask default. */
+        public default: number;
 
         /**
          * Creates a new JsonParseTask instance using the specified properties.

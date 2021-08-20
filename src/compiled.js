@@ -2079,7 +2079,7 @@
              * @memberof OracleJob
              * @interface IJsonParseTask
              * @property {string|null} [path] JsonParseTask path
-             * @property {number|null} [ifAbsent] JsonParseTask ifAbsent
+             * @property {number|null} ["default"] JsonParseTask default
              */
     
             /**
@@ -2106,12 +2106,12 @@
             JsonParseTask.prototype.path = "";
     
             /**
-             * JsonParseTask ifAbsent.
-             * @member {number} ifAbsent
+             * JsonParseTask default.
+             * @member {number} default
              * @memberof OracleJob.JsonParseTask
              * @instance
              */
-            JsonParseTask.prototype.ifAbsent = 0;
+            JsonParseTask.prototype["default"] = 0;
     
             /**
              * Creates a new JsonParseTask instance using the specified properties.
@@ -2139,8 +2139,8 @@
                     writer = $Writer.create();
                 if (message.path != null && Object.hasOwnProperty.call(message, "path"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
-                if (message.ifAbsent != null && Object.hasOwnProperty.call(message, "ifAbsent"))
-                    writer.uint32(/* id 2, wireType 1 =*/17).double(message.ifAbsent);
+                if (message["default"] != null && Object.hasOwnProperty.call(message, "default"))
+                    writer.uint32(/* id 2, wireType 1 =*/17).double(message["default"]);
                 return writer;
             };
     
@@ -2179,7 +2179,7 @@
                         message.path = reader.string();
                         break;
                     case 2:
-                        message.ifAbsent = reader.double();
+                        message["default"] = reader.double();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -2219,9 +2219,9 @@
                 if (message.path != null && message.hasOwnProperty("path"))
                     if (!$util.isString(message.path))
                         return "path: string expected";
-                if (message.ifAbsent != null && message.hasOwnProperty("ifAbsent"))
-                    if (typeof message.ifAbsent !== "number")
-                        return "ifAbsent: number expected";
+                if (message["default"] != null && message.hasOwnProperty("default"))
+                    if (typeof message["default"] !== "number")
+                        return "default: number expected";
                 return null;
             };
     
@@ -2239,8 +2239,8 @@
                 var message = new $root.OracleJob.JsonParseTask();
                 if (object.path != null)
                     message.path = String(object.path);
-                if (object.ifAbsent != null)
-                    message.ifAbsent = Number(object.ifAbsent);
+                if (object["default"] != null)
+                    message["default"] = Number(object["default"]);
                 return message;
             };
     
@@ -2259,12 +2259,12 @@
                 var object = {};
                 if (options.defaults) {
                     object.path = "";
-                    object.ifAbsent = 0;
+                    object["default"] = 0;
                 }
                 if (message.path != null && message.hasOwnProperty("path"))
                     object.path = message.path;
-                if (message.ifAbsent != null && message.hasOwnProperty("ifAbsent"))
-                    object.ifAbsent = options.json && !isFinite(message.ifAbsent) ? String(message.ifAbsent) : message.ifAbsent;
+                if (message["default"] != null && message.hasOwnProperty("default"))
+                    object["default"] = options.json && !isFinite(message["default"]) ? String(message["default"]) : message["default"];
                 return object;
             };
     
