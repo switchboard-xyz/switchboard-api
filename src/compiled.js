@@ -2079,6 +2079,7 @@
              * @memberof OracleJob
              * @interface IJsonParseTask
              * @property {string|null} [path] JsonParseTask path
+             * @property {number|null} [ifAbsent] JsonParseTask ifAbsent
              */
     
             /**
@@ -2103,6 +2104,14 @@
              * @instance
              */
             JsonParseTask.prototype.path = "";
+    
+            /**
+             * JsonParseTask ifAbsent.
+             * @member {number} ifAbsent
+             * @memberof OracleJob.JsonParseTask
+             * @instance
+             */
+            JsonParseTask.prototype.ifAbsent = 0;
     
             /**
              * Creates a new JsonParseTask instance using the specified properties.
@@ -2130,6 +2139,8 @@
                     writer = $Writer.create();
                 if (message.path != null && Object.hasOwnProperty.call(message, "path"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
+                if (message.ifAbsent != null && Object.hasOwnProperty.call(message, "ifAbsent"))
+                    writer.uint32(/* id 2, wireType 1 =*/17).double(message.ifAbsent);
                 return writer;
             };
     
@@ -2166,6 +2177,9 @@
                     switch (tag >>> 3) {
                     case 1:
                         message.path = reader.string();
+                        break;
+                    case 2:
+                        message.ifAbsent = reader.double();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -2205,6 +2219,9 @@
                 if (message.path != null && message.hasOwnProperty("path"))
                     if (!$util.isString(message.path))
                         return "path: string expected";
+                if (message.ifAbsent != null && message.hasOwnProperty("ifAbsent"))
+                    if (typeof message.ifAbsent !== "number")
+                        return "ifAbsent: number expected";
                 return null;
             };
     
@@ -2222,6 +2239,8 @@
                 var message = new $root.OracleJob.JsonParseTask();
                 if (object.path != null)
                     message.path = String(object.path);
+                if (object.ifAbsent != null)
+                    message.ifAbsent = Number(object.ifAbsent);
                 return message;
             };
     
@@ -2238,10 +2257,14 @@
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
+                if (options.defaults) {
                     object.path = "";
+                    object.ifAbsent = 0;
+                }
                 if (message.path != null && message.hasOwnProperty("path"))
                     object.path = message.path;
+                if (message.ifAbsent != null && message.hasOwnProperty("ifAbsent"))
+                    object.ifAbsent = options.json && !isFinite(message.ifAbsent) ? String(message.ifAbsent) : message.ifAbsent;
                 return object;
             };
     
@@ -2956,19 +2979,19 @@
     
             /**
              * DivideTask scalar.
-             * @member {number} scalar
+             * @member {number|null|undefined} scalar
              * @memberof OracleJob.DivideTask
              * @instance
              */
-            DivideTask.prototype.scalar = 0;
+            DivideTask.prototype.scalar = null;
     
             /**
              * DivideTask aggregatorPubkey.
-             * @member {string} aggregatorPubkey
+             * @member {string|null|undefined} aggregatorPubkey
              * @memberof OracleJob.DivideTask
              * @instance
              */
-            DivideTask.prototype.aggregatorPubkey = "";
+            DivideTask.prototype.aggregatorPubkey = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -3189,19 +3212,19 @@
     
             /**
              * MultiplyTask scalar.
-             * @member {number} scalar
+             * @member {number|null|undefined} scalar
              * @memberof OracleJob.MultiplyTask
              * @instance
              */
-            MultiplyTask.prototype.scalar = 0;
+            MultiplyTask.prototype.scalar = null;
     
             /**
              * MultiplyTask aggregatorPubkey.
-             * @member {string} aggregatorPubkey
+             * @member {string|null|undefined} aggregatorPubkey
              * @memberof OracleJob.MultiplyTask
              * @instance
              */
-            MultiplyTask.prototype.aggregatorPubkey = "";
+            MultiplyTask.prototype.aggregatorPubkey = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -3422,19 +3445,19 @@
     
             /**
              * LpTokenPriceTask mercurialPoolAddress.
-             * @member {string} mercurialPoolAddress
+             * @member {string|null|undefined} mercurialPoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
-            LpTokenPriceTask.prototype.mercurialPoolAddress = "";
+            LpTokenPriceTask.prototype.mercurialPoolAddress = null;
     
             /**
              * LpTokenPriceTask saberPoolAddress.
-             * @member {string} saberPoolAddress
+             * @member {string|null|undefined} saberPoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
-            LpTokenPriceTask.prototype.saberPoolAddress = "";
+            LpTokenPriceTask.prototype.saberPoolAddress = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -3673,19 +3696,19 @@
     
             /**
              * LpExchangeRateTask mercurialPoolAddress.
-             * @member {string} mercurialPoolAddress
+             * @member {string|null|undefined} mercurialPoolAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
-            LpExchangeRateTask.prototype.mercurialPoolAddress = "";
+            LpExchangeRateTask.prototype.mercurialPoolAddress = null;
     
             /**
              * LpExchangeRateTask saberPoolAddress.
-             * @member {string} saberPoolAddress
+             * @member {string|null|undefined} saberPoolAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
-            LpExchangeRateTask.prototype.saberPoolAddress = "";
+            LpExchangeRateTask.prototype.saberPoolAddress = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
