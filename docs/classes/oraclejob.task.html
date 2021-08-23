@@ -103,6 +103,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="oraclejob.task.html#task" class="tsd-kind-icon">Task</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="oraclejob.task.html#conditionaltask" class="tsd-kind-icon">conditional<wbr>Task</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="oraclejob.task.html#dividetask" class="tsd-kind-icon">divide<wbr>Task</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="oraclejob.task.html#httptask" class="tsd-kind-icon">http<wbr>Task</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="oraclejob.task.html#jsonparsetask" class="tsd-kind-icon">json<wbr>Parse<wbr>Task</a></li>
@@ -143,7 +144,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1615">compiled.d.ts:1615</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1708">compiled.d.ts:1708</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -167,15 +168,31 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="task" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Task</h3>
-					<div class="tsd-signature tsd-kind-icon">Task<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;httpTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;jsonParseTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;medianTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;meanTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;websocketTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;divideTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;multiplyTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;lpTokenPriceTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;lpExchangeRateTask&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Task<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;httpTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;jsonParseTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;medianTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;meanTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;websocketTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;divideTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;multiplyTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;lpTokenPriceTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;lpExchangeRateTask&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;conditionalTask&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1651">compiled.d.ts:1651</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1747">compiled.d.ts:1747</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Task Task.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="conditionaltask" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> conditional<wbr>Task</h3>
+					<div class="tsd-signature tsd-kind-icon">conditional<wbr>Task<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/oraclejob.iconditionaltask.html" class="tsd-signature-type" data-tsd-kind="Interface">IConditionalTask</a></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#conditionaltask">conditionalTask</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1744">compiled.d.ts:1744</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Task conditionalTask.</p>
 						</div>
 					</div>
 				</section>
@@ -186,7 +203,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#dividetask">divideTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1639">compiled.d.ts:1639</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1732">compiled.d.ts:1732</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -202,7 +219,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#httptask">httpTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1624">compiled.d.ts:1624</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1717">compiled.d.ts:1717</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -218,7 +235,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#jsonparsetask">jsonParseTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1627">compiled.d.ts:1627</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1720">compiled.d.ts:1720</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -234,7 +251,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#lpexchangeratetask">lpExchangeRateTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1648">compiled.d.ts:1648</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1741">compiled.d.ts:1741</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -250,7 +267,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#lptokenpricetask">lpTokenPriceTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1645">compiled.d.ts:1645</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1738">compiled.d.ts:1738</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -266,7 +283,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#meantask">meanTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1633">compiled.d.ts:1633</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1726">compiled.d.ts:1726</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -282,7 +299,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#mediantask">medianTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1630">compiled.d.ts:1630</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1723">compiled.d.ts:1723</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -298,7 +315,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#multiplytask">multiplyTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1642">compiled.d.ts:1642</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1735">compiled.d.ts:1735</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -314,7 +331,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/oraclejob.itask.html">ITask</a>.<a href="../interfaces/oraclejob.itask.html#websockettask">websocketTask</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1636">compiled.d.ts:1636</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1729">compiled.d.ts:1729</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -336,7 +353,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1721">compiled.d.ts:1721</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1817">compiled.d.ts:1817</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -364,7 +381,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1658">compiled.d.ts:1658</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1754">compiled.d.ts:1754</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -393,7 +410,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1684">compiled.d.ts:1684</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1780">compiled.d.ts:1780</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -436,7 +453,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1693">compiled.d.ts:1693</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1789">compiled.d.ts:1789</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -476,7 +493,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1666">compiled.d.ts:1666</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1762">compiled.d.ts:1762</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -511,7 +528,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1674">compiled.d.ts:1674</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1770">compiled.d.ts:1770</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -546,7 +563,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1707">compiled.d.ts:1707</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1803">compiled.d.ts:1803</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -583,7 +600,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1715">compiled.d.ts:1715</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1811">compiled.d.ts:1811</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -623,7 +640,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a5852d9/src/compiled.d.ts#L1700">compiled.d.ts:1700</a></li>
+									<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/20182fd/src/compiled.d.ts#L1796">compiled.d.ts:1796</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -678,6 +695,9 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="oraclejob.conditionaltask.html" class="tsd-kind-icon">Conditional<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="oraclejob.dividetask.html" class="tsd-kind-icon">Divide<wbr>Task</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
@@ -711,6 +731,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="oraclejob.task.html#task" class="tsd-kind-icon">Task</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="oraclejob.task.html#conditionaltask" class="tsd-kind-icon">conditional<wbr>Task</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="oraclejob.task.html#dividetask" class="tsd-kind-icon">divide<wbr>Task</a>
@@ -772,6 +795,9 @@
 				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-namespace">
 						<a href="oraclejob.websockettask.html" class="tsd-kind-icon">Websocket<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="../interfaces/oraclejob.iconditionaltask.html" class="tsd-kind-icon">IConditional<wbr>Task</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="../interfaces/oraclejob.idividetask.html" class="tsd-kind-icon">IDivide<wbr>Task</a>

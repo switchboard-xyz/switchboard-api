@@ -1166,6 +1166,102 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a ConditionalTask. */
+    interface IConditionalTask {
+
+        /** ConditionalTask attempt */
+        attempt?: (OracleJob.ITask[]|null);
+
+        /** ConditionalTask onFailure */
+        onFailure?: (OracleJob.ITask[]|null);
+    }
+
+    /** Represents a ConditionalTask. */
+    class ConditionalTask implements IConditionalTask {
+
+        /**
+         * Constructs a new ConditionalTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IConditionalTask);
+
+        /** ConditionalTask attempt. */
+        public attempt: OracleJob.ITask[];
+
+        /** ConditionalTask onFailure. */
+        public onFailure: OracleJob.ITask[];
+
+        /**
+         * Creates a new ConditionalTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ConditionalTask instance
+         */
+        public static create(properties?: OracleJob.IConditionalTask): OracleJob.ConditionalTask;
+
+        /**
+         * Encodes the specified ConditionalTask message. Does not implicitly {@link OracleJob.ConditionalTask.verify|verify} messages.
+         * @param message ConditionalTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IConditionalTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ConditionalTask message, length delimited. Does not implicitly {@link OracleJob.ConditionalTask.verify|verify} messages.
+         * @param message ConditionalTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IConditionalTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ConditionalTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ConditionalTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.ConditionalTask;
+
+        /**
+         * Decodes a ConditionalTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ConditionalTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.ConditionalTask;
+
+        /**
+         * Verifies a ConditionalTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ConditionalTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ConditionalTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.ConditionalTask;
+
+        /**
+         * Creates a plain object from a ConditionalTask message. Also converts values to other types if specified.
+         * @param message ConditionalTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.ConditionalTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ConditionalTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a DivideTask. */
     interface IDivideTask {
 
@@ -1186,10 +1282,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IDivideTask);
 
         /** DivideTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** DivideTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** DivideTask Denominator. */
         public Denominator?: ("scalar"|"aggregatorPubkey");
@@ -1285,10 +1381,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IMultiplyTask);
 
         /** MultiplyTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** MultiplyTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** MultiplyTask Multiple. */
         public Multiple?: ("scalar"|"aggregatorPubkey");
@@ -1384,10 +1480,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.ILpTokenPriceTask);
 
         /** LpTokenPriceTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
+        public mercurialPoolAddress?: (string|null);
 
         /** LpTokenPriceTask saberPoolAddress. */
-        public saberPoolAddress: string;
+        public saberPoolAddress?: (string|null);
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
@@ -1477,9 +1573,6 @@ export namespace OracleJob {
 
         /** LpExchangeRateTask saberPoolAddress */
         saberPoolAddress?: (string|null);
-
-        /** LpExchangeRateTask orcaPoolTokenMintAddress */
-        orcaPoolTokenMintAddress?: (string|null);
     }
 
     /** Represents a LpExchangeRateTask. */
@@ -1498,16 +1591,13 @@ export namespace OracleJob {
         public outTokenAddress: string;
 
         /** LpExchangeRateTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
+        public mercurialPoolAddress?: (string|null);
 
         /** LpExchangeRateTask saberPoolAddress. */
-        public saberPoolAddress: string;
-
-        /** LpExchangeRateTask orcaPoolTokenMintAddress. */
-        public orcaPoolTokenMintAddress: string;
+        public saberPoolAddress?: (string|null);
 
         /** LpExchangeRateTask PoolAddress. */
-        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress");
+        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
 
         /**
          * Creates a new LpExchangeRateTask instance using the specified properties.
@@ -1609,6 +1699,9 @@ export namespace OracleJob {
 
         /** Task lpExchangeRateTask */
         lpExchangeRateTask?: (OracleJob.ILpExchangeRateTask|null);
+
+        /** Task conditionalTask */
+        conditionalTask?: (OracleJob.IConditionalTask|null);
     }
 
     /** Represents a Task. */
@@ -1647,8 +1740,11 @@ export namespace OracleJob {
         /** Task lpExchangeRateTask. */
         public lpExchangeRateTask?: (OracleJob.ILpExchangeRateTask|null);
 
+        /** Task conditionalTask. */
+        public conditionalTask?: (OracleJob.IConditionalTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask");
 
         /**
          * Creates a new Task instance using the specified properties.
