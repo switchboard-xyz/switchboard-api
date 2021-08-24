@@ -2079,7 +2079,6 @@
              * @memberof OracleJob
              * @interface IJsonParseTask
              * @property {string|null} [path] JsonParseTask path
-             * @property {number|null} ["default"] JsonParseTask default
              */
     
             /**
@@ -2104,14 +2103,6 @@
              * @instance
              */
             JsonParseTask.prototype.path = "";
-    
-            /**
-             * JsonParseTask default.
-             * @member {number} default
-             * @memberof OracleJob.JsonParseTask
-             * @instance
-             */
-            JsonParseTask.prototype["default"] = 0;
     
             /**
              * Creates a new JsonParseTask instance using the specified properties.
@@ -2139,8 +2130,6 @@
                     writer = $Writer.create();
                 if (message.path != null && Object.hasOwnProperty.call(message, "path"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
-                if (message["default"] != null && Object.hasOwnProperty.call(message, "default"))
-                    writer.uint32(/* id 2, wireType 1 =*/17).double(message["default"]);
                 return writer;
             };
     
@@ -2177,9 +2166,6 @@
                     switch (tag >>> 3) {
                     case 1:
                         message.path = reader.string();
-                        break;
-                    case 2:
-                        message["default"] = reader.double();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -2219,9 +2205,6 @@
                 if (message.path != null && message.hasOwnProperty("path"))
                     if (!$util.isString(message.path))
                         return "path: string expected";
-                if (message["default"] != null && message.hasOwnProperty("default"))
-                    if (typeof message["default"] !== "number")
-                        return "default: number expected";
                 return null;
             };
     
@@ -2239,8 +2222,6 @@
                 var message = new $root.OracleJob.JsonParseTask();
                 if (object.path != null)
                     message.path = String(object.path);
-                if (object["default"] != null)
-                    message["default"] = Number(object["default"]);
                 return message;
             };
     
@@ -2257,14 +2238,10 @@
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
+                if (options.defaults)
                     object.path = "";
-                    object["default"] = 0;
-                }
                 if (message.path != null && message.hasOwnProperty("path"))
                     object.path = message.path;
-                if (message["default"] != null && message.hasOwnProperty("default"))
-                    object["default"] = options.json && !isFinite(message["default"]) ? String(message["default"]) : message["default"];
                 return object;
             };
     
@@ -2696,6 +2673,193 @@
             };
     
             return MeanTask;
+        })();
+    
+        OracleJob.ValueTask = (function() {
+    
+            /**
+             * Properties of a ValueTask.
+             * @memberof OracleJob
+             * @interface IValueTask
+             * @property {number|null} [value] ValueTask value
+             */
+    
+            /**
+             * Constructs a new ValueTask.
+             * @memberof OracleJob
+             * @classdesc Represents a ValueTask.
+             * @implements IValueTask
+             * @constructor
+             * @param {OracleJob.IValueTask=} [properties] Properties to set
+             */
+            function ValueTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * ValueTask value.
+             * @member {number} value
+             * @memberof OracleJob.ValueTask
+             * @instance
+             */
+            ValueTask.prototype.value = 0;
+    
+            /**
+             * Creates a new ValueTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.ValueTask
+             * @static
+             * @param {OracleJob.IValueTask=} [properties] Properties to set
+             * @returns {OracleJob.ValueTask} ValueTask instance
+             */
+            ValueTask.create = function create(properties) {
+                return new ValueTask(properties);
+            };
+    
+            /**
+             * Encodes the specified ValueTask message. Does not implicitly {@link OracleJob.ValueTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.ValueTask
+             * @static
+             * @param {OracleJob.IValueTask} message ValueTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ValueTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 1, wireType 1 =*/9).double(message.value);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified ValueTask message, length delimited. Does not implicitly {@link OracleJob.ValueTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.ValueTask
+             * @static
+             * @param {OracleJob.IValueTask} message ValueTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ValueTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a ValueTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.ValueTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.ValueTask} ValueTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ValueTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.ValueTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.value = reader.double();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a ValueTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.ValueTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.ValueTask} ValueTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ValueTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a ValueTask message.
+             * @function verify
+             * @memberof OracleJob.ValueTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ValueTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (typeof message.value !== "number")
+                        return "value: number expected";
+                return null;
+            };
+    
+            /**
+             * Creates a ValueTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.ValueTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.ValueTask} ValueTask
+             */
+            ValueTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.ValueTask)
+                    return object;
+                var message = new $root.OracleJob.ValueTask();
+                if (object.value != null)
+                    message.value = Number(object.value);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a ValueTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.ValueTask
+             * @static
+             * @param {OracleJob.ValueTask} message ValueTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ValueTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.value = 0;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.json && !isFinite(message.value) ? String(message.value) : message.value;
+                return object;
+            };
+    
+            /**
+             * Converts this ValueTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.ValueTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ValueTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return ValueTask;
         })();
     
         OracleJob.WebsocketTask = (function() {
@@ -3913,6 +4077,7 @@
              * @property {string|null} [outTokenAddress] LpExchangeRateTask outTokenAddress
              * @property {string|null} [mercurialPoolAddress] LpExchangeRateTask mercurialPoolAddress
              * @property {string|null} [saberPoolAddress] LpExchangeRateTask saberPoolAddress
+             * @property {string|null} [orcaPoolTokenMintAddress] LpExchangeRateTask orcaPoolTokenMintAddress
              */
     
             /**
@@ -3962,17 +4127,25 @@
              */
             LpExchangeRateTask.prototype.saberPoolAddress = null;
     
+            /**
+             * LpExchangeRateTask orcaPoolTokenMintAddress.
+             * @member {string|null|undefined} orcaPoolTokenMintAddress
+             * @memberof OracleJob.LpExchangeRateTask
+             * @instance
+             */
+            LpExchangeRateTask.prototype.orcaPoolTokenMintAddress = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * LpExchangeRateTask PoolAddress.
-             * @member {"mercurialPoolAddress"|"saberPoolAddress"|undefined} PoolAddress
+             * @member {"mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress"|undefined} PoolAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
             Object.defineProperty(LpExchangeRateTask.prototype, "PoolAddress", {
-                get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress"]),
+                get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress", "orcaPoolTokenMintAddress"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -4008,6 +4181,8 @@
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.mercurialPoolAddress);
                 if (message.saberPoolAddress != null && Object.hasOwnProperty.call(message, "saberPoolAddress"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.saberPoolAddress);
+                if (message.orcaPoolTokenMintAddress != null && Object.hasOwnProperty.call(message, "orcaPoolTokenMintAddress"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.orcaPoolTokenMintAddress);
                 return writer;
             };
     
@@ -4053,6 +4228,9 @@
                         break;
                     case 4:
                         message.saberPoolAddress = reader.string();
+                        break;
+                    case 5:
+                        message.orcaPoolTokenMintAddress = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -4108,6 +4286,13 @@
                     if (!$util.isString(message.saberPoolAddress))
                         return "saberPoolAddress: string expected";
                 }
+                if (message.orcaPoolTokenMintAddress != null && message.hasOwnProperty("orcaPoolTokenMintAddress")) {
+                    if (properties.PoolAddress === 1)
+                        return "PoolAddress: multiple values";
+                    properties.PoolAddress = 1;
+                    if (!$util.isString(message.orcaPoolTokenMintAddress))
+                        return "orcaPoolTokenMintAddress: string expected";
+                }
                 return null;
             };
     
@@ -4131,6 +4316,8 @@
                     message.mercurialPoolAddress = String(object.mercurialPoolAddress);
                 if (object.saberPoolAddress != null)
                     message.saberPoolAddress = String(object.saberPoolAddress);
+                if (object.orcaPoolTokenMintAddress != null)
+                    message.orcaPoolTokenMintAddress = String(object.orcaPoolTokenMintAddress);
                 return message;
             };
     
@@ -4164,6 +4351,11 @@
                     object.saberPoolAddress = message.saberPoolAddress;
                     if (options.oneofs)
                         object.PoolAddress = "saberPoolAddress";
+                }
+                if (message.orcaPoolTokenMintAddress != null && message.hasOwnProperty("orcaPoolTokenMintAddress")) {
+                    object.orcaPoolTokenMintAddress = message.orcaPoolTokenMintAddress;
+                    if (options.oneofs)
+                        object.PoolAddress = "orcaPoolTokenMintAddress";
                 }
                 return object;
             };

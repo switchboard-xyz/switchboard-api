@@ -787,9 +787,6 @@ export namespace OracleJob {
 
         /** JsonParseTask path */
         path?: (string|null);
-
-        /** JsonParseTask default */
-        "default"?: (number|null);
     }
 
     /** Represents a JsonParseTask. */
@@ -803,9 +800,6 @@ export namespace OracleJob {
 
         /** JsonParseTask path. */
         public path: string;
-
-        /** JsonParseTask default. */
-        public default: number;
 
         /**
          * Creates a new JsonParseTask instance using the specified properties.
@@ -1053,6 +1047,96 @@ export namespace OracleJob {
 
         /**
          * Converts this MeanTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ValueTask. */
+    interface IValueTask {
+
+        /** ValueTask value */
+        value?: (number|null);
+    }
+
+    /** Represents a ValueTask. */
+    class ValueTask implements IValueTask {
+
+        /**
+         * Constructs a new ValueTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IValueTask);
+
+        /** ValueTask value. */
+        public value: number;
+
+        /**
+         * Creates a new ValueTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ValueTask instance
+         */
+        public static create(properties?: OracleJob.IValueTask): OracleJob.ValueTask;
+
+        /**
+         * Encodes the specified ValueTask message. Does not implicitly {@link OracleJob.ValueTask.verify|verify} messages.
+         * @param message ValueTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IValueTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ValueTask message, length delimited. Does not implicitly {@link OracleJob.ValueTask.verify|verify} messages.
+         * @param message ValueTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IValueTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ValueTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ValueTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.ValueTask;
+
+        /**
+         * Decodes a ValueTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ValueTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.ValueTask;
+
+        /**
+         * Verifies a ValueTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ValueTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ValueTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.ValueTask;
+
+        /**
+         * Creates a plain object from a ValueTask message. Also converts values to other types if specified.
+         * @param message ValueTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.ValueTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ValueTask to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -1573,6 +1657,9 @@ export namespace OracleJob {
 
         /** LpExchangeRateTask saberPoolAddress */
         saberPoolAddress?: (string|null);
+
+        /** LpExchangeRateTask orcaPoolTokenMintAddress */
+        orcaPoolTokenMintAddress?: (string|null);
     }
 
     /** Represents a LpExchangeRateTask. */
@@ -1596,8 +1683,11 @@ export namespace OracleJob {
         /** LpExchangeRateTask saberPoolAddress. */
         public saberPoolAddress?: (string|null);
 
+        /** LpExchangeRateTask orcaPoolTokenMintAddress. */
+        public orcaPoolTokenMintAddress?: (string|null);
+
         /** LpExchangeRateTask PoolAddress. */
-        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
+        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress");
 
         /**
          * Creates a new LpExchangeRateTask instance using the specified properties.
