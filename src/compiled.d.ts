@@ -1792,6 +1792,9 @@ export namespace OracleJob {
 
         /** Task conditionalTask */
         conditionalTask?: (OracleJob.IConditionalTask|null);
+
+        /** Task valueTask */
+        valueTask?: (OracleJob.IValueTask|null);
     }
 
     /** Represents a Task. */
@@ -1833,8 +1836,11 @@ export namespace OracleJob {
         /** Task conditionalTask. */
         public conditionalTask?: (OracleJob.IConditionalTask|null);
 
+        /** Task valueTask. */
+        public valueTask?: (OracleJob.IValueTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask");
 
         /**
          * Creates a new Task instance using the specified properties.
