@@ -2274,6 +2274,108 @@ export class VrfAccountData implements IVrfAccountData {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a VrfPermitAccountData. */
+export interface IVrfPermitAccountData {
+
+    /** VrfPermitAccountData granter */
+    granter?: (Uint8Array|null);
+
+    /** VrfPermitAccountData grantee */
+    grantee?: (Uint8Array|null);
+
+    /** VrfPermitAccountData enabled */
+    enabled?: (boolean|null);
+}
+
+/** Represents a VrfPermitAccountData. */
+export class VrfPermitAccountData implements IVrfPermitAccountData {
+
+    /**
+     * Constructs a new VrfPermitAccountData.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IVrfPermitAccountData);
+
+    /** VrfPermitAccountData granter. */
+    public granter: Uint8Array;
+
+    /** VrfPermitAccountData grantee. */
+    public grantee: Uint8Array;
+
+    /** VrfPermitAccountData enabled. */
+    public enabled: boolean;
+
+    /**
+     * Creates a new VrfPermitAccountData instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns VrfPermitAccountData instance
+     */
+    public static create(properties?: IVrfPermitAccountData): VrfPermitAccountData;
+
+    /**
+     * Encodes the specified VrfPermitAccountData message. Does not implicitly {@link VrfPermitAccountData.verify|verify} messages.
+     * @param message VrfPermitAccountData message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IVrfPermitAccountData, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified VrfPermitAccountData message, length delimited. Does not implicitly {@link VrfPermitAccountData.verify|verify} messages.
+     * @param message VrfPermitAccountData message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IVrfPermitAccountData, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a VrfPermitAccountData message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns VrfPermitAccountData
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): VrfPermitAccountData;
+
+    /**
+     * Decodes a VrfPermitAccountData message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns VrfPermitAccountData
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): VrfPermitAccountData;
+
+    /**
+     * Verifies a VrfPermitAccountData message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a VrfPermitAccountData message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns VrfPermitAccountData
+     */
+    public static fromObject(object: { [k: string]: any }): VrfPermitAccountData;
+
+    /**
+     * Creates a plain object from a VrfPermitAccountData message. Also converts values to other types if specified.
+     * @param message VrfPermitAccountData
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: VrfPermitAccountData, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this VrfPermitAccountData to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a BundleAuth. */
 export interface IBundleAuth {
 
@@ -2864,6 +2966,9 @@ export interface ISwitchboardInstruction {
 
     /** SwitchboardInstruction confirmRandomnessProofInstruction */
     confirmRandomnessProofInstruction?: (SwitchboardInstruction.IConfirmRandomnessProofInstruction|null);
+
+    /** SwitchboardInstruction setVrfPermitInstruction */
+    setVrfPermitInstruction?: (SwitchboardInstruction.ISetVrfPermitInstruction|null);
 }
 
 /** Represents a SwitchboardInstruction. */
@@ -2938,8 +3043,11 @@ export class SwitchboardInstruction implements ISwitchboardInstruction {
     /** SwitchboardInstruction confirmRandomnessProofInstruction. */
     public confirmRandomnessProofInstruction?: (SwitchboardInstruction.IConfirmRandomnessProofInstruction|null);
 
+    /** SwitchboardInstruction setVrfPermitInstruction. */
+    public setVrfPermitInstruction?: (SwitchboardInstruction.ISetVrfPermitInstruction|null);
+
     /** SwitchboardInstruction instruction. */
-    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction"|"setVrfConfigsInstruction"|"requestRandomnessInstruction"|"respondRandomnessInstruction"|"confirmRandomnessProofInstruction");
+    public instruction?: ("initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction"|"setVrfConfigsInstruction"|"requestRandomnessInstruction"|"respondRandomnessInstruction"|"confirmRandomnessProofInstruction"|"setVrfPermitInstruction");
 
     /**
      * Creates a new SwitchboardInstruction instance using the specified properties.
@@ -4571,12 +4679,6 @@ export namespace SwitchboardInstruction {
     /** Properties of a SetVrfConfigsInstruction. */
     interface ISetVrfConfigsInstruction {
 
-        /** SetVrfConfigsInstruction randomnessProducerPubkey */
-        randomnessProducerPubkey?: (Uint8Array|null);
-
-        /** SetVrfConfigsInstruction fmPubkey */
-        fmPubkey?: (Uint8Array|null);
-
         /** SetVrfConfigsInstruction minProofConfirmations */
         minProofConfirmations?: (number|null);
 
@@ -4592,12 +4694,6 @@ export namespace SwitchboardInstruction {
          * @param [properties] Properties to set
          */
         constructor(properties?: SwitchboardInstruction.ISetVrfConfigsInstruction);
-
-        /** SetVrfConfigsInstruction randomnessProducerPubkey. */
-        public randomnessProducerPubkey: Uint8Array;
-
-        /** SetVrfConfigsInstruction fmPubkey. */
-        public fmPubkey: Uint8Array;
 
         /** SetVrfConfigsInstruction minProofConfirmations. */
         public minProofConfirmations: number;
@@ -4945,6 +5041,96 @@ export namespace SwitchboardInstruction {
          */
         public toJSON(): { [k: string]: any };
     }
+
+    /** Properties of a SetVrfPermitInstruction. */
+    interface ISetVrfPermitInstruction {
+
+        /** SetVrfPermitInstruction enabled */
+        enabled?: (boolean|null);
+    }
+
+    /** Represents a SetVrfPermitInstruction. */
+    class SetVrfPermitInstruction implements ISetVrfPermitInstruction {
+
+        /**
+         * Constructs a new SetVrfPermitInstruction.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: SwitchboardInstruction.ISetVrfPermitInstruction);
+
+        /** SetVrfPermitInstruction enabled. */
+        public enabled: boolean;
+
+        /**
+         * Creates a new SetVrfPermitInstruction instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SetVrfPermitInstruction instance
+         */
+        public static create(properties?: SwitchboardInstruction.ISetVrfPermitInstruction): SwitchboardInstruction.SetVrfPermitInstruction;
+
+        /**
+         * Encodes the specified SetVrfPermitInstruction message. Does not implicitly {@link SwitchboardInstruction.SetVrfPermitInstruction.verify|verify} messages.
+         * @param message SetVrfPermitInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: SwitchboardInstruction.ISetVrfPermitInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SetVrfPermitInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SetVrfPermitInstruction.verify|verify} messages.
+         * @param message SetVrfPermitInstruction message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: SwitchboardInstruction.ISetVrfPermitInstruction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SetVrfPermitInstruction message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SetVrfPermitInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SwitchboardInstruction.SetVrfPermitInstruction;
+
+        /**
+         * Decodes a SetVrfPermitInstruction message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SetVrfPermitInstruction
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SwitchboardInstruction.SetVrfPermitInstruction;
+
+        /**
+         * Verifies a SetVrfPermitInstruction message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SetVrfPermitInstruction message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SetVrfPermitInstruction
+         */
+        public static fromObject(object: { [k: string]: any }): SwitchboardInstruction.SetVrfPermitInstruction;
+
+        /**
+         * Creates a plain object from a SetVrfPermitInstruction message. Also converts values to other types if specified.
+         * @param message SetVrfPermitInstruction
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: SwitchboardInstruction.SetVrfPermitInstruction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SetVrfPermitInstruction to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
 }
 
 /** SwitchboardAccountType enum. */
@@ -4957,5 +5143,6 @@ export enum SwitchboardAccountType {
     TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED = 5,
     TYPE_BUNDLE = 6,
     TYPE_BUNDLE_AUTH = 7,
-    TYPE_VRF = 8
+    TYPE_VRF = 8,
+    TYPE_VRF_PERMIT = 9
 }

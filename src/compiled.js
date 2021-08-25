@@ -5976,6 +5976,256 @@
         return VrfAccountData;
     })();
     
+    $root.VrfPermitAccountData = (function() {
+    
+        /**
+         * Properties of a VrfPermitAccountData.
+         * @exports IVrfPermitAccountData
+         * @interface IVrfPermitAccountData
+         * @property {Uint8Array|null} [granter] VrfPermitAccountData granter
+         * @property {Uint8Array|null} [grantee] VrfPermitAccountData grantee
+         * @property {boolean|null} [enabled] VrfPermitAccountData enabled
+         */
+    
+        /**
+         * Constructs a new VrfPermitAccountData.
+         * @exports VrfPermitAccountData
+         * @classdesc Represents a VrfPermitAccountData.
+         * @implements IVrfPermitAccountData
+         * @constructor
+         * @param {IVrfPermitAccountData=} [properties] Properties to set
+         */
+        function VrfPermitAccountData(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * VrfPermitAccountData granter.
+         * @member {Uint8Array} granter
+         * @memberof VrfPermitAccountData
+         * @instance
+         */
+        VrfPermitAccountData.prototype.granter = $util.newBuffer([]);
+    
+        /**
+         * VrfPermitAccountData grantee.
+         * @member {Uint8Array} grantee
+         * @memberof VrfPermitAccountData
+         * @instance
+         */
+        VrfPermitAccountData.prototype.grantee = $util.newBuffer([]);
+    
+        /**
+         * VrfPermitAccountData enabled.
+         * @member {boolean} enabled
+         * @memberof VrfPermitAccountData
+         * @instance
+         */
+        VrfPermitAccountData.prototype.enabled = false;
+    
+        /**
+         * Creates a new VrfPermitAccountData instance using the specified properties.
+         * @function create
+         * @memberof VrfPermitAccountData
+         * @static
+         * @param {IVrfPermitAccountData=} [properties] Properties to set
+         * @returns {VrfPermitAccountData} VrfPermitAccountData instance
+         */
+        VrfPermitAccountData.create = function create(properties) {
+            return new VrfPermitAccountData(properties);
+        };
+    
+        /**
+         * Encodes the specified VrfPermitAccountData message. Does not implicitly {@link VrfPermitAccountData.verify|verify} messages.
+         * @function encode
+         * @memberof VrfPermitAccountData
+         * @static
+         * @param {IVrfPermitAccountData} message VrfPermitAccountData message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VrfPermitAccountData.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.granter != null && Object.hasOwnProperty.call(message, "granter"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.granter);
+            if (message.grantee != null && Object.hasOwnProperty.call(message, "grantee"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.grantee);
+            if (message.enabled != null && Object.hasOwnProperty.call(message, "enabled"))
+                writer.uint32(/* id 3, wireType 0 =*/24).bool(message.enabled);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified VrfPermitAccountData message, length delimited. Does not implicitly {@link VrfPermitAccountData.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof VrfPermitAccountData
+         * @static
+         * @param {IVrfPermitAccountData} message VrfPermitAccountData message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VrfPermitAccountData.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a VrfPermitAccountData message from the specified reader or buffer.
+         * @function decode
+         * @memberof VrfPermitAccountData
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {VrfPermitAccountData} VrfPermitAccountData
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VrfPermitAccountData.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VrfPermitAccountData();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.granter = reader.bytes();
+                    break;
+                case 2:
+                    message.grantee = reader.bytes();
+                    break;
+                case 3:
+                    message.enabled = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a VrfPermitAccountData message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof VrfPermitAccountData
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {VrfPermitAccountData} VrfPermitAccountData
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VrfPermitAccountData.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a VrfPermitAccountData message.
+         * @function verify
+         * @memberof VrfPermitAccountData
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        VrfPermitAccountData.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.granter != null && message.hasOwnProperty("granter"))
+                if (!(message.granter && typeof message.granter.length === "number" || $util.isString(message.granter)))
+                    return "granter: buffer expected";
+            if (message.grantee != null && message.hasOwnProperty("grantee"))
+                if (!(message.grantee && typeof message.grantee.length === "number" || $util.isString(message.grantee)))
+                    return "grantee: buffer expected";
+            if (message.enabled != null && message.hasOwnProperty("enabled"))
+                if (typeof message.enabled !== "boolean")
+                    return "enabled: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates a VrfPermitAccountData message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof VrfPermitAccountData
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {VrfPermitAccountData} VrfPermitAccountData
+         */
+        VrfPermitAccountData.fromObject = function fromObject(object) {
+            if (object instanceof $root.VrfPermitAccountData)
+                return object;
+            var message = new $root.VrfPermitAccountData();
+            if (object.granter != null)
+                if (typeof object.granter === "string")
+                    $util.base64.decode(object.granter, message.granter = $util.newBuffer($util.base64.length(object.granter)), 0);
+                else if (object.granter.length)
+                    message.granter = object.granter;
+            if (object.grantee != null)
+                if (typeof object.grantee === "string")
+                    $util.base64.decode(object.grantee, message.grantee = $util.newBuffer($util.base64.length(object.grantee)), 0);
+                else if (object.grantee.length)
+                    message.grantee = object.grantee;
+            if (object.enabled != null)
+                message.enabled = Boolean(object.enabled);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a VrfPermitAccountData message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof VrfPermitAccountData
+         * @static
+         * @param {VrfPermitAccountData} message VrfPermitAccountData
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        VrfPermitAccountData.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.granter = "";
+                else {
+                    object.granter = [];
+                    if (options.bytes !== Array)
+                        object.granter = $util.newBuffer(object.granter);
+                }
+                if (options.bytes === String)
+                    object.grantee = "";
+                else {
+                    object.grantee = [];
+                    if (options.bytes !== Array)
+                        object.grantee = $util.newBuffer(object.grantee);
+                }
+                object.enabled = false;
+            }
+            if (message.granter != null && message.hasOwnProperty("granter"))
+                object.granter = options.bytes === String ? $util.base64.encode(message.granter, 0, message.granter.length) : options.bytes === Array ? Array.prototype.slice.call(message.granter) : message.granter;
+            if (message.grantee != null && message.hasOwnProperty("grantee"))
+                object.grantee = options.bytes === String ? $util.base64.encode(message.grantee, 0, message.grantee.length) : options.bytes === Array ? Array.prototype.slice.call(message.grantee) : message.grantee;
+            if (message.enabled != null && message.hasOwnProperty("enabled"))
+                object.enabled = message.enabled;
+            return object;
+        };
+    
+        /**
+         * Converts this VrfPermitAccountData to JSON.
+         * @function toJSON
+         * @memberof VrfPermitAccountData
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        VrfPermitAccountData.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return VrfPermitAccountData;
+    })();
+    
     $root.BundleAuth = (function() {
     
         /**
@@ -7279,6 +7529,7 @@
          * @property {SwitchboardInstruction.IRequestRandomnessInstruction|null} [requestRandomnessInstruction] SwitchboardInstruction requestRandomnessInstruction
          * @property {SwitchboardInstruction.IRespondRandomnessInstruction|null} [respondRandomnessInstruction] SwitchboardInstruction respondRandomnessInstruction
          * @property {SwitchboardInstruction.IConfirmRandomnessProofInstruction|null} [confirmRandomnessProofInstruction] SwitchboardInstruction confirmRandomnessProofInstruction
+         * @property {SwitchboardInstruction.ISetVrfPermitInstruction|null} [setVrfPermitInstruction] SwitchboardInstruction setVrfPermitInstruction
          */
     
         /**
@@ -7464,17 +7715,25 @@
          */
         SwitchboardInstruction.prototype.confirmRandomnessProofInstruction = null;
     
+        /**
+         * SwitchboardInstruction setVrfPermitInstruction.
+         * @member {SwitchboardInstruction.ISetVrfPermitInstruction|null|undefined} setVrfPermitInstruction
+         * @memberof SwitchboardInstruction
+         * @instance
+         */
+        SwitchboardInstruction.prototype.setVrfPermitInstruction = null;
+    
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
     
         /**
          * SwitchboardInstruction instruction.
-         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction"|"setVrfConfigsInstruction"|"requestRandomnessInstruction"|"respondRandomnessInstruction"|"confirmRandomnessProofInstruction"|undefined} instruction
+         * @member {"initInstruction"|"registerJobInstruction"|"unregisterJobInstruction"|"updateAggregateInstruction"|"getAggregateInstruction"|"saveResultInstruction"|"setAggregatorConfigsInstruction"|"setFulfillmentManagerConfigsInstruction"|"heartbeatInstruction"|"registerAuthInstruction"|"reachFulfillerAgreementInstruction"|"removeFulfillerInstruction"|"linkParseOptimizedAccountInstruction"|"setBundleAuthConfigsInstruction"|"addBundleAuthInstruction"|"removeBundleAuthInstruction"|"saveBundleResultInstruction"|"setVrfConfigsInstruction"|"requestRandomnessInstruction"|"respondRandomnessInstruction"|"confirmRandomnessProofInstruction"|"setVrfPermitInstruction"|undefined} instruction
          * @memberof SwitchboardInstruction
          * @instance
          */
         Object.defineProperty(SwitchboardInstruction.prototype, "instruction", {
-            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction", "linkParseOptimizedAccountInstruction", "setBundleAuthConfigsInstruction", "addBundleAuthInstruction", "removeBundleAuthInstruction", "saveBundleResultInstruction", "setVrfConfigsInstruction", "requestRandomnessInstruction", "respondRandomnessInstruction", "confirmRandomnessProofInstruction"]),
+            get: $util.oneOfGetter($oneOfFields = ["initInstruction", "registerJobInstruction", "unregisterJobInstruction", "updateAggregateInstruction", "getAggregateInstruction", "saveResultInstruction", "setAggregatorConfigsInstruction", "setFulfillmentManagerConfigsInstruction", "heartbeatInstruction", "registerAuthInstruction", "reachFulfillerAgreementInstruction", "removeFulfillerInstruction", "linkParseOptimizedAccountInstruction", "setBundleAuthConfigsInstruction", "addBundleAuthInstruction", "removeBundleAuthInstruction", "saveBundleResultInstruction", "setVrfConfigsInstruction", "requestRandomnessInstruction", "respondRandomnessInstruction", "confirmRandomnessProofInstruction", "setVrfPermitInstruction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
     
@@ -7544,6 +7803,8 @@
                 $root.SwitchboardInstruction.RespondRandomnessInstruction.encode(message.respondRandomnessInstruction, writer.uint32(/* id 20, wireType 2 =*/162).fork()).ldelim();
             if (message.confirmRandomnessProofInstruction != null && Object.hasOwnProperty.call(message, "confirmRandomnessProofInstruction"))
                 $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.encode(message.confirmRandomnessProofInstruction, writer.uint32(/* id 21, wireType 2 =*/170).fork()).ldelim();
+            if (message.setVrfPermitInstruction != null && Object.hasOwnProperty.call(message, "setVrfPermitInstruction"))
+                $root.SwitchboardInstruction.SetVrfPermitInstruction.encode(message.setVrfPermitInstruction, writer.uint32(/* id 22, wireType 2 =*/178).fork()).ldelim();
             return writer;
         };
     
@@ -7640,6 +7901,9 @@
                     break;
                 case 21:
                     message.confirmRandomnessProofInstruction = $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.decode(reader, reader.uint32());
+                    break;
+                case 22:
+                    message.setVrfPermitInstruction = $root.SwitchboardInstruction.SetVrfPermitInstruction.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -7885,6 +8149,16 @@
                         return "confirmRandomnessProofInstruction." + error;
                 }
             }
+            if (message.setVrfPermitInstruction != null && message.hasOwnProperty("setVrfPermitInstruction")) {
+                if (properties.instruction === 1)
+                    return "instruction: multiple values";
+                properties.instruction = 1;
+                {
+                    var error = $root.SwitchboardInstruction.SetVrfPermitInstruction.verify(message.setVrfPermitInstruction);
+                    if (error)
+                        return "setVrfPermitInstruction." + error;
+                }
+            }
             return null;
         };
     
@@ -8004,6 +8278,11 @@
                 if (typeof object.confirmRandomnessProofInstruction !== "object")
                     throw TypeError(".SwitchboardInstruction.confirmRandomnessProofInstruction: object expected");
                 message.confirmRandomnessProofInstruction = $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.fromObject(object.confirmRandomnessProofInstruction);
+            }
+            if (object.setVrfPermitInstruction != null) {
+                if (typeof object.setVrfPermitInstruction !== "object")
+                    throw TypeError(".SwitchboardInstruction.setVrfPermitInstruction: object expected");
+                message.setVrfPermitInstruction = $root.SwitchboardInstruction.SetVrfPermitInstruction.fromObject(object.setVrfPermitInstruction);
             }
             return message;
         };
@@ -8125,6 +8404,11 @@
                 object.confirmRandomnessProofInstruction = $root.SwitchboardInstruction.ConfirmRandomnessProofInstruction.toObject(message.confirmRandomnessProofInstruction, options);
                 if (options.oneofs)
                     object.instruction = "confirmRandomnessProofInstruction";
+            }
+            if (message.setVrfPermitInstruction != null && message.hasOwnProperty("setVrfPermitInstruction")) {
+                object.setVrfPermitInstruction = $root.SwitchboardInstruction.SetVrfPermitInstruction.toObject(message.setVrfPermitInstruction, options);
+                if (options.oneofs)
+                    object.instruction = "setVrfPermitInstruction";
             }
             return object;
         };
@@ -8283,6 +8567,7 @@
                     case 6:
                     case 7:
                     case 8:
+                    case 9:
                         break;
                     }
                 return null;
@@ -8336,6 +8621,10 @@
                 case "TYPE_VRF":
                 case 8:
                     message.type = 8;
+                    break;
+                case "TYPE_VRF_PERMIT":
+                case 9:
+                    message.type = 9;
                     break;
                 }
                 return message;
@@ -11505,8 +11794,6 @@
              * Properties of a SetVrfConfigsInstruction.
              * @memberof SwitchboardInstruction
              * @interface ISetVrfConfigsInstruction
-             * @property {Uint8Array|null} [randomnessProducerPubkey] SetVrfConfigsInstruction randomnessProducerPubkey
-             * @property {Uint8Array|null} [fmPubkey] SetVrfConfigsInstruction fmPubkey
              * @property {number|null} [minProofConfirmations] SetVrfConfigsInstruction minProofConfirmations
              * @property {boolean|null} [lockConfigs] SetVrfConfigsInstruction lockConfigs
              */
@@ -11525,22 +11812,6 @@
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
-    
-            /**
-             * SetVrfConfigsInstruction randomnessProducerPubkey.
-             * @member {Uint8Array} randomnessProducerPubkey
-             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
-             * @instance
-             */
-            SetVrfConfigsInstruction.prototype.randomnessProducerPubkey = $util.newBuffer([]);
-    
-            /**
-             * SetVrfConfigsInstruction fmPubkey.
-             * @member {Uint8Array} fmPubkey
-             * @memberof SwitchboardInstruction.SetVrfConfigsInstruction
-             * @instance
-             */
-            SetVrfConfigsInstruction.prototype.fmPubkey = $util.newBuffer([]);
     
             /**
              * SetVrfConfigsInstruction minProofConfirmations.
@@ -11582,10 +11853,6 @@
             SetVrfConfigsInstruction.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.randomnessProducerPubkey != null && Object.hasOwnProperty.call(message, "randomnessProducerPubkey"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.randomnessProducerPubkey);
-                if (message.fmPubkey != null && Object.hasOwnProperty.call(message, "fmPubkey"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.fmPubkey);
                 if (message.minProofConfirmations != null && Object.hasOwnProperty.call(message, "minProofConfirmations"))
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.minProofConfirmations);
                 if (message.lockConfigs != null && Object.hasOwnProperty.call(message, "lockConfigs"))
@@ -11624,12 +11891,6 @@
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.randomnessProducerPubkey = reader.bytes();
-                        break;
-                    case 2:
-                        message.fmPubkey = reader.bytes();
-                        break;
                     case 3:
                         message.minProofConfirmations = reader.int32();
                         break;
@@ -11671,12 +11932,6 @@
             SetVrfConfigsInstruction.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.randomnessProducerPubkey != null && message.hasOwnProperty("randomnessProducerPubkey"))
-                    if (!(message.randomnessProducerPubkey && typeof message.randomnessProducerPubkey.length === "number" || $util.isString(message.randomnessProducerPubkey)))
-                        return "randomnessProducerPubkey: buffer expected";
-                if (message.fmPubkey != null && message.hasOwnProperty("fmPubkey"))
-                    if (!(message.fmPubkey && typeof message.fmPubkey.length === "number" || $util.isString(message.fmPubkey)))
-                        return "fmPubkey: buffer expected";
                 if (message.minProofConfirmations != null && message.hasOwnProperty("minProofConfirmations"))
                     if (!$util.isInteger(message.minProofConfirmations))
                         return "minProofConfirmations: integer expected";
@@ -11698,16 +11953,6 @@
                 if (object instanceof $root.SwitchboardInstruction.SetVrfConfigsInstruction)
                     return object;
                 var message = new $root.SwitchboardInstruction.SetVrfConfigsInstruction();
-                if (object.randomnessProducerPubkey != null)
-                    if (typeof object.randomnessProducerPubkey === "string")
-                        $util.base64.decode(object.randomnessProducerPubkey, message.randomnessProducerPubkey = $util.newBuffer($util.base64.length(object.randomnessProducerPubkey)), 0);
-                    else if (object.randomnessProducerPubkey.length)
-                        message.randomnessProducerPubkey = object.randomnessProducerPubkey;
-                if (object.fmPubkey != null)
-                    if (typeof object.fmPubkey === "string")
-                        $util.base64.decode(object.fmPubkey, message.fmPubkey = $util.newBuffer($util.base64.length(object.fmPubkey)), 0);
-                    else if (object.fmPubkey.length)
-                        message.fmPubkey = object.fmPubkey;
                 if (object.minProofConfirmations != null)
                     message.minProofConfirmations = object.minProofConfirmations | 0;
                 if (object.lockConfigs != null)
@@ -11729,27 +11974,9 @@
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    if (options.bytes === String)
-                        object.randomnessProducerPubkey = "";
-                    else {
-                        object.randomnessProducerPubkey = [];
-                        if (options.bytes !== Array)
-                            object.randomnessProducerPubkey = $util.newBuffer(object.randomnessProducerPubkey);
-                    }
-                    if (options.bytes === String)
-                        object.fmPubkey = "";
-                    else {
-                        object.fmPubkey = [];
-                        if (options.bytes !== Array)
-                            object.fmPubkey = $util.newBuffer(object.fmPubkey);
-                    }
                     object.minProofConfirmations = 0;
                     object.lockConfigs = false;
                 }
-                if (message.randomnessProducerPubkey != null && message.hasOwnProperty("randomnessProducerPubkey"))
-                    object.randomnessProducerPubkey = options.bytes === String ? $util.base64.encode(message.randomnessProducerPubkey, 0, message.randomnessProducerPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.randomnessProducerPubkey) : message.randomnessProducerPubkey;
-                if (message.fmPubkey != null && message.hasOwnProperty("fmPubkey"))
-                    object.fmPubkey = options.bytes === String ? $util.base64.encode(message.fmPubkey, 0, message.fmPubkey.length) : options.bytes === Array ? Array.prototype.slice.call(message.fmPubkey) : message.fmPubkey;
                 if (message.minProofConfirmations != null && message.hasOwnProperty("minProofConfirmations"))
                     object.minProofConfirmations = message.minProofConfirmations;
                 if (message.lockConfigs != null && message.hasOwnProperty("lockConfigs"))
@@ -12355,6 +12582,193 @@
             return ConfirmRandomnessProofInstruction;
         })();
     
+        SwitchboardInstruction.SetVrfPermitInstruction = (function() {
+    
+            /**
+             * Properties of a SetVrfPermitInstruction.
+             * @memberof SwitchboardInstruction
+             * @interface ISetVrfPermitInstruction
+             * @property {boolean|null} [enabled] SetVrfPermitInstruction enabled
+             */
+    
+            /**
+             * Constructs a new SetVrfPermitInstruction.
+             * @memberof SwitchboardInstruction
+             * @classdesc Represents a SetVrfPermitInstruction.
+             * @implements ISetVrfPermitInstruction
+             * @constructor
+             * @param {SwitchboardInstruction.ISetVrfPermitInstruction=} [properties] Properties to set
+             */
+            function SetVrfPermitInstruction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * SetVrfPermitInstruction enabled.
+             * @member {boolean} enabled
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @instance
+             */
+            SetVrfPermitInstruction.prototype.enabled = false;
+    
+            /**
+             * Creates a new SetVrfPermitInstruction instance using the specified properties.
+             * @function create
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetVrfPermitInstruction=} [properties] Properties to set
+             * @returns {SwitchboardInstruction.SetVrfPermitInstruction} SetVrfPermitInstruction instance
+             */
+            SetVrfPermitInstruction.create = function create(properties) {
+                return new SetVrfPermitInstruction(properties);
+            };
+    
+            /**
+             * Encodes the specified SetVrfPermitInstruction message. Does not implicitly {@link SwitchboardInstruction.SetVrfPermitInstruction.verify|verify} messages.
+             * @function encode
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetVrfPermitInstruction} message SetVrfPermitInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetVrfPermitInstruction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.enabled != null && Object.hasOwnProperty.call(message, "enabled"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.enabled);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified SetVrfPermitInstruction message, length delimited. Does not implicitly {@link SwitchboardInstruction.SetVrfPermitInstruction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @static
+             * @param {SwitchboardInstruction.ISetVrfPermitInstruction} message SetVrfPermitInstruction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetVrfPermitInstruction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a SetVrfPermitInstruction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SwitchboardInstruction.SetVrfPermitInstruction} SetVrfPermitInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetVrfPermitInstruction.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SwitchboardInstruction.SetVrfPermitInstruction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.enabled = reader.bool();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a SetVrfPermitInstruction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SwitchboardInstruction.SetVrfPermitInstruction} SetVrfPermitInstruction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetVrfPermitInstruction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a SetVrfPermitInstruction message.
+             * @function verify
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SetVrfPermitInstruction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.enabled != null && message.hasOwnProperty("enabled"))
+                    if (typeof message.enabled !== "boolean")
+                        return "enabled: boolean expected";
+                return null;
+            };
+    
+            /**
+             * Creates a SetVrfPermitInstruction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SwitchboardInstruction.SetVrfPermitInstruction} SetVrfPermitInstruction
+             */
+            SetVrfPermitInstruction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SwitchboardInstruction.SetVrfPermitInstruction)
+                    return object;
+                var message = new $root.SwitchboardInstruction.SetVrfPermitInstruction();
+                if (object.enabled != null)
+                    message.enabled = Boolean(object.enabled);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a SetVrfPermitInstruction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @static
+             * @param {SwitchboardInstruction.SetVrfPermitInstruction} message SetVrfPermitInstruction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SetVrfPermitInstruction.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.enabled = false;
+                if (message.enabled != null && message.hasOwnProperty("enabled"))
+                    object.enabled = message.enabled;
+                return object;
+            };
+    
+            /**
+             * Converts this SetVrfPermitInstruction to JSON.
+             * @function toJSON
+             * @memberof SwitchboardInstruction.SetVrfPermitInstruction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SetVrfPermitInstruction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return SetVrfPermitInstruction;
+        })();
+    
         return SwitchboardInstruction;
     })();
     
@@ -12371,6 +12785,7 @@
      * @property {number} TYPE_BUNDLE=6 result replicas.
      * @property {number} TYPE_BUNDLE_AUTH=7 Denotes an authorization account that lets an aggregator write to a bundle.
      * @property {number} TYPE_VRF=8 TYPE_VRF value
+     * @property {number} TYPE_VRF_PERMIT=9 TYPE_VRF_PERMIT value
      */
     $root.SwitchboardAccountType = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -12383,6 +12798,7 @@
         values[valuesById[6] = "TYPE_BUNDLE"] = 6;
         values[valuesById[7] = "TYPE_BUNDLE_AUTH"] = 7;
         values[valuesById[8] = "TYPE_VRF"] = 8;
+        values[valuesById[9] = "TYPE_VRF_PERMIT"] = 9;
         return values;
     })();
 
