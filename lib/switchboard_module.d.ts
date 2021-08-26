@@ -169,6 +169,15 @@ export declare function createFulfillmentManagerAuth(connection: Connection, pay
  */
 export declare function setAuthConfigs(connection: Connection, payerAccount: Account, fulfillmentManagerAccount: Account, fulfillmentManagerAuthPubkey: PublicKey, nomineePubkey: PublicKey, configs: any): Promise<void>;
 /**
+ * Creates an account and permanently sets the account type to a VRF account.
+ * @param connection Solana network connection object.
+ * @param payerAccount Transaction funder account.
+ * @param switchboardPid The Switchboard Program pubkey.
+ * @param accountSize: byte size to allocate for the created account.
+ * @returns Account New VRF Account
+ */
+export declare function createVrfAccount(connection: Connection, payerAccount: Account, switchboardPid: PublicKey, accountSize?: number): Promise<Account>;
+/**
  * Pull accountInfo from a provided account address and attempt to parse the state.
  * @param connection Solana network connection object.
  * @param address The address of the VRF account to parse.

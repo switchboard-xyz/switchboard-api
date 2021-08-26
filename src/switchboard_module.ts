@@ -542,6 +542,43 @@ export async function setAuthConfigs(
   await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
 }
 
+/**
+ * Creates an account and permanently sets the account type to a VRF account. 
+ * @param connection Solana network connection object.
+ * @param payerAccount Transaction funder account.
+ * @param switchboardPid The Switchboard Program pubkey.
+ * @param accountSize: byte size to allocate for the created account.
+ * @returns Account New VRF Account
+ */
+export async function createVrfAccount(
+  connection: Connection,
+  payerAccount: Account,
+  switchboardPid: PublicKey,
+  accountSize: number = 300,
+): Promise<Account> {
+  let vrfAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
+  await initAccount(connection, payerAccount, vrfAccount, SwitchboardAccountType.TYPE_VRF);
+  let transactionInstruction1 = new TransactionInstruction({
+    keys: [
+      { pubkey: vrfAccount.publicKey, isSigner: true, isWritable: true },
+    ],
+    programId: switchboardPid,
+    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
+      setVrfConfigsInstruction: SwitchboardInstruction.SetVrfConfigsInstruction.create({
+        minProofConfirmations: 5,
+        lockConfigs: true
+      })
+    })).finish())
+  });
+  let signature = await sendAndConfirmTransaction(
+    connection, new Transaction()
+    .add(transactionInstruction1),
+    [
+      payerAccount,
+      vrfAccount,
+    ]);
+  return vrfAccount;
+}
 
 /**
  * Requests new randomness for a provided VRF account
@@ -576,7 +613,6 @@ async function requestRandomness(connection: Connection, payerAccount: Account, 
       vrfAccount,
     ]);
 }
-
 
 /**
  * Pull accountInfo from a provided account address and attempt to parse the state.
