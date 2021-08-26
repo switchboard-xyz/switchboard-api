@@ -570,13 +570,13 @@ export async function createVrfAccount(
       })
     })).finish())
   });
-  let signature = await sendAndConfirmTransaction(
-    connection, new Transaction()
-    .add(transactionInstruction1),
-    [
-      payerAccount,
-      vrfAccount,
-    ]);
+  // let signature = await sendAndConfirmTransaction(
+    // connection, new Transaction()
+    // .add(transactionInstruction1),
+    // [
+      // payerAccount,
+      // vrfAccount,
+    // ]);
   return vrfAccount;
 }
 
