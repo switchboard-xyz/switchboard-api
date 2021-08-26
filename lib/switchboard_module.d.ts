@@ -1,5 +1,5 @@
 import { Account, Connection, PublicKey } from '@solana/web3.js';
-import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType, BundleAuth } from './compiled';
+import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType, BundleAuth, VrfAccountData } from './compiled';
 export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
 export declare const SWITCHBOARD_TESTNET_PID: PublicKey;
 export declare const SWITCHBOARD_MAINNET_PID: PublicKey;
@@ -168,6 +168,13 @@ export declare function createFulfillmentManagerAuth(connection: Connection, pay
  *                `authorizeUsage`: Set to `true` to let the nominee use the provided Fulfillment manager to fulfill {@linkcode updateFeed} requests.
  */
 export declare function setAuthConfigs(connection: Connection, payerAccount: Account, fulfillmentManagerAccount: Account, fulfillmentManagerAuthPubkey: PublicKey, nomineePubkey: PublicKey, configs: any): Promise<void>;
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the VRF account to parse.
+ * @return VrfAccountData
+ */
+export declare function parseVrfAccountData(connection: Connection, address: PublicKey): Promise<VrfAccountData>;
 export declare function createBundle(connection: Connection, payerAccount: Account, switchboardPid: PublicKey, accountSize?: number): Promise<Account>;
 /**
  * Creates an account which controls permissions access to write to a bundle.

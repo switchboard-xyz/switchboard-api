@@ -9,9 +9,12 @@ import {
   TransactionInstruction,
   TransactionSignature,
   sendAndConfirmTransaction,
+  SYSVAR_RECENT_BLOCKHASHES_PUBKEY,
 } from '@solana/web3.js';
 import { AggregatorState, SwitchboardInstruction, OracleJob,
-  FulfillmentManagerState, SwitchboardAccountType, BundleAuth } from './compiled';
+  FulfillmentManagerState, SwitchboardAccountType, BundleAuth,
+  VrfAccountData
+} from './compiled';
 
 export const SWITCHBOARD_DEVNET_PID = new PublicKey("7azgmy1pFXHikv36q1zZASvFq5vFa39TT9NweVugKKTU");
 export const SWITCHBOARD_TESTNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
@@ -537,6 +540,63 @@ export async function setAuthConfigs(
 
   let txAccounts = [payerAccount, fulfillmentManagerAccount];
   await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
+}
+
+
+/**
+ * Requests new randomness for a provided VRF account
+ * @param connection Solana network connection object.
+ * @param payerAccount Transaction funder account.
+ * @param vrfAccount The VRF account for which randomness is being requested.
+ * @param vrfProducerPermit The permit pubkey authorizing this VRF to request randomness.
+ * @param fmPermit The permit pubkey authorizing use of a specific fulfillment group to verify proofs.
+ */
+async function requestRandomness(connection: Connection, payerAccount: Account, vrfAccount: Account, vrfProducerPermit: PublicKey, fmPermit: PublicKey) {
+  let accountInfo = await connection.getAccountInfo(vrfAccount.publicKey);
+  if (accountInfo == null) {
+    throw new Error(`Failed to fetch information on account ${vrfAccount.publicKey.toBase58()}.`);
+  }
+  let transactionInstruction1 = new TransactionInstruction({
+    keys: [
+      { pubkey: vrfAccount.publicKey, isSigner: true, isWritable: true },
+      { pubkey: SYSVAR_RECENT_BLOCKHASHES_PUBKEY, isSigner: false, isWritable: false },
+      { pubkey: vrfProducerPermit, isSigner: false, isWritable: false },
+      { pubkey: fmPermit, isSigner: false, isWritable: false },
+    ],
+    programId: accountInfo.owner,
+    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
+      requestRandomnessInstruction: SwitchboardInstruction.RequestRandomnessInstruction.create({})
+    })).finish())
+  });
+  let signature = await sendAndConfirmTransaction(
+    connection, new Transaction()
+    .add(transactionInstruction1),
+    [
+      payerAccount,
+      vrfAccount,
+    ]);
+}
+
+
+/**
+ * Pull accountInfo from a provided account address and attempt to parse the state.
+ * @param connection Solana network connection object.
+ * @param address The address of the VRF account to parse.
+ * @return VrfAccountData
+ */
+export async function parseVrfAccountData(
+  connection: Connection,
+  address: PublicKey,
+): Promise<VrfAccountData> {
+  let accountInfo = await connection.getAccountInfo(address);
+  if (accountInfo == null) {
+    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+  }
+  let data = accountInfo.data;
+  if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_VRF) {
+    throw new Error(`Switchboard account parser was not provided with a VRF account: ${address.toBase58()}`);
+  }
+  return VrfAccountData.decodeDelimited(accountInfo.data.slice(1));
 }
 
 export async function createBundle(
