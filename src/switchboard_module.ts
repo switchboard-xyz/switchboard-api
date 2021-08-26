@@ -554,7 +554,7 @@ export async function createVrfAccount(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 300,
+  accountSize: number = 1000,
 ): Promise<Account> {
   let vrfAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
   await initAccount(connection, payerAccount, vrfAccount, SwitchboardAccountType.TYPE_VRF);
@@ -570,13 +570,13 @@ export async function createVrfAccount(
       })
     })).finish())
   });
-  // let signature = await sendAndConfirmTransaction(
-    // connection, new Transaction()
-    // .add(transactionInstruction1),
-    // [
-      // payerAccount,
-      // vrfAccount,
-    // ]);
+  let signature = await sendAndConfirmTransaction(
+    connection, new Transaction()
+    .add(transactionInstruction1),
+    [
+      payerAccount,
+      vrfAccount,
+    ]);
   return vrfAccount;
 }
 
