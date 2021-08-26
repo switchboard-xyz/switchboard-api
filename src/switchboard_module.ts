@@ -588,7 +588,7 @@ export async function createVrfAccount(
  * @param vrfProducerPermit The permit pubkey authorizing this VRF to request randomness.
  * @param fmPermit The permit pubkey authorizing use of a specific fulfillment group to verify proofs.
  */
-async function requestRandomness(connection: Connection, payerAccount: Account, vrfAccount: Account, vrfProducerPermit: PublicKey, fmPermit: PublicKey) {
+export async function requestRandomness(connection: Connection, payerAccount: Account, vrfAccount: Account, vrfProducerPermit: PublicKey, fmPermit: PublicKey) {
   let accountInfo = await connection.getAccountInfo(vrfAccount.publicKey);
   if (accountInfo == null) {
     throw new Error(`Failed to fetch information on account ${vrfAccount.publicKey.toBase58()}.`);

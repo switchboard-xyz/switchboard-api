@@ -178,6 +178,15 @@ export declare function setAuthConfigs(connection: Connection, payerAccount: Acc
  */
 export declare function createVrfAccount(connection: Connection, payerAccount: Account, switchboardPid: PublicKey, accountSize?: number): Promise<Account>;
 /**
+ * Requests new randomness for a provided VRF account
+ * @param connection Solana network connection object.
+ * @param payerAccount Transaction funder account.
+ * @param vrfAccount The VRF account for which randomness is being requested.
+ * @param vrfProducerPermit The permit pubkey authorizing this VRF to request randomness.
+ * @param fmPermit The permit pubkey authorizing use of a specific fulfillment group to verify proofs.
+ */
+export declare function requestRandomness(connection: Connection, payerAccount: Account, vrfAccount: Account, vrfProducerPermit: PublicKey, fmPermit: PublicKey): Promise<void>;
+/**
  * Pull accountInfo from a provided account address and attempt to parse the state.
  * @param connection Solana network connection object.
  * @param address The address of the VRF account to parse.
