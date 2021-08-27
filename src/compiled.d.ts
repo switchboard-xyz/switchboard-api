@@ -1052,6 +1052,96 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a MaxTask. */
+    interface IMaxTask {
+
+        /** MaxTask tasks */
+        tasks?: (OracleJob.ITask[]|null);
+    }
+
+    /** Represents a MaxTask. */
+    class MaxTask implements IMaxTask {
+
+        /**
+         * Constructs a new MaxTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IMaxTask);
+
+        /** MaxTask tasks. */
+        public tasks: OracleJob.ITask[];
+
+        /**
+         * Creates a new MaxTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MaxTask instance
+         */
+        public static create(properties?: OracleJob.IMaxTask): OracleJob.MaxTask;
+
+        /**
+         * Encodes the specified MaxTask message. Does not implicitly {@link OracleJob.MaxTask.verify|verify} messages.
+         * @param message MaxTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IMaxTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified MaxTask message, length delimited. Does not implicitly {@link OracleJob.MaxTask.verify|verify} messages.
+         * @param message MaxTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IMaxTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a MaxTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MaxTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.MaxTask;
+
+        /**
+         * Decodes a MaxTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MaxTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.MaxTask;
+
+        /**
+         * Verifies a MaxTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a MaxTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns MaxTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.MaxTask;
+
+        /**
+         * Creates a plain object from a MaxTask message. Also converts values to other types if specified.
+         * @param message MaxTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.MaxTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this MaxTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a ValueTask. */
     interface IValueTask {
 
@@ -1366,10 +1456,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IDivideTask);
 
         /** DivideTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** DivideTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** DivideTask Denominator. */
         public Denominator?: ("scalar"|"aggregatorPubkey");
@@ -1465,10 +1555,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IMultiplyTask);
 
         /** MultiplyTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** MultiplyTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** MultiplyTask Multiple. */
         public Multiple?: ("scalar"|"aggregatorPubkey");
@@ -1564,10 +1654,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.ILpTokenPriceTask);
 
         /** LpTokenPriceTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
+        public mercurialPoolAddress?: (string|null);
 
         /** LpTokenPriceTask saberPoolAddress. */
-        public saberPoolAddress: string;
+        public saberPoolAddress?: (string|null);
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
@@ -1678,13 +1768,13 @@ export namespace OracleJob {
         public outTokenAddress: string;
 
         /** LpExchangeRateTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
+        public mercurialPoolAddress?: (string|null);
 
         /** LpExchangeRateTask saberPoolAddress. */
-        public saberPoolAddress: string;
+        public saberPoolAddress?: (string|null);
 
         /** LpExchangeRateTask orcaPoolTokenMintAddress. */
-        public orcaPoolTokenMintAddress: string;
+        public orcaPoolTokenMintAddress?: (string|null);
 
         /** LpExchangeRateTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress");
@@ -1795,6 +1885,9 @@ export namespace OracleJob {
 
         /** Task valueTask */
         valueTask?: (OracleJob.IValueTask|null);
+
+        /** Task maxTask */
+        maxTask?: (OracleJob.IMaxTask|null);
     }
 
     /** Represents a Task. */
@@ -1839,8 +1932,11 @@ export namespace OracleJob {
         /** Task valueTask. */
         public valueTask?: (OracleJob.IValueTask|null);
 
+        /** Task maxTask. */
+        public maxTask?: (OracleJob.IMaxTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask");
 
         /**
          * Creates a new Task instance using the specified properties.
