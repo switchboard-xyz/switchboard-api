@@ -1057,6 +1057,9 @@ export namespace OracleJob {
 
         /** MaxTask tasks */
         tasks?: (OracleJob.ITask[]|null);
+
+        /** MaxTask jobs */
+        jobs?: (IOracleJob[]|null);
     }
 
     /** Represents a MaxTask. */
@@ -1070,6 +1073,9 @@ export namespace OracleJob {
 
         /** MaxTask tasks. */
         public tasks: OracleJob.ITask[];
+
+        /** MaxTask jobs. */
+        public jobs: IOracleJob[];
 
         /**
          * Creates a new MaxTask instance using the specified properties.
