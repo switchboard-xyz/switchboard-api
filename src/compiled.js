@@ -2266,6 +2266,7 @@
              * @memberof OracleJob
              * @interface IMedianTask
              * @property {Array.<OracleJob.ITask>|null} [tasks] MedianTask tasks
+             * @property {Array.<IOracleJob>|null} [jobs] MedianTask jobs
              */
     
             /**
@@ -2278,6 +2279,7 @@
              */
             function MedianTask(properties) {
                 this.tasks = [];
+                this.jobs = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -2291,6 +2293,14 @@
              * @instance
              */
             MedianTask.prototype.tasks = $util.emptyArray;
+    
+            /**
+             * MedianTask jobs.
+             * @member {Array.<IOracleJob>} jobs
+             * @memberof OracleJob.MedianTask
+             * @instance
+             */
+            MedianTask.prototype.jobs = $util.emptyArray;
     
             /**
              * Creates a new MedianTask instance using the specified properties.
@@ -2319,6 +2329,9 @@
                 if (message.tasks != null && message.tasks.length)
                     for (var i = 0; i < message.tasks.length; ++i)
                         $root.OracleJob.Task.encode(message.tasks[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.jobs != null && message.jobs.length)
+                    for (var i = 0; i < message.jobs.length; ++i)
+                        $root.OracleJob.encode(message.jobs[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                 return writer;
             };
     
@@ -2357,6 +2370,11 @@
                         if (!(message.tasks && message.tasks.length))
                             message.tasks = [];
                         message.tasks.push($root.OracleJob.Task.decode(reader, reader.uint32()));
+                        break;
+                    case 2:
+                        if (!(message.jobs && message.jobs.length))
+                            message.jobs = [];
+                        message.jobs.push($root.OracleJob.decode(reader, reader.uint32()));
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -2402,6 +2420,15 @@
                             return "tasks." + error;
                     }
                 }
+                if (message.jobs != null && message.hasOwnProperty("jobs")) {
+                    if (!Array.isArray(message.jobs))
+                        return "jobs: array expected";
+                    for (var i = 0; i < message.jobs.length; ++i) {
+                        var error = $root.OracleJob.verify(message.jobs[i]);
+                        if (error)
+                            return "jobs." + error;
+                    }
+                }
                 return null;
             };
     
@@ -2427,6 +2454,16 @@
                         message.tasks[i] = $root.OracleJob.Task.fromObject(object.tasks[i]);
                     }
                 }
+                if (object.jobs) {
+                    if (!Array.isArray(object.jobs))
+                        throw TypeError(".OracleJob.MedianTask.jobs: array expected");
+                    message.jobs = [];
+                    for (var i = 0; i < object.jobs.length; ++i) {
+                        if (typeof object.jobs[i] !== "object")
+                            throw TypeError(".OracleJob.MedianTask.jobs: object expected");
+                        message.jobs[i] = $root.OracleJob.fromObject(object.jobs[i]);
+                    }
+                }
                 return message;
             };
     
@@ -2443,12 +2480,19 @@
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.arrays || options.defaults)
+                if (options.arrays || options.defaults) {
                     object.tasks = [];
+                    object.jobs = [];
+                }
                 if (message.tasks && message.tasks.length) {
                     object.tasks = [];
                     for (var j = 0; j < message.tasks.length; ++j)
                         object.tasks[j] = $root.OracleJob.Task.toObject(message.tasks[j], options);
+                }
+                if (message.jobs && message.jobs.length) {
+                    object.jobs = [];
+                    for (var j = 0; j < message.jobs.length; ++j)
+                        object.jobs[j] = $root.OracleJob.toObject(message.jobs[j], options);
                 }
                 return object;
             };
@@ -2474,6 +2518,7 @@
              * @memberof OracleJob
              * @interface IMeanTask
              * @property {Array.<OracleJob.ITask>|null} [tasks] MeanTask tasks
+             * @property {Array.<IOracleJob>|null} [jobs] MeanTask jobs
              */
     
             /**
@@ -2486,6 +2531,7 @@
              */
             function MeanTask(properties) {
                 this.tasks = [];
+                this.jobs = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -2499,6 +2545,14 @@
              * @instance
              */
             MeanTask.prototype.tasks = $util.emptyArray;
+    
+            /**
+             * MeanTask jobs.
+             * @member {Array.<IOracleJob>} jobs
+             * @memberof OracleJob.MeanTask
+             * @instance
+             */
+            MeanTask.prototype.jobs = $util.emptyArray;
     
             /**
              * Creates a new MeanTask instance using the specified properties.
@@ -2527,6 +2581,9 @@
                 if (message.tasks != null && message.tasks.length)
                     for (var i = 0; i < message.tasks.length; ++i)
                         $root.OracleJob.Task.encode(message.tasks[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.jobs != null && message.jobs.length)
+                    for (var i = 0; i < message.jobs.length; ++i)
+                        $root.OracleJob.encode(message.jobs[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                 return writer;
             };
     
@@ -2565,6 +2622,11 @@
                         if (!(message.tasks && message.tasks.length))
                             message.tasks = [];
                         message.tasks.push($root.OracleJob.Task.decode(reader, reader.uint32()));
+                        break;
+                    case 2:
+                        if (!(message.jobs && message.jobs.length))
+                            message.jobs = [];
+                        message.jobs.push($root.OracleJob.decode(reader, reader.uint32()));
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -2610,6 +2672,15 @@
                             return "tasks." + error;
                     }
                 }
+                if (message.jobs != null && message.hasOwnProperty("jobs")) {
+                    if (!Array.isArray(message.jobs))
+                        return "jobs: array expected";
+                    for (var i = 0; i < message.jobs.length; ++i) {
+                        var error = $root.OracleJob.verify(message.jobs[i]);
+                        if (error)
+                            return "jobs." + error;
+                    }
+                }
                 return null;
             };
     
@@ -2635,6 +2706,16 @@
                         message.tasks[i] = $root.OracleJob.Task.fromObject(object.tasks[i]);
                     }
                 }
+                if (object.jobs) {
+                    if (!Array.isArray(object.jobs))
+                        throw TypeError(".OracleJob.MeanTask.jobs: array expected");
+                    message.jobs = [];
+                    for (var i = 0; i < object.jobs.length; ++i) {
+                        if (typeof object.jobs[i] !== "object")
+                            throw TypeError(".OracleJob.MeanTask.jobs: object expected");
+                        message.jobs[i] = $root.OracleJob.fromObject(object.jobs[i]);
+                    }
+                }
                 return message;
             };
     
@@ -2651,12 +2732,19 @@
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.arrays || options.defaults)
+                if (options.arrays || options.defaults) {
                     object.tasks = [];
+                    object.jobs = [];
+                }
                 if (message.tasks && message.tasks.length) {
                     object.tasks = [];
                     for (var j = 0; j < message.tasks.length; ++j)
                         object.tasks[j] = $root.OracleJob.Task.toObject(message.tasks[j], options);
+                }
+                if (message.jobs && message.jobs.length) {
+                    object.jobs = [];
+                    for (var j = 0; j < message.jobs.length; ++j)
+                        object.jobs[j] = $root.OracleJob.toObject(message.jobs[j], options);
                 }
                 return object;
             };
@@ -3647,19 +3735,19 @@
     
             /**
              * DivideTask scalar.
-             * @member {number} scalar
+             * @member {number|null|undefined} scalar
              * @memberof OracleJob.DivideTask
              * @instance
              */
-            DivideTask.prototype.scalar = 0;
+            DivideTask.prototype.scalar = null;
     
             /**
              * DivideTask aggregatorPubkey.
-             * @member {string} aggregatorPubkey
+             * @member {string|null|undefined} aggregatorPubkey
              * @memberof OracleJob.DivideTask
              * @instance
              */
-            DivideTask.prototype.aggregatorPubkey = "";
+            DivideTask.prototype.aggregatorPubkey = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -3880,19 +3968,19 @@
     
             /**
              * MultiplyTask scalar.
-             * @member {number} scalar
+             * @member {number|null|undefined} scalar
              * @memberof OracleJob.MultiplyTask
              * @instance
              */
-            MultiplyTask.prototype.scalar = 0;
+            MultiplyTask.prototype.scalar = null;
     
             /**
              * MultiplyTask aggregatorPubkey.
-             * @member {string} aggregatorPubkey
+             * @member {string|null|undefined} aggregatorPubkey
              * @memberof OracleJob.MultiplyTask
              * @instance
              */
-            MultiplyTask.prototype.aggregatorPubkey = "";
+            MultiplyTask.prototype.aggregatorPubkey = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -4113,19 +4201,19 @@
     
             /**
              * LpTokenPriceTask mercurialPoolAddress.
-             * @member {string} mercurialPoolAddress
+             * @member {string|null|undefined} mercurialPoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
-            LpTokenPriceTask.prototype.mercurialPoolAddress = "";
+            LpTokenPriceTask.prototype.mercurialPoolAddress = null;
     
             /**
              * LpTokenPriceTask saberPoolAddress.
-             * @member {string} saberPoolAddress
+             * @member {string|null|undefined} saberPoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
-            LpTokenPriceTask.prototype.saberPoolAddress = "";
+            LpTokenPriceTask.prototype.saberPoolAddress = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -4365,27 +4453,27 @@
     
             /**
              * LpExchangeRateTask mercurialPoolAddress.
-             * @member {string} mercurialPoolAddress
+             * @member {string|null|undefined} mercurialPoolAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
-            LpExchangeRateTask.prototype.mercurialPoolAddress = "";
+            LpExchangeRateTask.prototype.mercurialPoolAddress = null;
     
             /**
              * LpExchangeRateTask saberPoolAddress.
-             * @member {string} saberPoolAddress
+             * @member {string|null|undefined} saberPoolAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
-            LpExchangeRateTask.prototype.saberPoolAddress = "";
+            LpExchangeRateTask.prototype.saberPoolAddress = null;
     
             /**
              * LpExchangeRateTask orcaPoolTokenMintAddress.
-             * @member {string} orcaPoolTokenMintAddress
+             * @member {string|null|undefined} orcaPoolTokenMintAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
-            LpExchangeRateTask.prototype.orcaPoolTokenMintAddress = "";
+            LpExchangeRateTask.prototype.orcaPoolTokenMintAddress = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;

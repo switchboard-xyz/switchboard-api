@@ -877,6 +877,9 @@ export namespace OracleJob {
 
         /** MedianTask tasks */
         tasks?: (OracleJob.ITask[]|null);
+
+        /** MedianTask jobs */
+        jobs?: (IOracleJob[]|null);
     }
 
     /** Represents a MedianTask. */
@@ -890,6 +893,9 @@ export namespace OracleJob {
 
         /** MedianTask tasks. */
         public tasks: OracleJob.ITask[];
+
+        /** MedianTask jobs. */
+        public jobs: IOracleJob[];
 
         /**
          * Creates a new MedianTask instance using the specified properties.
@@ -967,6 +973,9 @@ export namespace OracleJob {
 
         /** MeanTask tasks */
         tasks?: (OracleJob.ITask[]|null);
+
+        /** MeanTask jobs */
+        jobs?: (IOracleJob[]|null);
     }
 
     /** Represents a MeanTask. */
@@ -980,6 +989,9 @@ export namespace OracleJob {
 
         /** MeanTask tasks. */
         public tasks: OracleJob.ITask[];
+
+        /** MeanTask jobs. */
+        public jobs: IOracleJob[];
 
         /**
          * Creates a new MeanTask instance using the specified properties.
@@ -1462,10 +1474,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IDivideTask);
 
         /** DivideTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** DivideTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** DivideTask Denominator. */
         public Denominator?: ("scalar"|"aggregatorPubkey");
@@ -1561,10 +1573,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IMultiplyTask);
 
         /** MultiplyTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** MultiplyTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** MultiplyTask Multiple. */
         public Multiple?: ("scalar"|"aggregatorPubkey");
@@ -1660,10 +1672,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.ILpTokenPriceTask);
 
         /** LpTokenPriceTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
+        public mercurialPoolAddress?: (string|null);
 
         /** LpTokenPriceTask saberPoolAddress. */
-        public saberPoolAddress: string;
+        public saberPoolAddress?: (string|null);
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
@@ -1774,13 +1786,13 @@ export namespace OracleJob {
         public outTokenAddress: string;
 
         /** LpExchangeRateTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
+        public mercurialPoolAddress?: (string|null);
 
         /** LpExchangeRateTask saberPoolAddress. */
-        public saberPoolAddress: string;
+        public saberPoolAddress?: (string|null);
 
         /** LpExchangeRateTask orcaPoolTokenMintAddress. */
-        public orcaPoolTokenMintAddress: string;
+        public orcaPoolTokenMintAddress?: (string|null);
 
         /** LpExchangeRateTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress");
