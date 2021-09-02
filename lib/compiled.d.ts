@@ -1477,10 +1477,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IDivideTask);
 
         /** DivideTask scalar. */
-        public scalar?: (number|null);
+        public scalar: number;
 
         /** DivideTask aggregatorPubkey. */
-        public aggregatorPubkey?: (string|null);
+        public aggregatorPubkey: string;
 
         /** DivideTask job. */
         public job?: (IOracleJob|null);
@@ -1582,10 +1582,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IMultiplyTask);
 
         /** MultiplyTask scalar. */
-        public scalar?: (number|null);
+        public scalar: number;
 
         /** MultiplyTask aggregatorPubkey. */
-        public aggregatorPubkey?: (string|null);
+        public aggregatorPubkey: string;
 
         /** MultiplyTask job. */
         public job?: (IOracleJob|null);
@@ -1684,10 +1684,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.ILpTokenPriceTask);
 
         /** LpTokenPriceTask mercurialPoolAddress. */
-        public mercurialPoolAddress?: (string|null);
+        public mercurialPoolAddress: string;
 
         /** LpTokenPriceTask saberPoolAddress. */
-        public saberPoolAddress?: (string|null);
+        public saberPoolAddress: string;
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress");
@@ -1798,13 +1798,13 @@ export namespace OracleJob {
         public outTokenAddress: string;
 
         /** LpExchangeRateTask mercurialPoolAddress. */
-        public mercurialPoolAddress?: (string|null);
+        public mercurialPoolAddress: string;
 
         /** LpExchangeRateTask saberPoolAddress. */
-        public saberPoolAddress?: (string|null);
+        public saberPoolAddress: string;
 
         /** LpExchangeRateTask orcaPoolTokenMintAddress. */
-        public orcaPoolTokenMintAddress?: (string|null);
+        public orcaPoolTokenMintAddress: string;
 
         /** LpExchangeRateTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress");
