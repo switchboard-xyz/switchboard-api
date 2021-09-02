@@ -1462,6 +1462,9 @@ export namespace OracleJob {
 
         /** DivideTask aggregatorPubkey */
         aggregatorPubkey?: (string|null);
+
+        /** DivideTask job */
+        job?: (IOracleJob|null);
     }
 
     /** Represents a DivideTask. */
@@ -1479,8 +1482,11 @@ export namespace OracleJob {
         /** DivideTask aggregatorPubkey. */
         public aggregatorPubkey?: (string|null);
 
+        /** DivideTask job. */
+        public job?: (IOracleJob|null);
+
         /** DivideTask Denominator. */
-        public Denominator?: ("scalar"|"aggregatorPubkey");
+        public Denominator?: ("scalar"|"aggregatorPubkey"|"job");
 
         /**
          * Creates a new DivideTask instance using the specified properties.
@@ -1561,6 +1567,9 @@ export namespace OracleJob {
 
         /** MultiplyTask aggregatorPubkey */
         aggregatorPubkey?: (string|null);
+
+        /** MultiplyTask job */
+        job?: (IOracleJob|null);
     }
 
     /** Represents a MultiplyTask. */
@@ -1578,8 +1587,11 @@ export namespace OracleJob {
         /** MultiplyTask aggregatorPubkey. */
         public aggregatorPubkey?: (string|null);
 
+        /** MultiplyTask job. */
+        public job?: (IOracleJob|null);
+
         /** MultiplyTask Multiple. */
-        public Multiple?: ("scalar"|"aggregatorPubkey");
+        public Multiple?: ("scalar"|"aggregatorPubkey"|"job");
 
         /**
          * Creates a new MultiplyTask instance using the specified properties.
