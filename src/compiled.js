@@ -3800,19 +3800,19 @@
     
             /**
              * DivideTask scalar.
-             * @member {number|null|undefined} scalar
+             * @member {number} scalar
              * @memberof OracleJob.DivideTask
              * @instance
              */
-            DivideTask.prototype.scalar = null;
+            DivideTask.prototype.scalar = 0;
     
             /**
              * DivideTask aggregatorPubkey.
-             * @member {string|null|undefined} aggregatorPubkey
+             * @member {string} aggregatorPubkey
              * @memberof OracleJob.DivideTask
              * @instance
              */
-            DivideTask.prototype.aggregatorPubkey = null;
+            DivideTask.prototype.aggregatorPubkey = "";
     
             /**
              * DivideTask job.
@@ -4067,19 +4067,19 @@
     
             /**
              * MultiplyTask scalar.
-             * @member {number|null|undefined} scalar
+             * @member {number} scalar
              * @memberof OracleJob.MultiplyTask
              * @instance
              */
-            MultiplyTask.prototype.scalar = null;
+            MultiplyTask.prototype.scalar = 0;
     
             /**
              * MultiplyTask aggregatorPubkey.
-             * @member {string|null|undefined} aggregatorPubkey
+             * @member {string} aggregatorPubkey
              * @memberof OracleJob.MultiplyTask
              * @instance
              */
-            MultiplyTask.prototype.aggregatorPubkey = null;
+            MultiplyTask.prototype.aggregatorPubkey = "";
     
             /**
              * MultiplyTask job.
@@ -4314,6 +4314,7 @@
              * @interface ILpTokenPriceTask
              * @property {string|null} [mercurialPoolAddress] LpTokenPriceTask mercurialPoolAddress
              * @property {string|null} [saberPoolAddress] LpTokenPriceTask saberPoolAddress
+             * @property {string|null} [orcaPoolAddress] LpTokenPriceTask orcaPoolAddress
              */
     
             /**
@@ -4333,31 +4334,39 @@
     
             /**
              * LpTokenPriceTask mercurialPoolAddress.
-             * @member {string|null|undefined} mercurialPoolAddress
+             * @member {string} mercurialPoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
-            LpTokenPriceTask.prototype.mercurialPoolAddress = null;
+            LpTokenPriceTask.prototype.mercurialPoolAddress = "";
     
             /**
              * LpTokenPriceTask saberPoolAddress.
-             * @member {string|null|undefined} saberPoolAddress
+             * @member {string} saberPoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
-            LpTokenPriceTask.prototype.saberPoolAddress = null;
+            LpTokenPriceTask.prototype.saberPoolAddress = "";
+    
+            /**
+             * LpTokenPriceTask orcaPoolAddress.
+             * @member {string} orcaPoolAddress
+             * @memberof OracleJob.LpTokenPriceTask
+             * @instance
+             */
+            LpTokenPriceTask.prototype.orcaPoolAddress = "";
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * LpTokenPriceTask PoolAddress.
-             * @member {"mercurialPoolAddress"|"saberPoolAddress"|undefined} PoolAddress
+             * @member {"mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress"|undefined} PoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
             Object.defineProperty(LpTokenPriceTask.prototype, "PoolAddress", {
-                get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress"]),
+                get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress", "orcaPoolAddress"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -4389,6 +4398,8 @@
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.mercurialPoolAddress);
                 if (message.saberPoolAddress != null && Object.hasOwnProperty.call(message, "saberPoolAddress"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.saberPoolAddress);
+                if (message.orcaPoolAddress != null && Object.hasOwnProperty.call(message, "orcaPoolAddress"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.orcaPoolAddress);
                 return writer;
             };
     
@@ -4428,6 +4439,9 @@
                         break;
                     case 2:
                         message.saberPoolAddress = reader.string();
+                        break;
+                    case 3:
+                        message.orcaPoolAddress = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -4477,6 +4491,13 @@
                     if (!$util.isString(message.saberPoolAddress))
                         return "saberPoolAddress: string expected";
                 }
+                if (message.orcaPoolAddress != null && message.hasOwnProperty("orcaPoolAddress")) {
+                    if (properties.PoolAddress === 1)
+                        return "PoolAddress: multiple values";
+                    properties.PoolAddress = 1;
+                    if (!$util.isString(message.orcaPoolAddress))
+                        return "orcaPoolAddress: string expected";
+                }
                 return null;
             };
     
@@ -4496,6 +4517,8 @@
                     message.mercurialPoolAddress = String(object.mercurialPoolAddress);
                 if (object.saberPoolAddress != null)
                     message.saberPoolAddress = String(object.saberPoolAddress);
+                if (object.orcaPoolAddress != null)
+                    message.orcaPoolAddress = String(object.orcaPoolAddress);
                 return message;
             };
     
@@ -4521,6 +4544,11 @@
                     object.saberPoolAddress = message.saberPoolAddress;
                     if (options.oneofs)
                         object.PoolAddress = "saberPoolAddress";
+                }
+                if (message.orcaPoolAddress != null && message.hasOwnProperty("orcaPoolAddress")) {
+                    object.orcaPoolAddress = message.orcaPoolAddress;
+                    if (options.oneofs)
+                        object.PoolAddress = "orcaPoolAddress";
                 }
                 return object;
             };
@@ -4585,27 +4613,27 @@
     
             /**
              * LpExchangeRateTask mercurialPoolAddress.
-             * @member {string|null|undefined} mercurialPoolAddress
+             * @member {string} mercurialPoolAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
-            LpExchangeRateTask.prototype.mercurialPoolAddress = null;
+            LpExchangeRateTask.prototype.mercurialPoolAddress = "";
     
             /**
              * LpExchangeRateTask saberPoolAddress.
-             * @member {string|null|undefined} saberPoolAddress
+             * @member {string} saberPoolAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
-            LpExchangeRateTask.prototype.saberPoolAddress = null;
+            LpExchangeRateTask.prototype.saberPoolAddress = "";
     
             /**
              * LpExchangeRateTask orcaPoolTokenMintAddress.
-             * @member {string|null|undefined} orcaPoolTokenMintAddress
+             * @member {string} orcaPoolTokenMintAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
-            LpExchangeRateTask.prototype.orcaPoolTokenMintAddress = null;
+            LpExchangeRateTask.prototype.orcaPoolTokenMintAddress = "";
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
