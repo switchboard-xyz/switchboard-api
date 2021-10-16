@@ -5084,6 +5084,166 @@
             return RegexExtractTask;
         })();
     
+        OracleJob.XStepPriceTask = (function() {
+    
+            /**
+             * Properties of a XStepPriceTask.
+             * @memberof OracleJob
+             * @interface IXStepPriceTask
+             */
+    
+            /**
+             * Constructs a new XStepPriceTask.
+             * @memberof OracleJob
+             * @classdesc Represents a XStepPriceTask.
+             * @implements IXStepPriceTask
+             * @constructor
+             * @param {OracleJob.IXStepPriceTask=} [properties] Properties to set
+             */
+            function XStepPriceTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Creates a new XStepPriceTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.XStepPriceTask
+             * @static
+             * @param {OracleJob.IXStepPriceTask=} [properties] Properties to set
+             * @returns {OracleJob.XStepPriceTask} XStepPriceTask instance
+             */
+            XStepPriceTask.create = function create(properties) {
+                return new XStepPriceTask(properties);
+            };
+    
+            /**
+             * Encodes the specified XStepPriceTask message. Does not implicitly {@link OracleJob.XStepPriceTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.XStepPriceTask
+             * @static
+             * @param {OracleJob.IXStepPriceTask} message XStepPriceTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            XStepPriceTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified XStepPriceTask message, length delimited. Does not implicitly {@link OracleJob.XStepPriceTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.XStepPriceTask
+             * @static
+             * @param {OracleJob.IXStepPriceTask} message XStepPriceTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            XStepPriceTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a XStepPriceTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.XStepPriceTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.XStepPriceTask} XStepPriceTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            XStepPriceTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.XStepPriceTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a XStepPriceTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.XStepPriceTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.XStepPriceTask} XStepPriceTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            XStepPriceTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a XStepPriceTask message.
+             * @function verify
+             * @memberof OracleJob.XStepPriceTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            XStepPriceTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+    
+            /**
+             * Creates a XStepPriceTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.XStepPriceTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.XStepPriceTask} XStepPriceTask
+             */
+            XStepPriceTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.XStepPriceTask)
+                    return object;
+                return new $root.OracleJob.XStepPriceTask();
+            };
+    
+            /**
+             * Creates a plain object from a XStepPriceTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.XStepPriceTask
+             * @static
+             * @param {OracleJob.XStepPriceTask} message XStepPriceTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            XStepPriceTask.toObject = function toObject() {
+                return {};
+            };
+    
+            /**
+             * Converts this XStepPriceTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.XStepPriceTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            XStepPriceTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return XStepPriceTask;
+        })();
+    
         OracleJob.Task = (function() {
     
             /**
@@ -5103,6 +5263,7 @@
              * @property {OracleJob.IValueTask|null} [valueTask] Task valueTask
              * @property {OracleJob.IMaxTask|null} [maxTask] Task maxTask
              * @property {OracleJob.IRegexExtractTask|null} [regexExtractTask] Task regexExtractTask
+             * @property {OracleJob.IXStepPriceTask|null} [xstepPriceTask] Task xstepPriceTask
              */
     
             /**
@@ -5224,17 +5385,25 @@
              */
             Task.prototype.regexExtractTask = null;
     
+            /**
+             * Task xstepPriceTask.
+             * @member {OracleJob.IXStepPriceTask|null|undefined} xstepPriceTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.xstepPriceTask = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -5288,6 +5457,8 @@
                     $root.OracleJob.MaxTask.encode(message.maxTask, writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
                 if (message.regexExtractTask != null && Object.hasOwnProperty.call(message, "regexExtractTask"))
                     $root.OracleJob.RegexExtractTask.encode(message.regexExtractTask, writer.uint32(/* id 14, wireType 2 =*/114).fork()).ldelim();
+                if (message.xstepPriceTask != null && Object.hasOwnProperty.call(message, "xstepPriceTask"))
+                    $root.OracleJob.XStepPriceTask.encode(message.xstepPriceTask, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
                 return writer;
             };
     
@@ -5360,6 +5531,9 @@
                         break;
                     case 14:
                         message.regexExtractTask = $root.OracleJob.RegexExtractTask.decode(reader, reader.uint32());
+                        break;
+                    case 15:
+                        message.xstepPriceTask = $root.OracleJob.XStepPriceTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -5525,6 +5699,16 @@
                             return "regexExtractTask." + error;
                     }
                 }
+                if (message.xstepPriceTask != null && message.hasOwnProperty("xstepPriceTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.XStepPriceTask.verify(message.xstepPriceTask);
+                        if (error)
+                            return "xstepPriceTask." + error;
+                    }
+                }
                 return null;
             };
     
@@ -5604,6 +5788,11 @@
                     if (typeof object.regexExtractTask !== "object")
                         throw TypeError(".OracleJob.Task.regexExtractTask: object expected");
                     message.regexExtractTask = $root.OracleJob.RegexExtractTask.fromObject(object.regexExtractTask);
+                }
+                if (object.xstepPriceTask != null) {
+                    if (typeof object.xstepPriceTask !== "object")
+                        throw TypeError(".OracleJob.Task.xstepPriceTask: object expected");
+                    message.xstepPriceTask = $root.OracleJob.XStepPriceTask.fromObject(object.xstepPriceTask);
                 }
                 return message;
             };
@@ -5685,6 +5874,11 @@
                     object.regexExtractTask = $root.OracleJob.RegexExtractTask.toObject(message.regexExtractTask, options);
                     if (options.oneofs)
                         object.Task = "regexExtractTask";
+                }
+                if (message.xstepPriceTask != null && message.hasOwnProperty("xstepPriceTask")) {
+                    object.xstepPriceTask = $root.OracleJob.XStepPriceTask.toObject(message.xstepPriceTask, options);
+                    if (options.oneofs)
+                        object.Task = "xstepPriceTask";
                 }
                 return object;
             };

@@ -1999,6 +1999,90 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a XStepPriceTask. */
+    interface IXStepPriceTask {
+    }
+
+    /** Represents a XStepPriceTask. */
+    class XStepPriceTask implements IXStepPriceTask {
+
+        /**
+         * Constructs a new XStepPriceTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IXStepPriceTask);
+
+        /**
+         * Creates a new XStepPriceTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns XStepPriceTask instance
+         */
+        public static create(properties?: OracleJob.IXStepPriceTask): OracleJob.XStepPriceTask;
+
+        /**
+         * Encodes the specified XStepPriceTask message. Does not implicitly {@link OracleJob.XStepPriceTask.verify|verify} messages.
+         * @param message XStepPriceTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IXStepPriceTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified XStepPriceTask message, length delimited. Does not implicitly {@link OracleJob.XStepPriceTask.verify|verify} messages.
+         * @param message XStepPriceTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IXStepPriceTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a XStepPriceTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns XStepPriceTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.XStepPriceTask;
+
+        /**
+         * Decodes a XStepPriceTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns XStepPriceTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.XStepPriceTask;
+
+        /**
+         * Verifies a XStepPriceTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a XStepPriceTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns XStepPriceTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.XStepPriceTask;
+
+        /**
+         * Creates a plain object from a XStepPriceTask message. Also converts values to other types if specified.
+         * @param message XStepPriceTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.XStepPriceTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this XStepPriceTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -2040,6 +2124,9 @@ export namespace OracleJob {
 
         /** Task regexExtractTask */
         regexExtractTask?: (OracleJob.IRegexExtractTask|null);
+
+        /** Task xstepPriceTask */
+        xstepPriceTask?: (OracleJob.IXStepPriceTask|null);
     }
 
     /** Represents a Task. */
@@ -2090,8 +2177,11 @@ export namespace OracleJob {
         /** Task regexExtractTask. */
         public regexExtractTask?: (OracleJob.IRegexExtractTask|null);
 
+        /** Task xstepPriceTask. */
+        public xstepPriceTask?: (OracleJob.IXStepPriceTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask");
 
         /**
          * Creates a new Task instance using the specified properties.
