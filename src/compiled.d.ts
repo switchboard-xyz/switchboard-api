@@ -1681,6 +1681,216 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of an AddTask. */
+    interface IAddTask {
+
+        /** AddTask scalar */
+        scalar?: (number|null);
+
+        /** AddTask aggregatorPubkey */
+        aggregatorPubkey?: (string|null);
+
+        /** AddTask job */
+        job?: (IOracleJob|null);
+    }
+
+    /** Represents an AddTask. */
+    class AddTask implements IAddTask {
+
+        /**
+         * Constructs a new AddTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IAddTask);
+
+        /** AddTask scalar. */
+        public scalar: number;
+
+        /** AddTask aggregatorPubkey. */
+        public aggregatorPubkey: string;
+
+        /** AddTask job. */
+        public job?: (IOracleJob|null);
+
+        /** AddTask Addition. */
+        public Addition?: ("scalar"|"aggregatorPubkey"|"job");
+
+        /**
+         * Creates a new AddTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AddTask instance
+         */
+        public static create(properties?: OracleJob.IAddTask): OracleJob.AddTask;
+
+        /**
+         * Encodes the specified AddTask message. Does not implicitly {@link OracleJob.AddTask.verify|verify} messages.
+         * @param message AddTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IAddTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified AddTask message, length delimited. Does not implicitly {@link OracleJob.AddTask.verify|verify} messages.
+         * @param message AddTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IAddTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an AddTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AddTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.AddTask;
+
+        /**
+         * Decodes an AddTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AddTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.AddTask;
+
+        /**
+         * Verifies an AddTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an AddTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns AddTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.AddTask;
+
+        /**
+         * Creates a plain object from an AddTask message. Also converts values to other types if specified.
+         * @param message AddTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.AddTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this AddTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SubtractTask. */
+    interface ISubtractTask {
+
+        /** SubtractTask scalar */
+        scalar?: (number|null);
+
+        /** SubtractTask aggregatorPubkey */
+        aggregatorPubkey?: (string|null);
+
+        /** SubtractTask job */
+        job?: (IOracleJob|null);
+    }
+
+    /** Represents a SubtractTask. */
+    class SubtractTask implements ISubtractTask {
+
+        /**
+         * Constructs a new SubtractTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ISubtractTask);
+
+        /** SubtractTask scalar. */
+        public scalar: number;
+
+        /** SubtractTask aggregatorPubkey. */
+        public aggregatorPubkey: string;
+
+        /** SubtractTask job. */
+        public job?: (IOracleJob|null);
+
+        /** SubtractTask Subtractition. */
+        public Subtractition?: ("scalar"|"aggregatorPubkey"|"job");
+
+        /**
+         * Creates a new SubtractTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SubtractTask instance
+         */
+        public static create(properties?: OracleJob.ISubtractTask): OracleJob.SubtractTask;
+
+        /**
+         * Encodes the specified SubtractTask message. Does not implicitly {@link OracleJob.SubtractTask.verify|verify} messages.
+         * @param message SubtractTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ISubtractTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SubtractTask message, length delimited. Does not implicitly {@link OracleJob.SubtractTask.verify|verify} messages.
+         * @param message SubtractTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ISubtractTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SubtractTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SubtractTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.SubtractTask;
+
+        /**
+         * Decodes a SubtractTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SubtractTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.SubtractTask;
+
+        /**
+         * Verifies a SubtractTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SubtractTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SubtractTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.SubtractTask;
+
+        /**
+         * Creates a plain object from a SubtractTask message. Also converts values to other types if specified.
+         * @param message SubtractTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.SubtractTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SubtractTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a LpTokenPriceTask. */
     interface ILpTokenPriceTask {
 
@@ -2127,6 +2337,12 @@ export namespace OracleJob {
 
         /** Task xstepPriceTask */
         xstepPriceTask?: (OracleJob.IXStepPriceTask|null);
+
+        /** Task addTask */
+        addTask?: (OracleJob.IAddTask|null);
+
+        /** Task subtractTask */
+        subtractTask?: (OracleJob.ISubtractTask|null);
     }
 
     /** Represents a Task. */
@@ -2180,8 +2396,14 @@ export namespace OracleJob {
         /** Task xstepPriceTask. */
         public xstepPriceTask?: (OracleJob.IXStepPriceTask|null);
 
+        /** Task addTask. */
+        public addTask?: (OracleJob.IAddTask|null);
+
+        /** Task subtractTask. */
+        public subtractTask?: (OracleJob.ISubtractTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask");
 
         /**
          * Creates a new Task instance using the specified properties.

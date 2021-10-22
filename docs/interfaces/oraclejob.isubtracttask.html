@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ILpExchangeRateTask | @switchboard-xyz/switchboard-api</title>
+	<title>ISubtractTask | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/oraclejob.html">OracleJob</a>
 				</li>
 				<li>
-					<a href="oraclejob.ilpexchangeratetask.html">ILpExchangeRateTask</a>
+					<a href="oraclejob.isubtracttask.html">ISubtractTask</a>
 				</li>
 			</ul>
-			<h1>Interface ILpExchangeRateTask</h1>
+			<h1>Interface ISubtractTask</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a LpExchangeRateTask.</p>
+						<p>Properties of a SubtractTask.</p>
 					</div>
 				</div>
 			</section>
@@ -79,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ILpExchangeRateTask</span>
+						<span class="target">ISubtractTask</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/oraclejob.lpexchangeratetask.html" class="tsd-signature-type" data-tsd-kind="Class">LpExchangeRateTask</a></li>
+					<li><a href="../classes/oraclejob.subtracttask.html" class="tsd-signature-type" data-tsd-kind="Class">SubtractTask</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,11 +96,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ilpexchangeratetask.html#intokenaddress" class="tsd-kind-icon">in<wbr>Token<wbr>Address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ilpexchangeratetask.html#mercurialpooladdress" class="tsd-kind-icon">mercurial<wbr>Pool<wbr>Address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ilpexchangeratetask.html#orcapooltokenmintaddress" class="tsd-kind-icon">orca<wbr>Pool<wbr>Token<wbr>Mint<wbr>Address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ilpexchangeratetask.html#outtokenaddress" class="tsd-kind-icon">out<wbr>Token<wbr>Address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ilpexchangeratetask.html#saberpooladdress" class="tsd-kind-icon">saber<wbr>Pool<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.isubtracttask.html#aggregatorpubkey" class="tsd-kind-icon">aggregator<wbr>Pubkey</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.isubtracttask.html#job" class="tsd-kind-icon">job</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.isubtracttask.html#scalar" class="tsd-kind-icon">scalar</a></li>
 							</ul>
 						</section>
 					</div>
@@ -109,77 +107,47 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="intokenaddress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> in<wbr>Token<wbr>Address</h3>
-					<div class="tsd-signature tsd-kind-icon">in<wbr>Token<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="aggregatorpubkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> aggregator<wbr>Pubkey</h3>
+					<div class="tsd-signature tsd-kind-icon">aggregator<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/058abfd/src/compiled.d.ts#L2003">compiled.d.ts:2003</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/058abfd/src/compiled.d.ts#L1796">compiled.d.ts:1796</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>LpExchangeRateTask inTokenAddress</p>
+							<p>SubtractTask aggregatorPubkey</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mercurialpooladdress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mercurial<wbr>Pool<wbr>Address</h3>
-					<div class="tsd-signature tsd-kind-icon">mercurial<wbr>Pool<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="job" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> job</h3>
+					<div class="tsd-signature tsd-kind-icon">job<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="ioraclejob.html" class="tsd-signature-type" data-tsd-kind="Interface">IOracleJob</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/058abfd/src/compiled.d.ts#L2009">compiled.d.ts:2009</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/058abfd/src/compiled.d.ts#L1799">compiled.d.ts:1799</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>LpExchangeRateTask mercurialPoolAddress</p>
+							<p>SubtractTask job</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="orcapooltokenmintaddress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> orca<wbr>Pool<wbr>Token<wbr>Mint<wbr>Address</h3>
-					<div class="tsd-signature tsd-kind-icon">orca<wbr>Pool<wbr>Token<wbr>Mint<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="scalar" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> scalar</h3>
+					<div class="tsd-signature tsd-kind-icon">scalar<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/058abfd/src/compiled.d.ts#L2015">compiled.d.ts:2015</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/058abfd/src/compiled.d.ts#L1793">compiled.d.ts:1793</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>LpExchangeRateTask orcaPoolTokenMintAddress</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="outtokenaddress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> out<wbr>Token<wbr>Address</h3>
-					<div class="tsd-signature tsd-kind-icon">out<wbr>Token<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/058abfd/src/compiled.d.ts#L2006">compiled.d.ts:2006</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>LpExchangeRateTask outTokenAddress</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="saberpooladdress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> saber<wbr>Pool<wbr>Address</h3>
-					<div class="tsd-signature tsd-kind-icon">saber<wbr>Pool<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/058abfd/src/compiled.d.ts#L2012">compiled.d.ts:2012</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>LpExchangeRateTask saberPoolAddress</p>
+							<p>SubtractTask scalar</p>
 						</div>
 					</div>
 				</section>
@@ -279,30 +247,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="oraclejob.ijsonparsetask.html" class="tsd-kind-icon">IJson<wbr>Parse<wbr>Task</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="oraclejob.ilpexchangeratetask.html" class="tsd-kind-icon">ILp<wbr>Exchange<wbr>Rate<wbr>Task</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ilpexchangeratetask.html#intokenaddress" class="tsd-kind-icon">in<wbr>Token<wbr>Address</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ilpexchangeratetask.html#mercurialpooladdress" class="tsd-kind-icon">mercurial<wbr>Pool<wbr>Address</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ilpexchangeratetask.html#orcapooltokenmintaddress" class="tsd-kind-icon">orca<wbr>Pool<wbr>Token<wbr>Mint<wbr>Address</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ilpexchangeratetask.html#outtokenaddress" class="tsd-kind-icon">out<wbr>Token<wbr>Address</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.ilpexchangeratetask.html#saberpooladdress" class="tsd-kind-icon">saber<wbr>Pool<wbr>Address</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="oraclejob.ilptokenpricetask.html" class="tsd-kind-icon">ILp<wbr>Token<wbr>Price<wbr>Task</a>
 					</li>
@@ -321,9 +268,24 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="oraclejob.iregexextracttask.html" class="tsd-kind-icon">IRegex<wbr>Extract<wbr>Task</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="oraclejob.isubtracttask.html" class="tsd-kind-icon">ISubtract<wbr>Task</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="oraclejob.isubtracttask.html#aggregatorpubkey" class="tsd-kind-icon">aggregator<wbr>Pubkey</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="oraclejob.isubtracttask.html#job" class="tsd-kind-icon">job</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="oraclejob.isubtracttask.html#scalar" class="tsd-kind-icon">scalar</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="oraclejob.itask.html" class="tsd-kind-icon">ITask</a>
 					</li>
