@@ -1817,8 +1817,8 @@ export namespace OracleJob {
         /** SubtractTask job. */
         public job?: (IOracleJob|null);
 
-        /** SubtractTask Subtractition. */
-        public Subtractition?: ("scalar"|"aggregatorPubkey"|"job");
+        /** SubtractTask Subtraction. */
+        public Subtraction?: ("scalar"|"aggregatorPubkey"|"job");
 
         /**
          * Creates a new SubtractTask instance using the specified properties.

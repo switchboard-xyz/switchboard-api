@@ -4627,12 +4627,12 @@
             var $oneOfFields;
     
             /**
-             * SubtractTask Subtractition.
-             * @member {"scalar"|"aggregatorPubkey"|"job"|undefined} Subtractition
+             * SubtractTask Subtraction.
+             * @member {"scalar"|"aggregatorPubkey"|"job"|undefined} Subtraction
              * @memberof OracleJob.SubtractTask
              * @instance
              */
-            Object.defineProperty(SubtractTask.prototype, "Subtractition", {
+            Object.defineProperty(SubtractTask.prototype, "Subtraction", {
                 get: $util.oneOfGetter($oneOfFields = ["scalar", "aggregatorPubkey", "job"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -4747,21 +4747,21 @@
                     return "object expected";
                 var properties = {};
                 if (message.scalar != null && message.hasOwnProperty("scalar")) {
-                    properties.Subtractition = 1;
+                    properties.Subtraction = 1;
                     if (typeof message.scalar !== "number")
                         return "scalar: number expected";
                 }
                 if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey")) {
-                    if (properties.Subtractition === 1)
-                        return "Subtractition: multiple values";
-                    properties.Subtractition = 1;
+                    if (properties.Subtraction === 1)
+                        return "Subtraction: multiple values";
+                    properties.Subtraction = 1;
                     if (!$util.isString(message.aggregatorPubkey))
                         return "aggregatorPubkey: string expected";
                 }
                 if (message.job != null && message.hasOwnProperty("job")) {
-                    if (properties.Subtractition === 1)
-                        return "Subtractition: multiple values";
-                    properties.Subtractition = 1;
+                    if (properties.Subtraction === 1)
+                        return "Subtraction: multiple values";
+                    properties.Subtraction = 1;
                     {
                         var error = $root.OracleJob.verify(message.job);
                         if (error)
@@ -4811,17 +4811,17 @@
                 if (message.scalar != null && message.hasOwnProperty("scalar")) {
                     object.scalar = options.json && !isFinite(message.scalar) ? String(message.scalar) : message.scalar;
                     if (options.oneofs)
-                        object.Subtractition = "scalar";
+                        object.Subtraction = "scalar";
                 }
                 if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey")) {
                     object.aggregatorPubkey = message.aggregatorPubkey;
                     if (options.oneofs)
-                        object.Subtractition = "aggregatorPubkey";
+                        object.Subtraction = "aggregatorPubkey";
                 }
                 if (message.job != null && message.hasOwnProperty("job")) {
                     object.job = $root.OracleJob.toObject(message.job, options);
                     if (options.oneofs)
-                        object.Subtractition = "job";
+                        object.Subtraction = "job";
                 }
                 return object;
             };
