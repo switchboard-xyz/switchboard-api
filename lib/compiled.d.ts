@@ -2439,6 +2439,9 @@ export namespace OracleJob {
 
         /** Task subtractTask */
         subtractTask?: (OracleJob.ISubtractTask|null);
+
+        /** Task twapTask */
+        twapTask?: (OracleJob.ITwapTask|null);
     }
 
     /** Represents a Task. */
@@ -2498,8 +2501,11 @@ export namespace OracleJob {
         /** Task subtractTask. */
         public subtractTask?: (OracleJob.ISubtractTask|null);
 
+        /** Task twapTask. */
+        public twapTask?: (OracleJob.ITwapTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask");
 
         /**
          * Creates a new Task instance using the specified properties.
