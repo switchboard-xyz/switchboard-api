@@ -5778,6 +5778,216 @@
             return XStepPriceTask;
         })();
     
+        OracleJob.TwapTask = (function() {
+    
+            /**
+             * Properties of a TwapTask.
+             * @memberof OracleJob
+             * @interface ITwapTask
+             * @property {string|null} [aggregtorPubkey] TwapTask aggregtorPubkey
+             * @property {number|null} [period] TwapTask period
+             */
+    
+            /**
+             * Constructs a new TwapTask.
+             * @memberof OracleJob
+             * @classdesc Represents a TwapTask.
+             * @implements ITwapTask
+             * @constructor
+             * @param {OracleJob.ITwapTask=} [properties] Properties to set
+             */
+            function TwapTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * TwapTask aggregtorPubkey.
+             * @member {string} aggregtorPubkey
+             * @memberof OracleJob.TwapTask
+             * @instance
+             */
+            TwapTask.prototype.aggregtorPubkey = "";
+    
+            /**
+             * TwapTask period.
+             * @member {number} period
+             * @memberof OracleJob.TwapTask
+             * @instance
+             */
+            TwapTask.prototype.period = 0;
+    
+            /**
+             * Creates a new TwapTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.TwapTask
+             * @static
+             * @param {OracleJob.ITwapTask=} [properties] Properties to set
+             * @returns {OracleJob.TwapTask} TwapTask instance
+             */
+            TwapTask.create = function create(properties) {
+                return new TwapTask(properties);
+            };
+    
+            /**
+             * Encodes the specified TwapTask message. Does not implicitly {@link OracleJob.TwapTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.TwapTask
+             * @static
+             * @param {OracleJob.ITwapTask} message TwapTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            TwapTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.aggregtorPubkey != null && Object.hasOwnProperty.call(message, "aggregtorPubkey"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.aggregtorPubkey);
+                if (message.period != null && Object.hasOwnProperty.call(message, "period"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.period);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified TwapTask message, length delimited. Does not implicitly {@link OracleJob.TwapTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.TwapTask
+             * @static
+             * @param {OracleJob.ITwapTask} message TwapTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            TwapTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a TwapTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.TwapTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.TwapTask} TwapTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            TwapTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.TwapTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.aggregtorPubkey = reader.string();
+                        break;
+                    case 2:
+                        message.period = reader.int32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a TwapTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.TwapTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.TwapTask} TwapTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            TwapTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a TwapTask message.
+             * @function verify
+             * @memberof OracleJob.TwapTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            TwapTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.aggregtorPubkey != null && message.hasOwnProperty("aggregtorPubkey"))
+                    if (!$util.isString(message.aggregtorPubkey))
+                        return "aggregtorPubkey: string expected";
+                if (message.period != null && message.hasOwnProperty("period"))
+                    if (!$util.isInteger(message.period))
+                        return "period: integer expected";
+                return null;
+            };
+    
+            /**
+             * Creates a TwapTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.TwapTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.TwapTask} TwapTask
+             */
+            TwapTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.TwapTask)
+                    return object;
+                var message = new $root.OracleJob.TwapTask();
+                if (object.aggregtorPubkey != null)
+                    message.aggregtorPubkey = String(object.aggregtorPubkey);
+                if (object.period != null)
+                    message.period = object.period | 0;
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a TwapTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.TwapTask
+             * @static
+             * @param {OracleJob.TwapTask} message TwapTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            TwapTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.aggregtorPubkey = "";
+                    object.period = 0;
+                }
+                if (message.aggregtorPubkey != null && message.hasOwnProperty("aggregtorPubkey"))
+                    object.aggregtorPubkey = message.aggregtorPubkey;
+                if (message.period != null && message.hasOwnProperty("period"))
+                    object.period = message.period;
+                return object;
+            };
+    
+            /**
+             * Converts this TwapTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.TwapTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            TwapTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return TwapTask;
+        })();
+    
         OracleJob.Task = (function() {
     
             /**

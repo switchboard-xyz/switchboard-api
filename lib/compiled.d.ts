@@ -2293,6 +2293,102 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a TwapTask. */
+    interface ITwapTask {
+
+        /** TwapTask aggregtorPubkey */
+        aggregtorPubkey?: (string|null);
+
+        /** TwapTask period */
+        period?: (number|null);
+    }
+
+    /** Represents a TwapTask. */
+    class TwapTask implements ITwapTask {
+
+        /**
+         * Constructs a new TwapTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ITwapTask);
+
+        /** TwapTask aggregtorPubkey. */
+        public aggregtorPubkey: string;
+
+        /** TwapTask period. */
+        public period: number;
+
+        /**
+         * Creates a new TwapTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns TwapTask instance
+         */
+        public static create(properties?: OracleJob.ITwapTask): OracleJob.TwapTask;
+
+        /**
+         * Encodes the specified TwapTask message. Does not implicitly {@link OracleJob.TwapTask.verify|verify} messages.
+         * @param message TwapTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ITwapTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified TwapTask message, length delimited. Does not implicitly {@link OracleJob.TwapTask.verify|verify} messages.
+         * @param message TwapTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ITwapTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a TwapTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TwapTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.TwapTask;
+
+        /**
+         * Decodes a TwapTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns TwapTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.TwapTask;
+
+        /**
+         * Verifies a TwapTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a TwapTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns TwapTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.TwapTask;
+
+        /**
+         * Creates a plain object from a TwapTask message. Also converts values to other types if specified.
+         * @param message TwapTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.TwapTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this TwapTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
