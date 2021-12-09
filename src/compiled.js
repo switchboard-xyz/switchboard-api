@@ -5784,7 +5784,7 @@
              * Properties of a TwapTask.
              * @memberof OracleJob
              * @interface ITwapTask
-             * @property {string|null} [aggregtorPubkey] TwapTask aggregtorPubkey
+             * @property {string|null} [aggregatorPubkey] TwapTask aggregatorPubkey
              * @property {number|null} [period] TwapTask period
              */
     
@@ -5804,12 +5804,12 @@
             }
     
             /**
-             * TwapTask aggregtorPubkey.
-             * @member {string} aggregtorPubkey
+             * TwapTask aggregatorPubkey.
+             * @member {string} aggregatorPubkey
              * @memberof OracleJob.TwapTask
              * @instance
              */
-            TwapTask.prototype.aggregtorPubkey = "";
+            TwapTask.prototype.aggregatorPubkey = "";
     
             /**
              * TwapTask period.
@@ -5843,8 +5843,8 @@
             TwapTask.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.aggregtorPubkey != null && Object.hasOwnProperty.call(message, "aggregtorPubkey"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.aggregtorPubkey);
+                if (message.aggregatorPubkey != null && Object.hasOwnProperty.call(message, "aggregatorPubkey"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.aggregatorPubkey);
                 if (message.period != null && Object.hasOwnProperty.call(message, "period"))
                     writer.uint32(/* id 2, wireType 0 =*/16).int32(message.period);
                 return writer;
@@ -5882,7 +5882,7 @@
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.aggregtorPubkey = reader.string();
+                        message.aggregatorPubkey = reader.string();
                         break;
                     case 2:
                         message.period = reader.int32();
@@ -5922,9 +5922,9 @@
             TwapTask.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.aggregtorPubkey != null && message.hasOwnProperty("aggregtorPubkey"))
-                    if (!$util.isString(message.aggregtorPubkey))
-                        return "aggregtorPubkey: string expected";
+                if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey"))
+                    if (!$util.isString(message.aggregatorPubkey))
+                        return "aggregatorPubkey: string expected";
                 if (message.period != null && message.hasOwnProperty("period"))
                     if (!$util.isInteger(message.period))
                         return "period: integer expected";
@@ -5943,8 +5943,8 @@
                 if (object instanceof $root.OracleJob.TwapTask)
                     return object;
                 var message = new $root.OracleJob.TwapTask();
-                if (object.aggregtorPubkey != null)
-                    message.aggregtorPubkey = String(object.aggregtorPubkey);
+                if (object.aggregatorPubkey != null)
+                    message.aggregatorPubkey = String(object.aggregatorPubkey);
                 if (object.period != null)
                     message.period = object.period | 0;
                 return message;
@@ -5964,11 +5964,11 @@
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    object.aggregtorPubkey = "";
+                    object.aggregatorPubkey = "";
                     object.period = 0;
                 }
-                if (message.aggregtorPubkey != null && message.hasOwnProperty("aggregtorPubkey"))
-                    object.aggregtorPubkey = message.aggregtorPubkey;
+                if (message.aggregatorPubkey != null && message.hasOwnProperty("aggregatorPubkey"))
+                    object.aggregatorPubkey = message.aggregatorPubkey;
                 if (message.period != null && message.hasOwnProperty("period"))
                     object.period = message.period;
                 return object;

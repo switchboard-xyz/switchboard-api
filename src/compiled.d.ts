@@ -2296,8 +2296,8 @@ export namespace OracleJob {
     /** Properties of a TwapTask. */
     interface ITwapTask {
 
-        /** TwapTask aggregtorPubkey */
-        aggregtorPubkey?: (string|null);
+        /** TwapTask aggregatorPubkey */
+        aggregatorPubkey?: (string|null);
 
         /** TwapTask period */
         period?: (number|null);
@@ -2312,8 +2312,8 @@ export namespace OracleJob {
          */
         constructor(properties?: OracleJob.ITwapTask);
 
-        /** TwapTask aggregtorPubkey. */
-        public aggregtorPubkey: string;
+        /** TwapTask aggregatorPubkey. */
+        public aggregatorPubkey: string;
 
         /** TwapTask period. */
         public period: number;
