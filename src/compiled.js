@@ -5988,6 +5988,193 @@
             return TwapTask;
         })();
     
+        OracleJob.SerumSwapTask = (function() {
+    
+            /**
+             * Properties of a SerumSwapTask.
+             * @memberof OracleJob
+             * @interface ISerumSwapTask
+             * @property {string|null} [serumPoolAddress] SerumSwapTask serumPoolAddress
+             */
+    
+            /**
+             * Constructs a new SerumSwapTask.
+             * @memberof OracleJob
+             * @classdesc Represents a SerumSwapTask.
+             * @implements ISerumSwapTask
+             * @constructor
+             * @param {OracleJob.ISerumSwapTask=} [properties] Properties to set
+             */
+            function SerumSwapTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * SerumSwapTask serumPoolAddress.
+             * @member {string} serumPoolAddress
+             * @memberof OracleJob.SerumSwapTask
+             * @instance
+             */
+            SerumSwapTask.prototype.serumPoolAddress = "";
+    
+            /**
+             * Creates a new SerumSwapTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.SerumSwapTask
+             * @static
+             * @param {OracleJob.ISerumSwapTask=} [properties] Properties to set
+             * @returns {OracleJob.SerumSwapTask} SerumSwapTask instance
+             */
+            SerumSwapTask.create = function create(properties) {
+                return new SerumSwapTask(properties);
+            };
+    
+            /**
+             * Encodes the specified SerumSwapTask message. Does not implicitly {@link OracleJob.SerumSwapTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.SerumSwapTask
+             * @static
+             * @param {OracleJob.ISerumSwapTask} message SerumSwapTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SerumSwapTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.serumPoolAddress != null && Object.hasOwnProperty.call(message, "serumPoolAddress"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.serumPoolAddress);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified SerumSwapTask message, length delimited. Does not implicitly {@link OracleJob.SerumSwapTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.SerumSwapTask
+             * @static
+             * @param {OracleJob.ISerumSwapTask} message SerumSwapTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SerumSwapTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a SerumSwapTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.SerumSwapTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.SerumSwapTask} SerumSwapTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SerumSwapTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.SerumSwapTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.serumPoolAddress = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a SerumSwapTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.SerumSwapTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.SerumSwapTask} SerumSwapTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SerumSwapTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a SerumSwapTask message.
+             * @function verify
+             * @memberof OracleJob.SerumSwapTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SerumSwapTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.serumPoolAddress != null && message.hasOwnProperty("serumPoolAddress"))
+                    if (!$util.isString(message.serumPoolAddress))
+                        return "serumPoolAddress: string expected";
+                return null;
+            };
+    
+            /**
+             * Creates a SerumSwapTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.SerumSwapTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.SerumSwapTask} SerumSwapTask
+             */
+            SerumSwapTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.SerumSwapTask)
+                    return object;
+                var message = new $root.OracleJob.SerumSwapTask();
+                if (object.serumPoolAddress != null)
+                    message.serumPoolAddress = String(object.serumPoolAddress);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a SerumSwapTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.SerumSwapTask
+             * @static
+             * @param {OracleJob.SerumSwapTask} message SerumSwapTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SerumSwapTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.serumPoolAddress = "";
+                if (message.serumPoolAddress != null && message.hasOwnProperty("serumPoolAddress"))
+                    object.serumPoolAddress = message.serumPoolAddress;
+                return object;
+            };
+    
+            /**
+             * Converts this SerumSwapTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.SerumSwapTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SerumSwapTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return SerumSwapTask;
+        })();
+    
         OracleJob.Task = (function() {
     
             /**
@@ -6011,6 +6198,7 @@
              * @property {OracleJob.IAddTask|null} [addTask] Task addTask
              * @property {OracleJob.ISubtractTask|null} [subtractTask] Task subtractTask
              * @property {OracleJob.ITwapTask|null} [twapTask] Task twapTask
+             * @property {OracleJob.ISerumSwapTask|null} [serumSwapTask] Task serumSwapTask
              */
     
             /**
@@ -6164,17 +6352,25 @@
              */
             Task.prototype.twapTask = null;
     
+            /**
+             * Task serumSwapTask.
+             * @member {OracleJob.ISerumSwapTask|null|undefined} serumSwapTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.serumSwapTask = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -6236,6 +6432,8 @@
                     $root.OracleJob.SubtractTask.encode(message.subtractTask, writer.uint32(/* id 17, wireType 2 =*/138).fork()).ldelim();
                 if (message.twapTask != null && Object.hasOwnProperty.call(message, "twapTask"))
                     $root.OracleJob.TwapTask.encode(message.twapTask, writer.uint32(/* id 18, wireType 2 =*/146).fork()).ldelim();
+                if (message.serumSwapTask != null && Object.hasOwnProperty.call(message, "serumSwapTask"))
+                    $root.OracleJob.SerumSwapTask.encode(message.serumSwapTask, writer.uint32(/* id 19, wireType 2 =*/154).fork()).ldelim();
                 return writer;
             };
     
@@ -6320,6 +6518,9 @@
                         break;
                     case 18:
                         message.twapTask = $root.OracleJob.TwapTask.decode(reader, reader.uint32());
+                        break;
+                    case 19:
+                        message.serumSwapTask = $root.OracleJob.SerumSwapTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -6525,6 +6726,16 @@
                             return "twapTask." + error;
                     }
                 }
+                if (message.serumSwapTask != null && message.hasOwnProperty("serumSwapTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.SerumSwapTask.verify(message.serumSwapTask);
+                        if (error)
+                            return "serumSwapTask." + error;
+                    }
+                }
                 return null;
             };
     
@@ -6624,6 +6835,11 @@
                     if (typeof object.twapTask !== "object")
                         throw TypeError(".OracleJob.Task.twapTask: object expected");
                     message.twapTask = $root.OracleJob.TwapTask.fromObject(object.twapTask);
+                }
+                if (object.serumSwapTask != null) {
+                    if (typeof object.serumSwapTask !== "object")
+                        throw TypeError(".OracleJob.Task.serumSwapTask: object expected");
+                    message.serumSwapTask = $root.OracleJob.SerumSwapTask.fromObject(object.serumSwapTask);
                 }
                 return message;
             };
@@ -6725,6 +6941,11 @@
                     object.twapTask = $root.OracleJob.TwapTask.toObject(message.twapTask, options);
                     if (options.oneofs)
                         object.Task = "twapTask";
+                }
+                if (message.serumSwapTask != null && message.hasOwnProperty("serumSwapTask")) {
+                    object.serumSwapTask = $root.OracleJob.SerumSwapTask.toObject(message.serumSwapTask, options);
+                    if (options.oneofs)
+                        object.Task = "serumSwapTask";
                 }
                 return object;
             };

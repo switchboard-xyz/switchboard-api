@@ -2389,6 +2389,96 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a SerumSwapTask. */
+    interface ISerumSwapTask {
+
+        /** SerumSwapTask serumPoolAddress */
+        serumPoolAddress?: (string|null);
+    }
+
+    /** Represents a SerumSwapTask. */
+    class SerumSwapTask implements ISerumSwapTask {
+
+        /**
+         * Constructs a new SerumSwapTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ISerumSwapTask);
+
+        /** SerumSwapTask serumPoolAddress. */
+        public serumPoolAddress: string;
+
+        /**
+         * Creates a new SerumSwapTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SerumSwapTask instance
+         */
+        public static create(properties?: OracleJob.ISerumSwapTask): OracleJob.SerumSwapTask;
+
+        /**
+         * Encodes the specified SerumSwapTask message. Does not implicitly {@link OracleJob.SerumSwapTask.verify|verify} messages.
+         * @param message SerumSwapTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ISerumSwapTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SerumSwapTask message, length delimited. Does not implicitly {@link OracleJob.SerumSwapTask.verify|verify} messages.
+         * @param message SerumSwapTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ISerumSwapTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SerumSwapTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SerumSwapTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.SerumSwapTask;
+
+        /**
+         * Decodes a SerumSwapTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SerumSwapTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.SerumSwapTask;
+
+        /**
+         * Verifies a SerumSwapTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SerumSwapTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SerumSwapTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.SerumSwapTask;
+
+        /**
+         * Creates a plain object from a SerumSwapTask message. Also converts values to other types if specified.
+         * @param message SerumSwapTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.SerumSwapTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SerumSwapTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -2442,6 +2532,9 @@ export namespace OracleJob {
 
         /** Task twapTask */
         twapTask?: (OracleJob.ITwapTask|null);
+
+        /** Task serumSwapTask */
+        serumSwapTask?: (OracleJob.ISerumSwapTask|null);
     }
 
     /** Represents a Task. */
@@ -2504,8 +2597,11 @@ export namespace OracleJob {
         /** Task twapTask. */
         public twapTask?: (OracleJob.ITwapTask|null);
 
+        /** Task serumSwapTask. */
+        public serumSwapTask?: (OracleJob.ISerumSwapTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask");
 
         /**
          * Creates a new Task instance using the specified properties.
