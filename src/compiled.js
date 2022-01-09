@@ -4849,6 +4849,7 @@
              * @property {string|null} [mercurialPoolAddress] LpTokenPriceTask mercurialPoolAddress
              * @property {string|null} [saberPoolAddress] LpTokenPriceTask saberPoolAddress
              * @property {string|null} [orcaPoolAddress] LpTokenPriceTask orcaPoolAddress
+             * @property {string|null} [raydiumPoolAddress] LpTokenPriceTask raydiumPoolAddress
              */
     
             /**
@@ -4890,17 +4891,25 @@
              */
             LpTokenPriceTask.prototype.orcaPoolAddress = "";
     
+            /**
+             * LpTokenPriceTask raydiumPoolAddress.
+             * @member {string} raydiumPoolAddress
+             * @memberof OracleJob.LpTokenPriceTask
+             * @instance
+             */
+            LpTokenPriceTask.prototype.raydiumPoolAddress = "";
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * LpTokenPriceTask PoolAddress.
-             * @member {"mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress"|undefined} PoolAddress
+             * @member {"mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress"|"raydiumPoolAddress"|undefined} PoolAddress
              * @memberof OracleJob.LpTokenPriceTask
              * @instance
              */
             Object.defineProperty(LpTokenPriceTask.prototype, "PoolAddress", {
-                get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress", "orcaPoolAddress"]),
+                get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress", "orcaPoolAddress", "raydiumPoolAddress"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -4934,6 +4943,8 @@
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.saberPoolAddress);
                 if (message.orcaPoolAddress != null && Object.hasOwnProperty.call(message, "orcaPoolAddress"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.orcaPoolAddress);
+                if (message.raydiumPoolAddress != null && Object.hasOwnProperty.call(message, "raydiumPoolAddress"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.raydiumPoolAddress);
                 return writer;
             };
     
@@ -4976,6 +4987,9 @@
                         break;
                     case 3:
                         message.orcaPoolAddress = reader.string();
+                        break;
+                    case 4:
+                        message.raydiumPoolAddress = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -5032,6 +5046,13 @@
                     if (!$util.isString(message.orcaPoolAddress))
                         return "orcaPoolAddress: string expected";
                 }
+                if (message.raydiumPoolAddress != null && message.hasOwnProperty("raydiumPoolAddress")) {
+                    if (properties.PoolAddress === 1)
+                        return "PoolAddress: multiple values";
+                    properties.PoolAddress = 1;
+                    if (!$util.isString(message.raydiumPoolAddress))
+                        return "raydiumPoolAddress: string expected";
+                }
                 return null;
             };
     
@@ -5053,6 +5074,8 @@
                     message.saberPoolAddress = String(object.saberPoolAddress);
                 if (object.orcaPoolAddress != null)
                     message.orcaPoolAddress = String(object.orcaPoolAddress);
+                if (object.raydiumPoolAddress != null)
+                    message.raydiumPoolAddress = String(object.raydiumPoolAddress);
                 return message;
             };
     
@@ -5084,6 +5107,11 @@
                     if (options.oneofs)
                         object.PoolAddress = "orcaPoolAddress";
                 }
+                if (message.raydiumPoolAddress != null && message.hasOwnProperty("raydiumPoolAddress")) {
+                    object.raydiumPoolAddress = message.raydiumPoolAddress;
+                    if (options.oneofs)
+                        object.PoolAddress = "raydiumPoolAddress";
+                }
                 return object;
             };
     
@@ -5112,6 +5140,7 @@
              * @property {string|null} [mercurialPoolAddress] LpExchangeRateTask mercurialPoolAddress
              * @property {string|null} [saberPoolAddress] LpExchangeRateTask saberPoolAddress
              * @property {string|null} [orcaPoolTokenMintAddress] LpExchangeRateTask orcaPoolTokenMintAddress
+             * @property {string|null} [raydiumPoolAddress] LpExchangeRateTask raydiumPoolAddress
              */
     
             /**
@@ -5169,17 +5198,25 @@
              */
             LpExchangeRateTask.prototype.orcaPoolTokenMintAddress = "";
     
+            /**
+             * LpExchangeRateTask raydiumPoolAddress.
+             * @member {string} raydiumPoolAddress
+             * @memberof OracleJob.LpExchangeRateTask
+             * @instance
+             */
+            LpExchangeRateTask.prototype.raydiumPoolAddress = "";
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * LpExchangeRateTask PoolAddress.
-             * @member {"mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress"|undefined} PoolAddress
+             * @member {"mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress"|"raydiumPoolAddress"|undefined} PoolAddress
              * @memberof OracleJob.LpExchangeRateTask
              * @instance
              */
             Object.defineProperty(LpExchangeRateTask.prototype, "PoolAddress", {
-                get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress", "orcaPoolTokenMintAddress"]),
+                get: $util.oneOfGetter($oneOfFields = ["mercurialPoolAddress", "saberPoolAddress", "orcaPoolTokenMintAddress", "raydiumPoolAddress"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -5217,6 +5254,8 @@
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.saberPoolAddress);
                 if (message.orcaPoolTokenMintAddress != null && Object.hasOwnProperty.call(message, "orcaPoolTokenMintAddress"))
                     writer.uint32(/* id 5, wireType 2 =*/42).string(message.orcaPoolTokenMintAddress);
+                if (message.raydiumPoolAddress != null && Object.hasOwnProperty.call(message, "raydiumPoolAddress"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.raydiumPoolAddress);
                 return writer;
             };
     
@@ -5265,6 +5304,9 @@
                         break;
                     case 5:
                         message.orcaPoolTokenMintAddress = reader.string();
+                        break;
+                    case 6:
+                        message.raydiumPoolAddress = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -5327,6 +5369,13 @@
                     if (!$util.isString(message.orcaPoolTokenMintAddress))
                         return "orcaPoolTokenMintAddress: string expected";
                 }
+                if (message.raydiumPoolAddress != null && message.hasOwnProperty("raydiumPoolAddress")) {
+                    if (properties.PoolAddress === 1)
+                        return "PoolAddress: multiple values";
+                    properties.PoolAddress = 1;
+                    if (!$util.isString(message.raydiumPoolAddress))
+                        return "raydiumPoolAddress: string expected";
+                }
                 return null;
             };
     
@@ -5352,6 +5401,8 @@
                     message.saberPoolAddress = String(object.saberPoolAddress);
                 if (object.orcaPoolTokenMintAddress != null)
                     message.orcaPoolTokenMintAddress = String(object.orcaPoolTokenMintAddress);
+                if (object.raydiumPoolAddress != null)
+                    message.raydiumPoolAddress = String(object.raydiumPoolAddress);
                 return message;
             };
     
@@ -5390,6 +5441,11 @@
                     object.orcaPoolTokenMintAddress = message.orcaPoolTokenMintAddress;
                     if (options.oneofs)
                         object.PoolAddress = "orcaPoolTokenMintAddress";
+                }
+                if (message.raydiumPoolAddress != null && message.hasOwnProperty("raydiumPoolAddress")) {
+                    object.raydiumPoolAddress = message.raydiumPoolAddress;
+                    if (options.oneofs)
+                        object.PoolAddress = "raydiumPoolAddress";
                 }
                 return object;
             };

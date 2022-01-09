@@ -1902,6 +1902,9 @@ export namespace OracleJob {
 
         /** LpTokenPriceTask orcaPoolAddress */
         orcaPoolAddress?: (string|null);
+
+        /** LpTokenPriceTask raydiumPoolAddress */
+        raydiumPoolAddress?: (string|null);
     }
 
     /** Represents a LpTokenPriceTask. */
@@ -1922,8 +1925,11 @@ export namespace OracleJob {
         /** LpTokenPriceTask orcaPoolAddress. */
         public orcaPoolAddress: string;
 
+        /** LpTokenPriceTask raydiumPoolAddress. */
+        public raydiumPoolAddress: string;
+
         /** LpTokenPriceTask PoolAddress. */
-        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress");
+        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress"|"raydiumPoolAddress");
 
         /**
          * Creates a new LpTokenPriceTask instance using the specified properties.
@@ -2013,6 +2019,9 @@ export namespace OracleJob {
 
         /** LpExchangeRateTask orcaPoolTokenMintAddress */
         orcaPoolTokenMintAddress?: (string|null);
+
+        /** LpExchangeRateTask raydiumPoolAddress */
+        raydiumPoolAddress?: (string|null);
     }
 
     /** Represents a LpExchangeRateTask. */
@@ -2039,8 +2048,11 @@ export namespace OracleJob {
         /** LpExchangeRateTask orcaPoolTokenMintAddress. */
         public orcaPoolTokenMintAddress: string;
 
+        /** LpExchangeRateTask raydiumPoolAddress. */
+        public raydiumPoolAddress: string;
+
         /** LpExchangeRateTask PoolAddress. */
-        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress");
+        public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress"|"raydiumPoolAddress");
 
         /**
          * Creates a new LpExchangeRateTask instance using the specified properties.
