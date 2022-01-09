@@ -1905,6 +1905,12 @@ export namespace OracleJob {
 
         /** LpTokenPriceTask raydiumPoolAddress */
         raydiumPoolAddress?: (string|null);
+
+        /** LpTokenPriceTask baseFeedAddress */
+        baseFeedAddress?: (string|null);
+
+        /** LpTokenPriceTask quoteFeedAddress */
+        quoteFeedAddress?: (string|null);
     }
 
     /** Represents a LpTokenPriceTask. */
@@ -1927,6 +1933,12 @@ export namespace OracleJob {
 
         /** LpTokenPriceTask raydiumPoolAddress. */
         public raydiumPoolAddress: string;
+
+        /** LpTokenPriceTask baseFeedAddress. */
+        public baseFeedAddress: string;
+
+        /** LpTokenPriceTask quoteFeedAddress. */
+        public quoteFeedAddress: string;
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress"|"raydiumPoolAddress");
