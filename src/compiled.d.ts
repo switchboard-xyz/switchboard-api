@@ -1494,10 +1494,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IDivideTask);
 
         /** DivideTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** DivideTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** DivideTask job. */
         public job?: (IOracleJob|null);
@@ -1599,10 +1599,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IMultiplyTask);
 
         /** MultiplyTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** MultiplyTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** MultiplyTask job. */
         public job?: (IOracleJob|null);
@@ -1704,10 +1704,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IAddTask);
 
         /** AddTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** AddTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** AddTask job. */
         public job?: (IOracleJob|null);
@@ -1809,10 +1809,10 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.ISubtractTask);
 
         /** SubtractTask scalar. */
-        public scalar: number;
+        public scalar?: (number|null);
 
         /** SubtractTask aggregatorPubkey. */
-        public aggregatorPubkey: string;
+        public aggregatorPubkey?: (string|null);
 
         /** SubtractTask job. */
         public job?: (IOracleJob|null);
@@ -1906,11 +1906,8 @@ export namespace OracleJob {
         /** LpTokenPriceTask raydiumPoolAddress */
         raydiumPoolAddress?: (string|null);
 
-        /** LpTokenPriceTask baseFeedAddress */
-        baseFeedAddress?: (string|null);
-
-        /** LpTokenPriceTask quoteFeedAddress */
-        quoteFeedAddress?: (string|null);
+        /** LpTokenPriceTask priceFeedAddress */
+        priceFeedAddress?: (string[]|null);
     }
 
     /** Represents a LpTokenPriceTask. */
@@ -1923,22 +1920,19 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.ILpTokenPriceTask);
 
         /** LpTokenPriceTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
+        public mercurialPoolAddress?: (string|null);
 
         /** LpTokenPriceTask saberPoolAddress. */
-        public saberPoolAddress: string;
+        public saberPoolAddress?: (string|null);
 
         /** LpTokenPriceTask orcaPoolAddress. */
-        public orcaPoolAddress: string;
+        public orcaPoolAddress?: (string|null);
 
         /** LpTokenPriceTask raydiumPoolAddress. */
-        public raydiumPoolAddress: string;
+        public raydiumPoolAddress?: (string|null);
 
-        /** LpTokenPriceTask baseFeedAddress. */
-        public baseFeedAddress: string;
-
-        /** LpTokenPriceTask quoteFeedAddress. */
-        public quoteFeedAddress: string;
+        /** LpTokenPriceTask priceFeedAddress. */
+        public priceFeedAddress: string[];
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress"|"raydiumPoolAddress");
@@ -2052,16 +2046,16 @@ export namespace OracleJob {
         public outTokenAddress: string;
 
         /** LpExchangeRateTask mercurialPoolAddress. */
-        public mercurialPoolAddress: string;
+        public mercurialPoolAddress?: (string|null);
 
         /** LpExchangeRateTask saberPoolAddress. */
-        public saberPoolAddress: string;
+        public saberPoolAddress?: (string|null);
 
         /** LpExchangeRateTask orcaPoolTokenMintAddress. */
-        public orcaPoolTokenMintAddress: string;
+        public orcaPoolTokenMintAddress?: (string|null);
 
         /** LpExchangeRateTask raydiumPoolAddress. */
-        public raydiumPoolAddress: string;
+        public raydiumPoolAddress?: (string|null);
 
         /** LpExchangeRateTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolTokenMintAddress"|"raydiumPoolAddress");
