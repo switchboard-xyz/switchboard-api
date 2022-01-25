@@ -4875,6 +4875,7 @@
              * @property {string|null} [raydiumPoolAddress] LpTokenPriceTask raydiumPoolAddress
              * @property {Array.<string>|null} [priceFeedAddresses] LpTokenPriceTask priceFeedAddresses
              * @property {Array.<IOracleJob>|null} [priceFeedJobs] LpTokenPriceTask priceFeedJobs
+             * @property {boolean|null} [useFairPrice] LpTokenPriceTask useFairPrice
              */
     
             /**
@@ -4942,6 +4943,14 @@
              */
             LpTokenPriceTask.prototype.priceFeedJobs = $util.emptyArray;
     
+            /**
+             * LpTokenPriceTask useFairPrice.
+             * @member {boolean} useFairPrice
+             * @memberof OracleJob.LpTokenPriceTask
+             * @instance
+             */
+            LpTokenPriceTask.prototype.useFairPrice = false;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
@@ -4994,6 +5003,8 @@
                 if (message.priceFeedJobs != null && message.priceFeedJobs.length)
                     for (var i = 0; i < message.priceFeedJobs.length; ++i)
                         $root.OracleJob.encode(message.priceFeedJobs[i], writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                if (message.useFairPrice != null && Object.hasOwnProperty.call(message, "useFairPrice"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).bool(message.useFairPrice);
                 return writer;
             };
     
@@ -5049,6 +5060,9 @@
                         if (!(message.priceFeedJobs && message.priceFeedJobs.length))
                             message.priceFeedJobs = [];
                         message.priceFeedJobs.push($root.OracleJob.decode(reader, reader.uint32()));
+                        break;
+                    case 7:
+                        message.useFairPrice = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -5128,6 +5142,9 @@
                             return "priceFeedJobs." + error;
                     }
                 }
+                if (message.useFairPrice != null && message.hasOwnProperty("useFairPrice"))
+                    if (typeof message.useFairPrice !== "boolean")
+                        return "useFairPrice: boolean expected";
                 return null;
             };
     
@@ -5168,6 +5185,8 @@
                         message.priceFeedJobs[i] = $root.OracleJob.fromObject(object.priceFeedJobs[i]);
                     }
                 }
+                if (object.useFairPrice != null)
+                    message.useFairPrice = Boolean(object.useFairPrice);
                 return message;
             };
     
@@ -5188,6 +5207,8 @@
                     object.priceFeedAddresses = [];
                     object.priceFeedJobs = [];
                 }
+                if (options.defaults)
+                    object.useFairPrice = false;
                 if (message.mercurialPoolAddress != null && message.hasOwnProperty("mercurialPoolAddress")) {
                     object.mercurialPoolAddress = message.mercurialPoolAddress;
                     if (options.oneofs)
@@ -5218,6 +5239,8 @@
                     for (var j = 0; j < message.priceFeedJobs.length; ++j)
                         object.priceFeedJobs[j] = $root.OracleJob.toObject(message.priceFeedJobs[j], options);
                 }
+                if (message.useFairPrice != null && message.hasOwnProperty("useFairPrice"))
+                    object.useFairPrice = message.useFairPrice;
                 return object;
             };
     

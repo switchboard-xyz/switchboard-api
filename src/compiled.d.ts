@@ -1917,6 +1917,9 @@ export namespace OracleJob {
 
         /** LpTokenPriceTask priceFeedJobs */
         priceFeedJobs?: (IOracleJob[]|null);
+
+        /** LpTokenPriceTask useFairPrice */
+        useFairPrice?: (boolean|null);
     }
 
     /** Represents a LpTokenPriceTask. */
@@ -1945,6 +1948,9 @@ export namespace OracleJob {
 
         /** LpTokenPriceTask priceFeedJobs. */
         public priceFeedJobs: IOracleJob[];
+
+        /** LpTokenPriceTask useFairPrice. */
+        public useFairPrice: boolean;
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress"|"raydiumPoolAddress");
