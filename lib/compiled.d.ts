@@ -2337,6 +2337,9 @@ export namespace OracleJob {
 
         /** TwapTask period */
         period?: (number|null);
+
+        /** TwapTask weightByPropogationTime */
+        weightByPropogationTime?: (boolean|null);
     }
 
     /** Represents a TwapTask. */
@@ -2353,6 +2356,9 @@ export namespace OracleJob {
 
         /** TwapTask period. */
         public period: number;
+
+        /** TwapTask weightByPropogationTime. */
+        public weightByPropogationTime: boolean;
 
         /**
          * Creates a new TwapTask instance using the specified properties.
