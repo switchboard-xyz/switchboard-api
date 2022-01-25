@@ -4851,6 +4851,7 @@
              * @property {string|null} [orcaPoolAddress] LpTokenPriceTask orcaPoolAddress
              * @property {string|null} [raydiumPoolAddress] LpTokenPriceTask raydiumPoolAddress
              * @property {Array.<string>|null} [priceFeedAddresses] LpTokenPriceTask priceFeedAddresses
+             * @property {Array.<IOracleJob>|null} [priceFeedJobs] LpTokenPriceTask priceFeedJobs
              */
     
             /**
@@ -4863,6 +4864,7 @@
              */
             function LpTokenPriceTask(properties) {
                 this.priceFeedAddresses = [];
+                this.priceFeedJobs = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -4908,6 +4910,14 @@
              * @instance
              */
             LpTokenPriceTask.prototype.priceFeedAddresses = $util.emptyArray;
+    
+            /**
+             * LpTokenPriceTask priceFeedJobs.
+             * @member {Array.<IOracleJob>} priceFeedJobs
+             * @memberof OracleJob.LpTokenPriceTask
+             * @instance
+             */
+            LpTokenPriceTask.prototype.priceFeedJobs = $util.emptyArray;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -4958,6 +4968,9 @@
                 if (message.priceFeedAddresses != null && message.priceFeedAddresses.length)
                     for (var i = 0; i < message.priceFeedAddresses.length; ++i)
                         writer.uint32(/* id 5, wireType 2 =*/42).string(message.priceFeedAddresses[i]);
+                if (message.priceFeedJobs != null && message.priceFeedJobs.length)
+                    for (var i = 0; i < message.priceFeedJobs.length; ++i)
+                        $root.OracleJob.encode(message.priceFeedJobs[i], writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
                 return writer;
             };
     
@@ -5008,6 +5021,11 @@
                         if (!(message.priceFeedAddresses && message.priceFeedAddresses.length))
                             message.priceFeedAddresses = [];
                         message.priceFeedAddresses.push(reader.string());
+                        break;
+                    case 6:
+                        if (!(message.priceFeedJobs && message.priceFeedJobs.length))
+                            message.priceFeedJobs = [];
+                        message.priceFeedJobs.push($root.OracleJob.decode(reader, reader.uint32()));
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -5078,6 +5096,15 @@
                         if (!$util.isString(message.priceFeedAddresses[i]))
                             return "priceFeedAddresses: string[] expected";
                 }
+                if (message.priceFeedJobs != null && message.hasOwnProperty("priceFeedJobs")) {
+                    if (!Array.isArray(message.priceFeedJobs))
+                        return "priceFeedJobs: array expected";
+                    for (var i = 0; i < message.priceFeedJobs.length; ++i) {
+                        var error = $root.OracleJob.verify(message.priceFeedJobs[i]);
+                        if (error)
+                            return "priceFeedJobs." + error;
+                    }
+                }
                 return null;
             };
     
@@ -5108,6 +5135,16 @@
                     for (var i = 0; i < object.priceFeedAddresses.length; ++i)
                         message.priceFeedAddresses[i] = String(object.priceFeedAddresses[i]);
                 }
+                if (object.priceFeedJobs) {
+                    if (!Array.isArray(object.priceFeedJobs))
+                        throw TypeError(".OracleJob.LpTokenPriceTask.priceFeedJobs: array expected");
+                    message.priceFeedJobs = [];
+                    for (var i = 0; i < object.priceFeedJobs.length; ++i) {
+                        if (typeof object.priceFeedJobs[i] !== "object")
+                            throw TypeError(".OracleJob.LpTokenPriceTask.priceFeedJobs: object expected");
+                        message.priceFeedJobs[i] = $root.OracleJob.fromObject(object.priceFeedJobs[i]);
+                    }
+                }
                 return message;
             };
     
@@ -5124,8 +5161,10 @@
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.arrays || options.defaults)
+                if (options.arrays || options.defaults) {
                     object.priceFeedAddresses = [];
+                    object.priceFeedJobs = [];
+                }
                 if (message.mercurialPoolAddress != null && message.hasOwnProperty("mercurialPoolAddress")) {
                     object.mercurialPoolAddress = message.mercurialPoolAddress;
                     if (options.oneofs)
@@ -5150,6 +5189,11 @@
                     object.priceFeedAddresses = [];
                     for (var j = 0; j < message.priceFeedAddresses.length; ++j)
                         object.priceFeedAddresses[j] = message.priceFeedAddresses[j];
+                }
+                if (message.priceFeedJobs && message.priceFeedJobs.length) {
+                    object.priceFeedJobs = [];
+                    for (var j = 0; j < message.priceFeedJobs.length; ++j)
+                        object.priceFeedJobs[j] = $root.OracleJob.toObject(message.priceFeedJobs[j], options);
                 }
                 return object;
             };

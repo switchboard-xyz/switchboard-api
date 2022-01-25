@@ -1908,6 +1908,9 @@ export namespace OracleJob {
 
         /** LpTokenPriceTask priceFeedAddresses */
         priceFeedAddresses?: (string[]|null);
+
+        /** LpTokenPriceTask priceFeedJobs */
+        priceFeedJobs?: (IOracleJob[]|null);
     }
 
     /** Represents a LpTokenPriceTask. */
@@ -1933,6 +1936,9 @@ export namespace OracleJob {
 
         /** LpTokenPriceTask priceFeedAddresses. */
         public priceFeedAddresses: string[];
+
+        /** LpTokenPriceTask priceFeedJobs. */
+        public priceFeedJobs: IOracleJob[];
 
         /** LpTokenPriceTask PoolAddress. */
         public PoolAddress?: ("mercurialPoolAddress"|"saberPoolAddress"|"orcaPoolAddress"|"raydiumPoolAddress");
