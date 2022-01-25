@@ -897,6 +897,9 @@ export namespace OracleJob {
 
         /** MedianTask jobs */
         jobs?: (IOracleJob[]|null);
+
+        /** MedianTask minSuccessfulRequired */
+        minSuccessfulRequired?: (number|null);
     }
 
     /** Represents a MedianTask. */
@@ -913,6 +916,9 @@ export namespace OracleJob {
 
         /** MedianTask jobs. */
         public jobs: IOracleJob[];
+
+        /** MedianTask minSuccessfulRequired. */
+        public minSuccessfulRequired: number;
 
         /**
          * Creates a new MedianTask instance using the specified properties.
