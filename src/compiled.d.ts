@@ -2340,6 +2340,9 @@ export namespace OracleJob {
 
         /** TwapTask weightByPropogationTime */
         weightByPropogationTime?: (boolean|null);
+
+        /** TwapTask minSamples */
+        minSamples?: (number|null);
     }
 
     /** Represents a TwapTask. */
@@ -2359,6 +2362,9 @@ export namespace OracleJob {
 
         /** TwapTask weightByPropogationTime. */
         public weightByPropogationTime: boolean;
+
+        /** TwapTask minSamples. */
+        public minSamples: number;
 
         /**
          * Creates a new TwapTask instance using the specified properties.
