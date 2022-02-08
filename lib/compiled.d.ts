@@ -2338,11 +2338,14 @@ export namespace OracleJob {
         /** TwapTask period */
         period?: (number|null);
 
-        /** TwapTask weightByPropogationTime */
-        weightByPropogationTime?: (boolean|null);
+        /** TwapTask weightByPropagationTime */
+        weightByPropagationTime?: (boolean|null);
 
         /** TwapTask minSamples */
         minSamples?: (number|null);
+
+        /** TwapTask endingUnixTimestamp */
+        endingUnixTimestamp?: (number|null);
     }
 
     /** Represents a TwapTask. */
@@ -2360,11 +2363,14 @@ export namespace OracleJob {
         /** TwapTask period. */
         public period: number;
 
-        /** TwapTask weightByPropogationTime. */
-        public weightByPropogationTime: boolean;
+        /** TwapTask weightByPropagationTime. */
+        public weightByPropagationTime: boolean;
 
         /** TwapTask minSamples. */
         public minSamples: number;
+
+        /** TwapTask endingUnixTimestamp. */
+        public endingUnixTimestamp: number;
 
         /**
          * Creates a new TwapTask instance using the specified properties.
