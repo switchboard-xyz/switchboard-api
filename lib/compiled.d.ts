@@ -2545,8 +2545,8 @@ export namespace OracleJob {
     /** Properties of a PowTask. */
     interface IPowTask {
 
-        /** PowTask value */
-        value?: (number|null);
+        /** PowTask scalar */
+        scalar?: (number|null);
 
         /** PowTask aggregatorPubkey */
         aggregatorPubkey?: (string|null);
@@ -2561,14 +2561,14 @@ export namespace OracleJob {
          */
         constructor(properties?: OracleJob.IPowTask);
 
-        /** PowTask value. */
-        public value?: (number|null);
+        /** PowTask scalar. */
+        public scalar?: (number|null);
 
         /** PowTask aggregatorPubkey. */
         public aggregatorPubkey?: (string|null);
 
         /** PowTask Exponent. */
-        public Exponent?: ("value"|"aggregatorPubkey");
+        public Exponent?: ("scalar"|"aggregatorPubkey");
 
         /**
          * Creates a new PowTask instance using the specified properties.
