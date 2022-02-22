@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IFulfillmentEntry | @switchboard-xyz/switchboard-api</title>
+	<title>IPowTask | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,13 @@
 					<a href="../modules.html">@switchboard-xyz/switchboard-api</a>
 				</li>
 				<li>
-					<a href="ifulfillmententry.html">IFulfillmentEntry</a>
+					<a href="../modules/oraclejob.html">OracleJob</a>
+				</li>
+				<li>
+					<a href="oraclejob.ipowtask.html">IPowTask</a>
 				</li>
 			</ul>
-			<h1>Interface IFulfillmentEntry</h1>
+			<h1>Interface IPowTask</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a FulfillmentEntry.</p>
+						<p>Properties of a PowTask.</p>
 					</div>
 				</div>
 			</section>
@@ -76,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IFulfillmentEntry</span>
+						<span class="target">IPowTask</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/fulfillmententry.html" class="tsd-signature-type" data-tsd-kind="Class">FulfillmentEntry</a></li>
+					<li><a href="../classes/oraclejob.powtask.html" class="tsd-signature-type" data-tsd-kind="Class">PowTask</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -93,9 +96,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmententry.html#leasecount" class="tsd-kind-icon">lease<wbr>Count</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmententry.html#nodepubkey" class="tsd-kind-icon">node<wbr>Pubkey</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmententry.html#slotexpiration" class="tsd-kind-icon">slot<wbr>Expiration</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ipowtask.html#aggregatorpubkey" class="tsd-kind-icon">aggregator<wbr>Pubkey</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ipowtask.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,47 +106,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="leasecount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> lease<wbr>Count</h3>
-					<div class="tsd-signature tsd-kind-icon">lease<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="aggregatorpubkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> aggregator<wbr>Pubkey</h3>
+					<div class="tsd-signature tsd-kind-icon">aggregator<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbcd9da/src/compiled.d.ts#L3423">compiled.d.ts:3423</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbcd9da/src/compiled.d.ts#L2552">compiled.d.ts:2552</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>FulfillmentEntry leaseCount</p>
+							<p>PowTask aggregatorPubkey</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nodepubkey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> node<wbr>Pubkey</h3>
-					<div class="tsd-signature tsd-kind-icon">node<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
+					<a name="value" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> value</h3>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbcd9da/src/compiled.d.ts#L3420">compiled.d.ts:3420</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbcd9da/src/compiled.d.ts#L2549">compiled.d.ts:2549</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>FulfillmentEntry nodePubkey</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="slotexpiration" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> slot<wbr>Expiration</h3>
-					<div class="tsd-signature tsd-kind-icon">slot<wbr>Expiration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/dbcd9da/src/compiled.d.ts#L3426">compiled.d.ts:3426</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>FulfillmentEntry slotExpiration</p>
+							<p>PowTask value</p>
 						</div>
 					</div>
 				</section>
@@ -156,23 +143,38 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/aggregatorstate.html">Aggregator<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/fulfillmentmanagerstate.html">Fulfillment<wbr>Manager<wbr>State</a>
+					</li>
+					<li class="current tsd-kind-namespace">
+						<a href="../modules/oraclejob.html">Oracle<wbr>Job</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="../modules/oraclejob.httptask.html">Oracle<wbr>Job.<wbr>Http<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="../modules/oraclejob.jsonparsetask.html">Oracle<wbr>Job.<wbr>Json<wbr>Parse<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/switchboardinstruction.html">Switchboard<wbr>Instruction</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="ifulfillmententry.html" class="tsd-kind-icon">IFulfillment<wbr>Entry</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="oraclejob.ipowtask.html" class="tsd-kind-icon">IPow<wbr>Task</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmententry.html#leasecount" class="tsd-kind-icon">lease<wbr>Count</a>
+								<a href="oraclejob.ipowtask.html#aggregatorpubkey" class="tsd-kind-icon">aggregator<wbr>Pubkey</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmententry.html#nodepubkey" class="tsd-kind-icon">node<wbr>Pubkey</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmententry.html#slotexpiration" class="tsd-kind-icon">slot<wbr>Expiration</a>
+								<a href="oraclejob.ipowtask.html#value" class="tsd-kind-icon">value</a>
 							</li>
 						</ul>
 					</li>

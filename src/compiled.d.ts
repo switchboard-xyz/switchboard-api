@@ -1188,6 +1188,9 @@ export namespace OracleJob {
 
         /** ValueTask value */
         value?: (number|null);
+
+        /** ValueTask aggregatorPubkey */
+        aggregatorPubkey?: (string|null);
     }
 
     /** Represents a ValueTask. */
@@ -1200,7 +1203,13 @@ export namespace OracleJob {
         constructor(properties?: OracleJob.IValueTask);
 
         /** ValueTask value. */
-        public value: number;
+        public value?: (number|null);
+
+        /** ValueTask aggregatorPubkey. */
+        public aggregatorPubkey?: (string|null);
+
+        /** ValueTask Value. */
+        public Value?: ("value"|"aggregatorPubkey");
 
         /**
          * Creates a new ValueTask instance using the specified properties.
@@ -2533,6 +2542,105 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a PowTask. */
+    interface IPowTask {
+
+        /** PowTask value */
+        value?: (number|null);
+
+        /** PowTask aggregatorPubkey */
+        aggregatorPubkey?: (string|null);
+    }
+
+    /** Represents a PowTask. */
+    class PowTask implements IPowTask {
+
+        /**
+         * Constructs a new PowTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IPowTask);
+
+        /** PowTask value. */
+        public value?: (number|null);
+
+        /** PowTask aggregatorPubkey. */
+        public aggregatorPubkey?: (string|null);
+
+        /** PowTask Exponent. */
+        public Exponent?: ("value"|"aggregatorPubkey");
+
+        /**
+         * Creates a new PowTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PowTask instance
+         */
+        public static create(properties?: OracleJob.IPowTask): OracleJob.PowTask;
+
+        /**
+         * Encodes the specified PowTask message. Does not implicitly {@link OracleJob.PowTask.verify|verify} messages.
+         * @param message PowTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IPowTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified PowTask message, length delimited. Does not implicitly {@link OracleJob.PowTask.verify|verify} messages.
+         * @param message PowTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IPowTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a PowTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PowTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.PowTask;
+
+        /**
+         * Decodes a PowTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PowTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.PowTask;
+
+        /**
+         * Verifies a PowTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a PowTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PowTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.PowTask;
+
+        /**
+         * Creates a plain object from a PowTask message. Also converts values to other types if specified.
+         * @param message PowTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.PowTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PowTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -2589,6 +2697,9 @@ export namespace OracleJob {
 
         /** Task serumSwapTask */
         serumSwapTask?: (OracleJob.ISerumSwapTask|null);
+
+        /** Task powTask */
+        powTask?: (OracleJob.IPowTask|null);
     }
 
     /** Represents a Task. */
@@ -2654,8 +2765,11 @@ export namespace OracleJob {
         /** Task serumSwapTask. */
         public serumSwapTask?: (OracleJob.ISerumSwapTask|null);
 
+        /** Task powTask. */
+        public powTask?: (OracleJob.IPowTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask");
 
         /**
          * Creates a new Task instance using the specified properties.
