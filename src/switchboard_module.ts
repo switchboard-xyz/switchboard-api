@@ -10,15 +10,28 @@ import {
   TransactionSignature,
   sendAndConfirmTransaction,
   SYSVAR_RECENT_BLOCKHASHES_PUBKEY,
-} from '@solana/web3.js';
-import { AggregatorState, SwitchboardInstruction, OracleJob,
-  FulfillmentManagerState, SwitchboardAccountType, BundleAuth,
-  VrfAccountData
-} from './compiled';
+  PACKET_DATA_SIZE,
+  Keypair,
+} from "@solana/web3.js";
+import {
+  AggregatorState,
+  SwitchboardInstruction,
+  OracleJob,
+  FulfillmentManagerState,
+  SwitchboardAccountType,
+  BundleAuth,
+  VrfAccountData,
+} from "./compiled";
 
-export const SWITCHBOARD_DEVNET_PID = new PublicKey("7azgmy1pFXHikv36q1zZASvFq5vFa39TT9NweVugKKTU");
-export const SWITCHBOARD_TESTNET_PID = new PublicKey("6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt");
-export const SWITCHBOARD_MAINNET_PID = new PublicKey("DtmE9D2CSB4L5D6A15mraeEjrGMm6auWVzgaD8hK2tZM");
+export const SWITCHBOARD_DEVNET_PID = new PublicKey(
+  "7azgmy1pFXHikv36q1zZASvFq5vFa39TT9NweVugKKTU"
+);
+export const SWITCHBOARD_TESTNET_PID = new PublicKey(
+  "6by54r25x6qUe87SiQCb11sGhGY8hachdVva6H3N22Wt"
+);
+export const SWITCHBOARD_MAINNET_PID = new PublicKey(
+  "DtmE9D2CSB4L5D6A15mraeEjrGMm6auWVzgaD8hK2tZM"
+);
 
 /**
  * Pull accountInfo from a provided account address and attempt to parse the state.
@@ -28,15 +41,19 @@ export const SWITCHBOARD_MAINNET_PID = new PublicKey("DtmE9D2CSB4L5D6A15mraeEjrG
  */
 export async function parseBundleAuthAccountData(
   connection: Connection,
-  address: PublicKey,
+  address: PublicKey
 ): Promise<BundleAuth> {
   let accountInfo = await connection.getAccountInfo(address);
   if (accountInfo == null) {
-    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+    throw new Error(
+      `Failed to fetch information on account ${address.toBase58()}.`
+    );
   }
   let data = accountInfo.data;
   if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_BUNDLE_AUTH) {
-    throw new Error(`Switchboard account parser was not provided with a bundle auth account: ${address.toBase58()}`);
+    throw new Error(
+      `Switchboard account parser was not provided with a bundle auth account: ${address.toBase58()}`
+    );
   }
   return BundleAuth.decodeDelimited(accountInfo.data.slice(1));
 }
@@ -49,15 +66,19 @@ export async function parseBundleAuthAccountData(
  */
 export async function parseAggregatorAccountData(
   connection: Connection,
-  address: PublicKey,
+  address: PublicKey
 ): Promise<AggregatorState> {
   let accountInfo = await connection.getAccountInfo(address);
   if (accountInfo == null) {
-    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+    throw new Error(
+      `Failed to fetch information on account ${address.toBase58()}.`
+    );
   }
   let data = accountInfo.data;
   if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_AGGREGATOR) {
-    throw new Error(`Switchboard account parser was not provided with an aggregator account: ${address.toBase58()}`);
+    throw new Error(
+      `Switchboard account parser was not provided with an aggregator account: ${address.toBase58()}`
+    );
   }
   return AggregatorState.decodeDelimited(accountInfo.data.slice(1));
 }
@@ -70,15 +91,22 @@ export async function parseAggregatorAccountData(
  */
 export async function parseFulfillmentAccountData(
   connection: Connection,
-  address: PublicKey,
+  address: PublicKey
 ): Promise<FulfillmentManagerState> {
   let accountInfo = await connection.getAccountInfo(address);
   if (accountInfo == null) {
-    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+    throw new Error(
+      `Failed to fetch information on account ${address.toBase58()}.`
+    );
   }
   let data = accountInfo.data;
-  if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER) {
-    throw new Error(`Switchboard account parser was not provided with a fulfillment manager account: ${address.toBase58()}`);
+  if (
+    data.length == 0 ||
+    data[0] != SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER
+  ) {
+    throw new Error(
+      `Switchboard account parser was not provided with a fulfillment manager account: ${address.toBase58()}`
+    );
   }
   return FulfillmentManagerState.decodeDelimited(accountInfo.data.slice(1));
 }
@@ -91,21 +119,28 @@ export async function parseFulfillmentAccountData(
  */
 export async function parseOracleJobAccountData(
   connection: Connection,
-  address: PublicKey,
+  address: PublicKey
 ): Promise<OracleJob> {
   let accountInfo = await connection.getAccountInfo(address);
   if (accountInfo == null) {
-    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+    throw new Error(
+      `Failed to fetch information on account ${address.toBase58()}.`
+    );
   }
   let data = accountInfo.data;
-  if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_JOB_DEFINITION) {
-    throw new Error(`Switchboard account parser was not provided with a fulfillment manager account: ${address.toBase58()}`);
+  if (
+    data.length == 0 ||
+    data[0] != SwitchboardAccountType.TYPE_JOB_DEFINITION
+  ) {
+    throw new Error(
+      `Switchboard account parser was not provided with a fulfillment manager account: ${address.toBase58()}`
+    );
   }
   return OracleJob.decodeDelimited(accountInfo.data.slice(1));
 }
 
 /**
- * Publishes a premade account on chain, initialized as the provided account type. 
+ * Publishes a premade account on chain, initialized as the provided account type.
  * @param connection Solana network connection object.
  * @param account The account which will be published and type will be set.
  * @param payerAccount Transaction funder account.
@@ -119,7 +154,7 @@ export async function publishSwitchboardAccount(
   payerAccount: Account,
   switchboardPid: PublicKey,
   type: SwitchboardAccountType,
-  accountSize: number = 5_000,
+  accountSize: number = 5_000
 ): Promise<Account> {
   const space = accountSize;
   const lamports = await connection.getMinimumBalanceForRentExemption(space);
@@ -140,19 +175,26 @@ export async function publishSwitchboardAccount(
 //  === Data Feed Utilities ===
 
 /**
- * Permanently sets the account type to an Aggregator account. 
+ * Permanently sets the account type to an Aggregator account.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param dataFeedAccount The account for which type will be set.
  */
 export async function initDataFeedAccount(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account) {
-  await initAccount(connection, payerAccount, dataFeedAccount,
-    SwitchboardAccountType.TYPE_AGGREGATOR);
+  connection: Connection,
+  payerAccount: Account,
+  dataFeedAccount: Account
+) {
+  await initAccount(
+    connection,
+    payerAccount,
+    dataFeedAccount,
+    SwitchboardAccountType.TYPE_AGGREGATOR
+  );
 }
 
 /**
- * Creates an account and permanently sets the account type to an Aggregator account. 
+ * Creates an account and permanently sets the account type to an Aggregator account.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param switchboardPid The Switchboard Program pubkey that will own the account.
@@ -163,11 +205,20 @@ export async function createDataFeed(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 5_000,
+  accountSize: number = 5_000
 ): Promise<Account> {
-  let dataFeedAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
-  await initAccount(connection, payerAccount, dataFeedAccount,
-    SwitchboardAccountType.TYPE_AGGREGATOR);
+  let dataFeedAccount = await createOwnedStateAccount(
+    connection,
+    payerAccount,
+    accountSize,
+    switchboardPid
+  );
+  await initAccount(
+    connection,
+    payerAccount,
+    dataFeedAccount,
+    SwitchboardAccountType.TYPE_AGGREGATOR
+  );
   return dataFeedAccount;
 }
 
@@ -180,17 +231,34 @@ export async function createDataFeed(
  * @returns the Account holding the newly created job.
  */
 export async function addFeedJob(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account, jobTasks: OracleJob.Task[]): Promise<Account> {
-  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
-  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
-  let buffer = Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      registerJobInstruction: SwitchboardInstruction.RegisterJobInstruction.create({
-        job: OracleJob.create({
-          tasks: jobTasks
-        })
+  connection: Connection,
+  payerAccount: Account,
+  dataFeedAccount: Account,
+  jobTasks: OracleJob.Task[]
+): Promise<Account> {
+  let dataFeedAccountInfo = await connection.getAccountInfo(
+    dataFeedAccount.publicKey
+  );
+  if (dataFeedAccountInfo == null)
+    throw new Error("Failed to fetch information on the datafeed account");
+  let buffer = Buffer.from(
+    SwitchboardInstruction.encodeDelimited(
+      SwitchboardInstruction.create({
+        registerJobInstruction:
+          SwitchboardInstruction.RegisterJobInstruction.create({
+            job: OracleJob.create({
+              tasks: jobTasks,
+            }),
+          }),
       })
-    })).finish());
-  let jobAccount = await createOwnedStateAccount(connection, payerAccount, buffer.length, dataFeedAccountInfo.owner);
+    ).finish()
+  );
+  let jobAccount = await createOwnedStateAccount(
+    connection,
+    payerAccount,
+    buffer.length,
+    dataFeedAccountInfo.owner
+  );
 
   let transactionInstruction = new TransactionInstruction({
     keys: [
@@ -202,11 +270,11 @@ export async function addFeedJob(
     data: buffer,
   });
 
-  await performTransaction(connection, new Transaction().add(transactionInstruction), [
-    payerAccount,
-    dataFeedAccount,
-    jobAccount
-  ]);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    [payerAccount, dataFeedAccount, jobAccount]
+  );
   return jobAccount;
 }
 
@@ -220,30 +288,57 @@ export async function addFeedJob(
  * @returns the AggregatorParseOptimized account
  */
 export async function addFeedParseOptimizedAccount(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account, accountSize: number = 1_000): Promise<Account> {
-  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
-  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
+  connection: Connection,
+  payerAccount: Account,
+  dataFeedAccount: Account,
+  accountSize: number = 1_000
+): Promise<Account> {
+  let dataFeedAccountInfo = await connection.getAccountInfo(
+    dataFeedAccount.publicKey
+  );
+  if (dataFeedAccountInfo == null)
+    throw new Error("Failed to fetch information on the datafeed account");
 
-  let parseOptimizedAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, dataFeedAccountInfo.owner);
-  await initAccount(connection, payerAccount, parseOptimizedAccount,
-    SwitchboardAccountType.TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED);
+  let parseOptimizedAccount = await createOwnedStateAccount(
+    connection,
+    payerAccount,
+    accountSize,
+    dataFeedAccountInfo.owner
+  );
+  await initAccount(
+    connection,
+    payerAccount,
+    parseOptimizedAccount,
+    SwitchboardAccountType.TYPE_AGGREGATOR_RESULT_PARSE_OPTIMIZED
+  );
 
   let transactionInstruction = new TransactionInstruction({
     keys: [
       { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true },
-      { pubkey: parseOptimizedAccount.publicKey, isSigner: true, isWritable: true },
+      {
+        pubkey: parseOptimizedAccount.publicKey,
+        isSigner: true,
+        isWritable: true,
+      },
     ],
     programId: dataFeedAccountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      linkParseOptimizedAccountInstruction: SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.create({})
-    })).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          linkParseOptimizedAccountInstruction:
+            SwitchboardInstruction.LinkedParseOptimizedResultAccountInstruction.create(
+              {}
+            ),
+        })
+      ).finish()
+    ),
   });
 
-  await performTransaction(connection, new Transaction().add(transactionInstruction), [
-    payerAccount,
-    dataFeedAccount,
-    parseOptimizedAccount
-  ]);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    [payerAccount, dataFeedAccount, parseOptimizedAccount]
+  );
   return parseOptimizedAccount;
 }
 
@@ -255,25 +350,38 @@ export async function addFeedParseOptimizedAccount(
  * @param job The public key of the job account to remove from this aggregator.
  */
 export async function removeFeedJob(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account, job: PublicKey) {
-  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
-  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
+  connection: Connection,
+  payerAccount: Account,
+  dataFeedAccount: Account,
+  job: PublicKey
+) {
+  let dataFeedAccountInfo = await connection.getAccountInfo(
+    dataFeedAccount.publicKey
+  );
+  if (dataFeedAccountInfo == null)
+    throw new Error("Failed to fetch information on the datafeed account");
   let transactionInstruction = new TransactionInstruction({
     keys: [
       { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true },
     ],
     programId: dataFeedAccountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      unregisterJobInstruction: SwitchboardInstruction.UnregisterJobInstruction.create({
-        jobPubkey: job.toBuffer()
-      })
-    })).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          unregisterJobInstruction:
+            SwitchboardInstruction.UnregisterJobInstruction.create({
+              jobPubkey: job.toBuffer(),
+            }),
+        })
+      ).finish()
+    ),
   });
 
-  await performTransaction(connection, new Transaction().add(transactionInstruction), [
-    payerAccount,
-    dataFeedAccount,
-  ]);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    [payerAccount, dataFeedAccount]
+  );
 }
 
 /**
@@ -290,15 +398,25 @@ export async function updateFeed(
   connection: Connection,
   payerAccount: Account,
   dataFeedPubkey: PublicKey,
-  authKey?: PublicKey): Promise<string> {
+  authKey?: PublicKey
+): Promise<string> {
   let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedPubkey);
-  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
-  let aggregator = AggregatorState.decodeDelimited(dataFeedAccountInfo.data.slice(1));
+  if (dataFeedAccountInfo == null)
+    throw new Error("Failed to fetch information on the datafeed account");
+  let aggregator = AggregatorState.decodeDelimited(
+    dataFeedAccountInfo.data.slice(1)
+  );
 
-  let fulfillmentManagerStatePubKey = new PublicKey(aggregator.fulfillmentManagerPubkey);
+  let fulfillmentManagerStatePubKey = new PublicKey(
+    aggregator.fulfillmentManagerPubkey
+  );
   let keys = [
     { pubkey: dataFeedPubkey, isSigner: false, isWritable: true },
-    { pubkey: fulfillmentManagerStatePubKey, isSigner: false, isWritable: false },
+    {
+      pubkey: fulfillmentManagerStatePubKey,
+      isSigner: false,
+      isWritable: false,
+    },
     { pubkey: SYSVAR_CLOCK_PUBKEY, isSigner: false, isWritable: false },
   ];
   if (authKey != null) {
@@ -307,24 +425,35 @@ export async function updateFeed(
   let agreementInstruction = new TransactionInstruction({
     keys,
     programId: dataFeedAccountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      reachFulfillerAgreementInstruction: SwitchboardInstruction.ReachFulfillerAgreementInstruction.create({})
-    })).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          reachFulfillerAgreementInstruction:
+            SwitchboardInstruction.ReachFulfillerAgreementInstruction.create(
+              {}
+            ),
+        })
+      ).finish()
+    ),
   });
   let updateInstruction = new TransactionInstruction({
-    keys: [
-      { pubkey: dataFeedPubkey, isSigner: false, isWritable: true },
-    ],
+    keys: [{ pubkey: dataFeedPubkey, isSigner: false, isWritable: true }],
     programId: dataFeedAccountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      updateAggregateInstruction: SwitchboardInstruction.UpdateAggregateInstruction.create({})
-    })).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          updateAggregateInstruction:
+            SwitchboardInstruction.UpdateAggregateInstruction.create({}),
+        })
+      ).finish()
+    ),
   });
 
   let txAccounts = [payerAccount];
-  return connection.sendTransaction(new Transaction()
-    .add(agreementInstruction)
-    .add(updateInstruction), txAccounts);
+  return connection.sendTransaction(
+    new Transaction().add(agreementInstruction).add(updateInstruction),
+    txAccounts
+  );
 }
 
 /**
@@ -342,52 +471,71 @@ export async function setDataFeedConfigs(
   connection: Connection,
   payerAccount: Account,
   dataFeedAccount: Account,
-  configs: any) {
-  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
-  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
+  configs: any
+) {
+  let dataFeedAccountInfo = await connection.getAccountInfo(
+    dataFeedAccount.publicKey
+  );
+  if (dataFeedAccountInfo == null)
+    throw new Error("Failed to fetch information on the datafeed account");
 
   let keys = [
-    { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true }
+    { pubkey: dataFeedAccount.publicKey, isSigner: true, isWritable: true },
   ];
   let fmPubkey = null;
   if (configs["fulfillmentManagerPubkey"] !== undefined) {
     fmPubkey = new PublicKey(configs["fulfillmentManagerPubkey"]);
-    keys.push(
-      { pubkey: fmPubkey, isSigner: false, isWritable: false });
+    keys.push({ pubkey: fmPubkey, isSigner: false, isWritable: false });
   }
   let transactionInstruction = new TransactionInstruction({
     keys,
     programId: dataFeedAccountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      setAggregatorConfigsInstruction: SwitchboardInstruction.SetAggregatorConfigsInstruction.create({
-        minConfirmations: configs["minConfirmations"],
-        minUpdateDelaySeconds: configs["minUpdateDelaySeconds"],
-        fulfillmentManagerPubkey: fmPubkey?.toBytes(),
-        lock: configs["lock"],
-      })
-    })).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          setAggregatorConfigsInstruction:
+            SwitchboardInstruction.SetAggregatorConfigsInstruction.create({
+              minConfirmations: configs["minConfirmations"],
+              minUpdateDelaySeconds: configs["minUpdateDelaySeconds"],
+              fulfillmentManagerPubkey: fmPubkey?.toBytes(),
+              lock: configs["lock"],
+            }),
+        })
+      ).finish()
+    ),
   });
 
   let txAccounts = [payerAccount, dataFeedAccount];
-  await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    txAccounts
+  );
 }
 
 //  === Fulfillment Manager Utilities ===
 
 /**
- * Permanently sets the account type to a FulfillmentManager account. 
+ * Permanently sets the account type to a FulfillmentManager account.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param fulfillmentManagerAccount The account for which type will be set.
  */
 export async function initFulfillmentManagerAccount(
-  connection: Connection, payerAccount: Account, fulfillmentManagerAccount: Account) {
-  await initAccount(connection, payerAccount, fulfillmentManagerAccount,
-    SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER);
+  connection: Connection,
+  payerAccount: Account,
+  fulfillmentManagerAccount: Account
+) {
+  await initAccount(
+    connection,
+    payerAccount,
+    fulfillmentManagerAccount,
+    SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER
+  );
 }
 
 /**
- * Creates an account and permanently sets the account type to a FulfillmentManagerAuth account. 
+ * Creates an account and permanently sets the account type to a FulfillmentManagerAuth account.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param switchboardPid The Switchboard Program pubkey.
@@ -398,11 +546,20 @@ export async function createFulfillmentManager(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 3_000,
+  accountSize: number = 3_000
 ): Promise<Account> {
-  let fulfillmentManagerAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
-  await initAccount(connection, payerAccount, fulfillmentManagerAccount,
-    SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER);
+  let fulfillmentManagerAccount = await createOwnedStateAccount(
+    connection,
+    payerAccount,
+    accountSize,
+    switchboardPid
+  );
+  await initAccount(
+    connection,
+    payerAccount,
+    fulfillmentManagerAccount,
+    SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER
+  );
   return fulfillmentManagerAccount;
 }
 
@@ -420,45 +577,70 @@ export async function setFulfillmentManagerConfigs(
   connection: Connection,
   payerAccount: Account,
   fulfillmentManagerAccount: Account,
-  configs: any,
+  configs: any
 ) {
-  let fmAccountInfo = await connection.getAccountInfo(fulfillmentManagerAccount.publicKey);
+  let fmAccountInfo = await connection.getAccountInfo(
+    fulfillmentManagerAccount.publicKey
+  );
   if (fmAccountInfo == null) {
-    throw new Error("Failed to fetch information on the Fulfillment Manager account");
+    throw new Error(
+      "Failed to fetch information on the Fulfillment Manager account"
+    );
   }
 
   let keys = [
-    { pubkey: fulfillmentManagerAccount.publicKey, isSigner: true, isWritable: true }
+    {
+      pubkey: fulfillmentManagerAccount.publicKey,
+      isSigner: true,
+      isWritable: true,
+    },
   ];
   let transactionInstruction = new TransactionInstruction({
     keys,
     programId: fmAccountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      setFulfillmentManagerConfigsInstruction: SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction.create({
-        heartbeatAuthRequired: configs["heartbeatAuthRequired"],
-        usageAuthRequired: configs["usageAuthRequired"],
-        lock: configs["lock"],
-      })
-    })).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          setFulfillmentManagerConfigsInstruction:
+            SwitchboardInstruction.SetFulfillmentManagerConfigsInstruction.create(
+              {
+                heartbeatAuthRequired: configs["heartbeatAuthRequired"],
+                usageAuthRequired: configs["usageAuthRequired"],
+                lock: configs["lock"],
+              }
+            ),
+        })
+      ).finish()
+    ),
   });
 
   let txAccounts = [payerAccount, fulfillmentManagerAccount];
-  await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    txAccounts
+  );
 }
-
 
 //  === Fulfillment Manager Authorization Utilities ===
 
 /**
- * Permanently sets the account type to a FulfillmentManagerAuth account. 
+ * Permanently sets the account type to a FulfillmentManagerAuth account.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param fulfillmentManagerAuthAccount The account for which type will be set.
  */
 export async function initFulfillmentManagerAuthAccount(
-  connection: Connection, payerAccount: Account, fulfillmentManagerAuthAccount: Account) {
-  await initAccount(connection, payerAccount, fulfillmentManagerAuthAccount,
-                    SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER_AUTH);
+  connection: Connection,
+  payerAccount: Account,
+  fulfillmentManagerAuthAccount: Account
+) {
+  await initAccount(
+    connection,
+    payerAccount,
+    fulfillmentManagerAuthAccount,
+    SwitchboardAccountType.TYPE_FULFILLMENT_MANAGER_AUTH
+  );
 }
 
 // TODO(mgild): Make single transaction
@@ -480,21 +662,36 @@ export async function createFulfillmentManagerAuth(
   fulfillmentManagerAccount: Account,
   nomineePubkey: PublicKey,
   configs: any,
-  accountSize: number = 300,
+  accountSize: number = 300
 ): Promise<Account> {
-  let fmAccountInfo = await connection.getAccountInfo(fulfillmentManagerAccount.publicKey);
+  let fmAccountInfo = await connection.getAccountInfo(
+    fulfillmentManagerAccount.publicKey
+  );
   if (fmAccountInfo == null) {
-    throw new Error("Failed to fetch account info for " + fulfillmentManagerAccount.publicKey.toString());
+    throw new Error(
+      "Failed to fetch account info for " +
+        fulfillmentManagerAccount.publicKey.toString()
+    );
   }
-  let fulfillmentManagerAuthAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, fmAccountInfo.owner);
-  await initFulfillmentManagerAuthAccount(connection, payerAccount, fulfillmentManagerAuthAccount);
+  let fulfillmentManagerAuthAccount = await createOwnedStateAccount(
+    connection,
+    payerAccount,
+    accountSize,
+    fmAccountInfo.owner
+  );
+  await initFulfillmentManagerAuthAccount(
+    connection,
+    payerAccount,
+    fulfillmentManagerAuthAccount
+  );
   await setAuthConfigs(
     connection,
     payerAccount,
     fulfillmentManagerAccount,
     fulfillmentManagerAuthAccount.publicKey,
     nomineePubkey,
-    configs);
+    configs
+  );
   return fulfillmentManagerAuthAccount;
 }
 
@@ -519,31 +716,53 @@ export async function setAuthConfigs(
   nomineePubkey: PublicKey,
   configs: any
 ) {
-  let fmAccountInfo = await connection.getAccountInfo(fulfillmentManagerAccount.publicKey);
+  let fmAccountInfo = await connection.getAccountInfo(
+    fulfillmentManagerAccount.publicKey
+  );
   if (fmAccountInfo == null) {
-    throw new Error("Failed to fetch account info for " + fulfillmentManagerAccount.publicKey.toString());
+    throw new Error(
+      "Failed to fetch account info for " +
+        fulfillmentManagerAccount.publicKey.toString()
+    );
   }
   let transactionInstruction = new TransactionInstruction({
     keys: [
-      { pubkey: fulfillmentManagerAuthPubkey, isSigner: false, isWritable: true },
-      { pubkey: fulfillmentManagerAccount.publicKey, isSigner: true, isWritable: false },
+      {
+        pubkey: fulfillmentManagerAuthPubkey,
+        isSigner: false,
+        isWritable: true,
+      },
+      {
+        pubkey: fulfillmentManagerAccount.publicKey,
+        isSigner: true,
+        isWritable: false,
+      },
       { pubkey: nomineePubkey, isSigner: false, isWritable: false },
     ],
     programId: fmAccountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      registerAuthInstruction: SwitchboardInstruction.RegisterAuthInstruction.create({
-        authorizeHeartbeat: configs["authorizeHeartbeat"],
-        authorizeUsage: configs["authorizeUsage"],
-      })
-    })).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          registerAuthInstruction:
+            SwitchboardInstruction.RegisterAuthInstruction.create({
+              authorizeHeartbeat: configs["authorizeHeartbeat"],
+              authorizeUsage: configs["authorizeUsage"],
+            }),
+        })
+      ).finish()
+    ),
   });
 
   let txAccounts = [payerAccount, fulfillmentManagerAccount];
-  await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    txAccounts
+  );
 }
 
 /**
- * Creates an account and permanently sets the account type to a VRF account. 
+ * Creates an account and permanently sets the account type to a VRF account.
  * @param connection Solana network connection object.
  * @param payerAccount Transaction funder account.
  * @param switchboardPid The Switchboard Program pubkey.
@@ -554,29 +773,40 @@ export async function createVrfAccount(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 1000,
+  accountSize: number = 1000
 ): Promise<Account> {
-  let vrfAccount = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
-  await initAccount(connection, payerAccount, vrfAccount, SwitchboardAccountType.TYPE_VRF);
+  let vrfAccount = await createOwnedStateAccount(
+    connection,
+    payerAccount,
+    accountSize,
+    switchboardPid
+  );
+  await initAccount(
+    connection,
+    payerAccount,
+    vrfAccount,
+    SwitchboardAccountType.TYPE_VRF
+  );
   let transactionInstruction1 = new TransactionInstruction({
-    keys: [
-      { pubkey: vrfAccount.publicKey, isSigner: true, isWritable: true },
-    ],
+    keys: [{ pubkey: vrfAccount.publicKey, isSigner: true, isWritable: true }],
     programId: switchboardPid,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      setVrfConfigsInstruction: SwitchboardInstruction.SetVrfConfigsInstruction.create({
-        minProofConfirmations: 5,
-        lockConfigs: true
-      })
-    })).finish())
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          setVrfConfigsInstruction:
+            SwitchboardInstruction.SetVrfConfigsInstruction.create({
+              minProofConfirmations: 5,
+              lockConfigs: true,
+            }),
+        })
+      ).finish()
+    ),
   });
   let signature = await sendAndConfirmTransaction(
-    connection, new Transaction()
-    .add(transactionInstruction1),
-    [
-      payerAccount,
-      vrfAccount,
-    ]);
+    connection,
+    new Transaction().add(transactionInstruction1),
+    [payerAccount, vrfAccount]
+  );
   return vrfAccount;
 }
 
@@ -588,30 +818,45 @@ export async function createVrfAccount(
  * @param vrfProducerPermit The permit pubkey authorizing this VRF to request randomness.
  * @param fmPermit The permit pubkey authorizing use of a specific fulfillment group to verify proofs.
  */
-export async function requestRandomness(connection: Connection, payerAccount: Account, vrfAccount: Account, vrfProducerPermit: PublicKey, fmPermit: PublicKey) {
+export async function requestRandomness(
+  connection: Connection,
+  payerAccount: Account,
+  vrfAccount: Account,
+  vrfProducerPermit: PublicKey,
+  fmPermit: PublicKey
+) {
   let accountInfo = await connection.getAccountInfo(vrfAccount.publicKey);
   if (accountInfo == null) {
-    throw new Error(`Failed to fetch information on account ${vrfAccount.publicKey.toBase58()}.`);
+    throw new Error(
+      `Failed to fetch information on account ${vrfAccount.publicKey.toBase58()}.`
+    );
   }
   let transactionInstruction1 = new TransactionInstruction({
     keys: [
       { pubkey: vrfAccount.publicKey, isSigner: true, isWritable: true },
-      { pubkey: SYSVAR_RECENT_BLOCKHASHES_PUBKEY, isSigner: false, isWritable: false },
+      {
+        pubkey: SYSVAR_RECENT_BLOCKHASHES_PUBKEY,
+        isSigner: false,
+        isWritable: false,
+      },
       { pubkey: vrfProducerPermit, isSigner: false, isWritable: false },
       { pubkey: fmPermit, isSigner: false, isWritable: false },
     ],
     programId: accountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      requestRandomnessInstruction: SwitchboardInstruction.RequestRandomnessInstruction.create({})
-    })).finish())
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          requestRandomnessInstruction:
+            SwitchboardInstruction.RequestRandomnessInstruction.create({}),
+        })
+      ).finish()
+    ),
   });
   let signature = await sendAndConfirmTransaction(
-    connection, new Transaction()
-    .add(transactionInstruction1),
-    [
-      payerAccount,
-      vrfAccount,
-    ]);
+    connection,
+    new Transaction().add(transactionInstruction1),
+    [payerAccount, vrfAccount]
+  );
 }
 
 /**
@@ -622,15 +867,19 @@ export async function requestRandomness(connection: Connection, payerAccount: Ac
  */
 export async function parseVrfAccountData(
   connection: Connection,
-  address: PublicKey,
+  address: PublicKey
 ): Promise<VrfAccountData> {
   let accountInfo = await connection.getAccountInfo(address);
   if (accountInfo == null) {
-    throw new Error(`Failed to fetch information on account ${address.toBase58()}.`);
+    throw new Error(
+      `Failed to fetch information on account ${address.toBase58()}.`
+    );
   }
   let data = accountInfo.data;
   if (data.length == 0 || data[0] != SwitchboardAccountType.TYPE_VRF) {
-    throw new Error(`Switchboard account parser was not provided with a VRF account: ${address.toBase58()}`);
+    throw new Error(
+      `Switchboard account parser was not provided with a VRF account: ${address.toBase58()}`
+    );
   }
   return VrfAccountData.decodeDelimited(accountInfo.data.slice(1));
 }
@@ -639,11 +888,20 @@ export async function createBundle(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 10_000_000,
+  accountSize: number = 10_000_000
 ): Promise<Account> {
-  let account = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
-  await initAccount(connection, payerAccount, account,
-    SwitchboardAccountType.TYPE_BUNDLE);
+  let account = await createOwnedStateAccount(
+    connection,
+    payerAccount,
+    accountSize,
+    switchboardPid
+  );
+  await initAccount(
+    connection,
+    payerAccount,
+    account,
+    SwitchboardAccountType.TYPE_BUNDLE
+  );
   return account;
 }
 
@@ -659,11 +917,20 @@ export async function createBundleAuth(
   connection: Connection,
   payerAccount: Account,
   switchboardPid: PublicKey,
-  accountSize: number = 500,
+  accountSize: number = 500
 ): Promise<Account> {
-  let account = await createOwnedStateAccount(connection, payerAccount, accountSize, switchboardPid);
-  await initAccount(connection, payerAccount, account,
-    SwitchboardAccountType.TYPE_BUNDLE_AUTH);
+  let account = await createOwnedStateAccount(
+    connection,
+    payerAccount,
+    accountSize,
+    switchboardPid
+  );
+  await initAccount(
+    connection,
+    payerAccount,
+    account,
+    SwitchboardAccountType.TYPE_BUNDLE_AUTH
+  );
   return account;
 }
 
@@ -675,9 +942,13 @@ export async function setBundleAuthConfigs(
   aggregatorPubkey: PublicKey,
   auth_idx: number
 ) {
-  let pid = (await connection.getAccountInfo(bundleAuthAccount.publicKey))?.owner;
+  let pid = (await connection.getAccountInfo(bundleAuthAccount.publicKey))
+    ?.owner;
   if (pid == null) {
-    throw new Error("Failed to fetch account info for " + bundleAuthAccount.publicKey.toString());
+    throw new Error(
+      "Failed to fetch account info for " +
+        bundleAuthAccount.publicKey.toString()
+    );
   }
   let transactionInstruction = new TransactionInstruction({
     keys: [
@@ -686,24 +957,45 @@ export async function setBundleAuthConfigs(
       { pubkey: aggregatorPubkey, isSigner: false, isWritable: false },
     ],
     programId: pid,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      setBundleAuthConfigsInstruction: SwitchboardInstruction.SetBundleAuthConfigsInstruction.create({
-        idx: auth_idx,
-      })
-    })).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(
+        SwitchboardInstruction.create({
+          setBundleAuthConfigsInstruction:
+            SwitchboardInstruction.SetBundleAuthConfigsInstruction.create({
+              idx: auth_idx,
+            }),
+        })
+      ).finish()
+    ),
   });
 
   let txAccounts = [payerAccount, bundleAuthAccount, bundleAccount];
-  await performTransaction(connection, new Transaction().add(transactionInstruction), txAccounts);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    txAccounts
+  );
 }
 
 export async function addFeedBundle(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: PublicKey) {
-  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
-  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
-  let buffer = Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      addBundleAuthInstruction: SwitchboardInstruction.AddBundleAuthInstruction.create({})
-    })).finish());
+  connection: Connection,
+  payerAccount: Account,
+  dataFeedAccount: Account,
+  bundleAuth: PublicKey
+) {
+  let dataFeedAccountInfo = await connection.getAccountInfo(
+    dataFeedAccount.publicKey
+  );
+  if (dataFeedAccountInfo == null)
+    throw new Error("Failed to fetch information on the datafeed account");
+  let buffer = Buffer.from(
+    SwitchboardInstruction.encodeDelimited(
+      SwitchboardInstruction.create({
+        addBundleAuthInstruction:
+          SwitchboardInstruction.AddBundleAuthInstruction.create({}),
+      })
+    ).finish()
+  );
 
   let transactionInstruction = new TransactionInstruction({
     keys: [
@@ -714,19 +1006,32 @@ export async function addFeedBundle(
     data: buffer,
   });
 
-  await performTransaction(connection, new Transaction().add(transactionInstruction), [
-    payerAccount,
-    dataFeedAccount,
-  ]);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    [payerAccount, dataFeedAccount]
+  );
 }
 
 export async function removeFeedBundle(
-  connection: Connection, payerAccount: Account, dataFeedAccount: Account, bundleAuth: PublicKey) {
-  let dataFeedAccountInfo = await connection.getAccountInfo(dataFeedAccount.publicKey);
-  if (dataFeedAccountInfo == null) throw new Error("Failed to fetch information on the datafeed account");
-  let buffer = Buffer.from(SwitchboardInstruction.encodeDelimited(SwitchboardInstruction.create({
-      removeBundleAuthInstruction: SwitchboardInstruction.RemoveBundleAuthInstruction.create({})
-    })).finish());
+  connection: Connection,
+  payerAccount: Account,
+  dataFeedAccount: Account,
+  bundleAuth: PublicKey
+) {
+  let dataFeedAccountInfo = await connection.getAccountInfo(
+    dataFeedAccount.publicKey
+  );
+  if (dataFeedAccountInfo == null)
+    throw new Error("Failed to fetch information on the datafeed account");
+  let buffer = Buffer.from(
+    SwitchboardInstruction.encodeDelimited(
+      SwitchboardInstruction.create({
+        removeBundleAuthInstruction:
+          SwitchboardInstruction.RemoveBundleAuthInstruction.create({}),
+      })
+    ).finish()
+  );
 
   let transactionInstruction = new TransactionInstruction({
     keys: [
@@ -737,10 +1042,11 @@ export async function removeFeedBundle(
     data: buffer,
   });
 
-  await performTransaction(connection, new Transaction().add(transactionInstruction), [
-    payerAccount,
-    dataFeedAccount,
-  ]);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    [payerAccount, dataFeedAccount]
+  );
   return null;
 }
 
@@ -776,30 +1082,39 @@ export async function createOwnedStateAccount(
     })
   );
 
-  await performTransaction(connection, transaction, [payerAccount, programStateAccount]);
+  await performTransaction(connection, transaction, [
+    payerAccount,
+    programStateAccount,
+  ]);
   return programStateAccount;
 }
-
 
 // === Non-Exported helpers ===
 
 // Internal Solana transaction helper.
 async function performTransaction(
-  connection: Connection, transaction: Transaction, accounts: Account[]): Promise<string> {
+  connection: Connection,
+  transaction: Transaction,
+  accounts: Account[]
+): Promise<string> {
   return sendAndConfirmTransaction(connection, transaction, accounts);
 }
 
 // Internal account initialization helper
 export async function initAccount(
-  connection: Connection, payerAccount: Account, account: Account, type: SwitchboardAccountType) {
+  connection: Connection,
+  payerAccount: Account,
+  account: Account,
+  type: SwitchboardAccountType
+) {
   let accountInfo = await connection.getAccountInfo(account.publicKey);
   if (accountInfo == null) {
     throw new Error("Failed to fetch information on the provided account.");
   }
   let switchboardInstruction = SwitchboardInstruction.create({
     initInstruction: SwitchboardInstruction.InitInstruction.create({
-      type: type
-    })
+      type: type,
+    }),
   });
   let transactionInstruction = new TransactionInstruction({
     keys: [
@@ -807,11 +1122,136 @@ export async function initAccount(
       { pubkey: SYSVAR_RENT_PUBKEY, isSigner: false, isWritable: false },
     ],
     programId: accountInfo.owner,
-    data: Buffer.from(SwitchboardInstruction.encodeDelimited(switchboardInstruction).finish()),
+    data: Buffer.from(
+      SwitchboardInstruction.encodeDelimited(switchboardInstruction).finish()
+    ),
   });
 
-  await performTransaction(connection, new Transaction().add(transactionInstruction), [
-    payerAccount,
-    account,
-  ]);
+  await performTransaction(
+    connection,
+    new Transaction().add(transactionInstruction),
+    [payerAccount, account]
+  );
+}
+
+/**
+ * Pack instructions into transactions as tightly as possible
+ * @param instructions Instructions to pack down into transactions
+ * @param feePayer Optional feepayer
+ * @param recentBlockhash Optional blockhash
+ * @returns Transaction[]
+ */
+export function packInstructions(
+  instructions: TransactionInstruction[],
+  feePayer: PublicKey = PublicKey.default,
+  recentBlockhash: string = PublicKey.default.toBase58()
+): Transaction[] {
+  const packed: Transaction[] = [];
+  let currentTransaction = new Transaction();
+  currentTransaction.recentBlockhash = recentBlockhash;
+  currentTransaction.feePayer = feePayer;
+
+  const encodeLength = (bytes: Array<number>, len: number) => {
+    let rem_len = len;
+    for (;;) {
+      let elem = rem_len & 0x7f;
+      rem_len >>= 7;
+      if (rem_len == 0) {
+        bytes.push(elem);
+        break;
+      } else {
+        elem |= 0x80;
+        bytes.push(elem);
+      }
+    }
+  };
+
+  for (let instruction of instructions) {
+    // add the new transaction
+    currentTransaction.add(instruction);
+
+    let sigCount: number[] = [];
+    encodeLength(sigCount, currentTransaction.signatures.length);
+
+    if (
+      PACKET_DATA_SIZE <=
+      currentTransaction.serializeMessage().length +
+        currentTransaction.signatures.length * 64 +
+        sigCount.length
+    ) {
+      // If the aggregator transaction fits, it will serialize without error. We can then push it ahead no problem
+      const trimmedInstruction = currentTransaction.instructions.pop()!;
+
+      // Every serialize adds the instruction signatures as dependencies
+      currentTransaction.signatures = [];
+
+      const overflowInstructions = [trimmedInstruction];
+
+      // add the capped transaction to our transaction - only push it if it works
+      packed.push(currentTransaction);
+
+      currentTransaction = new Transaction();
+      currentTransaction.recentBlockhash = recentBlockhash;
+      currentTransaction.feePayer = feePayer;
+      currentTransaction.instructions = overflowInstructions;
+    }
+  }
+
+  packed.push(currentTransaction);
+
+  return packed; // just return instructions
+}
+
+/**
+ * Repack Transactions and sign them
+ * @param connection Web3.js Connection
+ * @param transactions Transactions to repack
+ * @param signers Signers for each transaction
+ */
+export async function packTransactions(
+  connection: Connection,
+  transactions: Transaction[],
+  signers: Keypair[],
+  feePayer: PublicKey
+): Promise<Transaction[]> {
+  const instructions = transactions.map((t) => t.instructions).flat();
+  const txs = packInstructions(instructions, feePayer);
+  const { blockhash } = await connection.getRecentBlockhash("confirmed");
+  txs.forEach((t) => {
+    t.recentBlockhash = blockhash;
+  });
+  return signTransactions(txs, signers);
+}
+
+/**
+ * Sign transactions with correct signers
+ * @param transactions array of transactions to sign
+ * @param signers array of keypairs to sign the array of transactions with
+ * @returns transactions signed
+ */
+export function signTransactions(
+  transactions: Transaction[],
+  signers: Keypair[]
+): Transaction[] {
+  // Sign with all the appropriate signers
+  for (let transaction of transactions) {
+    // Get pubkeys of signers needed
+    const sigsNeeded = transaction.instructions
+      .map((instruction) => {
+        const signers = instruction.keys.filter((meta) => meta.isSigner);
+        return signers.map((signer) => signer.pubkey);
+      })
+      .flat();
+
+    // Get matching signers in our supplied array
+    let currentSigners = signers.filter((signer) =>
+      Boolean(sigsNeeded.find((sig: any) => sig.equals(signer.publicKey)))
+    );
+
+    // Sign all transactions
+    for (let signer of currentSigners) {
+      transaction.partialSign(signer);
+    }
+  }
+  return transactions;
 }
