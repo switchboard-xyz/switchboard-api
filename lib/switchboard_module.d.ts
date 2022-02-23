@@ -1,5 +1,5 @@
-import { Account, Connection, PublicKey } from '@solana/web3.js';
-import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType, BundleAuth, VrfAccountData } from './compiled';
+import { Account, Connection, PublicKey, Transaction, TransactionInstruction, Keypair } from "@solana/web3.js";
+import { AggregatorState, OracleJob, FulfillmentManagerState, SwitchboardAccountType, BundleAuth, VrfAccountData } from "./compiled";
 export declare const SWITCHBOARD_DEVNET_PID: PublicKey;
 export declare const SWITCHBOARD_TESTNET_PID: PublicKey;
 export declare const SWITCHBOARD_MAINNET_PID: PublicKey;
@@ -215,3 +215,25 @@ export declare function removeFeedBundle(connection: Connection, payerAccount: A
  */
 export declare function createOwnedStateAccount(connection: Connection, payerAccount: Account, size: number, parent: PublicKey, programStateAccount?: Account | null): Promise<Account>;
 export declare function initAccount(connection: Connection, payerAccount: Account, account: Account, type: SwitchboardAccountType): Promise<void>;
+/**
+ * Pack instructions into transactions as tightly as possible
+ * @param instructions Instructions to pack down into transactions
+ * @param feePayer Optional feepayer
+ * @param recentBlockhash Optional blockhash
+ * @returns Transaction[]
+ */
+export declare function packInstructions(instructions: TransactionInstruction[], feePayer?: PublicKey, recentBlockhash?: string): Transaction[];
+/**
+ * Repack Transactions and sign them
+ * @param connection Web3.js Connection
+ * @param transactions Transactions to repack
+ * @param signers Signers for each transaction
+ */
+export declare function packTransactions(connection: Connection, transactions: Transaction[], signers: Keypair[], feePayer: PublicKey): Promise<Transaction[]>;
+/**
+ * Sign transactions with correct signers
+ * @param transactions array of transactions to sign
+ * @param signers array of keypairs to sign the array of transactions with
+ * @returns transactions signed
+ */
+export declare function signTransactions(transactions: Transaction[], signers: Keypair[]): Transaction[];
