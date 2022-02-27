@@ -2641,6 +2641,117 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a LendingRateTask. */
+    interface ILendingRateTask {
+
+        /** LendingRateTask protocol */
+        protocol?: (string|null);
+
+        /** LendingRateTask assetMint */
+        assetMint?: (string|null);
+
+        /** LendingRateTask field */
+        field?: (OracleJob.LendingRateTask.Field|null);
+    }
+
+    /** Represents a LendingRateTask. */
+    class LendingRateTask implements ILendingRateTask {
+
+        /**
+         * Constructs a new LendingRateTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ILendingRateTask);
+
+        /** LendingRateTask protocol. */
+        public protocol: string;
+
+        /** LendingRateTask assetMint. */
+        public assetMint: string;
+
+        /** LendingRateTask field. */
+        public field: OracleJob.LendingRateTask.Field;
+
+        /**
+         * Creates a new LendingRateTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LendingRateTask instance
+         */
+        public static create(properties?: OracleJob.ILendingRateTask): OracleJob.LendingRateTask;
+
+        /**
+         * Encodes the specified LendingRateTask message. Does not implicitly {@link OracleJob.LendingRateTask.verify|verify} messages.
+         * @param message LendingRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ILendingRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LendingRateTask message, length delimited. Does not implicitly {@link OracleJob.LendingRateTask.verify|verify} messages.
+         * @param message LendingRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ILendingRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LendingRateTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LendingRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.LendingRateTask;
+
+        /**
+         * Decodes a LendingRateTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LendingRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.LendingRateTask;
+
+        /**
+         * Verifies a LendingRateTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LendingRateTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LendingRateTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.LendingRateTask;
+
+        /**
+         * Creates a plain object from a LendingRateTask message. Also converts values to other types if specified.
+         * @param message LendingRateTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.LendingRateTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LendingRateTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace LendingRateTask {
+
+        /** Field enum. */
+        enum Field {
+            FIELD_DEPOSIT_RATE = 0,
+            FIELD_BORROW_RATE = 1
+        }
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -2700,6 +2811,9 @@ export namespace OracleJob {
 
         /** Task powTask */
         powTask?: (OracleJob.IPowTask|null);
+
+        /** Task lendingRateTask */
+        lendingRateTask?: (OracleJob.ILendingRateTask|null);
     }
 
     /** Represents a Task. */
@@ -2768,8 +2882,11 @@ export namespace OracleJob {
         /** Task powTask. */
         public powTask?: (OracleJob.IPowTask|null);
 
+        /** Task lendingRateTask. */
+        public lendingRateTask?: (OracleJob.ILendingRateTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask");
 
         /**
          * Creates a new Task instance using the specified properties.
