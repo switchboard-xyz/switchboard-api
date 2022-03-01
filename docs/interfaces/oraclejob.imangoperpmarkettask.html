@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IJobPosting | @switchboard-xyz/switchboard-api</title>
+	<title>IMangoPerpMarketTask | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,13 @@
 					<a href="../modules.html">@switchboard-xyz/switchboard-api</a>
 				</li>
 				<li>
-					<a href="ijobposting.html">IJobPosting</a>
+					<a href="../modules/oraclejob.html">OracleJob</a>
+				</li>
+				<li>
+					<a href="oraclejob.imangoperpmarkettask.html">IMangoPerpMarketTask</a>
 				</li>
 			</ul>
-			<h1>Interface IJobPosting</h1>
+			<h1>Interface IMangoPerpMarketTask</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a JobPosting.</p>
+						<p>Properties of a MangoPerpMarketTask.</p>
 					</div>
 				</div>
 			</section>
@@ -76,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IJobPosting</span>
+						<span class="target">IMangoPerpMarketTask</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/jobposting.html" class="tsd-signature-type" data-tsd-kind="Class">JobPosting</a></li>
+					<li><a href="../classes/oraclejob.mangoperpmarkettask.html" class="tsd-signature-type" data-tsd-kind="Class">MangoPerpMarketTask</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -93,9 +96,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijobposting.html#aggregatorstatepubkey" class="tsd-kind-icon">aggregator<wbr>State<wbr>Pubkey</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijobposting.html#nodepubkeys" class="tsd-kind-icon">node<wbr>Pubkeys</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijobposting.html#slot" class="tsd-kind-icon">slot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.imangoperpmarkettask.html#perpmarketaddress" class="tsd-kind-icon">perp<wbr>Market<wbr>Address</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,47 +105,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="aggregatorstatepubkey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> aggregator<wbr>State<wbr>Pubkey</h3>
-					<div class="tsd-signature tsd-kind-icon">aggregator<wbr>State<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
+					<a name="perpmarketaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> perp<wbr>Market<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">perp<wbr>Market<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/f40c843/src/compiled.d.ts#L2967">compiled.d.ts:2967</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/0cb8642/src/compiled.d.ts#L2759">compiled.d.ts:2759</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>JobPosting aggregatorStatePubkey</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nodepubkeys" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> node<wbr>Pubkeys</h3>
-					<div class="tsd-signature tsd-kind-icon">node<wbr>Pubkeys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/f40c843/src/compiled.d.ts#L2970">compiled.d.ts:2970</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>JobPosting nodePubkeys</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="slot" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> slot</h3>
-					<div class="tsd-signature tsd-kind-icon">slot<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/f40c843/src/compiled.d.ts#L2973">compiled.d.ts:2973</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>JobPosting slot</p>
+							<p>MangoPerpMarketTask perpMarketAddress</p>
 						</div>
 					</div>
 				</section>
@@ -156,23 +127,38 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/aggregatorstate.html">Aggregator<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/fulfillmentmanagerstate.html">Fulfillment<wbr>Manager<wbr>State</a>
+					</li>
+					<li class="current tsd-kind-namespace">
+						<a href="../modules/oraclejob.html">Oracle<wbr>Job</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="../modules/oraclejob.httptask.html">Oracle<wbr>Job.<wbr>Http<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="../modules/oraclejob.jsonparsetask.html">Oracle<wbr>Job.<wbr>Json<wbr>Parse<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="../modules/oraclejob.lendingratetask.html">Oracle<wbr>Job.<wbr>Lending<wbr>Rate<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/switchboardinstruction.html">Switchboard<wbr>Instruction</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="ijobposting.html" class="tsd-kind-icon">IJob<wbr>Posting</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="oraclejob.imangoperpmarkettask.html" class="tsd-kind-icon">IMango<wbr>Perp<wbr>Market<wbr>Task</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ijobposting.html#aggregatorstatepubkey" class="tsd-kind-icon">aggregator<wbr>State<wbr>Pubkey</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ijobposting.html#nodepubkeys" class="tsd-kind-icon">node<wbr>Pubkeys</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ijobposting.html#slot" class="tsd-kind-icon">slot</a>
+								<a href="oraclejob.imangoperpmarkettask.html#perpmarketaddress" class="tsd-kind-icon">perp<wbr>Market<wbr>Address</a>
 							</li>
 						</ul>
 					</li>
