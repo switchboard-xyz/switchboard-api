@@ -7151,6 +7151,216 @@
             return MangoPerpMarketTask;
         })();
     
+        OracleJob.JupiterSwapTask = (function() {
+    
+            /**
+             * Properties of a JupiterSwapTask.
+             * @memberof OracleJob
+             * @interface IJupiterSwapTask
+             * @property {string|null} [inTokenAddress] JupiterSwapTask inTokenAddress
+             * @property {string|null} [outTokenAddress] JupiterSwapTask outTokenAddress
+             */
+    
+            /**
+             * Constructs a new JupiterSwapTask.
+             * @memberof OracleJob
+             * @classdesc Represents a JupiterSwapTask.
+             * @implements IJupiterSwapTask
+             * @constructor
+             * @param {OracleJob.IJupiterSwapTask=} [properties] Properties to set
+             */
+            function JupiterSwapTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * JupiterSwapTask inTokenAddress.
+             * @member {string} inTokenAddress
+             * @memberof OracleJob.JupiterSwapTask
+             * @instance
+             */
+            JupiterSwapTask.prototype.inTokenAddress = "";
+    
+            /**
+             * JupiterSwapTask outTokenAddress.
+             * @member {string} outTokenAddress
+             * @memberof OracleJob.JupiterSwapTask
+             * @instance
+             */
+            JupiterSwapTask.prototype.outTokenAddress = "";
+    
+            /**
+             * Creates a new JupiterSwapTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.JupiterSwapTask
+             * @static
+             * @param {OracleJob.IJupiterSwapTask=} [properties] Properties to set
+             * @returns {OracleJob.JupiterSwapTask} JupiterSwapTask instance
+             */
+            JupiterSwapTask.create = function create(properties) {
+                return new JupiterSwapTask(properties);
+            };
+    
+            /**
+             * Encodes the specified JupiterSwapTask message. Does not implicitly {@link OracleJob.JupiterSwapTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.JupiterSwapTask
+             * @static
+             * @param {OracleJob.IJupiterSwapTask} message JupiterSwapTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            JupiterSwapTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.inTokenAddress != null && Object.hasOwnProperty.call(message, "inTokenAddress"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.inTokenAddress);
+                if (message.outTokenAddress != null && Object.hasOwnProperty.call(message, "outTokenAddress"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.outTokenAddress);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified JupiterSwapTask message, length delimited. Does not implicitly {@link OracleJob.JupiterSwapTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.JupiterSwapTask
+             * @static
+             * @param {OracleJob.IJupiterSwapTask} message JupiterSwapTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            JupiterSwapTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a JupiterSwapTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.JupiterSwapTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.JupiterSwapTask} JupiterSwapTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            JupiterSwapTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.JupiterSwapTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.inTokenAddress = reader.string();
+                        break;
+                    case 2:
+                        message.outTokenAddress = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a JupiterSwapTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.JupiterSwapTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.JupiterSwapTask} JupiterSwapTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            JupiterSwapTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a JupiterSwapTask message.
+             * @function verify
+             * @memberof OracleJob.JupiterSwapTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            JupiterSwapTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.inTokenAddress != null && message.hasOwnProperty("inTokenAddress"))
+                    if (!$util.isString(message.inTokenAddress))
+                        return "inTokenAddress: string expected";
+                if (message.outTokenAddress != null && message.hasOwnProperty("outTokenAddress"))
+                    if (!$util.isString(message.outTokenAddress))
+                        return "outTokenAddress: string expected";
+                return null;
+            };
+    
+            /**
+             * Creates a JupiterSwapTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.JupiterSwapTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.JupiterSwapTask} JupiterSwapTask
+             */
+            JupiterSwapTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.JupiterSwapTask)
+                    return object;
+                var message = new $root.OracleJob.JupiterSwapTask();
+                if (object.inTokenAddress != null)
+                    message.inTokenAddress = String(object.inTokenAddress);
+                if (object.outTokenAddress != null)
+                    message.outTokenAddress = String(object.outTokenAddress);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a JupiterSwapTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.JupiterSwapTask
+             * @static
+             * @param {OracleJob.JupiterSwapTask} message JupiterSwapTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            JupiterSwapTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.inTokenAddress = "";
+                    object.outTokenAddress = "";
+                }
+                if (message.inTokenAddress != null && message.hasOwnProperty("inTokenAddress"))
+                    object.inTokenAddress = message.inTokenAddress;
+                if (message.outTokenAddress != null && message.hasOwnProperty("outTokenAddress"))
+                    object.outTokenAddress = message.outTokenAddress;
+                return object;
+            };
+    
+            /**
+             * Converts this JupiterSwapTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.JupiterSwapTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            JupiterSwapTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return JupiterSwapTask;
+        })();
+    
         OracleJob.Task = (function() {
     
             /**
@@ -7178,6 +7388,7 @@
              * @property {OracleJob.IPowTask|null} [powTask] Task powTask
              * @property {OracleJob.ILendingRateTask|null} [lendingRateTask] Task lendingRateTask
              * @property {OracleJob.IMangoPerpMarketTask|null} [mangoPerpMarketTask] Task mangoPerpMarketTask
+             * @property {OracleJob.IJupiterSwapTask|null} [jupiterSwapTask] Task jupiterSwapTask
              */
     
             /**
@@ -7363,17 +7574,25 @@
              */
             Task.prototype.mangoPerpMarketTask = null;
     
+            /**
+             * Task jupiterSwapTask.
+             * @member {OracleJob.IJupiterSwapTask|null|undefined} jupiterSwapTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.jupiterSwapTask = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask", "powTask", "lendingRateTask", "mangoPerpMarketTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask", "powTask", "lendingRateTask", "mangoPerpMarketTask", "jupiterSwapTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -7443,6 +7662,8 @@
                     $root.OracleJob.LendingRateTask.encode(message.lendingRateTask, writer.uint32(/* id 21, wireType 2 =*/170).fork()).ldelim();
                 if (message.mangoPerpMarketTask != null && Object.hasOwnProperty.call(message, "mangoPerpMarketTask"))
                     $root.OracleJob.MangoPerpMarketTask.encode(message.mangoPerpMarketTask, writer.uint32(/* id 22, wireType 2 =*/178).fork()).ldelim();
+                if (message.jupiterSwapTask != null && Object.hasOwnProperty.call(message, "jupiterSwapTask"))
+                    $root.OracleJob.JupiterSwapTask.encode(message.jupiterSwapTask, writer.uint32(/* id 23, wireType 2 =*/186).fork()).ldelim();
                 return writer;
             };
     
@@ -7539,6 +7760,9 @@
                         break;
                     case 22:
                         message.mangoPerpMarketTask = $root.OracleJob.MangoPerpMarketTask.decode(reader, reader.uint32());
+                        break;
+                    case 23:
+                        message.jupiterSwapTask = $root.OracleJob.JupiterSwapTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -7784,6 +8008,16 @@
                             return "mangoPerpMarketTask." + error;
                     }
                 }
+                if (message.jupiterSwapTask != null && message.hasOwnProperty("jupiterSwapTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.JupiterSwapTask.verify(message.jupiterSwapTask);
+                        if (error)
+                            return "jupiterSwapTask." + error;
+                    }
+                }
                 return null;
             };
     
@@ -7903,6 +8137,11 @@
                     if (typeof object.mangoPerpMarketTask !== "object")
                         throw TypeError(".OracleJob.Task.mangoPerpMarketTask: object expected");
                     message.mangoPerpMarketTask = $root.OracleJob.MangoPerpMarketTask.fromObject(object.mangoPerpMarketTask);
+                }
+                if (object.jupiterSwapTask != null) {
+                    if (typeof object.jupiterSwapTask !== "object")
+                        throw TypeError(".OracleJob.Task.jupiterSwapTask: object expected");
+                    message.jupiterSwapTask = $root.OracleJob.JupiterSwapTask.fromObject(object.jupiterSwapTask);
                 }
                 return message;
             };
@@ -8024,6 +8263,11 @@
                     object.mangoPerpMarketTask = $root.OracleJob.MangoPerpMarketTask.toObject(message.mangoPerpMarketTask, options);
                     if (options.oneofs)
                         object.Task = "mangoPerpMarketTask";
+                }
+                if (message.jupiterSwapTask != null && message.hasOwnProperty("jupiterSwapTask")) {
+                    object.jupiterSwapTask = $root.OracleJob.JupiterSwapTask.toObject(message.jupiterSwapTask, options);
+                    if (options.oneofs)
+                        object.Task = "jupiterSwapTask";
                 }
                 return object;
             };
