@@ -2842,6 +2842,102 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a JupiterSwapTask. */
+    interface IJupiterSwapTask {
+
+        /** JupiterSwapTask inTokenAddress */
+        inTokenAddress?: (string|null);
+
+        /** JupiterSwapTask outTokenAddress */
+        outTokenAddress?: (string|null);
+    }
+
+    /** Represents a JupiterSwapTask. */
+    class JupiterSwapTask implements IJupiterSwapTask {
+
+        /**
+         * Constructs a new JupiterSwapTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IJupiterSwapTask);
+
+        /** JupiterSwapTask inTokenAddress. */
+        public inTokenAddress: string;
+
+        /** JupiterSwapTask outTokenAddress. */
+        public outTokenAddress: string;
+
+        /**
+         * Creates a new JupiterSwapTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns JupiterSwapTask instance
+         */
+        public static create(properties?: OracleJob.IJupiterSwapTask): OracleJob.JupiterSwapTask;
+
+        /**
+         * Encodes the specified JupiterSwapTask message. Does not implicitly {@link OracleJob.JupiterSwapTask.verify|verify} messages.
+         * @param message JupiterSwapTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IJupiterSwapTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified JupiterSwapTask message, length delimited. Does not implicitly {@link OracleJob.JupiterSwapTask.verify|verify} messages.
+         * @param message JupiterSwapTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IJupiterSwapTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a JupiterSwapTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns JupiterSwapTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.JupiterSwapTask;
+
+        /**
+         * Decodes a JupiterSwapTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns JupiterSwapTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.JupiterSwapTask;
+
+        /**
+         * Verifies a JupiterSwapTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a JupiterSwapTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns JupiterSwapTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.JupiterSwapTask;
+
+        /**
+         * Creates a plain object from a JupiterSwapTask message. Also converts values to other types if specified.
+         * @param message JupiterSwapTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.JupiterSwapTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this JupiterSwapTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a PerpMarketTask. */
     interface IPerpMarketTask {
 
@@ -3124,6 +3220,9 @@ export namespace OracleJob {
         /** Task mangoPerpMarketTask */
         mangoPerpMarketTask?: (OracleJob.IMangoPerpMarketTask|null);
 
+        /** Task jupiterSwapTask */
+        jupiterSwapTask?: (OracleJob.IJupiterSwapTask|null);
+
         /** Task perpMarketTask */
         perpMarketTask?: (OracleJob.IPerpMarketTask|null);
 
@@ -3203,6 +3302,9 @@ export namespace OracleJob {
         /** Task mangoPerpMarketTask. */
         public mangoPerpMarketTask?: (OracleJob.IMangoPerpMarketTask|null);
 
+        /** Task jupiterSwapTask. */
+        public jupiterSwapTask?: (OracleJob.IJupiterSwapTask|null);
+
         /** Task perpMarketTask. */
         public perpMarketTask?: (OracleJob.IPerpMarketTask|null);
 
@@ -3210,7 +3312,7 @@ export namespace OracleJob {
         public oracleTask?: (OracleJob.IOracleTask|null);
 
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"perpMarketTask"|"oracleTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask");
 
         /**
          * Creates a new Task instance using the specified properties.
