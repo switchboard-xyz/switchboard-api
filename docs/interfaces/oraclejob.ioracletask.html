@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ISetVrfConfigsInstruction | @switchboard-xyz/switchboard-api</title>
+	<title>IOracleTask | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@switchboard-xyz/switchboard-api</a>
 				</li>
 				<li>
-					<a href="../modules/switchboardinstruction.html">SwitchboardInstruction</a>
+					<a href="../modules/oraclejob.html">OracleJob</a>
 				</li>
 				<li>
-					<a href="switchboardinstruction.isetvrfconfigsinstruction.html">ISetVrfConfigsInstruction</a>
+					<a href="oraclejob.ioracletask.html">IOracleTask</a>
 				</li>
 			</ul>
-			<h1>Interface ISetVrfConfigsInstruction</h1>
+			<h1>Interface IOracleTask</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a SetVrfConfigsInstruction.</p>
+						<p>Properties of an OracleTask.</p>
 					</div>
 				</div>
 			</section>
@@ -79,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ISetVrfConfigsInstruction</span>
+						<span class="target">IOracleTask</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/switchboardinstruction.setvrfconfigsinstruction.html" class="tsd-signature-type" data-tsd-kind="Class">SetVrfConfigsInstruction</a></li>
+					<li><a href="../classes/oraclejob.oracletask.html" class="tsd-signature-type" data-tsd-kind="Class">OracleTask</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,8 +96,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#lockconfigs" class="tsd-kind-icon">lock<wbr>Configs</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.isetvrfconfigsinstruction.html#minproofconfirmations" class="tsd-kind-icon">min<wbr>Proof<wbr>Confirmations</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ioracletask.html#chainlinkaddress" class="tsd-kind-icon">chainlink<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ioracletask.html#pythaddress" class="tsd-kind-icon">pyth<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.ioracletask.html#switchboardaddress" class="tsd-kind-icon">switchboard<wbr>Address</a></li>
 							</ul>
 						</section>
 					</div>
@@ -106,32 +107,47 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="lockconfigs" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> lock<wbr>Configs</h3>
-					<div class="tsd-signature tsd-kind-icon">lock<wbr>Configs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<a name="chainlinkaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> chainlink<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">chainlink<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/2dbfb38/src/compiled.d.ts#L6056">compiled.d.ts:6056</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/2dbfb38/src/compiled.d.ts#L2966">compiled.d.ts:2966</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>SetVrfConfigsInstruction lockConfigs</p>
+							<p>OracleTask chainlinkAddress</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="minproofconfirmations" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> min<wbr>Proof<wbr>Confirmations</h3>
-					<div class="tsd-signature tsd-kind-icon">min<wbr>Proof<wbr>Confirmations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="pythaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> pyth<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">pyth<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/2dbfb38/src/compiled.d.ts#L6053">compiled.d.ts:6053</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/2dbfb38/src/compiled.d.ts#L2963">compiled.d.ts:2963</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>SetVrfConfigsInstruction minProofConfirmations</p>
+							<p>OracleTask pythAddress</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="switchboardaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> switchboard<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">switchboard<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/2dbfb38/src/compiled.d.ts#L2960">compiled.d.ts:2960</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>OracleTask switchboardAddress</p>
 						</div>
 					</div>
 				</section>
@@ -149,7 +165,7 @@
 					<li class=" tsd-kind-namespace">
 						<a href="../modules/fulfillmentmanagerstate.html">Fulfillment<wbr>Manager<wbr>State</a>
 					</li>
-					<li class=" tsd-kind-namespace">
+					<li class="current tsd-kind-namespace">
 						<a href="../modules/oraclejob.html">Oracle<wbr>Job</a>
 					</li>
 					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
@@ -161,7 +177,7 @@
 					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
 						<a href="../modules/oraclejob.lendingratetask.html">Oracle<wbr>Job.<wbr>Lending<wbr>Rate<wbr>Task</a>
 					</li>
-					<li class="current tsd-kind-namespace">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/switchboardinstruction.html">Switchboard<wbr>Instruction</a>
 					</li>
 				</ul>
@@ -171,13 +187,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="switchboardinstruction.isetvrfconfigsinstruction.html" class="tsd-kind-icon">ISet<wbr>Vrf<wbr>Configs<wbr>Instruction</a>
+						<a href="oraclejob.ioracletask.html" class="tsd-kind-icon">IOracle<wbr>Task</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#lockconfigs" class="tsd-kind-icon">lock<wbr>Configs</a>
+								<a href="oraclejob.ioracletask.html#chainlinkaddress" class="tsd-kind-icon">chainlink<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="switchboardinstruction.isetvrfconfigsinstruction.html#minproofconfirmations" class="tsd-kind-icon">min<wbr>Proof<wbr>Confirmations</a>
+								<a href="oraclejob.ioracletask.html#pythaddress" class="tsd-kind-icon">pyth<wbr>Address</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="oraclejob.ioracletask.html#switchboardaddress" class="tsd-kind-icon">switchboard<wbr>Address</a>
 							</li>
 						</ul>
 					</li>

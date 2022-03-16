@@ -2842,97 +2842,217 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a JupiterSwapTask. */
-    interface IJupiterSwapTask {
+    /** Properties of a PerpMarketTask. */
+    interface IPerpMarketTask {
 
-        /** JupiterSwapTask inTokenAddress */
-        inTokenAddress?: (string|null);
+        /** PerpMarketTask mangoMarketAddress */
+        mangoMarketAddress?: (string|null);
 
-        /** JupiterSwapTask outTokenAddress */
-        outTokenAddress?: (string|null);
+        /** PerpMarketTask driftMarketAddress */
+        driftMarketAddress?: (string|null);
+
+        /** PerpMarketTask zetaMarketAddress */
+        zetaMarketAddress?: (string|null);
+
+        /** PerpMarketTask zoMarketAddress */
+        zoMarketAddress?: (string|null);
     }
 
-    /** Represents a JupiterSwapTask. */
-    class JupiterSwapTask implements IJupiterSwapTask {
+    /** Represents a PerpMarketTask. */
+    class PerpMarketTask implements IPerpMarketTask {
 
         /**
-         * Constructs a new JupiterSwapTask.
+         * Constructs a new PerpMarketTask.
          * @param [properties] Properties to set
          */
-        constructor(properties?: OracleJob.IJupiterSwapTask);
+        constructor(properties?: OracleJob.IPerpMarketTask);
 
-        /** JupiterSwapTask inTokenAddress. */
-        public inTokenAddress: string;
+        /** PerpMarketTask mangoMarketAddress. */
+        public mangoMarketAddress?: (string|null);
 
-        /** JupiterSwapTask outTokenAddress. */
-        public outTokenAddress: string;
+        /** PerpMarketTask driftMarketAddress. */
+        public driftMarketAddress?: (string|null);
+
+        /** PerpMarketTask zetaMarketAddress. */
+        public zetaMarketAddress?: (string|null);
+
+        /** PerpMarketTask zoMarketAddress. */
+        public zoMarketAddress?: (string|null);
+
+        /** PerpMarketTask MarketAddress. */
+        public MarketAddress?: ("mangoMarketAddress"|"driftMarketAddress"|"zetaMarketAddress"|"zoMarketAddress");
 
         /**
-         * Creates a new JupiterSwapTask instance using the specified properties.
+         * Creates a new PerpMarketTask instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns JupiterSwapTask instance
+         * @returns PerpMarketTask instance
          */
-        public static create(properties?: OracleJob.IJupiterSwapTask): OracleJob.JupiterSwapTask;
+        public static create(properties?: OracleJob.IPerpMarketTask): OracleJob.PerpMarketTask;
 
         /**
-         * Encodes the specified JupiterSwapTask message. Does not implicitly {@link OracleJob.JupiterSwapTask.verify|verify} messages.
-         * @param message JupiterSwapTask message or plain object to encode
+         * Encodes the specified PerpMarketTask message. Does not implicitly {@link OracleJob.PerpMarketTask.verify|verify} messages.
+         * @param message PerpMarketTask message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: OracleJob.IJupiterSwapTask, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: OracleJob.IPerpMarketTask, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified JupiterSwapTask message, length delimited. Does not implicitly {@link OracleJob.JupiterSwapTask.verify|verify} messages.
-         * @param message JupiterSwapTask message or plain object to encode
+         * Encodes the specified PerpMarketTask message, length delimited. Does not implicitly {@link OracleJob.PerpMarketTask.verify|verify} messages.
+         * @param message PerpMarketTask message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: OracleJob.IJupiterSwapTask, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: OracleJob.IPerpMarketTask, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a JupiterSwapTask message from the specified reader or buffer.
+         * Decodes a PerpMarketTask message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns JupiterSwapTask
+         * @returns PerpMarketTask
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.JupiterSwapTask;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.PerpMarketTask;
 
         /**
-         * Decodes a JupiterSwapTask message from the specified reader or buffer, length delimited.
+         * Decodes a PerpMarketTask message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns JupiterSwapTask
+         * @returns PerpMarketTask
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.JupiterSwapTask;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.PerpMarketTask;
 
         /**
-         * Verifies a JupiterSwapTask message.
+         * Verifies a PerpMarketTask message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a JupiterSwapTask message from a plain object. Also converts values to their respective internal types.
+         * Creates a PerpMarketTask message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns JupiterSwapTask
+         * @returns PerpMarketTask
          */
-        public static fromObject(object: { [k: string]: any }): OracleJob.JupiterSwapTask;
+        public static fromObject(object: { [k: string]: any }): OracleJob.PerpMarketTask;
 
         /**
-         * Creates a plain object from a JupiterSwapTask message. Also converts values to other types if specified.
-         * @param message JupiterSwapTask
+         * Creates a plain object from a PerpMarketTask message. Also converts values to other types if specified.
+         * @param message PerpMarketTask
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: OracleJob.JupiterSwapTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: OracleJob.PerpMarketTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this JupiterSwapTask to JSON.
+         * Converts this PerpMarketTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an OracleTask. */
+    interface IOracleTask {
+
+        /** OracleTask switchboardAddress */
+        switchboardAddress?: (string|null);
+
+        /** OracleTask pythAddress */
+        pythAddress?: (string|null);
+
+        /** OracleTask chainlinkAddress */
+        chainlinkAddress?: (string|null);
+    }
+
+    /** Represents an OracleTask. */
+    class OracleTask implements IOracleTask {
+
+        /**
+         * Constructs a new OracleTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IOracleTask);
+
+        /** OracleTask switchboardAddress. */
+        public switchboardAddress?: (string|null);
+
+        /** OracleTask pythAddress. */
+        public pythAddress?: (string|null);
+
+        /** OracleTask chainlinkAddress. */
+        public chainlinkAddress?: (string|null);
+
+        /** OracleTask AggregatorAddress. */
+        public AggregatorAddress?: ("switchboardAddress"|"pythAddress"|"chainlinkAddress");
+
+        /**
+         * Creates a new OracleTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns OracleTask instance
+         */
+        public static create(properties?: OracleJob.IOracleTask): OracleJob.OracleTask;
+
+        /**
+         * Encodes the specified OracleTask message. Does not implicitly {@link OracleJob.OracleTask.verify|verify} messages.
+         * @param message OracleTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IOracleTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified OracleTask message, length delimited. Does not implicitly {@link OracleJob.OracleTask.verify|verify} messages.
+         * @param message OracleTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IOracleTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an OracleTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns OracleTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.OracleTask;
+
+        /**
+         * Decodes an OracleTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns OracleTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.OracleTask;
+
+        /**
+         * Verifies an OracleTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an OracleTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns OracleTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.OracleTask;
+
+        /**
+         * Creates a plain object from an OracleTask message. Also converts values to other types if specified.
+         * @param message OracleTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.OracleTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this OracleTask to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -3004,8 +3124,11 @@ export namespace OracleJob {
         /** Task mangoPerpMarketTask */
         mangoPerpMarketTask?: (OracleJob.IMangoPerpMarketTask|null);
 
-        /** Task jupiterSwapTask */
-        jupiterSwapTask?: (OracleJob.IJupiterSwapTask|null);
+        /** Task perpMarketTask */
+        perpMarketTask?: (OracleJob.IPerpMarketTask|null);
+
+        /** Task oracleTask */
+        oracleTask?: (OracleJob.IOracleTask|null);
     }
 
     /** Represents a Task. */
@@ -3080,11 +3203,14 @@ export namespace OracleJob {
         /** Task mangoPerpMarketTask. */
         public mangoPerpMarketTask?: (OracleJob.IMangoPerpMarketTask|null);
 
-        /** Task jupiterSwapTask. */
-        public jupiterSwapTask?: (OracleJob.IJupiterSwapTask|null);
+        /** Task perpMarketTask. */
+        public perpMarketTask?: (OracleJob.IPerpMarketTask|null);
+
+        /** Task oracleTask. */
+        public oracleTask?: (OracleJob.IOracleTask|null);
 
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"perpMarketTask"|"oracleTask");
 
         /**
          * Creates a new Task instance using the specified properties.
