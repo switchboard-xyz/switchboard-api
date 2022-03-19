@@ -3154,6 +3154,102 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of an AnchorFetchTask. */
+    interface IAnchorFetchTask {
+
+        /** AnchorFetchTask programId */
+        programId?: (string|null);
+
+        /** AnchorFetchTask accountAddress */
+        accountAddress?: (string|null);
+    }
+
+    /** Represents an AnchorFetchTask. */
+    class AnchorFetchTask implements IAnchorFetchTask {
+
+        /**
+         * Constructs a new AnchorFetchTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IAnchorFetchTask);
+
+        /** AnchorFetchTask programId. */
+        public programId: string;
+
+        /** AnchorFetchTask accountAddress. */
+        public accountAddress: string;
+
+        /**
+         * Creates a new AnchorFetchTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AnchorFetchTask instance
+         */
+        public static create(properties?: OracleJob.IAnchorFetchTask): OracleJob.AnchorFetchTask;
+
+        /**
+         * Encodes the specified AnchorFetchTask message. Does not implicitly {@link OracleJob.AnchorFetchTask.verify|verify} messages.
+         * @param message AnchorFetchTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IAnchorFetchTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified AnchorFetchTask message, length delimited. Does not implicitly {@link OracleJob.AnchorFetchTask.verify|verify} messages.
+         * @param message AnchorFetchTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IAnchorFetchTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an AnchorFetchTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AnchorFetchTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.AnchorFetchTask;
+
+        /**
+         * Decodes an AnchorFetchTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AnchorFetchTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.AnchorFetchTask;
+
+        /**
+         * Verifies an AnchorFetchTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an AnchorFetchTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns AnchorFetchTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.AnchorFetchTask;
+
+        /**
+         * Creates a plain object from an AnchorFetchTask message. Also converts values to other types if specified.
+         * @param message AnchorFetchTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.AnchorFetchTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this AnchorFetchTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -3228,6 +3324,9 @@ export namespace OracleJob {
 
         /** Task oracleTask */
         oracleTask?: (OracleJob.IOracleTask|null);
+
+        /** Task anchorFetchTask */
+        anchorFetchTask?: (OracleJob.IAnchorFetchTask|null);
     }
 
     /** Represents a Task. */
@@ -3311,8 +3410,11 @@ export namespace OracleJob {
         /** Task oracleTask. */
         public oracleTask?: (OracleJob.IOracleTask|null);
 
+        /** Task anchorFetchTask. */
+        public anchorFetchTask?: (OracleJob.IAnchorFetchTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask");
 
         /**
          * Creates a new Task instance using the specified properties.
