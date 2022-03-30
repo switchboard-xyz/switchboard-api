@@ -3060,6 +3060,9 @@ export namespace OracleJob {
 
         /** OracleTask chainlinkAddress */
         chainlinkAddress?: (string|null);
+
+        /** OracleTask pythAllowedConfidenceInterval */
+        pythAllowedConfidenceInterval?: (number|null);
     }
 
     /** Represents an OracleTask. */
@@ -3079,6 +3082,9 @@ export namespace OracleJob {
 
         /** OracleTask chainlinkAddress. */
         public chainlinkAddress?: (string|null);
+
+        /** OracleTask pythAllowedConfidenceInterval. */
+        public pythAllowedConfidenceInterval: number;
 
         /** OracleTask AggregatorAddress. */
         public AggregatorAddress?: ("switchboardAddress"|"pythAddress"|"chainlinkAddress");
@@ -3245,6 +3251,102 @@ export namespace OracleJob {
 
         /**
          * Converts this AnchorFetchTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DefiKingdomTask. */
+    interface IDefiKingdomTask {
+
+        /** DefiKingdomTask inTokenAddress */
+        inTokenAddress?: (string|null);
+
+        /** DefiKingdomTask outTokenAddress */
+        outTokenAddress?: (string|null);
+    }
+
+    /** Represents a DefiKingdomTask. */
+    class DefiKingdomTask implements IDefiKingdomTask {
+
+        /**
+         * Constructs a new DefiKingdomTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IDefiKingdomTask);
+
+        /** DefiKingdomTask inTokenAddress. */
+        public inTokenAddress: string;
+
+        /** DefiKingdomTask outTokenAddress. */
+        public outTokenAddress: string;
+
+        /**
+         * Creates a new DefiKingdomTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DefiKingdomTask instance
+         */
+        public static create(properties?: OracleJob.IDefiKingdomTask): OracleJob.DefiKingdomTask;
+
+        /**
+         * Encodes the specified DefiKingdomTask message. Does not implicitly {@link OracleJob.DefiKingdomTask.verify|verify} messages.
+         * @param message DefiKingdomTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IDefiKingdomTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DefiKingdomTask message, length delimited. Does not implicitly {@link OracleJob.DefiKingdomTask.verify|verify} messages.
+         * @param message DefiKingdomTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IDefiKingdomTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DefiKingdomTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DefiKingdomTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.DefiKingdomTask;
+
+        /**
+         * Decodes a DefiKingdomTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DefiKingdomTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.DefiKingdomTask;
+
+        /**
+         * Verifies a DefiKingdomTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DefiKingdomTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DefiKingdomTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.DefiKingdomTask;
+
+        /**
+         * Creates a plain object from a DefiKingdomTask message. Also converts values to other types if specified.
+         * @param message DefiKingdomTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.DefiKingdomTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DefiKingdomTask to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

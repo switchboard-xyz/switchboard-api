@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IFulfillmentManagerState | @switchboard-xyz/switchboard-api</title>
+	<title>IDefiKingdomTask | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,13 @@
 					<a href="../modules.html">@switchboard-xyz/switchboard-api</a>
 				</li>
 				<li>
-					<a href="ifulfillmentmanagerstate.html">IFulfillmentManagerState</a>
+					<a href="../modules/oraclejob.html">OracleJob</a>
+				</li>
+				<li>
+					<a href="oraclejob.idefikingdomtask.html">IDefiKingdomTask</a>
 				</li>
 			</ul>
-			<h1>Interface IFulfillmentManagerState</h1>
+			<h1>Interface IDefiKingdomTask</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a FulfillmentManagerState.</p>
+						<p>Properties of a DefiKingdomTask.</p>
 					</div>
 				</div>
 			</section>
@@ -76,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IFulfillmentManagerState</span>
+						<span class="target">IDefiKingdomTask</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/fulfillmentmanagerstate.html" class="tsd-signature-type" data-tsd-kind="Class">FulfillmentManagerState</a></li>
+					<li><a href="../classes/oraclejob.defikingdomtask.html" class="tsd-signature-type" data-tsd-kind="Class">DefiKingdomTask</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -93,9 +96,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmentmanagerstate.html#configs" class="tsd-kind-icon">configs</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmentmanagerstate.html#entries" class="tsd-kind-icon">entries</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ifulfillmentmanagerstate.html#version" class="tsd-kind-icon">version</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.idefikingdomtask.html#intokenaddress" class="tsd-kind-icon">in<wbr>Token<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.idefikingdomtask.html#outtokenaddress" class="tsd-kind-icon">out<wbr>Token<wbr>Address</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,47 +106,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="configs" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> configs</h3>
-					<div class="tsd-signature tsd-kind-icon">configs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="fulfillmentmanagerstate.iconfigs.html" class="tsd-signature-type" data-tsd-kind="Interface">IConfigs</a></div>
+					<a name="intokenaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> in<wbr>Token<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">in<wbr>Token<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/63da207/src/compiled.d.ts#L4380">compiled.d.ts:4380</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/63da207/src/compiled.d.ts#L3263">compiled.d.ts:3263</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>FulfillmentManagerState configs</p>
+							<p>DefiKingdomTask inTokenAddress</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="entries" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> entries</h3>
-					<div class="tsd-signature tsd-kind-icon">entries<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="ifulfillmententry.html" class="tsd-signature-type" data-tsd-kind="Interface">IFulfillmentEntry</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="outtokenaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> out<wbr>Token<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">out<wbr>Token<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/63da207/src/compiled.d.ts#L4383">compiled.d.ts:4383</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/63da207/src/compiled.d.ts#L3266">compiled.d.ts:3266</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>FulfillmentManagerState entries</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="version" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> version</h3>
-					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/63da207/src/compiled.d.ts#L4377">compiled.d.ts:4377</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>FulfillmentManagerState version</p>
+							<p>DefiKingdomTask outTokenAddress</p>
 						</div>
 					</div>
 				</section>
@@ -156,23 +143,41 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/aggregatorstate.html">Aggregator<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/fulfillmentmanagerstate.html">Fulfillment<wbr>Manager<wbr>State</a>
+					</li>
+					<li class="current tsd-kind-namespace">
+						<a href="../modules/oraclejob.html">Oracle<wbr>Job</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="../modules/oraclejob.httptask.html">Oracle<wbr>Job.<wbr>Http<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="../modules/oraclejob.jsonparsetask.html">Oracle<wbr>Job.<wbr>Json<wbr>Parse<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="../modules/oraclejob.lendingratetask.html">Oracle<wbr>Job.<wbr>Lending<wbr>Rate<wbr>Task</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/switchboardinstruction.html">Switchboard<wbr>Instruction</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="ifulfillmentmanagerstate.html" class="tsd-kind-icon">IFulfillment<wbr>Manager<wbr>State</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="oraclejob.idefikingdomtask.html" class="tsd-kind-icon">IDefi<wbr>Kingdom<wbr>Task</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmentmanagerstate.html#configs" class="tsd-kind-icon">configs</a>
+								<a href="oraclejob.idefikingdomtask.html#intokenaddress" class="tsd-kind-icon">in<wbr>Token<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmentmanagerstate.html#entries" class="tsd-kind-icon">entries</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ifulfillmentmanagerstate.html#version" class="tsd-kind-icon">version</a>
+								<a href="oraclejob.idefikingdomtask.html#outtokenaddress" class="tsd-kind-icon">out<wbr>Token<wbr>Address</a>
 							</li>
 						</ul>
 					</li>

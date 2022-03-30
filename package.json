@@ -1,6 +1,6 @@
 {
   "name": "@switchboard-xyz/switchboard-api",
-  "version": "0.2.183",
+  "version": "0.2.184",
   "description": "A library for the Switchboard Oracle Network.",
   "directories": {
     "lib": "lib"
