@@ -8144,25 +8144,25 @@
             return AnchorFetchTask;
         })();
     
-        OracleJob.DefiKingdomTask = (function() {
+        OracleJob.DefiKingdomsTask = (function() {
     
             /**
-             * Properties of a DefiKingdomTask.
+             * Properties of a DefiKingdomsTask.
              * @memberof OracleJob
-             * @interface IDefiKingdomTask
-             * @property {string|null} [inTokenAddress] DefiKingdomTask inTokenAddress
-             * @property {string|null} [outTokenAddress] DefiKingdomTask outTokenAddress
+             * @interface IDefiKingdomsTask
+             * @property {string|null} [inTokenAddress] DefiKingdomsTask inTokenAddress
+             * @property {string|null} [outTokenAddress] DefiKingdomsTask outTokenAddress
              */
     
             /**
-             * Constructs a new DefiKingdomTask.
+             * Constructs a new DefiKingdomsTask.
              * @memberof OracleJob
-             * @classdesc Represents a DefiKingdomTask.
-             * @implements IDefiKingdomTask
+             * @classdesc Represents a DefiKingdomsTask.
+             * @implements IDefiKingdomsTask
              * @constructor
-             * @param {OracleJob.IDefiKingdomTask=} [properties] Properties to set
+             * @param {OracleJob.IDefiKingdomsTask=} [properties] Properties to set
              */
-            function DefiKingdomTask(properties) {
+            function DefiKingdomsTask(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -8170,43 +8170,43 @@
             }
     
             /**
-             * DefiKingdomTask inTokenAddress.
+             * DefiKingdomsTask inTokenAddress.
              * @member {string} inTokenAddress
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @instance
              */
-            DefiKingdomTask.prototype.inTokenAddress = "";
+            DefiKingdomsTask.prototype.inTokenAddress = "";
     
             /**
-             * DefiKingdomTask outTokenAddress.
+             * DefiKingdomsTask outTokenAddress.
              * @member {string} outTokenAddress
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @instance
              */
-            DefiKingdomTask.prototype.outTokenAddress = "";
+            DefiKingdomsTask.prototype.outTokenAddress = "";
     
             /**
-             * Creates a new DefiKingdomTask instance using the specified properties.
+             * Creates a new DefiKingdomsTask instance using the specified properties.
              * @function create
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @static
-             * @param {OracleJob.IDefiKingdomTask=} [properties] Properties to set
-             * @returns {OracleJob.DefiKingdomTask} DefiKingdomTask instance
+             * @param {OracleJob.IDefiKingdomsTask=} [properties] Properties to set
+             * @returns {OracleJob.DefiKingdomsTask} DefiKingdomsTask instance
              */
-            DefiKingdomTask.create = function create(properties) {
-                return new DefiKingdomTask(properties);
+            DefiKingdomsTask.create = function create(properties) {
+                return new DefiKingdomsTask(properties);
             };
     
             /**
-             * Encodes the specified DefiKingdomTask message. Does not implicitly {@link OracleJob.DefiKingdomTask.verify|verify} messages.
+             * Encodes the specified DefiKingdomsTask message. Does not implicitly {@link OracleJob.DefiKingdomsTask.verify|verify} messages.
              * @function encode
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @static
-             * @param {OracleJob.IDefiKingdomTask} message DefiKingdomTask message or plain object to encode
+             * @param {OracleJob.IDefiKingdomsTask} message DefiKingdomsTask message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DefiKingdomTask.encode = function encode(message, writer) {
+            DefiKingdomsTask.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message.inTokenAddress != null && Object.hasOwnProperty.call(message, "inTokenAddress"))
@@ -8217,33 +8217,33 @@
             };
     
             /**
-             * Encodes the specified DefiKingdomTask message, length delimited. Does not implicitly {@link OracleJob.DefiKingdomTask.verify|verify} messages.
+             * Encodes the specified DefiKingdomsTask message, length delimited. Does not implicitly {@link OracleJob.DefiKingdomsTask.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @static
-             * @param {OracleJob.IDefiKingdomTask} message DefiKingdomTask message or plain object to encode
+             * @param {OracleJob.IDefiKingdomsTask} message DefiKingdomsTask message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DefiKingdomTask.encodeDelimited = function encodeDelimited(message, writer) {
+            DefiKingdomsTask.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
     
             /**
-             * Decodes a DefiKingdomTask message from the specified reader or buffer.
+             * Decodes a DefiKingdomsTask message from the specified reader or buffer.
              * @function decode
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {OracleJob.DefiKingdomTask} DefiKingdomTask
+             * @returns {OracleJob.DefiKingdomsTask} DefiKingdomsTask
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DefiKingdomTask.decode = function decode(reader, length) {
+            DefiKingdomsTask.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.DefiKingdomTask();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.DefiKingdomsTask();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -8262,30 +8262,30 @@
             };
     
             /**
-             * Decodes a DefiKingdomTask message from the specified reader or buffer, length delimited.
+             * Decodes a DefiKingdomsTask message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {OracleJob.DefiKingdomTask} DefiKingdomTask
+             * @returns {OracleJob.DefiKingdomsTask} DefiKingdomsTask
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DefiKingdomTask.decodeDelimited = function decodeDelimited(reader) {
+            DefiKingdomsTask.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
     
             /**
-             * Verifies a DefiKingdomTask message.
+             * Verifies a DefiKingdomsTask message.
              * @function verify
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DefiKingdomTask.verify = function verify(message) {
+            DefiKingdomsTask.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message.inTokenAddress != null && message.hasOwnProperty("inTokenAddress"))
@@ -8298,17 +8298,17 @@
             };
     
             /**
-             * Creates a DefiKingdomTask message from a plain object. Also converts values to their respective internal types.
+             * Creates a DefiKingdomsTask message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {OracleJob.DefiKingdomTask} DefiKingdomTask
+             * @returns {OracleJob.DefiKingdomsTask} DefiKingdomsTask
              */
-            DefiKingdomTask.fromObject = function fromObject(object) {
-                if (object instanceof $root.OracleJob.DefiKingdomTask)
+            DefiKingdomsTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.DefiKingdomsTask)
                     return object;
-                var message = new $root.OracleJob.DefiKingdomTask();
+                var message = new $root.OracleJob.DefiKingdomsTask();
                 if (object.inTokenAddress != null)
                     message.inTokenAddress = String(object.inTokenAddress);
                 if (object.outTokenAddress != null)
@@ -8317,15 +8317,15 @@
             };
     
             /**
-             * Creates a plain object from a DefiKingdomTask message. Also converts values to other types if specified.
+             * Creates a plain object from a DefiKingdomsTask message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @static
-             * @param {OracleJob.DefiKingdomTask} message DefiKingdomTask
+             * @param {OracleJob.DefiKingdomsTask} message DefiKingdomsTask
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DefiKingdomTask.toObject = function toObject(message, options) {
+            DefiKingdomsTask.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -8341,17 +8341,17 @@
             };
     
             /**
-             * Converts this DefiKingdomTask to JSON.
+             * Converts this DefiKingdomsTask to JSON.
              * @function toJSON
-             * @memberof OracleJob.DefiKingdomTask
+             * @memberof OracleJob.DefiKingdomsTask
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DefiKingdomTask.prototype.toJSON = function toJSON() {
+            DefiKingdomsTask.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
     
-            return DefiKingdomTask;
+            return DefiKingdomsTask;
         })();
     
         OracleJob.Task = (function() {
@@ -8385,7 +8385,7 @@
              * @property {OracleJob.IPerpMarketTask|null} [perpMarketTask] Task perpMarketTask
              * @property {OracleJob.IOracleTask|null} [oracleTask] Task oracleTask
              * @property {OracleJob.IAnchorFetchTask|null} [anchorFetchTask] Task anchorFetchTask
-             * @property {OracleJob.IDefiKingdomTask|null} [defiKingdomTask] Task defiKingdomTask
+             * @property {OracleJob.IDefiKingdomsTask|null} [defiKingdomsTask] Task defiKingdomsTask
              */
     
             /**
@@ -8604,24 +8604,24 @@
             Task.prototype.anchorFetchTask = null;
     
             /**
-             * Task defiKingdomTask.
-             * @member {OracleJob.IDefiKingdomTask|null|undefined} defiKingdomTask
+             * Task defiKingdomsTask.
+             * @member {OracleJob.IDefiKingdomsTask|null|undefined} defiKingdomsTask
              * @memberof OracleJob.Task
              * @instance
              */
-            Task.prototype.defiKingdomTask = null;
+            Task.prototype.defiKingdomsTask = null;
     
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask", "powTask", "lendingRateTask", "mangoPerpMarketTask", "jupiterSwapTask", "perpMarketTask", "oracleTask", "anchorFetchTask", "defiKingdomTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask", "powTask", "lendingRateTask", "mangoPerpMarketTask", "jupiterSwapTask", "perpMarketTask", "oracleTask", "anchorFetchTask", "defiKingdomsTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -8699,8 +8699,8 @@
                     $root.OracleJob.OracleTask.encode(message.oracleTask, writer.uint32(/* id 25, wireType 2 =*/202).fork()).ldelim();
                 if (message.anchorFetchTask != null && Object.hasOwnProperty.call(message, "anchorFetchTask"))
                     $root.OracleJob.AnchorFetchTask.encode(message.anchorFetchTask, writer.uint32(/* id 26, wireType 2 =*/210).fork()).ldelim();
-                if (message.defiKingdomTask != null && Object.hasOwnProperty.call(message, "defiKingdomTask"))
-                    $root.OracleJob.DefiKingdomTask.encode(message.defiKingdomTask, writer.uint32(/* id 27, wireType 2 =*/218).fork()).ldelim();
+                if (message.defiKingdomsTask != null && Object.hasOwnProperty.call(message, "defiKingdomsTask"))
+                    $root.OracleJob.DefiKingdomsTask.encode(message.defiKingdomsTask, writer.uint32(/* id 27, wireType 2 =*/218).fork()).ldelim();
                 return writer;
             };
     
@@ -8811,7 +8811,7 @@
                         message.anchorFetchTask = $root.OracleJob.AnchorFetchTask.decode(reader, reader.uint32());
                         break;
                     case 27:
-                        message.defiKingdomTask = $root.OracleJob.DefiKingdomTask.decode(reader, reader.uint32());
+                        message.defiKingdomsTask = $root.OracleJob.DefiKingdomsTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -9097,14 +9097,14 @@
                             return "anchorFetchTask." + error;
                     }
                 }
-                if (message.defiKingdomTask != null && message.hasOwnProperty("defiKingdomTask")) {
+                if (message.defiKingdomsTask != null && message.hasOwnProperty("defiKingdomsTask")) {
                     if (properties.Task === 1)
                         return "Task: multiple values";
                     properties.Task = 1;
                     {
-                        var error = $root.OracleJob.DefiKingdomTask.verify(message.defiKingdomTask);
+                        var error = $root.OracleJob.DefiKingdomsTask.verify(message.defiKingdomsTask);
                         if (error)
-                            return "defiKingdomTask." + error;
+                            return "defiKingdomsTask." + error;
                     }
                 }
                 return null;
@@ -9247,10 +9247,10 @@
                         throw TypeError(".OracleJob.Task.anchorFetchTask: object expected");
                     message.anchorFetchTask = $root.OracleJob.AnchorFetchTask.fromObject(object.anchorFetchTask);
                 }
-                if (object.defiKingdomTask != null) {
-                    if (typeof object.defiKingdomTask !== "object")
-                        throw TypeError(".OracleJob.Task.defiKingdomTask: object expected");
-                    message.defiKingdomTask = $root.OracleJob.DefiKingdomTask.fromObject(object.defiKingdomTask);
+                if (object.defiKingdomsTask != null) {
+                    if (typeof object.defiKingdomsTask !== "object")
+                        throw TypeError(".OracleJob.Task.defiKingdomsTask: object expected");
+                    message.defiKingdomsTask = $root.OracleJob.DefiKingdomsTask.fromObject(object.defiKingdomsTask);
                 }
                 return message;
             };
@@ -9393,10 +9393,10 @@
                     if (options.oneofs)
                         object.Task = "anchorFetchTask";
                 }
-                if (message.defiKingdomTask != null && message.hasOwnProperty("defiKingdomTask")) {
-                    object.defiKingdomTask = $root.OracleJob.DefiKingdomTask.toObject(message.defiKingdomTask, options);
+                if (message.defiKingdomsTask != null && message.hasOwnProperty("defiKingdomsTask")) {
+                    object.defiKingdomsTask = $root.OracleJob.DefiKingdomsTask.toObject(message.defiKingdomsTask, options);
                     if (options.oneofs)
-                        object.Task = "defiKingdomTask";
+                        object.Task = "defiKingdomsTask";
                 }
                 return object;
             };

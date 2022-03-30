@@ -3256,97 +3256,97 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a DefiKingdomTask. */
-    interface IDefiKingdomTask {
+    /** Properties of a DefiKingdomsTask. */
+    interface IDefiKingdomsTask {
 
-        /** DefiKingdomTask inTokenAddress */
+        /** DefiKingdomsTask inTokenAddress */
         inTokenAddress?: (string|null);
 
-        /** DefiKingdomTask outTokenAddress */
+        /** DefiKingdomsTask outTokenAddress */
         outTokenAddress?: (string|null);
     }
 
-    /** Represents a DefiKingdomTask. */
-    class DefiKingdomTask implements IDefiKingdomTask {
+    /** Represents a DefiKingdomsTask. */
+    class DefiKingdomsTask implements IDefiKingdomsTask {
 
         /**
-         * Constructs a new DefiKingdomTask.
+         * Constructs a new DefiKingdomsTask.
          * @param [properties] Properties to set
          */
-        constructor(properties?: OracleJob.IDefiKingdomTask);
+        constructor(properties?: OracleJob.IDefiKingdomsTask);
 
-        /** DefiKingdomTask inTokenAddress. */
+        /** DefiKingdomsTask inTokenAddress. */
         public inTokenAddress: string;
 
-        /** DefiKingdomTask outTokenAddress. */
+        /** DefiKingdomsTask outTokenAddress. */
         public outTokenAddress: string;
 
         /**
-         * Creates a new DefiKingdomTask instance using the specified properties.
+         * Creates a new DefiKingdomsTask instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns DefiKingdomTask instance
+         * @returns DefiKingdomsTask instance
          */
-        public static create(properties?: OracleJob.IDefiKingdomTask): OracleJob.DefiKingdomTask;
+        public static create(properties?: OracleJob.IDefiKingdomsTask): OracleJob.DefiKingdomsTask;
 
         /**
-         * Encodes the specified DefiKingdomTask message. Does not implicitly {@link OracleJob.DefiKingdomTask.verify|verify} messages.
-         * @param message DefiKingdomTask message or plain object to encode
+         * Encodes the specified DefiKingdomsTask message. Does not implicitly {@link OracleJob.DefiKingdomsTask.verify|verify} messages.
+         * @param message DefiKingdomsTask message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: OracleJob.IDefiKingdomTask, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: OracleJob.IDefiKingdomsTask, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified DefiKingdomTask message, length delimited. Does not implicitly {@link OracleJob.DefiKingdomTask.verify|verify} messages.
-         * @param message DefiKingdomTask message or plain object to encode
+         * Encodes the specified DefiKingdomsTask message, length delimited. Does not implicitly {@link OracleJob.DefiKingdomsTask.verify|verify} messages.
+         * @param message DefiKingdomsTask message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: OracleJob.IDefiKingdomTask, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: OracleJob.IDefiKingdomsTask, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a DefiKingdomTask message from the specified reader or buffer.
+         * Decodes a DefiKingdomsTask message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns DefiKingdomTask
+         * @returns DefiKingdomsTask
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.DefiKingdomTask;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.DefiKingdomsTask;
 
         /**
-         * Decodes a DefiKingdomTask message from the specified reader or buffer, length delimited.
+         * Decodes a DefiKingdomsTask message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns DefiKingdomTask
+         * @returns DefiKingdomsTask
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.DefiKingdomTask;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.DefiKingdomsTask;
 
         /**
-         * Verifies a DefiKingdomTask message.
+         * Verifies a DefiKingdomsTask message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a DefiKingdomTask message from a plain object. Also converts values to their respective internal types.
+         * Creates a DefiKingdomsTask message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns DefiKingdomTask
+         * @returns DefiKingdomsTask
          */
-        public static fromObject(object: { [k: string]: any }): OracleJob.DefiKingdomTask;
+        public static fromObject(object: { [k: string]: any }): OracleJob.DefiKingdomsTask;
 
         /**
-         * Creates a plain object from a DefiKingdomTask message. Also converts values to other types if specified.
-         * @param message DefiKingdomTask
+         * Creates a plain object from a DefiKingdomsTask message. Also converts values to other types if specified.
+         * @param message DefiKingdomsTask
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: OracleJob.DefiKingdomTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: OracleJob.DefiKingdomsTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this DefiKingdomTask to JSON.
+         * Converts this DefiKingdomsTask to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -3430,8 +3430,8 @@ export namespace OracleJob {
         /** Task anchorFetchTask */
         anchorFetchTask?: (OracleJob.IAnchorFetchTask|null);
 
-        /** Task defiKingdomTask */
-        defiKingdomTask?: (OracleJob.IDefiKingdomTask|null);
+        /** Task defiKingdomsTask */
+        defiKingdomsTask?: (OracleJob.IDefiKingdomsTask|null);
     }
 
     /** Represents a Task. */
@@ -3518,11 +3518,11 @@ export namespace OracleJob {
         /** Task anchorFetchTask. */
         public anchorFetchTask?: (OracleJob.IAnchorFetchTask|null);
 
-        /** Task defiKingdomTask. */
-        public defiKingdomTask?: (OracleJob.IDefiKingdomTask|null);
+        /** Task defiKingdomsTask. */
+        public defiKingdomsTask?: (OracleJob.IDefiKingdomsTask|null);
 
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask");
 
         /**
          * Creates a new Task instance using the specified properties.
