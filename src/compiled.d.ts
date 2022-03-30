@@ -3429,6 +3429,9 @@ export namespace OracleJob {
 
         /** Task anchorFetchTask */
         anchorFetchTask?: (OracleJob.IAnchorFetchTask|null);
+
+        /** Task defiKingdomTask */
+        defiKingdomTask?: (OracleJob.IDefiKingdomTask|null);
     }
 
     /** Represents a Task. */
@@ -3515,8 +3518,11 @@ export namespace OracleJob {
         /** Task anchorFetchTask. */
         public anchorFetchTask?: (OracleJob.IAnchorFetchTask|null);
 
+        /** Task defiKingdomTask. */
+        public defiKingdomTask?: (OracleJob.IDefiKingdomTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomTask");
 
         /**
          * Creates a new Task instance using the specified properties.

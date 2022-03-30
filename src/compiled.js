@@ -8385,6 +8385,7 @@
              * @property {OracleJob.IPerpMarketTask|null} [perpMarketTask] Task perpMarketTask
              * @property {OracleJob.IOracleTask|null} [oracleTask] Task oracleTask
              * @property {OracleJob.IAnchorFetchTask|null} [anchorFetchTask] Task anchorFetchTask
+             * @property {OracleJob.IDefiKingdomTask|null} [defiKingdomTask] Task defiKingdomTask
              */
     
             /**
@@ -8602,17 +8603,25 @@
              */
             Task.prototype.anchorFetchTask = null;
     
+            /**
+             * Task defiKingdomTask.
+             * @member {OracleJob.IDefiKingdomTask|null|undefined} defiKingdomTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.defiKingdomTask = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask", "powTask", "lendingRateTask", "mangoPerpMarketTask", "jupiterSwapTask", "perpMarketTask", "oracleTask", "anchorFetchTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask", "powTask", "lendingRateTask", "mangoPerpMarketTask", "jupiterSwapTask", "perpMarketTask", "oracleTask", "anchorFetchTask", "defiKingdomTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -8690,6 +8699,8 @@
                     $root.OracleJob.OracleTask.encode(message.oracleTask, writer.uint32(/* id 25, wireType 2 =*/202).fork()).ldelim();
                 if (message.anchorFetchTask != null && Object.hasOwnProperty.call(message, "anchorFetchTask"))
                     $root.OracleJob.AnchorFetchTask.encode(message.anchorFetchTask, writer.uint32(/* id 26, wireType 2 =*/210).fork()).ldelim();
+                if (message.defiKingdomTask != null && Object.hasOwnProperty.call(message, "defiKingdomTask"))
+                    $root.OracleJob.DefiKingdomTask.encode(message.defiKingdomTask, writer.uint32(/* id 27, wireType 2 =*/218).fork()).ldelim();
                 return writer;
             };
     
@@ -8798,6 +8809,9 @@
                         break;
                     case 26:
                         message.anchorFetchTask = $root.OracleJob.AnchorFetchTask.decode(reader, reader.uint32());
+                        break;
+                    case 27:
+                        message.defiKingdomTask = $root.OracleJob.DefiKingdomTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -9083,6 +9097,16 @@
                             return "anchorFetchTask." + error;
                     }
                 }
+                if (message.defiKingdomTask != null && message.hasOwnProperty("defiKingdomTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.DefiKingdomTask.verify(message.defiKingdomTask);
+                        if (error)
+                            return "defiKingdomTask." + error;
+                    }
+                }
                 return null;
             };
     
@@ -9222,6 +9246,11 @@
                     if (typeof object.anchorFetchTask !== "object")
                         throw TypeError(".OracleJob.Task.anchorFetchTask: object expected");
                     message.anchorFetchTask = $root.OracleJob.AnchorFetchTask.fromObject(object.anchorFetchTask);
+                }
+                if (object.defiKingdomTask != null) {
+                    if (typeof object.defiKingdomTask !== "object")
+                        throw TypeError(".OracleJob.Task.defiKingdomTask: object expected");
+                    message.defiKingdomTask = $root.OracleJob.DefiKingdomTask.fromObject(object.defiKingdomTask);
                 }
                 return message;
             };
@@ -9363,6 +9392,11 @@
                     object.anchorFetchTask = $root.OracleJob.AnchorFetchTask.toObject(message.anchorFetchTask, options);
                     if (options.oneofs)
                         object.Task = "anchorFetchTask";
+                }
+                if (message.defiKingdomTask != null && message.hasOwnProperty("defiKingdomTask")) {
+                    object.defiKingdomTask = $root.OracleJob.DefiKingdomTask.toObject(message.defiKingdomTask, options);
+                    if (options.oneofs)
+                        object.Task = "defiKingdomTask";
                 }
                 return object;
             };
