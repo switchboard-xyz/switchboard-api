@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IAddTask | @switchboard-xyz/switchboard-api</title>
+	<title>IToken | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,13 @@
 					<a href="../modules/oraclejob.html">OracleJob</a>
 				</li>
 				<li>
-					<a href="oraclejob.iaddtask.html">IAddTask</a>
+					<a href="../modules/oraclejob.defikingdomstask.html">DefiKingdomsTask</a>
+				</li>
+				<li>
+					<a href="oraclejob.defikingdomstask.itoken.html">IToken</a>
 				</li>
 			</ul>
-			<h1>Interface IAddTask</h1>
+			<h1>Interface IToken</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +74,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of an AddTask.</p>
+						<p>Properties of a Token.</p>
 					</div>
 				</div>
 			</section>
@@ -79,14 +82,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IAddTask</span>
+						<span class="target">IToken</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/oraclejob.addtask.html" class="tsd-signature-type" data-tsd-kind="Class">AddTask</a></li>
+					<li><a href="../classes/oraclejob.defikingdomstask.token.html" class="tsd-signature-type" data-tsd-kind="Class">Token</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,9 +99,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.iaddtask.html#aggregatorpubkey" class="tsd-kind-icon">aggregator<wbr>Pubkey</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.iaddtask.html#job" class="tsd-kind-icon">job</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.iaddtask.html#scalar" class="tsd-kind-icon">scalar</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.defikingdomstask.itoken.html#address" class="tsd-kind-icon">address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.defikingdomstask.itoken.html#decimals" class="tsd-kind-icon">decimals</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,47 +109,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="aggregatorpubkey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> aggregator<wbr>Pubkey</h3>
-					<div class="tsd-signature tsd-kind-icon">aggregator<wbr>Pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="address" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> address</h3>
+					<div class="tsd-signature tsd-kind-icon">address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/8ee2d56/src/compiled.d.ts#L1706">compiled.d.ts:1706</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/8ee2d56/src/compiled.d.ts#L3367">compiled.d.ts:3367</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>AddTask aggregatorPubkey</p>
+							<p>Token address</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="job" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> job</h3>
-					<div class="tsd-signature tsd-kind-icon">job<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="ioraclejob.html" class="tsd-signature-type" data-tsd-kind="Interface">IOracleJob</a></div>
+					<a name="decimals" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> decimals</h3>
+					<div class="tsd-signature tsd-kind-icon">decimals<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/8ee2d56/src/compiled.d.ts#L1709">compiled.d.ts:1709</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/8ee2d56/src/compiled.d.ts#L3370">compiled.d.ts:3370</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>AddTask job</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="scalar" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> scalar</h3>
-					<div class="tsd-signature tsd-kind-icon">scalar<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/8ee2d56/src/compiled.d.ts#L1703">compiled.d.ts:1703</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>AddTask scalar</p>
+							<p>Token decimals</p>
 						</div>
 					</div>
 				</section>
@@ -165,10 +152,10 @@
 					<li class=" tsd-kind-namespace">
 						<a href="../modules/fulfillmentmanagerstate.html">Fulfillment<wbr>Manager<wbr>State</a>
 					</li>
-					<li class="current tsd-kind-namespace">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/oraclejob.html">Oracle<wbr>Job</a>
 					</li>
-					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+					<li class="current tsd-kind-namespace tsd-parent-kind-namespace">
 						<a href="../modules/oraclejob.defikingdomstask.html">Oracle<wbr>Job.<wbr>Defi<wbr>Kingdoms<wbr>Task</a>
 					</li>
 					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
@@ -187,19 +174,19 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-namespace">
+						<a href="../classes/oraclejob.defikingdomstask.token.html" class="tsd-kind-icon">Token</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="oraclejob.iaddtask.html" class="tsd-kind-icon">IAdd<wbr>Task</a>
+						<a href="oraclejob.defikingdomstask.itoken.html" class="tsd-kind-icon">IToken</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.iaddtask.html#aggregatorpubkey" class="tsd-kind-icon">aggregator<wbr>Pubkey</a>
+								<a href="oraclejob.defikingdomstask.itoken.html#address" class="tsd-kind-icon">address</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.iaddtask.html#job" class="tsd-kind-icon">job</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oraclejob.iaddtask.html#scalar" class="tsd-kind-icon">scalar</a>
+								<a href="oraclejob.defikingdomstask.itoken.html#decimals" class="tsd-kind-icon">decimals</a>
 							</li>
 						</ul>
 					</li>

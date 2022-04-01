@@ -3259,11 +3259,14 @@ export namespace OracleJob {
     /** Properties of a DefiKingdomsTask. */
     interface IDefiKingdomsTask {
 
-        /** DefiKingdomsTask inTokenAddress */
-        inTokenAddress?: (string|null);
+        /** DefiKingdomsTask provider */
+        provider?: (string|null);
 
-        /** DefiKingdomsTask outTokenAddress */
-        outTokenAddress?: (string|null);
+        /** DefiKingdomsTask inToken */
+        inToken?: (OracleJob.DefiKingdomsTask.IToken|null);
+
+        /** DefiKingdomsTask outToken */
+        outToken?: (OracleJob.DefiKingdomsTask.IToken|null);
     }
 
     /** Represents a DefiKingdomsTask. */
@@ -3275,11 +3278,14 @@ export namespace OracleJob {
          */
         constructor(properties?: OracleJob.IDefiKingdomsTask);
 
-        /** DefiKingdomsTask inTokenAddress. */
-        public inTokenAddress: string;
+        /** DefiKingdomsTask provider. */
+        public provider: string;
 
-        /** DefiKingdomsTask outTokenAddress. */
-        public outTokenAddress: string;
+        /** DefiKingdomsTask inToken. */
+        public inToken?: (OracleJob.DefiKingdomsTask.IToken|null);
+
+        /** DefiKingdomsTask outToken. */
+        public outToken?: (OracleJob.DefiKingdomsTask.IToken|null);
 
         /**
          * Creates a new DefiKingdomsTask instance using the specified properties.
@@ -3350,6 +3356,105 @@ export namespace OracleJob {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+    }
+
+    namespace DefiKingdomsTask {
+
+        /** Properties of a Token. */
+        interface IToken {
+
+            /** Token address */
+            address?: (string|null);
+
+            /** Token decimals */
+            decimals?: (number|null);
+        }
+
+        /** Represents a Token. */
+        class Token implements IToken {
+
+            /**
+             * Constructs a new Token.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: OracleJob.DefiKingdomsTask.IToken);
+
+            /** Token address. */
+            public address: string;
+
+            /** Token decimals. */
+            public decimals: number;
+
+            /**
+             * Creates a new Token instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Token instance
+             */
+            public static create(properties?: OracleJob.DefiKingdomsTask.IToken): OracleJob.DefiKingdomsTask.Token;
+
+            /**
+             * Encodes the specified Token message. Does not implicitly {@link OracleJob.DefiKingdomsTask.Token.verify|verify} messages.
+             * @param message Token message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: OracleJob.DefiKingdomsTask.IToken, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Token message, length delimited. Does not implicitly {@link OracleJob.DefiKingdomsTask.Token.verify|verify} messages.
+             * @param message Token message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: OracleJob.DefiKingdomsTask.IToken, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Token message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Token
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.DefiKingdomsTask.Token;
+
+            /**
+             * Decodes a Token message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Token
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.DefiKingdomsTask.Token;
+
+            /**
+             * Verifies a Token message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Token message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Token
+             */
+            public static fromObject(object: { [k: string]: any }): OracleJob.DefiKingdomsTask.Token;
+
+            /**
+             * Creates a plain object from a Token message. Also converts values to other types if specified.
+             * @param message Token
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: OracleJob.DefiKingdomsTask.Token, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Token to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
     }
 
     /** Properties of a Task. */
