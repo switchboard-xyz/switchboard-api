@@ -3457,6 +3457,90 @@ export namespace OracleJob {
         }
     }
 
+    /** Properties of a TpsTask. */
+    interface ITpsTask {
+    }
+
+    /** Represents a TpsTask. */
+    class TpsTask implements ITpsTask {
+
+        /**
+         * Constructs a new TpsTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ITpsTask);
+
+        /**
+         * Creates a new TpsTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns TpsTask instance
+         */
+        public static create(properties?: OracleJob.ITpsTask): OracleJob.TpsTask;
+
+        /**
+         * Encodes the specified TpsTask message. Does not implicitly {@link OracleJob.TpsTask.verify|verify} messages.
+         * @param message TpsTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ITpsTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified TpsTask message, length delimited. Does not implicitly {@link OracleJob.TpsTask.verify|verify} messages.
+         * @param message TpsTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ITpsTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a TpsTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TpsTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.TpsTask;
+
+        /**
+         * Decodes a TpsTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns TpsTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.TpsTask;
+
+        /**
+         * Verifies a TpsTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a TpsTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns TpsTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.TpsTask;
+
+        /**
+         * Creates a plain object from a TpsTask message. Also converts values to other types if specified.
+         * @param message TpsTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.TpsTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this TpsTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -3537,6 +3621,9 @@ export namespace OracleJob {
 
         /** Task defiKingdomsTask */
         defiKingdomsTask?: (OracleJob.IDefiKingdomsTask|null);
+
+        /** Task tpsTask */
+        tpsTask?: (OracleJob.ITpsTask|null);
     }
 
     /** Represents a Task. */
@@ -3626,8 +3713,11 @@ export namespace OracleJob {
         /** Task defiKingdomsTask. */
         public defiKingdomsTask?: (OracleJob.IDefiKingdomsTask|null);
 
+        /** Task tpsTask. */
+        public tpsTask?: (OracleJob.ITpsTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask");
 
         /**
          * Creates a new Task instance using the specified properties.
