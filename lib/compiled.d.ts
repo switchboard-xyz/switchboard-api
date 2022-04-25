@@ -2850,6 +2850,9 @@ export namespace OracleJob {
 
         /** JupiterSwapTask outTokenAddress */
         outTokenAddress?: (string|null);
+
+        /** JupiterSwapTask quoteAmount */
+        quoteAmount?: (number|null);
     }
 
     /** Represents a JupiterSwapTask. */
@@ -2866,6 +2869,9 @@ export namespace OracleJob {
 
         /** JupiterSwapTask outTokenAddress. */
         public outTokenAddress: string;
+
+        /** JupiterSwapTask quoteAmount. */
+        public quoteAmount: number;
 
         /**
          * Creates a new JupiterSwapTask instance using the specified properties.
@@ -3541,6 +3547,210 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a SplStakePoolTask. */
+    interface ISplStakePoolTask {
+
+        /** SplStakePoolTask pubkey */
+        pubkey?: (string|null);
+
+        /** SplStakePoolTask field */
+        field?: (OracleJob.SplStakePoolTask.Field|null);
+    }
+
+    /** Represents a SplStakePoolTask. */
+    class SplStakePoolTask implements ISplStakePoolTask {
+
+        /**
+         * Constructs a new SplStakePoolTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ISplStakePoolTask);
+
+        /** SplStakePoolTask pubkey. */
+        public pubkey: string;
+
+        /** SplStakePoolTask field. */
+        public field: OracleJob.SplStakePoolTask.Field;
+
+        /**
+         * Creates a new SplStakePoolTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SplStakePoolTask instance
+         */
+        public static create(properties?: OracleJob.ISplStakePoolTask): OracleJob.SplStakePoolTask;
+
+        /**
+         * Encodes the specified SplStakePoolTask message. Does not implicitly {@link OracleJob.SplStakePoolTask.verify|verify} messages.
+         * @param message SplStakePoolTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ISplStakePoolTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SplStakePoolTask message, length delimited. Does not implicitly {@link OracleJob.SplStakePoolTask.verify|verify} messages.
+         * @param message SplStakePoolTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ISplStakePoolTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SplStakePoolTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SplStakePoolTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.SplStakePoolTask;
+
+        /**
+         * Decodes a SplStakePoolTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SplStakePoolTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.SplStakePoolTask;
+
+        /**
+         * Verifies a SplStakePoolTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SplStakePoolTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SplStakePoolTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.SplStakePoolTask;
+
+        /**
+         * Creates a plain object from a SplStakePoolTask message. Also converts values to other types if specified.
+         * @param message SplStakePoolTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.SplStakePoolTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SplStakePoolTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace SplStakePoolTask {
+
+        /** Field enum. */
+        enum Field {
+            FIELD_TOKEN_VALUE = 0,
+            FIELD_TOTAL_SUPPLY = 1
+        }
+    }
+
+    /** Properties of a SplTokenParseTask. */
+    interface ISplTokenParseTask {
+
+        /** SplTokenParseTask tokenAccountAddress */
+        tokenAccountAddress?: (string|null);
+
+        /** SplTokenParseTask mintAddress */
+        mintAddress?: (string|null);
+    }
+
+    /** Represents a SplTokenParseTask. */
+    class SplTokenParseTask implements ISplTokenParseTask {
+
+        /**
+         * Constructs a new SplTokenParseTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ISplTokenParseTask);
+
+        /** SplTokenParseTask tokenAccountAddress. */
+        public tokenAccountAddress?: (string|null);
+
+        /** SplTokenParseTask mintAddress. */
+        public mintAddress?: (string|null);
+
+        /** SplTokenParseTask AccountAddress. */
+        public AccountAddress?: ("tokenAccountAddress"|"mintAddress");
+
+        /**
+         * Creates a new SplTokenParseTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SplTokenParseTask instance
+         */
+        public static create(properties?: OracleJob.ISplTokenParseTask): OracleJob.SplTokenParseTask;
+
+        /**
+         * Encodes the specified SplTokenParseTask message. Does not implicitly {@link OracleJob.SplTokenParseTask.verify|verify} messages.
+         * @param message SplTokenParseTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ISplTokenParseTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SplTokenParseTask message, length delimited. Does not implicitly {@link OracleJob.SplTokenParseTask.verify|verify} messages.
+         * @param message SplTokenParseTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ISplTokenParseTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SplTokenParseTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SplTokenParseTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.SplTokenParseTask;
+
+        /**
+         * Decodes a SplTokenParseTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SplTokenParseTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.SplTokenParseTask;
+
+        /**
+         * Verifies a SplTokenParseTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SplTokenParseTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SplTokenParseTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.SplTokenParseTask;
+
+        /**
+         * Creates a plain object from a SplTokenParseTask message. Also converts values to other types if specified.
+         * @param message SplTokenParseTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.SplTokenParseTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SplTokenParseTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -3624,6 +3834,12 @@ export namespace OracleJob {
 
         /** Task tpsTask */
         tpsTask?: (OracleJob.ITpsTask|null);
+
+        /** Task splStakePoolTask */
+        splStakePoolTask?: (OracleJob.ISplStakePoolTask|null);
+
+        /** Task splTokenParseTask */
+        splTokenParseTask?: (OracleJob.ISplTokenParseTask|null);
     }
 
     /** Represents a Task. */
@@ -3716,8 +3932,14 @@ export namespace OracleJob {
         /** Task tpsTask. */
         public tpsTask?: (OracleJob.ITpsTask|null);
 
+        /** Task splStakePoolTask. */
+        public splStakePoolTask?: (OracleJob.ISplStakePoolTask|null);
+
+        /** Task splTokenParseTask. */
+        public splTokenParseTask?: (OracleJob.ISplTokenParseTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask"|"splStakePoolTask"|"splTokenParseTask");
 
         /**
          * Creates a new Task instance using the specified properties.
