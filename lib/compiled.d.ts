@@ -3552,9 +3552,6 @@ export namespace OracleJob {
 
         /** SplStakePoolTask pubkey */
         pubkey?: (string|null);
-
-        /** SplStakePoolTask field */
-        field?: (OracleJob.SplStakePoolTask.Field|null);
     }
 
     /** Represents a SplStakePoolTask. */
@@ -3568,9 +3565,6 @@ export namespace OracleJob {
 
         /** SplStakePoolTask pubkey. */
         public pubkey: string;
-
-        /** SplStakePoolTask field. */
-        public field: OracleJob.SplStakePoolTask.Field;
 
         /**
          * Creates a new SplStakePoolTask instance using the specified properties.
@@ -3641,15 +3635,6 @@ export namespace OracleJob {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
-    }
-
-    namespace SplStakePoolTask {
-
-        /** Field enum. */
-        enum Field {
-            FIELD_TOKEN_VALUE = 0,
-            FIELD_TOTAL_SUPPLY = 1
-        }
     }
 
     /** Properties of a SplTokenParseTask. */
