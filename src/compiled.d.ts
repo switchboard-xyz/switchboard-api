@@ -2851,8 +2851,8 @@ export namespace OracleJob {
         /** JupiterSwapTask outTokenAddress */
         outTokenAddress?: (string|null);
 
-        /** JupiterSwapTask quoteAmount */
-        quoteAmount?: (number|null);
+        /** JupiterSwapTask baseAmount */
+        baseAmount?: (number|null);
     }
 
     /** Represents a JupiterSwapTask. */
@@ -2870,8 +2870,8 @@ export namespace OracleJob {
         /** JupiterSwapTask outTokenAddress. */
         public outTokenAddress: string;
 
-        /** JupiterSwapTask quoteAmount. */
-        public quoteAmount: number;
+        /** JupiterSwapTask baseAmount. */
+        public baseAmount: number;
 
         /**
          * Creates a new JupiterSwapTask instance using the specified properties.
