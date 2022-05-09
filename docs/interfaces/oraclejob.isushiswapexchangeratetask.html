@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IRegisterAuthInstruction | @switchboard-xyz/switchboard-api</title>
+	<title>ISushiswapExchangeRateTask | @switchboard-xyz/switchboard-api</title>
 	<meta name="description" content="Documentation for @switchboard-xyz/switchboard-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@switchboard-xyz/switchboard-api</a>
 				</li>
 				<li>
-					<a href="../modules/switchboardinstruction.html">SwitchboardInstruction</a>
+					<a href="../modules/oraclejob.html">OracleJob</a>
 				</li>
 				<li>
-					<a href="switchboardinstruction.iregisterauthinstruction.html">IRegisterAuthInstruction</a>
+					<a href="oraclejob.isushiswapexchangeratetask.html">ISushiswapExchangeRateTask</a>
 				</li>
 			</ul>
-			<h1>Interface IRegisterAuthInstruction</h1>
+			<h1>Interface ISushiswapExchangeRateTask</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Properties of a RegisterAuthInstruction.</p>
+						<p>Properties of a SushiswapExchangeRateTask.</p>
 					</div>
 				</div>
 			</section>
@@ -79,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IRegisterAuthInstruction</span>
+						<span class="target">ISushiswapExchangeRateTask</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/switchboardinstruction.registerauthinstruction.html" class="tsd-signature-type" data-tsd-kind="Class">RegisterAuthInstruction</a></li>
+					<li><a href="../classes/oraclejob.sushiswapexchangeratetask.html" class="tsd-signature-type" data-tsd-kind="Class">SushiswapExchangeRateTask</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,8 +96,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.iregisterauthinstruction.html#authorizeheartbeat" class="tsd-kind-icon">authorize<wbr>Heartbeat</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="switchboardinstruction.iregisterauthinstruction.html#authorizeusage" class="tsd-kind-icon">authorize<wbr>Usage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.isushiswapexchangeratetask.html#intokenaddress" class="tsd-kind-icon">in<wbr>Token<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.isushiswapexchangeratetask.html#intokenamount" class="tsd-kind-icon">in<wbr>Token<wbr>Amount</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.isushiswapexchangeratetask.html#outtokenaddress" class="tsd-kind-icon">out<wbr>Token<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oraclejob.isushiswapexchangeratetask.html#slippage" class="tsd-kind-icon">slippage</a></li>
 							</ul>
 						</section>
 					</div>
@@ -106,32 +108,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authorizeheartbeat" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> authorize<wbr>Heartbeat</h3>
-					<div class="tsd-signature tsd-kind-icon">authorize<wbr>Heartbeat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<a name="intokenaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> in<wbr>Token<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">in<wbr>Token<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a49d009/src/compiled.d.ts#L6320">compiled.d.ts:6320</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a49d009/src/compiled.d.ts#L3866">compiled.d.ts:3866</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>RegisterAuthInstruction authorizeHeartbeat</p>
+							<p>SushiswapExchangeRateTask inTokenAddress</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authorizeusage" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> authorize<wbr>Usage</h3>
-					<div class="tsd-signature tsd-kind-icon">authorize<wbr>Usage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<a name="intokenamount" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> in<wbr>Token<wbr>Amount</h3>
+					<div class="tsd-signature tsd-kind-icon">in<wbr>Token<wbr>Amount<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a49d009/src/compiled.d.ts#L6323">compiled.d.ts:6323</a></li>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a49d009/src/compiled.d.ts#L3872">compiled.d.ts:3872</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>RegisterAuthInstruction authorizeUsage</p>
+							<p>SushiswapExchangeRateTask inTokenAmount</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="outtokenaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> out<wbr>Token<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">out<wbr>Token<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a49d009/src/compiled.d.ts#L3869">compiled.d.ts:3869</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>SushiswapExchangeRateTask outTokenAddress</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="slippage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> slippage</h3>
+					<div class="tsd-signature tsd-kind-icon">slippage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/switchboard-xyz/switchboard-api/blob/a49d009/src/compiled.d.ts#L3875">compiled.d.ts:3875</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>SushiswapExchangeRateTask slippage</p>
 						</div>
 					</div>
 				</section>
@@ -149,7 +181,7 @@
 					<li class=" tsd-kind-namespace">
 						<a href="../modules/fulfillmentmanagerstate.html">Fulfillment<wbr>Manager<wbr>State</a>
 					</li>
-					<li class=" tsd-kind-namespace">
+					<li class="current tsd-kind-namespace">
 						<a href="../modules/oraclejob.html">Oracle<wbr>Job</a>
 					</li>
 					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
@@ -164,7 +196,7 @@
 					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
 						<a href="../modules/oraclejob.lendingratetask.html">Oracle<wbr>Job.<wbr>Lending<wbr>Rate<wbr>Task</a>
 					</li>
-					<li class="current tsd-kind-namespace">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/switchboardinstruction.html">Switchboard<wbr>Instruction</a>
 					</li>
 				</ul>
@@ -174,13 +206,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="switchboardinstruction.iregisterauthinstruction.html" class="tsd-kind-icon">IRegister<wbr>Auth<wbr>Instruction</a>
+						<a href="oraclejob.isushiswapexchangeratetask.html" class="tsd-kind-icon">ISushiswap<wbr>Exchange<wbr>Rate<wbr>Task</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="switchboardinstruction.iregisterauthinstruction.html#authorizeheartbeat" class="tsd-kind-icon">authorize<wbr>Heartbeat</a>
+								<a href="oraclejob.isushiswapexchangeratetask.html#intokenaddress" class="tsd-kind-icon">in<wbr>Token<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="switchboardinstruction.iregisterauthinstruction.html#authorizeusage" class="tsd-kind-icon">authorize<wbr>Usage</a>
+								<a href="oraclejob.isushiswapexchangeratetask.html#intokenamount" class="tsd-kind-icon">in<wbr>Token<wbr>Amount</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="oraclejob.isushiswapexchangeratetask.html#outtokenaddress" class="tsd-kind-icon">out<wbr>Token<wbr>Address</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="oraclejob.isushiswapexchangeratetask.html#slippage" class="tsd-kind-icon">slippage</a>
 							</li>
 						</ul>
 					</li>

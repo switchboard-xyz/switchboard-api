@@ -5855,6 +5855,8 @@
              * Properties of a XStepPriceTask.
              * @memberof OracleJob
              * @interface IXStepPriceTask
+             * @property {OracleJob.IMedianTask|null} [stepJob] XStepPriceTask stepJob
+             * @property {string|null} [stepAggregatorPubkey] XStepPriceTask stepAggregatorPubkey
              */
     
             /**
@@ -5871,6 +5873,36 @@
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
+    
+            /**
+             * XStepPriceTask stepJob.
+             * @member {OracleJob.IMedianTask|null|undefined} stepJob
+             * @memberof OracleJob.XStepPriceTask
+             * @instance
+             */
+            XStepPriceTask.prototype.stepJob = null;
+    
+            /**
+             * XStepPriceTask stepAggregatorPubkey.
+             * @member {string|null|undefined} stepAggregatorPubkey
+             * @memberof OracleJob.XStepPriceTask
+             * @instance
+             */
+            XStepPriceTask.prototype.stepAggregatorPubkey = null;
+    
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+    
+            /**
+             * XStepPriceTask StepSource.
+             * @member {"stepJob"|"stepAggregatorPubkey"|undefined} StepSource
+             * @memberof OracleJob.XStepPriceTask
+             * @instance
+             */
+            Object.defineProperty(XStepPriceTask.prototype, "StepSource", {
+                get: $util.oneOfGetter($oneOfFields = ["stepJob", "stepAggregatorPubkey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
     
             /**
              * Creates a new XStepPriceTask instance using the specified properties.
@@ -5896,6 +5928,10 @@
             XStepPriceTask.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
+                if (message.stepJob != null && Object.hasOwnProperty.call(message, "stepJob"))
+                    $root.OracleJob.MedianTask.encode(message.stepJob, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.stepAggregatorPubkey != null && Object.hasOwnProperty.call(message, "stepAggregatorPubkey"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.stepAggregatorPubkey);
                 return writer;
             };
     
@@ -5930,6 +5966,12 @@
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
+                    case 1:
+                        message.stepJob = $root.OracleJob.MedianTask.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.stepAggregatorPubkey = reader.string();
+                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -5965,6 +6007,22 @@
             XStepPriceTask.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                var properties = {};
+                if (message.stepJob != null && message.hasOwnProperty("stepJob")) {
+                    properties.StepSource = 1;
+                    {
+                        var error = $root.OracleJob.MedianTask.verify(message.stepJob);
+                        if (error)
+                            return "stepJob." + error;
+                    }
+                }
+                if (message.stepAggregatorPubkey != null && message.hasOwnProperty("stepAggregatorPubkey")) {
+                    if (properties.StepSource === 1)
+                        return "StepSource: multiple values";
+                    properties.StepSource = 1;
+                    if (!$util.isString(message.stepAggregatorPubkey))
+                        return "stepAggregatorPubkey: string expected";
+                }
                 return null;
             };
     
@@ -5979,7 +6037,15 @@
             XStepPriceTask.fromObject = function fromObject(object) {
                 if (object instanceof $root.OracleJob.XStepPriceTask)
                     return object;
-                return new $root.OracleJob.XStepPriceTask();
+                var message = new $root.OracleJob.XStepPriceTask();
+                if (object.stepJob != null) {
+                    if (typeof object.stepJob !== "object")
+                        throw TypeError(".OracleJob.XStepPriceTask.stepJob: object expected");
+                    message.stepJob = $root.OracleJob.MedianTask.fromObject(object.stepJob);
+                }
+                if (object.stepAggregatorPubkey != null)
+                    message.stepAggregatorPubkey = String(object.stepAggregatorPubkey);
+                return message;
             };
     
             /**
@@ -5991,8 +6057,21 @@
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            XStepPriceTask.toObject = function toObject() {
-                return {};
+            XStepPriceTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.stepJob != null && message.hasOwnProperty("stepJob")) {
+                    object.stepJob = $root.OracleJob.MedianTask.toObject(message.stepJob, options);
+                    if (options.oneofs)
+                        object.StepSource = "stepJob";
+                }
+                if (message.stepAggregatorPubkey != null && message.hasOwnProperty("stepAggregatorPubkey")) {
+                    object.stepAggregatorPubkey = message.stepAggregatorPubkey;
+                    if (options.oneofs)
+                        object.StepSource = "stepAggregatorPubkey";
+                }
+                return object;
             };
     
             /**
@@ -9198,6 +9277,514 @@
             return SplTokenParseTask;
         })();
     
+        OracleJob.UniswapExchangeRateTask = (function() {
+    
+            /**
+             * Properties of an UniswapExchangeRateTask.
+             * @memberof OracleJob
+             * @interface IUniswapExchangeRateTask
+             * @property {string|null} [inTokenAddress] UniswapExchangeRateTask inTokenAddress
+             * @property {string|null} [outTokenAddress] UniswapExchangeRateTask outTokenAddress
+             * @property {number|null} [inTokenAmount] UniswapExchangeRateTask inTokenAmount
+             * @property {number|null} [slippage] UniswapExchangeRateTask slippage
+             */
+    
+            /**
+             * Constructs a new UniswapExchangeRateTask.
+             * @memberof OracleJob
+             * @classdesc Represents an UniswapExchangeRateTask.
+             * @implements IUniswapExchangeRateTask
+             * @constructor
+             * @param {OracleJob.IUniswapExchangeRateTask=} [properties] Properties to set
+             */
+            function UniswapExchangeRateTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * UniswapExchangeRateTask inTokenAddress.
+             * @member {string} inTokenAddress
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @instance
+             */
+            UniswapExchangeRateTask.prototype.inTokenAddress = "";
+    
+            /**
+             * UniswapExchangeRateTask outTokenAddress.
+             * @member {string} outTokenAddress
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @instance
+             */
+            UniswapExchangeRateTask.prototype.outTokenAddress = "";
+    
+            /**
+             * UniswapExchangeRateTask inTokenAmount.
+             * @member {number} inTokenAmount
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @instance
+             */
+            UniswapExchangeRateTask.prototype.inTokenAmount = 0;
+    
+            /**
+             * UniswapExchangeRateTask slippage.
+             * @member {number} slippage
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @instance
+             */
+            UniswapExchangeRateTask.prototype.slippage = 0;
+    
+            /**
+             * Creates a new UniswapExchangeRateTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @static
+             * @param {OracleJob.IUniswapExchangeRateTask=} [properties] Properties to set
+             * @returns {OracleJob.UniswapExchangeRateTask} UniswapExchangeRateTask instance
+             */
+            UniswapExchangeRateTask.create = function create(properties) {
+                return new UniswapExchangeRateTask(properties);
+            };
+    
+            /**
+             * Encodes the specified UniswapExchangeRateTask message. Does not implicitly {@link OracleJob.UniswapExchangeRateTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @static
+             * @param {OracleJob.IUniswapExchangeRateTask} message UniswapExchangeRateTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UniswapExchangeRateTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.inTokenAddress != null && Object.hasOwnProperty.call(message, "inTokenAddress"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.inTokenAddress);
+                if (message.outTokenAddress != null && Object.hasOwnProperty.call(message, "outTokenAddress"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.outTokenAddress);
+                if (message.inTokenAmount != null && Object.hasOwnProperty.call(message, "inTokenAmount"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.inTokenAmount);
+                if (message.slippage != null && Object.hasOwnProperty.call(message, "slippage"))
+                    writer.uint32(/* id 4, wireType 1 =*/33).double(message.slippage);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified UniswapExchangeRateTask message, length delimited. Does not implicitly {@link OracleJob.UniswapExchangeRateTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @static
+             * @param {OracleJob.IUniswapExchangeRateTask} message UniswapExchangeRateTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UniswapExchangeRateTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes an UniswapExchangeRateTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.UniswapExchangeRateTask} UniswapExchangeRateTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UniswapExchangeRateTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.UniswapExchangeRateTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.inTokenAddress = reader.string();
+                        break;
+                    case 2:
+                        message.outTokenAddress = reader.string();
+                        break;
+                    case 3:
+                        message.inTokenAmount = reader.uint32();
+                        break;
+                    case 4:
+                        message.slippage = reader.double();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes an UniswapExchangeRateTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.UniswapExchangeRateTask} UniswapExchangeRateTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UniswapExchangeRateTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies an UniswapExchangeRateTask message.
+             * @function verify
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            UniswapExchangeRateTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.inTokenAddress != null && message.hasOwnProperty("inTokenAddress"))
+                    if (!$util.isString(message.inTokenAddress))
+                        return "inTokenAddress: string expected";
+                if (message.outTokenAddress != null && message.hasOwnProperty("outTokenAddress"))
+                    if (!$util.isString(message.outTokenAddress))
+                        return "outTokenAddress: string expected";
+                if (message.inTokenAmount != null && message.hasOwnProperty("inTokenAmount"))
+                    if (!$util.isInteger(message.inTokenAmount))
+                        return "inTokenAmount: integer expected";
+                if (message.slippage != null && message.hasOwnProperty("slippage"))
+                    if (typeof message.slippage !== "number")
+                        return "slippage: number expected";
+                return null;
+            };
+    
+            /**
+             * Creates an UniswapExchangeRateTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.UniswapExchangeRateTask} UniswapExchangeRateTask
+             */
+            UniswapExchangeRateTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.UniswapExchangeRateTask)
+                    return object;
+                var message = new $root.OracleJob.UniswapExchangeRateTask();
+                if (object.inTokenAddress != null)
+                    message.inTokenAddress = String(object.inTokenAddress);
+                if (object.outTokenAddress != null)
+                    message.outTokenAddress = String(object.outTokenAddress);
+                if (object.inTokenAmount != null)
+                    message.inTokenAmount = object.inTokenAmount >>> 0;
+                if (object.slippage != null)
+                    message.slippage = Number(object.slippage);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from an UniswapExchangeRateTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @static
+             * @param {OracleJob.UniswapExchangeRateTask} message UniswapExchangeRateTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            UniswapExchangeRateTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.inTokenAddress = "";
+                    object.outTokenAddress = "";
+                    object.inTokenAmount = 0;
+                    object.slippage = 0;
+                }
+                if (message.inTokenAddress != null && message.hasOwnProperty("inTokenAddress"))
+                    object.inTokenAddress = message.inTokenAddress;
+                if (message.outTokenAddress != null && message.hasOwnProperty("outTokenAddress"))
+                    object.outTokenAddress = message.outTokenAddress;
+                if (message.inTokenAmount != null && message.hasOwnProperty("inTokenAmount"))
+                    object.inTokenAmount = message.inTokenAmount;
+                if (message.slippage != null && message.hasOwnProperty("slippage"))
+                    object.slippage = options.json && !isFinite(message.slippage) ? String(message.slippage) : message.slippage;
+                return object;
+            };
+    
+            /**
+             * Converts this UniswapExchangeRateTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.UniswapExchangeRateTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            UniswapExchangeRateTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return UniswapExchangeRateTask;
+        })();
+    
+        OracleJob.SushiswapExchangeRateTask = (function() {
+    
+            /**
+             * Properties of a SushiswapExchangeRateTask.
+             * @memberof OracleJob
+             * @interface ISushiswapExchangeRateTask
+             * @property {string|null} [inTokenAddress] SushiswapExchangeRateTask inTokenAddress
+             * @property {string|null} [outTokenAddress] SushiswapExchangeRateTask outTokenAddress
+             * @property {number|null} [inTokenAmount] SushiswapExchangeRateTask inTokenAmount
+             * @property {number|null} [slippage] SushiswapExchangeRateTask slippage
+             */
+    
+            /**
+             * Constructs a new SushiswapExchangeRateTask.
+             * @memberof OracleJob
+             * @classdesc Represents a SushiswapExchangeRateTask.
+             * @implements ISushiswapExchangeRateTask
+             * @constructor
+             * @param {OracleJob.ISushiswapExchangeRateTask=} [properties] Properties to set
+             */
+            function SushiswapExchangeRateTask(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * SushiswapExchangeRateTask inTokenAddress.
+             * @member {string} inTokenAddress
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @instance
+             */
+            SushiswapExchangeRateTask.prototype.inTokenAddress = "";
+    
+            /**
+             * SushiswapExchangeRateTask outTokenAddress.
+             * @member {string} outTokenAddress
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @instance
+             */
+            SushiswapExchangeRateTask.prototype.outTokenAddress = "";
+    
+            /**
+             * SushiswapExchangeRateTask inTokenAmount.
+             * @member {number} inTokenAmount
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @instance
+             */
+            SushiswapExchangeRateTask.prototype.inTokenAmount = 0;
+    
+            /**
+             * SushiswapExchangeRateTask slippage.
+             * @member {number} slippage
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @instance
+             */
+            SushiswapExchangeRateTask.prototype.slippage = 0;
+    
+            /**
+             * Creates a new SushiswapExchangeRateTask instance using the specified properties.
+             * @function create
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @static
+             * @param {OracleJob.ISushiswapExchangeRateTask=} [properties] Properties to set
+             * @returns {OracleJob.SushiswapExchangeRateTask} SushiswapExchangeRateTask instance
+             */
+            SushiswapExchangeRateTask.create = function create(properties) {
+                return new SushiswapExchangeRateTask(properties);
+            };
+    
+            /**
+             * Encodes the specified SushiswapExchangeRateTask message. Does not implicitly {@link OracleJob.SushiswapExchangeRateTask.verify|verify} messages.
+             * @function encode
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @static
+             * @param {OracleJob.ISushiswapExchangeRateTask} message SushiswapExchangeRateTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SushiswapExchangeRateTask.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.inTokenAddress != null && Object.hasOwnProperty.call(message, "inTokenAddress"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.inTokenAddress);
+                if (message.outTokenAddress != null && Object.hasOwnProperty.call(message, "outTokenAddress"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.outTokenAddress);
+                if (message.inTokenAmount != null && Object.hasOwnProperty.call(message, "inTokenAmount"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.inTokenAmount);
+                if (message.slippage != null && Object.hasOwnProperty.call(message, "slippage"))
+                    writer.uint32(/* id 4, wireType 1 =*/33).double(message.slippage);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified SushiswapExchangeRateTask message, length delimited. Does not implicitly {@link OracleJob.SushiswapExchangeRateTask.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @static
+             * @param {OracleJob.ISushiswapExchangeRateTask} message SushiswapExchangeRateTask message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SushiswapExchangeRateTask.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a SushiswapExchangeRateTask message from the specified reader or buffer.
+             * @function decode
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {OracleJob.SushiswapExchangeRateTask} SushiswapExchangeRateTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SushiswapExchangeRateTask.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OracleJob.SushiswapExchangeRateTask();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.inTokenAddress = reader.string();
+                        break;
+                    case 2:
+                        message.outTokenAddress = reader.string();
+                        break;
+                    case 3:
+                        message.inTokenAmount = reader.uint32();
+                        break;
+                    case 4:
+                        message.slippage = reader.double();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a SushiswapExchangeRateTask message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {OracleJob.SushiswapExchangeRateTask} SushiswapExchangeRateTask
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SushiswapExchangeRateTask.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a SushiswapExchangeRateTask message.
+             * @function verify
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SushiswapExchangeRateTask.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.inTokenAddress != null && message.hasOwnProperty("inTokenAddress"))
+                    if (!$util.isString(message.inTokenAddress))
+                        return "inTokenAddress: string expected";
+                if (message.outTokenAddress != null && message.hasOwnProperty("outTokenAddress"))
+                    if (!$util.isString(message.outTokenAddress))
+                        return "outTokenAddress: string expected";
+                if (message.inTokenAmount != null && message.hasOwnProperty("inTokenAmount"))
+                    if (!$util.isInteger(message.inTokenAmount))
+                        return "inTokenAmount: integer expected";
+                if (message.slippage != null && message.hasOwnProperty("slippage"))
+                    if (typeof message.slippage !== "number")
+                        return "slippage: number expected";
+                return null;
+            };
+    
+            /**
+             * Creates a SushiswapExchangeRateTask message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {OracleJob.SushiswapExchangeRateTask} SushiswapExchangeRateTask
+             */
+            SushiswapExchangeRateTask.fromObject = function fromObject(object) {
+                if (object instanceof $root.OracleJob.SushiswapExchangeRateTask)
+                    return object;
+                var message = new $root.OracleJob.SushiswapExchangeRateTask();
+                if (object.inTokenAddress != null)
+                    message.inTokenAddress = String(object.inTokenAddress);
+                if (object.outTokenAddress != null)
+                    message.outTokenAddress = String(object.outTokenAddress);
+                if (object.inTokenAmount != null)
+                    message.inTokenAmount = object.inTokenAmount >>> 0;
+                if (object.slippage != null)
+                    message.slippage = Number(object.slippage);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a SushiswapExchangeRateTask message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @static
+             * @param {OracleJob.SushiswapExchangeRateTask} message SushiswapExchangeRateTask
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SushiswapExchangeRateTask.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.inTokenAddress = "";
+                    object.outTokenAddress = "";
+                    object.inTokenAmount = 0;
+                    object.slippage = 0;
+                }
+                if (message.inTokenAddress != null && message.hasOwnProperty("inTokenAddress"))
+                    object.inTokenAddress = message.inTokenAddress;
+                if (message.outTokenAddress != null && message.hasOwnProperty("outTokenAddress"))
+                    object.outTokenAddress = message.outTokenAddress;
+                if (message.inTokenAmount != null && message.hasOwnProperty("inTokenAmount"))
+                    object.inTokenAmount = message.inTokenAmount;
+                if (message.slippage != null && message.hasOwnProperty("slippage"))
+                    object.slippage = options.json && !isFinite(message.slippage) ? String(message.slippage) : message.slippage;
+                return object;
+            };
+    
+            /**
+             * Converts this SushiswapExchangeRateTask to JSON.
+             * @function toJSON
+             * @memberof OracleJob.SushiswapExchangeRateTask
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SushiswapExchangeRateTask.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return SushiswapExchangeRateTask;
+        })();
+    
         OracleJob.Task = (function() {
     
             /**
@@ -9233,6 +9820,8 @@
              * @property {OracleJob.ITpsTask|null} [tpsTask] Task tpsTask
              * @property {OracleJob.ISplStakePoolTask|null} [splStakePoolTask] Task splStakePoolTask
              * @property {OracleJob.ISplTokenParseTask|null} [splTokenParseTask] Task splTokenParseTask
+             * @property {OracleJob.IUniswapExchangeRateTask|null} [uniswapExchangeRateTask] Task uniswapExchangeRateTask
+             * @property {OracleJob.ISushiswapExchangeRateTask|null} [sushiswapExchangeRateTask] Task sushiswapExchangeRateTask
              */
     
             /**
@@ -9482,17 +10071,33 @@
              */
             Task.prototype.splTokenParseTask = null;
     
+            /**
+             * Task uniswapExchangeRateTask.
+             * @member {OracleJob.IUniswapExchangeRateTask|null|undefined} uniswapExchangeRateTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.uniswapExchangeRateTask = null;
+    
+            /**
+             * Task sushiswapExchangeRateTask.
+             * @member {OracleJob.ISushiswapExchangeRateTask|null|undefined} sushiswapExchangeRateTask
+             * @memberof OracleJob.Task
+             * @instance
+             */
+            Task.prototype.sushiswapExchangeRateTask = null;
+    
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
     
             /**
              * Task Task.
-             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask"|"splStakePoolTask"|"splTokenParseTask"|undefined} Task
+             * @member {"httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask"|"splStakePoolTask"|"splTokenParseTask"|"uniswapExchangeRateTask"|"sushiswapExchangeRateTask"|undefined} Task
              * @memberof OracleJob.Task
              * @instance
              */
             Object.defineProperty(Task.prototype, "Task", {
-                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask", "powTask", "lendingRateTask", "mangoPerpMarketTask", "jupiterSwapTask", "perpMarketTask", "oracleTask", "anchorFetchTask", "defiKingdomsTask", "tpsTask", "splStakePoolTask", "splTokenParseTask"]),
+                get: $util.oneOfGetter($oneOfFields = ["httpTask", "jsonParseTask", "medianTask", "meanTask", "websocketTask", "divideTask", "multiplyTask", "lpTokenPriceTask", "lpExchangeRateTask", "conditionalTask", "valueTask", "maxTask", "regexExtractTask", "xstepPriceTask", "addTask", "subtractTask", "twapTask", "serumSwapTask", "powTask", "lendingRateTask", "mangoPerpMarketTask", "jupiterSwapTask", "perpMarketTask", "oracleTask", "anchorFetchTask", "defiKingdomsTask", "tpsTask", "splStakePoolTask", "splTokenParseTask", "uniswapExchangeRateTask", "sushiswapExchangeRateTask"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
     
@@ -9578,6 +10183,10 @@
                     $root.OracleJob.SplStakePoolTask.encode(message.splStakePoolTask, writer.uint32(/* id 29, wireType 2 =*/234).fork()).ldelim();
                 if (message.splTokenParseTask != null && Object.hasOwnProperty.call(message, "splTokenParseTask"))
                     $root.OracleJob.SplTokenParseTask.encode(message.splTokenParseTask, writer.uint32(/* id 30, wireType 2 =*/242).fork()).ldelim();
+                if (message.uniswapExchangeRateTask != null && Object.hasOwnProperty.call(message, "uniswapExchangeRateTask"))
+                    $root.OracleJob.UniswapExchangeRateTask.encode(message.uniswapExchangeRateTask, writer.uint32(/* id 31, wireType 2 =*/250).fork()).ldelim();
+                if (message.sushiswapExchangeRateTask != null && Object.hasOwnProperty.call(message, "sushiswapExchangeRateTask"))
+                    $root.OracleJob.SushiswapExchangeRateTask.encode(message.sushiswapExchangeRateTask, writer.uint32(/* id 32, wireType 2 =*/258).fork()).ldelim();
                 return writer;
             };
     
@@ -9698,6 +10307,12 @@
                         break;
                     case 30:
                         message.splTokenParseTask = $root.OracleJob.SplTokenParseTask.decode(reader, reader.uint32());
+                        break;
+                    case 31:
+                        message.uniswapExchangeRateTask = $root.OracleJob.UniswapExchangeRateTask.decode(reader, reader.uint32());
+                        break;
+                    case 32:
+                        message.sushiswapExchangeRateTask = $root.OracleJob.SushiswapExchangeRateTask.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -10023,6 +10638,26 @@
                             return "splTokenParseTask." + error;
                     }
                 }
+                if (message.uniswapExchangeRateTask != null && message.hasOwnProperty("uniswapExchangeRateTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.UniswapExchangeRateTask.verify(message.uniswapExchangeRateTask);
+                        if (error)
+                            return "uniswapExchangeRateTask." + error;
+                    }
+                }
+                if (message.sushiswapExchangeRateTask != null && message.hasOwnProperty("sushiswapExchangeRateTask")) {
+                    if (properties.Task === 1)
+                        return "Task: multiple values";
+                    properties.Task = 1;
+                    {
+                        var error = $root.OracleJob.SushiswapExchangeRateTask.verify(message.sushiswapExchangeRateTask);
+                        if (error)
+                            return "sushiswapExchangeRateTask." + error;
+                    }
+                }
                 return null;
             };
     
@@ -10182,6 +10817,16 @@
                     if (typeof object.splTokenParseTask !== "object")
                         throw TypeError(".OracleJob.Task.splTokenParseTask: object expected");
                     message.splTokenParseTask = $root.OracleJob.SplTokenParseTask.fromObject(object.splTokenParseTask);
+                }
+                if (object.uniswapExchangeRateTask != null) {
+                    if (typeof object.uniswapExchangeRateTask !== "object")
+                        throw TypeError(".OracleJob.Task.uniswapExchangeRateTask: object expected");
+                    message.uniswapExchangeRateTask = $root.OracleJob.UniswapExchangeRateTask.fromObject(object.uniswapExchangeRateTask);
+                }
+                if (object.sushiswapExchangeRateTask != null) {
+                    if (typeof object.sushiswapExchangeRateTask !== "object")
+                        throw TypeError(".OracleJob.Task.sushiswapExchangeRateTask: object expected");
+                    message.sushiswapExchangeRateTask = $root.OracleJob.SushiswapExchangeRateTask.fromObject(object.sushiswapExchangeRateTask);
                 }
                 return message;
             };
@@ -10343,6 +10988,16 @@
                     object.splTokenParseTask = $root.OracleJob.SplTokenParseTask.toObject(message.splTokenParseTask, options);
                     if (options.oneofs)
                         object.Task = "splTokenParseTask";
+                }
+                if (message.uniswapExchangeRateTask != null && message.hasOwnProperty("uniswapExchangeRateTask")) {
+                    object.uniswapExchangeRateTask = $root.OracleJob.UniswapExchangeRateTask.toObject(message.uniswapExchangeRateTask, options);
+                    if (options.oneofs)
+                        object.Task = "uniswapExchangeRateTask";
+                }
+                if (message.sushiswapExchangeRateTask != null && message.hasOwnProperty("sushiswapExchangeRateTask")) {
+                    object.sushiswapExchangeRateTask = $root.OracleJob.SushiswapExchangeRateTask.toObject(message.sushiswapExchangeRateTask, options);
+                    if (options.oneofs)
+                        object.Task = "sushiswapExchangeRateTask";
                 }
                 return object;
             };

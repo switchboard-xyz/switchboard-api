@@ -2256,6 +2256,12 @@ export namespace OracleJob {
 
     /** Properties of a XStepPriceTask. */
     interface IXStepPriceTask {
+
+        /** XStepPriceTask stepJob */
+        stepJob?: (OracleJob.IMedianTask|null);
+
+        /** XStepPriceTask stepAggregatorPubkey */
+        stepAggregatorPubkey?: (string|null);
     }
 
     /** Represents a XStepPriceTask. */
@@ -2266,6 +2272,15 @@ export namespace OracleJob {
          * @param [properties] Properties to set
          */
         constructor(properties?: OracleJob.IXStepPriceTask);
+
+        /** XStepPriceTask stepJob. */
+        public stepJob?: (OracleJob.IMedianTask|null);
+
+        /** XStepPriceTask stepAggregatorPubkey. */
+        public stepAggregatorPubkey?: (string|null);
+
+        /** XStepPriceTask StepSource. */
+        public StepSource?: ("stepJob"|"stepAggregatorPubkey");
 
         /**
          * Creates a new XStepPriceTask instance using the specified properties.
@@ -3736,6 +3751,222 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of an UniswapExchangeRateTask. */
+    interface IUniswapExchangeRateTask {
+
+        /** UniswapExchangeRateTask inTokenAddress */
+        inTokenAddress?: (string|null);
+
+        /** UniswapExchangeRateTask outTokenAddress */
+        outTokenAddress?: (string|null);
+
+        /** UniswapExchangeRateTask inTokenAmount */
+        inTokenAmount?: (number|null);
+
+        /** UniswapExchangeRateTask slippage */
+        slippage?: (number|null);
+    }
+
+    /** Represents an UniswapExchangeRateTask. */
+    class UniswapExchangeRateTask implements IUniswapExchangeRateTask {
+
+        /**
+         * Constructs a new UniswapExchangeRateTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IUniswapExchangeRateTask);
+
+        /** UniswapExchangeRateTask inTokenAddress. */
+        public inTokenAddress: string;
+
+        /** UniswapExchangeRateTask outTokenAddress. */
+        public outTokenAddress: string;
+
+        /** UniswapExchangeRateTask inTokenAmount. */
+        public inTokenAmount: number;
+
+        /** UniswapExchangeRateTask slippage. */
+        public slippage: number;
+
+        /**
+         * Creates a new UniswapExchangeRateTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UniswapExchangeRateTask instance
+         */
+        public static create(properties?: OracleJob.IUniswapExchangeRateTask): OracleJob.UniswapExchangeRateTask;
+
+        /**
+         * Encodes the specified UniswapExchangeRateTask message. Does not implicitly {@link OracleJob.UniswapExchangeRateTask.verify|verify} messages.
+         * @param message UniswapExchangeRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IUniswapExchangeRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UniswapExchangeRateTask message, length delimited. Does not implicitly {@link OracleJob.UniswapExchangeRateTask.verify|verify} messages.
+         * @param message UniswapExchangeRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IUniswapExchangeRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UniswapExchangeRateTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UniswapExchangeRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.UniswapExchangeRateTask;
+
+        /**
+         * Decodes an UniswapExchangeRateTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UniswapExchangeRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.UniswapExchangeRateTask;
+
+        /**
+         * Verifies an UniswapExchangeRateTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UniswapExchangeRateTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UniswapExchangeRateTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.UniswapExchangeRateTask;
+
+        /**
+         * Creates a plain object from an UniswapExchangeRateTask message. Also converts values to other types if specified.
+         * @param message UniswapExchangeRateTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.UniswapExchangeRateTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UniswapExchangeRateTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SushiswapExchangeRateTask. */
+    interface ISushiswapExchangeRateTask {
+
+        /** SushiswapExchangeRateTask inTokenAddress */
+        inTokenAddress?: (string|null);
+
+        /** SushiswapExchangeRateTask outTokenAddress */
+        outTokenAddress?: (string|null);
+
+        /** SushiswapExchangeRateTask inTokenAmount */
+        inTokenAmount?: (number|null);
+
+        /** SushiswapExchangeRateTask slippage */
+        slippage?: (number|null);
+    }
+
+    /** Represents a SushiswapExchangeRateTask. */
+    class SushiswapExchangeRateTask implements ISushiswapExchangeRateTask {
+
+        /**
+         * Constructs a new SushiswapExchangeRateTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.ISushiswapExchangeRateTask);
+
+        /** SushiswapExchangeRateTask inTokenAddress. */
+        public inTokenAddress: string;
+
+        /** SushiswapExchangeRateTask outTokenAddress. */
+        public outTokenAddress: string;
+
+        /** SushiswapExchangeRateTask inTokenAmount. */
+        public inTokenAmount: number;
+
+        /** SushiswapExchangeRateTask slippage. */
+        public slippage: number;
+
+        /**
+         * Creates a new SushiswapExchangeRateTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SushiswapExchangeRateTask instance
+         */
+        public static create(properties?: OracleJob.ISushiswapExchangeRateTask): OracleJob.SushiswapExchangeRateTask;
+
+        /**
+         * Encodes the specified SushiswapExchangeRateTask message. Does not implicitly {@link OracleJob.SushiswapExchangeRateTask.verify|verify} messages.
+         * @param message SushiswapExchangeRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.ISushiswapExchangeRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SushiswapExchangeRateTask message, length delimited. Does not implicitly {@link OracleJob.SushiswapExchangeRateTask.verify|verify} messages.
+         * @param message SushiswapExchangeRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.ISushiswapExchangeRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SushiswapExchangeRateTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SushiswapExchangeRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.SushiswapExchangeRateTask;
+
+        /**
+         * Decodes a SushiswapExchangeRateTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SushiswapExchangeRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.SushiswapExchangeRateTask;
+
+        /**
+         * Verifies a SushiswapExchangeRateTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SushiswapExchangeRateTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SushiswapExchangeRateTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.SushiswapExchangeRateTask;
+
+        /**
+         * Creates a plain object from a SushiswapExchangeRateTask message. Also converts values to other types if specified.
+         * @param message SushiswapExchangeRateTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.SushiswapExchangeRateTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SushiswapExchangeRateTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -3825,6 +4056,12 @@ export namespace OracleJob {
 
         /** Task splTokenParseTask */
         splTokenParseTask?: (OracleJob.ISplTokenParseTask|null);
+
+        /** Task uniswapExchangeRateTask */
+        uniswapExchangeRateTask?: (OracleJob.IUniswapExchangeRateTask|null);
+
+        /** Task sushiswapExchangeRateTask */
+        sushiswapExchangeRateTask?: (OracleJob.ISushiswapExchangeRateTask|null);
     }
 
     /** Represents a Task. */
@@ -3923,8 +4160,14 @@ export namespace OracleJob {
         /** Task splTokenParseTask. */
         public splTokenParseTask?: (OracleJob.ISplTokenParseTask|null);
 
+        /** Task uniswapExchangeRateTask. */
+        public uniswapExchangeRateTask?: (OracleJob.IUniswapExchangeRateTask|null);
+
+        /** Task sushiswapExchangeRateTask. */
+        public sushiswapExchangeRateTask?: (OracleJob.ISushiswapExchangeRateTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask"|"splStakePoolTask"|"splTokenParseTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask"|"splStakePoolTask"|"splTokenParseTask"|"uniswapExchangeRateTask"|"sushiswapExchangeRateTask");
 
         /**
          * Creates a new Task instance using the specified properties.
