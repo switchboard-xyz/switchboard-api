@@ -10,11 +10,10 @@
   ],
   "dependencies": {
     "@solana/web3.js": "^1.17.0",
-    "@switchboard-xyz/switchboard-api": "^0.2.61",
     "form-data": "^4.0.0",
     "protobufjs": "^6.10.2",
     "rpc-websockets": "^7.4.12",
-    "typedoc": "^0.20.36",
+    "typedoc": "^0.22.15",
     "ws": "^7.4.6"
   },
   "devDependencies": {
