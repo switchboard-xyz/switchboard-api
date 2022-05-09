@@ -3765,6 +3765,9 @@ export namespace OracleJob {
 
         /** UniswapExchangeRateTask slippage */
         slippage?: (number|null);
+
+        /** UniswapExchangeRateTask provider */
+        provider?: (string|null);
     }
 
     /** Represents an UniswapExchangeRateTask. */
@@ -3787,6 +3790,9 @@ export namespace OracleJob {
 
         /** UniswapExchangeRateTask slippage. */
         public slippage: number;
+
+        /** UniswapExchangeRateTask provider. */
+        public provider: string;
 
         /**
          * Creates a new UniswapExchangeRateTask instance using the specified properties.
@@ -3873,6 +3879,9 @@ export namespace OracleJob {
 
         /** SushiswapExchangeRateTask slippage */
         slippage?: (number|null);
+
+        /** SushiswapExchangeRateTask provider */
+        provider?: (string|null);
     }
 
     /** Represents a SushiswapExchangeRateTask. */
@@ -3895,6 +3904,9 @@ export namespace OracleJob {
 
         /** SushiswapExchangeRateTask slippage. */
         public slippage: number;
+
+        /** SushiswapExchangeRateTask provider. */
+        public provider: string;
 
         /**
          * Creates a new SushiswapExchangeRateTask instance using the specified properties.
