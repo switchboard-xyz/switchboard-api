@@ -9374,7 +9374,7 @@
                 if (message.outTokenAddress != null && Object.hasOwnProperty.call(message, "outTokenAddress"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.outTokenAddress);
                 if (message.inTokenAmount != null && Object.hasOwnProperty.call(message, "inTokenAmount"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.inTokenAmount);
+                    writer.uint32(/* id 3, wireType 1 =*/25).double(message.inTokenAmount);
                 if (message.slippage != null && Object.hasOwnProperty.call(message, "slippage"))
                     writer.uint32(/* id 4, wireType 1 =*/33).double(message.slippage);
                 if (message.provider != null && Object.hasOwnProperty.call(message, "provider"))
@@ -9420,7 +9420,7 @@
                         message.outTokenAddress = reader.string();
                         break;
                     case 3:
-                        message.inTokenAmount = reader.uint32();
+                        message.inTokenAmount = reader.double();
                         break;
                     case 4:
                         message.slippage = reader.double();
@@ -9470,8 +9470,8 @@
                     if (!$util.isString(message.outTokenAddress))
                         return "outTokenAddress: string expected";
                 if (message.inTokenAmount != null && message.hasOwnProperty("inTokenAmount"))
-                    if (!$util.isInteger(message.inTokenAmount))
-                        return "inTokenAmount: integer expected";
+                    if (typeof message.inTokenAmount !== "number")
+                        return "inTokenAmount: number expected";
                 if (message.slippage != null && message.hasOwnProperty("slippage"))
                     if (typeof message.slippage !== "number")
                         return "slippage: number expected";
@@ -9498,7 +9498,7 @@
                 if (object.outTokenAddress != null)
                     message.outTokenAddress = String(object.outTokenAddress);
                 if (object.inTokenAmount != null)
-                    message.inTokenAmount = object.inTokenAmount >>> 0;
+                    message.inTokenAmount = Number(object.inTokenAmount);
                 if (object.slippage != null)
                     message.slippage = Number(object.slippage);
                 if (object.provider != null)
@@ -9531,7 +9531,7 @@
                 if (message.outTokenAddress != null && message.hasOwnProperty("outTokenAddress"))
                     object.outTokenAddress = message.outTokenAddress;
                 if (message.inTokenAmount != null && message.hasOwnProperty("inTokenAmount"))
-                    object.inTokenAmount = message.inTokenAmount;
+                    object.inTokenAmount = options.json && !isFinite(message.inTokenAmount) ? String(message.inTokenAmount) : message.inTokenAmount;
                 if (message.slippage != null && message.hasOwnProperty("slippage"))
                     object.slippage = options.json && !isFinite(message.slippage) ? String(message.slippage) : message.slippage;
                 if (message.provider != null && message.hasOwnProperty("provider"))
@@ -9650,7 +9650,7 @@
                 if (message.outTokenAddress != null && Object.hasOwnProperty.call(message, "outTokenAddress"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.outTokenAddress);
                 if (message.inTokenAmount != null && Object.hasOwnProperty.call(message, "inTokenAmount"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.inTokenAmount);
+                    writer.uint32(/* id 3, wireType 1 =*/25).double(message.inTokenAmount);
                 if (message.slippage != null && Object.hasOwnProperty.call(message, "slippage"))
                     writer.uint32(/* id 4, wireType 1 =*/33).double(message.slippage);
                 if (message.provider != null && Object.hasOwnProperty.call(message, "provider"))
@@ -9696,7 +9696,7 @@
                         message.outTokenAddress = reader.string();
                         break;
                     case 3:
-                        message.inTokenAmount = reader.uint32();
+                        message.inTokenAmount = reader.double();
                         break;
                     case 4:
                         message.slippage = reader.double();
@@ -9746,8 +9746,8 @@
                     if (!$util.isString(message.outTokenAddress))
                         return "outTokenAddress: string expected";
                 if (message.inTokenAmount != null && message.hasOwnProperty("inTokenAmount"))
-                    if (!$util.isInteger(message.inTokenAmount))
-                        return "inTokenAmount: integer expected";
+                    if (typeof message.inTokenAmount !== "number")
+                        return "inTokenAmount: number expected";
                 if (message.slippage != null && message.hasOwnProperty("slippage"))
                     if (typeof message.slippage !== "number")
                         return "slippage: number expected";
@@ -9774,7 +9774,7 @@
                 if (object.outTokenAddress != null)
                     message.outTokenAddress = String(object.outTokenAddress);
                 if (object.inTokenAmount != null)
-                    message.inTokenAmount = object.inTokenAmount >>> 0;
+                    message.inTokenAmount = Number(object.inTokenAmount);
                 if (object.slippage != null)
                     message.slippage = Number(object.slippage);
                 if (object.provider != null)
@@ -9807,7 +9807,7 @@
                 if (message.outTokenAddress != null && message.hasOwnProperty("outTokenAddress"))
                     object.outTokenAddress = message.outTokenAddress;
                 if (message.inTokenAmount != null && message.hasOwnProperty("inTokenAmount"))
-                    object.inTokenAmount = message.inTokenAmount;
+                    object.inTokenAmount = options.json && !isFinite(message.inTokenAmount) ? String(message.inTokenAmount) : message.inTokenAmount;
                 if (message.slippage != null && message.hasOwnProperty("slippage"))
                     object.slippage = options.json && !isFinite(message.slippage) ? String(message.slippage) : message.slippage;
                 if (message.provider != null && message.hasOwnProperty("provider"))
