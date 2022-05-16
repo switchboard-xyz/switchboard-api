@@ -3979,6 +3979,120 @@ export namespace OracleJob {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a PancakeswapExchangeRateTask. */
+    interface IPancakeswapExchangeRateTask {
+
+        /** PancakeswapExchangeRateTask inTokenAddress */
+        inTokenAddress?: (string|null);
+
+        /** PancakeswapExchangeRateTask outTokenAddress */
+        outTokenAddress?: (string|null);
+
+        /** PancakeswapExchangeRateTask inTokenAmount */
+        inTokenAmount?: (number|null);
+
+        /** PancakeswapExchangeRateTask slippage */
+        slippage?: (number|null);
+
+        /** PancakeswapExchangeRateTask provider */
+        provider?: (string|null);
+    }
+
+    /** Represents a PancakeswapExchangeRateTask. */
+    class PancakeswapExchangeRateTask implements IPancakeswapExchangeRateTask {
+
+        /**
+         * Constructs a new PancakeswapExchangeRateTask.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: OracleJob.IPancakeswapExchangeRateTask);
+
+        /** PancakeswapExchangeRateTask inTokenAddress. */
+        public inTokenAddress: string;
+
+        /** PancakeswapExchangeRateTask outTokenAddress. */
+        public outTokenAddress: string;
+
+        /** PancakeswapExchangeRateTask inTokenAmount. */
+        public inTokenAmount: number;
+
+        /** PancakeswapExchangeRateTask slippage. */
+        public slippage: number;
+
+        /** PancakeswapExchangeRateTask provider. */
+        public provider: string;
+
+        /**
+         * Creates a new PancakeswapExchangeRateTask instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PancakeswapExchangeRateTask instance
+         */
+        public static create(properties?: OracleJob.IPancakeswapExchangeRateTask): OracleJob.PancakeswapExchangeRateTask;
+
+        /**
+         * Encodes the specified PancakeswapExchangeRateTask message. Does not implicitly {@link OracleJob.PancakeswapExchangeRateTask.verify|verify} messages.
+         * @param message PancakeswapExchangeRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: OracleJob.IPancakeswapExchangeRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified PancakeswapExchangeRateTask message, length delimited. Does not implicitly {@link OracleJob.PancakeswapExchangeRateTask.verify|verify} messages.
+         * @param message PancakeswapExchangeRateTask message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: OracleJob.IPancakeswapExchangeRateTask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a PancakeswapExchangeRateTask message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PancakeswapExchangeRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OracleJob.PancakeswapExchangeRateTask;
+
+        /**
+         * Decodes a PancakeswapExchangeRateTask message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PancakeswapExchangeRateTask
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OracleJob.PancakeswapExchangeRateTask;
+
+        /**
+         * Verifies a PancakeswapExchangeRateTask message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a PancakeswapExchangeRateTask message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PancakeswapExchangeRateTask
+         */
+        public static fromObject(object: { [k: string]: any }): OracleJob.PancakeswapExchangeRateTask;
+
+        /**
+         * Creates a plain object from a PancakeswapExchangeRateTask message. Also converts values to other types if specified.
+         * @param message PancakeswapExchangeRateTask
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: OracleJob.PancakeswapExchangeRateTask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PancakeswapExchangeRateTask to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a Task. */
     interface ITask {
 
@@ -4074,6 +4188,9 @@ export namespace OracleJob {
 
         /** Task sushiswapExchangeRateTask */
         sushiswapExchangeRateTask?: (OracleJob.ISushiswapExchangeRateTask|null);
+
+        /** Task pancakeswapExchangeRateTask */
+        pancakeswapExchangeRateTask?: (OracleJob.IPancakeswapExchangeRateTask|null);
     }
 
     /** Represents a Task. */
@@ -4178,8 +4295,11 @@ export namespace OracleJob {
         /** Task sushiswapExchangeRateTask. */
         public sushiswapExchangeRateTask?: (OracleJob.ISushiswapExchangeRateTask|null);
 
+        /** Task pancakeswapExchangeRateTask. */
+        public pancakeswapExchangeRateTask?: (OracleJob.IPancakeswapExchangeRateTask|null);
+
         /** Task Task. */
-        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask"|"splStakePoolTask"|"splTokenParseTask"|"uniswapExchangeRateTask"|"sushiswapExchangeRateTask");
+        public Task?: ("httpTask"|"jsonParseTask"|"medianTask"|"meanTask"|"websocketTask"|"divideTask"|"multiplyTask"|"lpTokenPriceTask"|"lpExchangeRateTask"|"conditionalTask"|"valueTask"|"maxTask"|"regexExtractTask"|"xstepPriceTask"|"addTask"|"subtractTask"|"twapTask"|"serumSwapTask"|"powTask"|"lendingRateTask"|"mangoPerpMarketTask"|"jupiterSwapTask"|"perpMarketTask"|"oracleTask"|"anchorFetchTask"|"defiKingdomsTask"|"tpsTask"|"splStakePoolTask"|"splTokenParseTask"|"uniswapExchangeRateTask"|"sushiswapExchangeRateTask"|"pancakeswapExchangeRateTask");
 
         /**
          * Creates a new Task instance using the specified properties.
